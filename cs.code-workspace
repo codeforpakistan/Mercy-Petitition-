@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "..\\..\\www\\laravel"
+		}
+	],
+	"settings": {
+    "window.zoomLevel": 1,
+    "editor.tabSize": 2,
+		"editor.wordWrap": "on",
+		"editor.fontSize": 14,
+		"editor.fontFamily": "Consolas, 'Courier New', monospace",
+		"diffEditor.codeLens": true
+	}
+}

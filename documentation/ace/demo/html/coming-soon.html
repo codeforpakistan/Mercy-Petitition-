@@ -1,0 +1,271 @@
+﻿<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+    <base href="./">
+
+    <title>Accordions - Ace Admin</title>
+
+    <!-- include common vendor stylesheets & fontawesome -->
+    <link rel="stylesheet" type="text/css" href="../npm\bootstrap@4.5.2\dist\css\bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="../npm\fontawesome-5.14.0\css\fontawesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../npm\fontawesome-5.14.0\css\regular.min.css">
+    <link rel="stylesheet" type="text/css" href="../npm\fontawesome-5.14.0\css\brands.min.css">
+    <link rel="stylesheet" type="text/css" href="../npm\fontawesome-5.14.0\css\solid.min.css">
+
+
+
+    <!-- include vendor stylesheets used in "Accordions" page. see "application/views/default/pages/partials/accordions/@vendor-stylesheets.hbs" -->
+
+
+    <!-- include fonts -->
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+
+
+    <!-- ace.css -->
+    <link rel="stylesheet" type="text/css" href="../dist\css\ace.min.css">
+
+
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="../assets\favicon.png">
+
+    <!-- "Coming Soon" page styles, specific to this page for demo only -->
+    <style>
+      .body-container {
+        background-color: #221d2e;
+
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+      }
+
+      @media (max-width: 700px) {
+        .body-container {
+          background-size: cover;
+        }
+      }
+
+
+      @media (max-width: 998px) {
+        .countdown-items {
+          font-size: 0.8em;
+        }
+      }
+
+      @media (max-width: 400px) {
+        .countdown-items {
+          font-size: 0.75em;
+        }
+      }
+
+      .countdown-item {
+        display: inline-block;
+        width: 12.5em;
+        height: 12.5em;
+        margin: 0.5em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="body-container pos-rel" style="background-image: url('assets/image/body-bg-1.jpg')">
+      <div class="position-tl w-100 h-100 bgc-black-tp5">
+        <!-- a black dark layer over background image -->
+      </div>
+
+      <div class="main-container bgc-transparent">
+
+        <div role="main" class="main-content px-0">
+          <div class="d-flex flex-grow-1">
+            <div class="row flex-grow-1">
+              <div class="col-12 d-flex">
+
+                <div class="row flex-grow-1">
+
+                  <div class="col-12 col-lg-12 px-0">
+                    <div class="h-100 pos-rel">
+                      <div class="container h-100 d-flex flex-column justify-content-center">
+                        <div class="text-white p-4 mx-md-5 text-center">
+
+                          <h1 class="text-160">We are almost ready ...</h1>
+                          <h2 class="fa-3x">
+                            <span class="text-info-l2">ACE</span>
+                            <span class="text-90">application is coming soon!</span>
+                          </h2>
+
+                          <div class="countdown-items d-flex justify-content-center flex-wrap mx-auto mt-3 mt-lg-5">
+                            <div class="countdown-item">
+                              <div class="bgc-black-tp9 h-100 px-3 pt-4 pb-45 radius-100 shadow border-2 brc-white-tp7">
+                                <h1 class="fa-4x text-green-l3 timer" data-type="day">&nbsp;</h1>
+                                <div class="text-140 border-t-1 brc-white-tp9 pt-3">
+                                  Days
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="countdown-item">
+                              <div class="bgc-black-tp9 h-100 px-3 pt-4 pb-45 radius-100 shadow border-2 brc-white-tp7">
+                                <h1 class="fa-4x text-green-l3 timer" data-type="hour">&nbsp;</h1>
+                                <div class="text-140 border-t-1 brc-white-tp9 pt-3">
+                                  Hours
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="countdown-item">
+                              <div class="bgc-black-tp9 h-100 px-3 pt-4 pb-45 radius-100 shadow border-2 brc-white-tp7">
+                                <h1 class="fa-4x text-green-l3 timer" data-type="minute">&nbsp;</h1>
+                                <div class="text-140 border-t-1 brc-white-tp9 pt-3">
+                                  Minutes
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="countdown-item">
+                              <div class="bgc-black-tp9 h-100 px-3 pt-4 pb-45 radius-100 shadow border-2 brc-white-tp7">
+                                <h1 class="fa-4x text-yellow-l2 timer" data-type="second">&nbsp;</h1>
+                                <div class="text-140 border-t-1 brc-white-tp9 pt-3">
+                                  Seconds
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+
+                          <div class="mt-5 mb-2 text-140">
+                            Be among the first to get the news of launch:
+                          </div>
+
+                          <div class="px-0  mx-auto radius-round bgc-black-tp5 input-group border-2 brc-white-tp4 col-12 col-sm-8 col-md-8 col-lg-6 col-xl-5">
+                            <input placeholder="Type your email address" type="text" class="form-control bgc-transparent form-control-lg radius-round shadow-none border-0 text-white">
+                            <a href="#" class="btn radius-round btn-primary text-600 text-110 px-4 m-3px">Notify Me</a>
+                          </div>
+
+                          <div class="text-130 mt-3">
+                            Stay in touch
+                            <a href="#" class="no-underline text-110">
+                              <i class="bgc-black-tp9 brc-white-tp2 border-1 p-25 w-6 radius-round fab fa-twitter text-white mx-1"></i>
+                            </a>
+                            <a href="#" class="no-underline text-110">
+                              <i class="bgc-black-tp9 brc-white-tp2 border-1 p-25 w-6 radius-round fab fa-facebook-square text-white mx-1"></i>
+                            </a>
+                            <a href="#" class="no-underline text-110">
+                              <i class="bgc-black-tp9 brc-white-tp2 border-1 p-25 w-6 radius-round fab fa-instagram text-white mx-1"></i>
+                            </a>
+                          </div>
+
+                        </div>
+
+                      </div><!-- /.container -->
+                    </div>
+                  </div>
+
+
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- include common vendor scripts used in demo pages -->
+    <script src="..\npm\jquery@3.5.1\dist\jquery.min.js"></script>
+    <script src="..\npm\popper.js@1.16.1\dist\umd\popper.min.js"></script>
+    <script src="..\npm\bootstrap@4.5.2\dist\js\bootstrap.min.js"></script>
+
+
+
+    <!-- include vendor scripts used in "Coming Soon" page. see "application/views/default/pages/partials/coming-soon/@vendor-scripts.hbs" -->
+
+
+
+    <!-- include ace.js -->
+    <script src="..\dist\js\ace.min.js"></script>
+
+
+
+    <!-- demo.js is only for Ace's demo and you shouldn't use it -->
+    <script src="..\assets\js\demo.min.js"></script>
+
+
+
+    <!-- "Coming Soon" page script to enable its demo functionality -->
+    <script>
+      jQuery(function($) {
+
+        // simple countdown timer on coming soon page
+        var remainingTime = 0
+        var secondsPerDay = 24 * 3600
+        var secondsPerHour = 3600
+        var secondsPerMinute = 60
+
+        $('.timer')
+          .each(function() {
+            var type = $(this).attr('data-type')
+            var value = 0
+
+            switch (type) {
+              case 'day':
+                value = parseInt(Math.random() * 20 + 5)
+                remainingTime += (value * secondsPerDay)
+                break;
+
+              case 'hour':
+                value = parseInt(Math.random() * 22 + 1)
+                remainingTime += (value * secondsPerHour)
+                break;
+
+              case 'minute':
+                value = parseInt(Math.random() * 58 + 1)
+                remainingTime += (value * secondsPerMinute)
+                break;
+
+              case 'second':
+                value = parseInt(Math.random() * 58 + 1)
+                remainingTime += value
+                if (value < 10) value = '0' + value
+                break;
+            }
+
+            $(this).text(value)
+          })
+
+
+        var interval = setInterval(function() {
+          remainingTime -= 1
+          if (remainingTime < 1) {
+            clearInterval(interval)
+            return;
+          }
+
+          var days = parseInt(remainingTime / secondsPerDay)
+          var hours = parseInt((remainingTime - (days * secondsPerDay)) / secondsPerHour)
+          var minutes = parseInt((remainingTime - (days * secondsPerDay) - (hours * secondsPerHour)) / secondsPerMinute)
+          var seconds = remainingTime % 60
+
+          if (seconds < 10) seconds = '0' + seconds
+          $('.timer[data-type=second]').text(seconds)
+          if (seconds == 59) {
+            $('.timer[data-type=minute]').text(minutes)
+            $('.timer[data-type=hour]').text(hours)
+            $('.timer[data-type=day]').text(days)
+          }
+
+        }, 1000)
+
+      })
+    </script>
+  </body>
+
+</html>
