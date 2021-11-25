@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-    <title>@yield('title', 'Testing Agency System')</title>
+    <title>@yield('title', 'Mercy Petition System')</title>
     <link rel="icon" type="image/png" href="{{asset('assets/favicon.png')}}" />
 
     <!-- include common vendor stylesheets & fontawesome -->
@@ -19,7 +19,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/npm/fontawesome-5.14.0/css/solid.min.css')}}">
 
     <link rel="stylesheet" type="text/css" href="{{asset('assets/npm/basictable@1.0.9/basictable.min.css')}}">
-  
+
         <!-- include vendor stylesheets used in "Form Basic Elements" page. see "application/views/default/pages/partials/form-basic/@vendor-stylesheets.hbs" -->
     <link rel="stylesheet" type="text/css" href="{{asset('\npm\nouislider@14.6.1\distribute\nouislider.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('\npm\ion-rangeslider@2.3.1\css\ion.rangeSlider.min.css')}}">
@@ -66,11 +66,11 @@
 
             </div>
 
-            
+
 
           </div>
         </div>
-        
+
 
         <div role="main" class="main-content">
           <nav class="navbar navbar-sm navbar-expand-lg navbar-fixed navbar-white">
@@ -125,7 +125,7 @@
                   <h2 class="d-none d-xl-inline-block text-140 text-dark-m2 mb-0 pb-1">{{$template ?? ''}}</h2>
                 </div>
               </div>
-            
+
               {{-- <div class="ml-auto navbar-menu collapse navbar-collapse navbar-backdrop" id="navbarMenu2">
 
                 <div class="navbar-nav navbar-links">
@@ -158,7 +158,7 @@
                     <li class="nav-item dropdown dropdown-mega">
                       <a class="nav-link dropdown-toggle mr-1px" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-list-alt mr-2 d-lg-none"></i>
-                        @auth 
+                        @auth
                           <img class="mr-2 radius-round border-2 brc-primary-tp3 p-1px" src="{{ Auth::user()->picture ?? asset('..\assets\image\avatar\avatar4.png')}}" width="36" alt="Natalie's Photo">
                           {{ Auth::user()->name }}
                         @endauth
@@ -206,7 +206,7 @@
                 </div>
               </div>
 
-            
+
             </div>
 
           </nav>
@@ -228,13 +228,13 @@
     <script src="{{asset('assets/js/ace.min.js')}}"></script>
     <script src="{{asset('assets/js/demo.min.js')}}"></script>
 
-    
+
     <!-- include vendor scripts used in "Basic Tables" page. see "application/views/default/pages/partials/tables-basic/@vendor-scripts.hbs" -->
     <script src="{{asset('assets\npm\basictable@1.0.9\jquery.basictable.min.js')}}"></script>
     <script src="{{asset('assets\npm\sweetalert2@9.17.1\dist\sweetalert2.all.min.js')}}"></script>
     <script src="{{asset('assets\npm\select2@4.0.13\dist\js\select2.min.js')}}"></script>
 
-    
+
     <!-- include vendor scripts used in "Form Basic Elements" page. see "application/views/default/pages/partials/form-basic/@vendor-scripts.hbs" -->
     <script src="{{asset('assets\npm\autosize@4.0.2\dist\autosize.min.js')}}"></script>
     <script src="{{asset('assets\npm\bootstrap-maxlength@1.10.0\dist\bootstrap-maxlength.min.js')}}"></script>
