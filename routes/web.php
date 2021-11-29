@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,12 +18,12 @@ Route::middleware('web')->group(base_path('routes/portal.php'));
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 
 
-Route::get('/', function () {
+Route::get('/dashboard', function () {
     return view('welcome');
 })->name('portal.dashboard');
 
@@ -33,5 +34,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles','RoleController');
     Route::resource('users','UserController');
     Route::resource('permissions','PermissionController');
+    Route::resource('homedept','HomeDepartmentController');
+    Route::resource('InteriorMinstry','InteriorMinstryController');
 });
 

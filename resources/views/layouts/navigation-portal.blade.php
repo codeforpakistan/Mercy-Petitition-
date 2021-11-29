@@ -17,7 +17,6 @@
                     <b class="sub-arrow"></b>
                   </li> --}}
 
-
                   <li class="nav-item">
 
                     <a href="#" class="nav-link dropdown-toggle collapsed">
@@ -53,12 +52,12 @@
                       {{ Auth::user()->name }}
 
                     @endauth
-                    
+
                     @guest
                     <img alt="Natalie's avatar" src="assets/image/avatar/avatar2.png" class="p-2px border-2 brc-primary-m2 radius-round" />
                        <a href="{{ route('login') }}">{{ __('Login') }}</a>
                     @endguest
-                    
+
                   </div>
                 </div>
               </div>
@@ -74,7 +73,7 @@
                           </a>
                         </li>
                         @auth
-                            
+
                         <li class="nav-item">
                           <a href="href="{{ route('logout') }}"
                           onclick="event.preventDefault();
@@ -98,6 +97,8 @@
 
 			<b class="sub-arrow"></b>
 		</li>
+@can('user-list')
+
 		<li class="nav-item {{isset($menu) ? ($menu=='system_setting' ? 'active open' : '') : ''}}">
 			<a href="#" id="system_setting" class="nav-link dropdown-toggle {{isset($menu) ? ($menu=='system_setting' ? '' : 'collapsed') : 'collapsed'}}">
 					<i class="nav-icon fa fa-cube"></i>
@@ -133,5 +134,75 @@
 			</div>
 			<b class="sub-arrow"></b>
 		</li>
+        @endcan
+@can('HomeDepartment-list')
+
+<li class="nav-item {{isset($menu) ? ($menu=='system_setting' ? 'active open' : '') : ''}}">
+    <a href="#" id="system_setting" class="nav-link dropdown-toggle {{isset($menu) ? ($menu=='system_setting' ? '' : 'collapsed') : 'collapsed'}}">
+            <i class="nav-icon fa fa-cube"></i>
+            <span class="nav-text fadeable">
+                    <span>Home department</span>
+            </span>
+            <b class="caret fa fa-angle-left rt-n90"></b>
+    </a>
+    <div class="hideable submenu collapse {{isset($menu) ? ($menu=='system_setting' ? 'show' : '') : ''}}">
+            <ul class="submenu-inner">
+                    <li class="nav-item">
+                            <a href="{{route('homedept.index')}}" class="nav-link">
+                                    <span class="nav-text">
+                                            <span>homepage</span>
+                                    </span>
+                            </a>
+                    </li>
+
+
 	</ul>
+
+</div>
+<b class="sub-arrow"></b>
+</li>
+@endcan
+<li class="nav-item {{isset($menu) ? ($menu=='system_setting' ? 'active open' : '') : ''}}">
+    <a href="#" id="system_setting" class="nav-link dropdown-toggle {{isset($menu) ? ($menu=='system_setting' ? '' : 'collapsed') : 'collapsed'}}">
+            <i class="nav-icon fa fa-cube"></i>
+            <span class="nav-text fadeable">
+                    <span>Interior Ministry</span>
+            </span>
+            <b class="caret fa fa-angle-left rt-n90"></b>
+    </a>
+    <div class="hideable submenu collapse {{isset($menu) ? ($menu=='system_setting' ? 'show' : '') : ''}}">
+            <ul class="submenu-inner">
+                    <li class="nav-item">
+                            <a href="{{route('homedept.index')}}" class="nav-link">
+                                    <span class="nav-text">
+                                            <span>homepage</span>
+                                    </span>
+                            </a>
+                    </li>
+
+
+	</ul>
+
+</div>
+<b class="sub-arrow"></b>
+</li>
+
 </nav>
+
+							{{-- <li class="nav-item {{isset($sub_menu) ? ($sub_menu=='users' ? 'active' : '') : ''}}">
+									<a href="{{route('portal.users.index')}}" class="nav-link">
+											<span class="nav-text">
+													<span>Users</span>
+											</span>
+									</a>
+              </li> --}}
+              {{-- <li class="nav-item">
+                <a href="{{url('permissions')}}" class="nav-link">
+                    <span class="nav-text">
+                        <span>Permission</span>
+                    </span>
+                </a>
+            </li> --}}
+
+
+{{-- @endcan --}}
