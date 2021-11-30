@@ -173,9 +173,9 @@
     <div class="hideable submenu collapse {{isset($menu) ? ($menu=='system_setting' ? 'show' : '') : ''}}">
             <ul class="submenu-inner">
                     <li class="nav-item">
-                            <a href="{{route('homedept.index')}}" class="nav-link">
+                            <a href="{{route('InteriorMinstry.index')}}" class="nav-link">
                                     <span class="nav-text">
-                                            <span>homepage</span>
+                                            <span>Interior</span>
                                     </span>
                             </a>
                     </li>
