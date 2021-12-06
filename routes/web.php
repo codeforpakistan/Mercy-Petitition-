@@ -21,17 +21,17 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-
+Route::get('/reload-captcha','HomeController@reloadCaptcha')->name('reloadCaptcha');
 
 Route::get('/dashboard', function () {
     return view('welcome');
 })->name('portal.dashboard');
-
+Route::get('logout','Auth\loginController@logout')->name('logout');
 Auth::routes();
-Route::get('/reload-captcha', 'HomeController@reloadCaptcha')->name('reloadCaptcha');
+Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles','RoleController');
-    // Route::get('reloadCaptcha', 'Auth\LoginController@reloadCaptcha')->name('reloadCaptcha');
+    Route::resource('Petition','PetitionController');
     Route::resource('roles','RoleController');
     Route::resource('users','UserController');
     Route::resource('permissions','PermissionController');
