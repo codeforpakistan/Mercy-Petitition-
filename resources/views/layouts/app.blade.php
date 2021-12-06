@@ -18,6 +18,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </head>
 <body>
     <div id="app">
@@ -74,6 +78,36 @@
 
         <main class="py-4">
             @yield('content')
+            <script>
+      jQuery(function($) {
+        var TinyDatePicker = DateRangePicker.TinyDatePicker;
+        TinyDatePicker('#id-date-1', {
+            mode: 'dp-below',
+          })
+          .on('statechange', function(ev) {
+
+          })
+
+        // modal one
+        TinyDatePicker('#id-date-2', {
+          mode: 'dp-modal',
+        }).on('statechange', function(ev) {
+          // console.log(ev);
+        })
+
+
+        // third one
+        // on mobile devices show native datepicker
+        if ('ontouchstart' in window && window.matchMedia('(max-width: 600px)')) {
+          document.querySelector('#id-date-3').setAttribute('type', 'date')
+        } else {
+          TinyDatePicker('#id-date-3', {
+            mode: 'dp-modal',
+          })
+        }
+
+    })
+    </script>
         </main>
     </div>
 </body>

@@ -11,7 +11,7 @@
     <div class="card bcard">
       <div class="card-body px-1 px-md-3">
         <div class="d-flex justify-content-between flex-column flex-sm-row mb-3 px-2 px-sm-0">
-          <h3 class="text-130 pl-1 mb-3 mb-sm-0">Users Managementss</h3>
+          <h3 class="text-130 pl-1 mb-3 mb-sm-0">Users Management</h3>
           <div class="mb-2 mb-sm-0">
             <a class="btn btn-outline-success" href="{{ route('portal.users.create') }}"><i class="fa fa-fw fa-plus mr-1"></i> New User</a>
           </div>

@@ -60,23 +60,15 @@
           min-height: 80vh;
           max-height: none !important;
         }
-        .container {
-            max-width: 500px;
-        }
-        .reload {
-            font-family: Lucida Sans Unicode
-        }
       }
     </style>
-
-</head>
   </head>
 
   <body>
     <div class="body-container">
 
       <div class="main-container container bgc-transparent">
-
+        
         <div class="main-content minh-100 justify-content-center">
           <div class="p-2 p-md-4">
             <div class="row" id="row-1">
@@ -226,14 +218,32 @@
 
                           Welcome back
                         </div>
-
+                     
+  @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
 
                         <form method="POST" action="{{ route('login') }}" autocomplete="off" class="form-row mt-4">
-                            @csrf
+                            @csrf 
                           <div class="form-group col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-                            <div class="d-flex align-items-center input-floating-label text-blue brc-blue-m2">
+                                                        @if ($errors->any())
+        <div class="alert alert-danger">
+         
+            <ul>
 
+                @foreach ($errors->all() as $error)
+                {{ $error }}
+                @endforeach
+            </ul>
+          
+        </div><br />
+        @endif
+                            <div class="d-flex align-items-center input-floating-label text-blue brc-blue-m2">
+                                 
                                 <input type="email" class="form-control form-control-lg pr-4 shadow-none @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus />
+
                               <i class="fa fa-user text-grey-m2 ml-n4"></i>
                               <label class="floating-label text-grey-l1 ml-n3" for="id-login-username">
                                 Username
@@ -244,12 +254,13 @@
 
                           <div class="form-group col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 mt-2 mt-md-1">
                             <div class="d-flex align-items-center input-floating-label text-blue brc-blue-m2">
+  @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                               <input type="password" class="form-control form-control-lg pr-4 shadow-none @error('password') is-invalid @enderror" id="password" name="password" required autocomplete="current-password"/>
-                              @error('password')
-                              <span class="invalid-feedback" role="alert">
-                                  <strong>{{ $message }}</strong>
-                              </span>
-                               @enderror
+                              
                               <i class="fa fa-key text-grey-m2 ml-n4"></i>
                               <label class="floating-label text-grey-l1 ml-n3" for="id-login-password">
                                 Password
@@ -257,28 +268,28 @@
                             </div>
                           </div>
 
-
-                          <div class="row">
-                          <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-left text-md-left mt-n2 mb-2">
-                            <div class="captcha">
-                                @error('captcha_img')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                 @enderror
-                                <span>{!! captcha_img() !!}</span>
-                                <button type="button" class="btn btn-danger" class="reload" id="reload">
-                                    &#x21bb;
-                                </button>
+                             <div class="form-group col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 mt-2 mt-md-1">
+                            <div class="d-flex align-items-center input-floating-label text-blue brc-blue-m2">
+ 
+                <div class="captcha">
+                    <span>{!! captcha_img() !!}</span>
+                    <button type="button" class="btn btn-danger" class="reload" id="reload">
+                        &#x21bb;
+                    </button>
+                </div>
+            
+</div>
+                          </div>
+                          <div class="form-group col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 mt-2 mt-md-1">
+                            <div class="d-flex align-items-center input-floating-label text-blue brc-blue-m2">
+                            <input id="captcha" type="text" class="form-control" placeholder="Enter Captcha" name="captcha">
+           
+                              
                             </div>
-                        </div>
                           </div>
 
 
-                        <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-right text-md-right mt-n2 mb-2  @error('captcha') is-invalid @enderror">
-                            <input id="captcha" type="text" class="form-control" placeholder="Enter Captcha" name="captcha">
-                        </div>
-                            <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-right text-md-right mt-n2 mb-2">
+                          <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-right text-md-right mt-n2 mb-2">
                             <a href="#" class="text-primary-m1 text-95" data-toggle="tab" data-target="#id-tab-forgot">
                               Forgot Password?
                             </a>
@@ -287,7 +298,7 @@
 
                           <div class="form-group col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
                             <label class="d-inline-block mt-3 mb-0 text-dark-l1">
-
+                              
                               <input class="mr-1" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                               Remember me
                             </label>
@@ -510,7 +521,7 @@
             </div><!-- /.row -->
 
             <div class="d-lg-none my-3 text-white-tp1 text-center">
-              <i class="fa fa-leaf text-success-l3 mr-1 text-110"></i> Code For Pakistan &copy; 2021
+              <i class="fa fa-leaf text-success-l3 mr-1 text-110"></i> Ace Company &copy; 2020
             </div>
           </div>
         </div>
@@ -523,9 +534,6 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css"
-    href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
 
@@ -540,18 +548,6 @@
 
     <!-- demo.js is only for Ace's demo and you shouldn't use it -->
     <script src="{{asset('assets/js/demo.min.js')}}"></script>
-        <script type="text/javascript">
-        $('#reload').click(function () {
-            $.ajax({
-                type: 'GET',
-                url: 'reload-captcha',
-                success: function (data) {
-                    $(".captcha span").html(data.captcha);
-                }
-            });
-        });
-
-    </script>
 
 
 
@@ -589,7 +585,7 @@
             $('#row-1')
               .addClass('justify-content-center') // so .col is centered
 
-              .find('> .col-12') // change .col-12.col-xl-10, etc to .col-12.col-lg-6.col-xl-5 (so our login area is 50% of document width in `lg` mode , etc)
+              .find('> .col-12') // change .col-12.col-xl-10, etc to .col-12.col-lg-6.col-xl-5 (so our login area is 50% of document width in `lg` mode , etc)        
               .removeClass('col-12 col-xl-10 offset-xl-1').addClass(!isFullsize ? 'col-12 col-lg-6 col-xl-5' : '')
 
 
@@ -633,7 +629,18 @@
 
       })
     </script>
+    <script type="text/javascript">
+    $('#reload').click(function () {
+        $.ajax({
+            type: 'GET',
+            url: 'reload-captcha',
+            success: function (data) {
+                $(".captcha span").html(data.captcha);
+            }
+        });
+    });
 
+</script>
   </body>
 
 </html>

@@ -135,6 +135,29 @@
 			<b class="sub-arrow"></b>
 		</li>
         @endcan
+        <li class="nav-item {{isset($menu) ? ($menu=='system_setting' ? 'active open' : '') : ''}}">
+            <a href="#" id="system_setting" class="nav-link dropdown-toggle {{isset($menu) ? ($menu=='system_setting' ? '' : 'collapsed') : 'collapsed'}}">
+                    <i class="nav-icon fa fa-cube"></i>
+                    <span class="nav-text fadeable">
+                            <span>IGP</span>
+                    </span>
+                    <b class="caret fa fa-angle-left rt-n90"></b>
+            </a>
+            <div class="hideable submenu collapse {{isset($menu) ? ($menu=='system_setting' ? 'show' : '') : ''}}">
+                    <ul class="submenu-inner">
+                            <li class="nav-item">
+                                    <a href="{{route('Petition.index')}}" class="nav-link">
+                                            <span class="nav-text">
+                                                    <span>Petition list</span>
+                                            </span>
+                                    </a>
+                            </li>
+                  
+              
+                    </ul>
+            </div>
+            <b class="sub-arrow"></b>
+        </li>
 @can('HomeDepartment-list')
 
 <li class="nav-item {{isset($menu) ? ($menu=='system_setting' ? 'active open' : '') : ''}}">
@@ -162,6 +185,7 @@
 <b class="sub-arrow"></b>
 </li>
 @endcan
+@can('interior-list')
 <li class="nav-item {{isset($menu) ? ($menu=='system_setting' ? 'active open' : '') : ''}}">
     <a href="#" id="system_setting" class="nav-link dropdown-toggle {{isset($menu) ? ($menu=='system_setting' ? '' : 'collapsed') : 'collapsed'}}">
             <i class="nav-icon fa fa-cube"></i>
@@ -186,7 +210,7 @@
 </div>
 <b class="sub-arrow"></b>
 </li>
-
+@endcan
 </nav>
 
 							{{-- <li class="nav-item {{isset($sub_menu) ? ($sub_menu=='users' ? 'active' : '') : ''}}">
