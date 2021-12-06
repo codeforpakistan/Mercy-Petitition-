@@ -24,7 +24,7 @@ class PermissionTableSeeder extends Seeder
         // ];
         // foreach ($permissions as $permission) {
         //     Permission::create(['name' => $permission]);
-        // }  
+        // }
         Permission::create(['name'=>'role-list', 'friendly_title'=>'List of Roles']);
         Permission::create(['name'=>'role-create', 'friendly_title'=>'Create Roles']);
         Permission::create(['name'=>'role-edit', 'friendly_title'=>'Edit Roles']);

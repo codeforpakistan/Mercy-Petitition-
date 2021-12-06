@@ -28,9 +28,10 @@ Route::get('/dashboard', function () {
 })->name('portal.dashboard');
 
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/reload-captcha', 'HomeController@reloadCaptcha')->name('reloadCaptcha');
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles','RoleController');
+    // Route::get('reloadCaptcha', 'Auth\LoginController@reloadCaptcha')->name('reloadCaptcha');
     Route::resource('roles','RoleController');
     Route::resource('users','UserController');
     Route::resource('permissions','PermissionController');

@@ -74,7 +74,7 @@
 
         <div role="main" class="main-content">
           <nav class="navbar navbar-sm navbar-expand-lg navbar-fixed navbar-white">
-            <div class="navbar-inner shadow-md">
+            <div class="navbar-inner shadow-md sidebar-dark sidebar-color">
 
               <button type="button" class="btn btn-burger align-self-center ml-25 mr-2 d-none d-xl-flex btn-h-lighter-blue" data-toggle="sidebar" data-target="#sidebar" aria-controls="sidebar" aria-expanded="true" aria-label="Toggle sidebar">
                 <span class="bars text-default"></span>
@@ -102,7 +102,7 @@
                 <div class="d-none d-xl-inline-flex">
                   <div>
                     <ol class="breadcrumb breadcrumb-nosep align-items-center pl-1 text-nowrap mr-2">
-                      <li class="breadcrumb-item text-secondary text-500">
+                      <li class="breadcrumb-item text-white text-500">
                         @hasSection ('module')
                             @yield('module')
                         @else
@@ -156,10 +156,10 @@
                 <div class="navbar-nav">
                   <ul class="nav has-active-border">
                     <li class="nav-item dropdown dropdown-mega">
-                      <a class="nav-link dropdown-toggle mr-1px" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                      <a class="nav-link dropdown-toggle mr-1px text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-list-alt mr-2 d-lg-none"></i>
                         @auth
-                          <img class="mr-2 radius-round border-2 brc-primary-tp3 p-1px" src="{{ Auth::user()->picture ?? asset('..\assets\image\avatar\avatar4.png')}}" width="36" alt="Natalie's Photo">
+                          <img class="mr-2 radius-round border-2 brc-primary-tp3 p-1px " src="{{ Auth::user()->picture ?? asset('..\assets\image\avatar\avatar4.png')}}" width="36" alt="Natalie's Photo">
                           {{ Auth::user()->name }}
                         @endauth
                         <i class="caret fa fa-angle-down d-none d-lg-block"></i>
@@ -249,6 +249,7 @@
     <script src="{{asset('assets\npm\es6-object-assign@1.1.0\dist\object-assign-auto.min.js')}}"></script>
     <script src="{{asset('assets\npm\@jaames\iro@5.2.0\dist\iro.min.js')}}"></script>
     <script src="{{asset('assets\npm\jquery-knob@1.2.11\dist\jquery.knob.min.js')}}"></script>
+
 
     @yield('scripts')
   </body>

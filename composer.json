@@ -17,6 +17,7 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.2",
         "laravelcollective/html": "^6.1",
+        "mews/captcha": "^3.2",
         "spatie/laravel-permission": "^3.16"
     },
     "require-dev": {
