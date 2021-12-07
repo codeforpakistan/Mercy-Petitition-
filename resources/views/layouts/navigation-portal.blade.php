@@ -48,7 +48,7 @@
                 <div class="fadeable hideable">
                   <div class="py-2 d-flex flex-column align-items-center">
                     @auth
-                      <img alt="Natalie's avatar" src="assets/image/avatar/avatar.png" class="p-2px border-2 brc-primary-m2 radius-round" />
+                      <img alt="Natalie's avatar" src="assets/image/avatar/avatar.png" class="p-2px border-2 brc-primary-m2 radius-round text-white" />
                       {{ Auth::user()->name }}
 
                     @endauth
@@ -97,7 +97,7 @@
 
 			<b class="sub-arrow"></b>
 		</li>
-@can('user-list')
+{{-- @can('user-list') --}}
 
 		<li class="nav-item {{isset($menu) ? ($menu=='system_setting' ? 'active open' : '') : ''}}">
 			<a href="#" id="system_setting" class="nav-link dropdown-toggle {{isset($menu) ? ($menu=='system_setting' ? '' : 'collapsed') : 'collapsed'}}">
@@ -134,7 +134,7 @@
 			</div>
 			<b class="sub-arrow"></b>
 		</li>
-        @endcan
+        {{-- @endcan --}}
         <li class="nav-item {{isset($menu) ? ($menu=='system_setting' ? 'active open' : '') : ''}}">
             <a href="#" id="system_setting" class="nav-link dropdown-toggle {{isset($menu) ? ($menu=='system_setting' ? '' : 'collapsed') : 'collapsed'}}">
                     <i class="nav-icon fa fa-cube"></i>
@@ -152,13 +152,13 @@
                                             </span>
                                     </a>
                             </li>
-                  
-              
+
+
                     </ul>
             </div>
             <b class="sub-arrow"></b>
         </li>
-@can('HomeDepartment-list')
+{{-- @can('HomeDepartment-list') --}}
 
 <li class="nav-item {{isset($menu) ? ($menu=='system_setting' ? 'active open' : '') : ''}}">
     <a href="#" id="system_setting" class="nav-link dropdown-toggle {{isset($menu) ? ($menu=='system_setting' ? '' : 'collapsed') : 'collapsed'}}">
@@ -184,8 +184,8 @@
 </div>
 <b class="sub-arrow"></b>
 </li>
-@endcan
-@can('interior-list')
+{{-- @endcan --}}
+{{-- @can('interior-list') --}}
 <li class="nav-item {{isset($menu) ? ($menu=='system_setting' ? 'active open' : '') : ''}}">
     <a href="#" id="system_setting" class="nav-link dropdown-toggle {{isset($menu) ? ($menu=='system_setting' ? '' : 'collapsed') : 'collapsed'}}">
             <i class="nav-icon fa fa-cube"></i>
@@ -210,7 +210,7 @@
 </div>
 <b class="sub-arrow"></b>
 </li>
-@endcan
+{{-- @endcan --}}
 </nav>
 
 							{{-- <li class="nav-item {{isset($sub_menu) ? ($sub_menu=='users' ? 'active' : '') : ''}}">

@@ -30,7 +30,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/npm\eonasdan-bootstrap-datetimepicker@4.17.47\build\css\bootstrap-datetimepicker.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/ace.min.css')}}">
     <link rel="stylesheet" type="text/css"
-      
+
 
   </head>
 
@@ -58,7 +58,7 @@
                   <div class="py-2 text-center mx-3" id="sidebar-header-brand2">
                     <a class="navbar-brand ml-n2 text-140 text-white" href="#">
                       <i class="fa fa-leaf mr-1 text-success-l1"></i>
-                      ACE <span>App</span>
+                      IG <span>Prisons</span>
                     </a>
                   </div>
                 </div>
@@ -77,7 +77,7 @@
 
         <div role="main" class="main-content">
           <nav class="navbar navbar-sm navbar-expand-lg navbar-fixed navbar-white">
-            <div class="navbar-inner shadow-md">
+            <div class="navbar-inner shadow-md sidebar-dark">
 
               <button type="button" class="btn btn-burger align-self-center ml-25 mr-2 d-none d-xl-flex btn-h-lighter-blue" data-toggle="sidebar" data-target="#sidebar" aria-controls="sidebar" aria-expanded="true" aria-label="Toggle sidebar">
                 <span class="bars text-default"></span>
@@ -102,10 +102,10 @@
                   </div>
                 </div> --}}
                 {{-- START breadcrumb --}}
-                <div class="d-none d-xl-inline-flex">
+                {{-- <div class="d-none d-xl-inline-flex">
                   <div>
                     <ol class="breadcrumb breadcrumb-nosep align-items-center pl-1 text-nowrap mr-2">
-                      <li class="breadcrumb-item text-secondary text-500">
+                      <li class="breadcrumb-item text-white text-500">
                         @hasSection ('module')
                             @yield('module')
                         @else
@@ -120,7 +120,7 @@
                       </li>
                     </ol>
                   </div>
-                </div>
+                </div> --}}
                 {{-- END breadcrumb  --}}
 
                 {{-- <a class="navbar-brand d-xl-none mx-1 text-dark-m3 text-130" href="{{route('portal.dashboard')}}" style="font-family: 'Pacifico';">{{config('app.name')}}</a> --}}
@@ -159,7 +159,7 @@
                 <div class="navbar-nav">
                   <ul class="nav has-active-border">
                     <li class="nav-item dropdown dropdown-mega">
-                      <a class="nav-link dropdown-toggle mr-1px" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                      <a class="nav-link dropdown-toggle mr-1px text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-list-alt mr-2 d-lg-none"></i>
                         @auth
                           <img class="mr-2 radius-round border-2 brc-primary-tp3 p-1px" src="{{ Auth::user()->picture ?? asset('..\assets\image\avatar\avatar4.png')}}" width="36" alt="Natalie's Photo">
@@ -213,6 +213,31 @@
             </div>
 
           </nav>
+          <nav aria-label="breadcrumb" class="bg-white">
+            <ol class="breadcrumb">
+
+             <div class="d-none d-xl-inline-flex">
+                <div>
+                  <ol class="breadcrumb breadcrumb-nosep align-items-center pl-1 text-nowrap mr-2">
+                    <li class="breadcrumb-item text-dark text-500">
+                      @hasSection ('module')
+                          @yield('module')
+                      @else
+                        Welcome
+                      @endif
+                    </li>
+                    <li class="mx-15 text-grey-l4 text-110">></li>
+                    <li class="breadcrumb-item active text-dark-tp4 text-105 text-300">
+                      @hasSection ('element')
+                          @yield('element')
+                      @endif
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </ol>
+          </nav>
+
           <div class="page-content container container-plus">
             <!-- page header -->
             <div class="d-lg-none page-header border-0 py-0">

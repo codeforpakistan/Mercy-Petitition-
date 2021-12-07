@@ -15,7 +15,7 @@ class CreateHomedepartmentsTable extends Migration
     {
         Schema::create('homedepartments', function (Blueprint $table) {
            $table->Increments('id');
-           
+
             $table->unsignedInteger('file_id');
             $table->foreign('file_id')
             ->references('id')
@@ -25,7 +25,7 @@ class CreateHomedepartmentsTable extends Migration
             $table->unsignedInteger('petition_id');
             $table->foreign('petition_id')
             ->references('id')
-            ->on('petitio')
+            ->on('petitions')
             ->onDelete('cascade');
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')
