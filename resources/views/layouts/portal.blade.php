@@ -29,7 +29,7 @@
 
     <link rel="stylesheet" type="text/css" href="{{asset('assets/npm\eonasdan-bootstrap-datetimepicker@4.17.47\build\css\bootstrap-datetimepicker.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/ace.min.css')}}">
-    <link rel="stylesheet" type="text/css"
+
 
 
   </head>
@@ -278,6 +278,97 @@
     <script src="{{asset('assets\npm\@jaames\iro@5.2.0\dist\iro.min.js')}}"></script>
     <script src="{{asset('assets\npm\jquery-knob@1.2.11\dist\jquery.knob.min.js')}}"></script>
     <script src="{{asset('assets\npm\tiny-date-picker@3.2.8\dist\date-range-picker.min.js')}}"></script>
+   <script>
+       $('#ace-file-input1').aceFileInput({
+          /**
+          btnChooseClass: 'bgc-grey-l2 pt-15 px-2 my-1px mr-1px',
+          btnChooseText: 'SELECT FILE',
+          placeholderText: 'NO FILE YET',
+          placeholderIcon: '<i class="fa fa-file bgc-warning-m1 text-white w-4 py-2 text-center"></i>'
+          */
+        })
+        $('#ace-file-input22').aceFileInput({
+          /**
+          btnChooseClass: 'bgc-grey-l2 pt-15 px-2 my-1px mr-1px',
+          btnChooseText: 'SELECT FILE',
+          placeholderText: 'NO FILE YET',
+          placeholderIcon: '<i class="fa fa-file bgc-warning-m1 text-white w-4 py-2 text-center"></i>'
+          */
+        })
+        $('#ace-file-input12').aceFileInput({
+          /**
+          btnChooseClass: 'bgc-grey-l2 pt-15 px-2 my-1px mr-1px',
+          btnChooseText: 'SELECT FILE',
+          placeholderText: 'NO FILE YET',
+          placeholderIcon: '<i class="fa fa-file bgc-warning-m1 text-white w-4 py-2 text-center"></i>'
+          */
+        })
+        $('#ace-file-input13').aceFileInput({
+          /**
+          btnChooseClass: 'bgc-grey-l2 pt-15 px-2 my-1px mr-1px',
+          btnChooseText: 'SELECT FILE',
+          placeholderText: 'NO FILE YET',
+          placeholderIcon: '<i class="fa fa-file bgc-warning-m1 text-white w-4 py-2 text-center"></i>'
+          */
+        })
+        $('#ace-file-input14').aceFileInput({
+          /**
+          btnChooseClass: 'bgc-grey-l2 pt-15 px-2 my-1px mr-1px',
+          btnChooseText: 'SELECT FILE',
+          placeholderText: 'NO FILE YET',
+          placeholderIcon: '<i class="fa fa-file bgc-warning-m1 text-white w-4 py-2 text-center"></i>'
+          */
+        })
+        // multiple with image preview
+        $('#ace-file-input2').aceFileInput({
+            style: 'drop',
+            droppable: true,
+
+            container: 'border-1 border-dashed brc-grey-l1 brc-h-info-m2 shadow-sm',
+
+            placeholderClass: 'text-125 text-600 text-grey-l1 my-2',
+            placeholderText: 'Drop images here or click to choose',
+            placeholderIcon: '<i class="fa fa-cloud-upload-alt fa-3x text-info-m2 my-2"></i>',
+
+            //previewSize: 64,
+            thumbnail: 'large',
+
+            //allowExt: 'gif|jpg|jpeg|png|webp|svg',
+            //allowMime: 'image/png|image/jpeg',
+            allowMime: 'image/*',
+
+            //maxSize: 100000,
+          })
+          .on('change', function() {
+            // get dropped/selected files
+
+            // console.log( $(this).data('ace_input_files') )
+            // console.log( $(this).data('ace_input_method') )
+
+            // or
+            // console.log( $(this).aceFileInput('files') )
+            // console.log( $(this).aceFileInput('method') )
+          })
+          .on('invalid.ace.file', function(e, errors) {
+            // console.log(errors)
+          })
+          .on('preview_failed.ace.file', function(e, error) {
+            // console.log(error)
+            // if(error.code == 2) alert(error.filename + ' is not an image!')
+          })
+          .on('reset.ace.file', function(e) {
+            // e.preventDefault()
+          })
+
+        // some available methods
+
+        // $('#ace-file-input2').aceFileInput('disable')
+        // $('#ace-file-input2').aceFileInput('startLoading')
+
+        // $('#ace-file-input2').aceFileInput('showFileList', [{name: 'avatar3.jpg', type: 'image', path: 'assets/image/avatar/avatar3.jpg'} , {name: 'avatar2.jpg', type: 'image', path: 'assets/image/avatar/avatar2.jpg'}])
+        // $('#ace-file-input1').aceFileInput('showFileList', [{name: '2.txt', type: 'document'}])
+        // $('#ace-file-input1').aceFileInput('resetInput');
+     </script>
     <script>
       jQuery(function($) {
         var TinyDatePicker = DateRangePicker.TinyDatePicker;
@@ -334,6 +425,7 @@
             }
           }, 10)
         })
+
 
     })
     </script>

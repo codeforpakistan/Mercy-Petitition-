@@ -20,11 +20,11 @@
                             <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Name</label>
-      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+      <input type="text" name="name" class="form-control" id="inputEmail4" placeholder="Enter Name">
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">F-Name</label>
-      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+      <input type="text" name="f_name" class="form-control" id="inputPassword4" placeholder="Father Name">
     </div>
   </div>
   <div class="form-row">
@@ -88,15 +88,16 @@
                       </select>
     </div>
     <div class="form-group col-md-6">
-      <label for="inputPassword4">DOB</label>
-      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+       <label for="inputState">Mercy petition Date</label>
+     
+     <input type="Date"  name="mercypetitiondate" class="form-control" placeholder=" Pick Mercy petition Date" >
     </div>
   </div>
  
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="form-field-select-11">Physical Status</label>
-      <select class="ace-select text-dark-m1 bgc-default-l5 bgc-h-warning-l3 brc-default-m3 brc-h-warning-m1" id="form-field-select-11">
+      <select class="ace-select text-dark-m1 bgc-default-l5 bgc-h-warning-l3 brc-default-m3 brc-h-warning-m1"  name="physicalstatus"id="form-field-select-11">
       <option value='WV'>West Virginia</option>
                         <option value='WI'>Wisconsin</option>
                         <option value='WY'>Wyoming</option>
@@ -104,10 +105,7 @@
     </div>
     <div class="form-group col-md-6">
       <label for="inputState">Fir & Date</label>
-      <select id="inputState" class="form-control">
-        <option selected>Choose...</option>
-        <option>...</option>
-      </select>
+      <input type="text" name="firdate" class="form-control" id="inputCity">
     </div>
   
   </div>
@@ -122,11 +120,9 @@
                       </select>
     </div>
     <div class="form-group col-md-6">
-      <label for="inputState">Mercy Petition</label>
-      <select id="inputState" class="form-control">
-        <option selected>Choose...</option>
-        <option>...</option>
-      </select>
+    <label for="inputState">Mercy petition Date</label>
+     
+     <input type="date" class="form-control" placeholder=" Pick Mercy petition Date">
     </div>
   
   </div>
@@ -153,42 +149,33 @@
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputCity">Application Attachment</label>
-      <input type="text" class="form-control" id="inputCity">
+      <input type="file" class="ace-file-input" id="ace-file-input1">
     </div>
     <div class="form-group col-md-6">
       <label for="inputState">Health Report Attachment</label>
-      <select id="inputState" class="form-control">
-        <option selected>Choose...</option>
-        <option>...</option>
-      </select>
+      <input type="file" class="ace-file-input" id="ace-file-input22">
     </div>
   
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputCity">Presion Image</label>
-      <input type="text" class="form-control" id="inputCity">
+      <input type="file" class="ace-file-input" id="ace-file-input12">
     </div>
     <div class="form-group col-md-6">
       <label for="inputState">Warrent File Attachment</label>
-      <select id="inputState" class="form-control">
-        <option selected>Choose...</option>
-        <option>...</option>
-      </select>
+      <input type="file" class="ace-file-input"  id="ace-file-input13">
     </div>
   
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputCity">Other FIle Attchment</label>
-      <input type="text" class="form-control" id="inputCity">
+      <input type="file" class="ace-file-input" id="ace-file-input2" multiple="">
     </div>
     <div class="form-group col-md-6">
       <label for="inputState">Warrent Information</label>
-      <select id="inputState" class="form-control">
-        <option selected>Choose...</option>
-        <option>...</option>
-      </select>
+      <input type="text" name="warrentinformation" class="form-control" id="inputCity">
     </div>
   
   </div>
@@ -200,10 +187,10 @@
     <div class="form-group col-md-6">
       <label for="inputState">Warrent Date (Jail entry Date)</label>
      
-                    <input type="text" class="form-control" placeholder=" Pick Warrent Date (Jail entry Date)" id="id-date-1">
+                    <input type="Date" class="form-control" placeholder=" Pick Warrent Date (Jail entry Date)">
 
-                          
-                       
+                    
+           
                      
   
   </div>
@@ -218,8 +205,7 @@
   </div>
  
 
-
-
+  
 
                   <div class="mt-5 border-t-1 brc-secondary-l2 py-35 mx-n25">
                     <div class="offset-md-3 col-md-9 text-nowrap">
@@ -238,5 +224,7 @@
          
             </div><!-- /.card -->
 </div>
-
+<script>
+  
+  </script>
 @endsection
