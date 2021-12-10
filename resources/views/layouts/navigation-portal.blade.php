@@ -48,7 +48,7 @@
                 <div class="fadeable hideable">
                   <div class="py-2 d-flex flex-column align-items-center">
                     @auth
-                      <img alt="Natalie's avatar" src="assets/image/avatar/avatar.png" class="p-2px border-2 brc-primary-m2 radius-round text-white" />
+                      <img alt="Natalie's avatar" src="assets/image/avatar/avatar.png" class="p-2px border-2 brc-primary-m2 radius-round" />
                       {{ Auth::user()->name }}
 
                     @endauth
