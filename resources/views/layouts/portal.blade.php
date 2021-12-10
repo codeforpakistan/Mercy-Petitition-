@@ -171,14 +171,7 @@
                       <div class="p-0 dropdown-menu dropdown-animated brc-primary-m3 border-b-2 ml-1 mr-1px w-auto bgc-default-l4 dropdown-clickable" style="left:auto">
                         <div class="d-flex flex-column">
                           <div class="row mx-0">
-                            <div class="bgc-white col-lg-12 col-12 p-4">
-                              <h5 class="text-dark-m2">
-                                <i class="fas fa-bullhorn mr-1 text-primary-m1"></i>
-                                Notifications
-                              </h5>
-                              <div class="mt-3 text-center" style="line-height: 128px;">No Notification</div>
-                            </div>
-                          </div>
+                            
                           <div class="order-first order-lg-last ">
                             <hr class="d-none d-lg-block brc-default-l1 my-0">
                             <div class="row mx-0 bgc-primary-l4">

@@ -1,9 +1,9 @@
 @extends('layouts.portal', [
-    'menu' => 'system_setting',
-    'sub_menu' => 'users'
+    'menu' => 'HomeDepartment',
+    'sub_menu' => 'homedept'
 ])
-@section('module','User Management')
-@section('element','Add New User')
+@section('module','HomeDepartment Management')
+@section('element','Listing')
 
 @section('content')
 

@@ -1,9 +1,9 @@
 @extends('layouts.portal', [
-    'menu' => 'system_setting',
-    'sub_menu' => 'users'
+    'menu' => 'IGP',
+    'sub_menu' => 'Petition'
 ])
-@section('module','User Management')
-@section('element','Add New User')
+@section('module','IGP Management')
+@section('element','Listing')
 
 @section('content')
 

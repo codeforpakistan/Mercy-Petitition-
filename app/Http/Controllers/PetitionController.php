@@ -22,4 +22,95 @@ class PetitionController extends Controller
 
         return view('IGP.addpetition');
     }
+    // public function storepetition(Request $request){
+    //       $request->validate([
+    //         'file' => 'required|mimes:pdf,xlx,csv|max:2048',
+    //     ]);
+    //                if ($files = $request->file('profile_image')) {
+    //                // Define upload path
+    //                    $destinationPath = public_path('/assets/image'); // upload path
+    //          // Upload Orginal Image           
+    //                    $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
+    //                    $files->move($destinationPath, $profileImage);
+    //                
+            
+    //                 }
+    //         if ($files = $request->file('profile_image')) {
+    //                    // Define upload path
+    //                        $destinationPath = public_path('/assets/image'); // upload path
+    //              // Upload Orginal Image           
+    //                        $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
+    //                        $files->move($destinationPath, $profileImage);
+    //                    
+                
+    //                     }
+    //             if ($files = $request->file('profile_image')) {
+    //                        // Define upload path
+    //                            $destinationPath = public_path('/assets/image'); // upload path
+    //                  // Upload Orginal Image           
+    //                            $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
+    //                            $files->move($destinationPath, $profileImage);
+    //                        
+                    
+    //                         }
+    //                 if ($files = $request->file('profile_image')) {
+    //                            // Define upload path
+    //                                $destinationPath = public_path('/assets/image'); // upload path
+    //                      // Upload Orginal Image           
+    //                                $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
+    //                                $files->move($destinationPath, $profileImage);
+    //                            
+                        
+    //                             }
+    //                     if ($files = $request->file('profile_image')) {
+    //                                // Define upload path
+    //                                    $destinationPath = public_path('/assets/image'); // upload path
+    //                          // Upload Orginal Image           
+    //                                    $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
+    //                                    $files->move($destinationPath, $profileImage);
+    //                                
+                            
+    //                                 }
+    //         $imagemodel= new Photo();
+    //         $imagemodel->photo_name="$profileImage";
+    //         $imagemodel->save();
+
+    //     return view('IGP.addpetition');
+    // }
+    public function store(Request $request)
+    {
+        // Validate the inputs
+        $request->validate([
+            'presionimage' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'file' => 'required|mimes:csv,txt,xlx,xls,jpeg,png,jpg,gif,svg,pdf|max:2048',
+           ]);
+           if ($request->hasFile('applicationattachment') $$ $request->hasFile('presionimage') && $request->hasFile('warrentfileattachment')) {
+
+                      $request->file->store('product', 'public');
+
+                   }
+                   if ($request->hasFile('healthreportattachment')) {
+
+                    $request->file->store('product', 'public');
+
+                 }
+                 if ($request->hasFile('presionimage')) {
+
+                    $request->file->store('assets/image', 'public');
+
+                 }
+                 if ($request->hasFile('warrentfileattachment')) {
+
+                    $request->file->store('product', 'public');
+
+                 }
+        $product = new Petition([
+            "name" => $request->get('name'),
+            "file_path" => $request->file->hashName()
+        ]);
+        $product->save();
+
+        }
+
+           
 }

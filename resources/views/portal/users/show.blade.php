@@ -19,7 +19,7 @@
 						<img alt="Profile image" src="{{ Auth::user()->picture ?? asset('..\assets\image\avatar\default.png')}}" class="radius-round bord1er-2 brc-warning-m1" style="width: 128px;height:128px;">
 					</div>
 					<div class="text-center mt-2">
-						<h5 class="text-130 text-dark-m3">{{Auth::user()->name}}</h5>
+						<h5 class="text-130 text-dark-m3">{{$user->name}}</h5>
 						<span class="text-80 text-primary text-600">UI/UX Designer</span>
 					</div>
 					<hr class="w-90 mx-auto mb-1 brc-secondary-l3">
@@ -162,7 +162,7 @@
 										<tr>
 											<td><i class="far fa-envelope text-blue"></i></td>
 											<td class="text-95 text-600 text-secondary-d2">Email</td>
-											<td class="text-blue-d1 text-wrap">amy.smith@inc.com</td>
+											<td class="text-blue-d1 text-wrap">{{$user->email}}</td>
 										</tr>
 										<tr>
 											<td><i class="fa fa-phone text-purple"></i></td>
@@ -171,8 +171,12 @@
 										</tr>
 										<tr>
 											<td><i class="fa fa-map-marker text-orange-d1"></i></td>
-											<td class="text-95 text-600 text-secondary-d2">Location</td>
-											<td class="text-dark-m3">Dublin</td>
+											<td class="text-95 text-600 text-secondary-d2">Role</td>
+											<td class="text-dark-m3">  @if(!empty($user->getRoleNames()))
+                    @foreach($user->getRoleNames() as $v)
+                      <label class="m-1 badge bgc-white border-2 brc-success-m3 radius-1 btn-text-success px-25">{{ $v }}</label>
+                    @endforeach
+                  @endif</td>
 										</tr>
 										<tr>
 											<td><i class="far fa-clock text-secondary"></i></td>

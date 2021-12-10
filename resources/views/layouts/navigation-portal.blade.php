@@ -75,7 +75,7 @@
                         @auth
 
                         <li class="nav-item">
-                          <a href="href="{{ route('logout') }}"
+                          <a href="{{ route('logout') }}"
                           onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();"  class="nav-link">
                            {{ __('Logout') }}
@@ -135,17 +135,19 @@
 			<b class="sub-arrow"></b>
 		</li>
         @endcan
-        <li class="nav-item {{isset($menu) ? ($menu=='system_setting' ? 'active open' : '') : ''}}">
-            <a href="#" id="system_setting" class="nav-link dropdown-toggle {{isset($menu) ? ($menu=='system_setting' ? '' : 'collapsed') : 'collapsed'}}">
+    
+
+        <li class="nav-item {{isset($menu) ? ($menu=='IGP' ? 'active open' : '') : ''}}">
+            <a href="#" id="IGP" class="nav-link dropdown-toggle {{isset($menu) ? ($menu=='IGP' ? '' : 'collapsed') : 'collapsed'}}">
                     <i class="nav-icon fa fa-cube"></i>
                     <span class="nav-text fadeable">
                             <span>IGP</span>
                     </span>
                     <b class="caret fa fa-angle-left rt-n90"></b>
             </a>
-            <div class="hideable submenu collapse {{isset($menu) ? ($menu=='system_setting' ? 'show' : '') : ''}}">
+            <div class="hideable submenu collapse {{isset($menu) ? ($menu=='IGP' ? 'show' : '') : ''}}">
                     <ul class="submenu-inner">
-                            <li class="nav-item">
+                    <li class="nav-item {{isset($sub_menu) ? ($sub_menu=='Petition' ? 'active' : '') : ''}}">
                                     <a href="{{route('Petition.index')}}" class="nav-link">
                                             <span class="nav-text">
                                                     <span>Petition list</span>
@@ -160,17 +162,17 @@
         </li>
 @can('HomeDepartment-list')
 
-<li class="nav-item {{isset($menu) ? ($menu=='system_setting' ? 'active open' : '') : ''}}">
-    <a href="#" id="system_setting" class="nav-link dropdown-toggle {{isset($menu) ? ($menu=='system_setting' ? '' : 'collapsed') : 'collapsed'}}">
+<li class="nav-item {{isset($menu) ? ($menu=='HomeDepartment' ? 'active open' : '') : ''}}">
+    <a href="#" id="HomeDepartment" class="nav-link dropdown-toggle {{isset($menu) ? ($menu=='HomeDepartment' ? '' : 'collapsed') : 'collapsed'}}">
             <i class="nav-icon fa fa-cube"></i>
             <span class="nav-text fadeable">
                     <span>Home department</span>
             </span>
             <b class="caret fa fa-angle-left rt-n90"></b>
     </a>
-    <div class="hideable submenu collapse {{isset($menu) ? ($menu=='system_setting' ? 'show' : '') : ''}}">
+    <div class="hideable submenu collapse {{isset($menu) ? ($menu=='HomeDepartment' ? 'show' : '') : ''}}">
             <ul class="submenu-inner">
-                    <li class="nav-item">
+            <li class="nav-item {{isset($sub_menu) ? ($sub_menu=='homedept' ? 'active' : '') : ''}}">
                             <a href="{{route('homedept.index')}}" class="nav-link">
                                     <span class="nav-text">
                                             <span>homepage</span>
@@ -186,17 +188,17 @@
 </li>
 @endcan
 @can('interior-list')
-<li class="nav-item {{isset($menu) ? ($menu=='system_setting' ? 'active open' : '') : ''}}">
-    <a href="#" id="system_setting" class="nav-link dropdown-toggle {{isset($menu) ? ($menu=='system_setting' ? '' : 'collapsed') : 'collapsed'}}">
+<li class="nav-item {{isset($menu) ? ($menu=='InteriorMinitries' ? 'active open' : '') : ''}}">
+    <a href="#" id="InteriorMinitries" class="nav-link dropdown-toggle {{isset($menu) ? ($menu=='InteriorMinitries' ? '' : 'collapsed') : 'collapsed'}}">
             <i class="nav-icon fa fa-cube"></i>
             <span class="nav-text fadeable">
                     <span>Interior Ministry</span>
             </span>
             <b class="caret fa fa-angle-left rt-n90"></b>
     </a>
-    <div class="hideable submenu collapse {{isset($menu) ? ($menu=='system_setting' ? 'show' : '') : ''}}">
+    <div class="hideable submenu collapse {{isset($menu) ? ($menu=='InteriorMinitries' ? 'show' : '') : ''}}">
             <ul class="submenu-inner">
-                    <li class="nav-item">
+            <li class="nav-item {{isset($sub_menu) ? ($sub_menu=='InteriorMinstry' ? 'active' : '') : ''}}">
                             <a href="{{route('InteriorMinstry.index')}}" class="nav-link">
                                     <span class="nav-text">
                                             <span>Interior</span>
