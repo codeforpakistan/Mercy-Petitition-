@@ -97,7 +97,7 @@
 
 			<b class="sub-arrow"></b>
 		</li>
-@can('user-list')
+ @can('user-list') 
 
 		<li class="nav-item {{isset($menu) ? ($menu=='system_setting' ? 'active open' : '') : ''}}">
 			<a href="#" id="system_setting" class="nav-link dropdown-toggle {{isset($menu) ? ($menu=='system_setting' ? '' : 'collapsed') : 'collapsed'}}">
@@ -134,10 +134,11 @@
 			</div>
 			<b class="sub-arrow"></b>
 		</li>
+
         @endcan
     
 
-        <li class="nav-item {{isset($menu) ? ($menu=='IGP' ? 'active open' : '') : ''}}">
+    <li class="nav-item {{isset($menu) ? ($menu=='IGP' ? 'active open' : '') : ''}}">
             <a href="#" id="IGP" class="nav-link dropdown-toggle {{isset($menu) ? ($menu=='IGP' ? '' : 'collapsed') : 'collapsed'}}">
                     <i class="nav-icon fa fa-cube"></i>
                     <span class="nav-text fadeable">
@@ -154,13 +155,13 @@
                                             </span>
                                     </a>
                             </li>
-                  
-              
+
+
                     </ul>
             </div>
             <b class="sub-arrow"></b>
         </li>
-@can('HomeDepartment-list')
+ @can('HomeDepartment-list') 
 
 <li class="nav-item {{isset($menu) ? ($menu=='HomeDepartment' ? 'active open' : '') : ''}}">
     <a href="#" id="HomeDepartment" class="nav-link dropdown-toggle {{isset($menu) ? ($menu=='HomeDepartment' ? '' : 'collapsed') : 'collapsed'}}">
@@ -186,8 +187,10 @@
 </div>
 <b class="sub-arrow"></b>
 </li>
+
 @endcan
 @can('interior-list')
+
 <li class="nav-item {{isset($menu) ? ($menu=='InteriorMinitries' ? 'active open' : '') : ''}}">
     <a href="#" id="InteriorMinitries" class="nav-link dropdown-toggle {{isset($menu) ? ($menu=='InteriorMinitries' ? '' : 'collapsed') : 'collapsed'}}">
             <i class="nav-icon fa fa-cube"></i>
@@ -212,7 +215,7 @@
 </div>
 <b class="sub-arrow"></b>
 </li>
-@endcan
+{{-- @endcan --}}
 </nav>
 
 							{{-- <li class="nav-item {{isset($sub_menu) ? ($sub_menu=='users' ? 'active' : '') : ''}}">

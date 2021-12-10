@@ -29,26 +29,42 @@
 
     <link rel="stylesheet" type="text/css" href="{{asset('assets/npm\eonasdan-bootstrap-datetimepicker@4.17.47\build\css\bootstrap-datetimepicker.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/ace.min.css')}}">
-    
-      
+
+
 
   </head>
+
+  <style>
+    .b-container {
+      background-image: linear-gradient(#1E2635, #1E2635);
+      background-attachment: fixed;
+
+      background-repeat: no-repeat;
+    }
+    .b-containers {
+      background-image: linear-gradient(#1E2635, #1E2635);
+      background-attachment: fixed;
+      opacity: 16px;
+      box-shadow: linear-gradient(#000000, #000000);
+      background-repeat: no-repeat;
+    }
+    </style>
 
   <body>
     <div class="body-container">
       <div class="main-container">
-        <div id="sidebar" class="sidebar sidebar-dark sidebar-color sidebar-fixed sidebar-backdrop expandable" data-swipe="true" data-dismiss="true">
+        <div  id="sidebar" class="b-container sidebar sidebar-dark sidebar-color sidebar-fixed sidebar-backdrop expandable" data-swipe="true" data-dismiss="true">
           <div class="sidebar-inner">
             <div class="ace-scroll flex-grow-1 mt-1px" data-ace-scroll="{}">
               <!-- all sidebar header is inside scrollable area -->
               <!-- .navbar-brand inside sidebar, only shown in desktop view -->
               <!-- .navbar-brand inside sidebar, only shown in desktop view -->
-              <div class="d-none d-xl-flex sidebar-section-item fadeable-left fadeable-top">
+              <div class="d-none d-xl-flex  sidebar-section-item fadeable-left fadeable-top">
                 <div class="fadeinable">
                   <!-- shown when sidebar is collapsed -->
                   <div class="py-2 mx-1" id="sidebar-header-brand1">
                     <a class="navbar-brand text-140">
-                      <i class="fa fa-leaf text-success-l1"></i>
+                        <span><img src="{{ asset('assets/image/ig.png') }}" style="width: 50px" ;>
                     </a>
                   </div>
                 </div>
@@ -56,13 +72,16 @@
                 <div class="fadeable w-100">
                   <!-- shown when sidebar is full-width -->
                   <div class="py-2 text-center mx-3" id="sidebar-header-brand2">
-                    <a class="navbar-brand ml-n2 text-140 text-white" href="#">
-                      <i class="fa fa-leaf mr-1 text-success-l1"></i>
-                      ACE <span>App</span>
+
+                    <a class="navbar-brand ml-n2 text-140 text-white " href="#">
+                      {{-- <i class="fa fa-leaf mr-1 text-success-l1"></i> --}}
+                     <span class="text-danger"><img src="{{ asset('assets/image/ig.png') }}" style="width: 50px" ;></span>
+                    <span style="color:blue"> IG </span><span style ="color:red">|Prisons</span>
                     </a>
                   </div>
+
                 </div>
-              </div><!-- /.sidebar-section-item  -->
+              </div><!-- /.sdebar-section-item  -->
 
 
               @include('layouts.navigation-portal')
@@ -76,8 +95,8 @@
 
 
         <div role="main" class="main-content">
-          <nav class="navbar navbar-sm navbar-expand-lg navbar-fixed navbar-white">
-            <div class="navbar-inner shadow-md">
+          <nav class="navbar navbar-sm navbar-expand-lg sidebar-dark navbar-fixed navbar-dark">
+            <div class="b-containers navbar-inner shadow-md sidebar-light">
 
               <button type="button" class="btn btn-burger align-self-center ml-25 mr-2 d-none d-xl-flex btn-h-lighter-blue" data-toggle="sidebar" data-target="#sidebar" aria-controls="sidebar" aria-expanded="true" aria-label="Toggle sidebar">
                 <span class="bars text-default"></span>
@@ -102,10 +121,10 @@
                   </div>
                 </div> --}}
                 {{-- START breadcrumb --}}
-                <div class="d-none d-xl-inline-flex">
+                {{-- <div class="d-none d-xl-inline-flex">
                   <div>
                     <ol class="breadcrumb breadcrumb-nosep align-items-center pl-1 text-nowrap mr-2">
-                      <li class="breadcrumb-item text-secondary text-500">
+                      <li class="breadcrumb-item text-white text-500">
                         @hasSection ('module')
                             @yield('module')
                         @else
@@ -120,7 +139,7 @@
                       </li>
                     </ol>
                   </div>
-                </div>
+                </div> --}}
                 {{-- END breadcrumb  --}}
 
                 {{-- <a class="navbar-brand d-xl-none mx-1 text-dark-m3 text-130" href="{{route('portal.dashboard')}}" style="font-family: 'Pacifico';">{{config('app.name')}}</a> --}}
@@ -159,7 +178,7 @@
                 <div class="navbar-nav">
                   <ul class="nav has-active-border">
                     <li class="nav-item dropdown dropdown-mega">
-                      <a class="nav-link dropdown-toggle mr-1px" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                      <a class="nav-link dropdown-toggle mr-1px text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-list-alt mr-2 d-lg-none"></i>
                         @auth
                           <img class="mr-2 radius-round border-2 brc-primary-tp3 p-1px" src="{{ Auth::user()->picture ?? asset('..\assets\image\avatar\avatar4.png')}}" width="36" alt="Natalie's Photo">
@@ -170,24 +189,26 @@
                       </a>
                       <div class="p-0 dropdown-menu dropdown-animated brc-primary-m3 border-b-2 ml-1 mr-1px w-auto bgc-default-l4 dropdown-clickable" style="left:auto">
                         <div class="d-flex flex-column">
+
                           <div class="row mx-0">
                             
+
                           <div class="order-first order-lg-last ">
                             <hr class="d-none d-lg-block brc-default-l1 my-0">
                             <div class="row mx-0 bgc-primary-l4">
                               <div class="col-lg-8 offset-lg-2 d-flex justify-content-center py-4 d-flex">
                                 <a href="{{route('portal.users.profile')}}" class="mx-2px btn btn-sm btn-app btn-outline-warning btn-h-outline-warning btn-a-outline-warning radius-1 border-2">
-                                  <i class="fa fa-user text-190 d-block mb-2 h-4"></i>
+                                  <i class="fa fa-user text-100 d-block mb-2 h-4"></i>
                                   Profile
                                 </a>
                                 <a href="{{route('portal.users.password')}}" class="mx-2px btn btn-sm btn-app btn-outline-info btn-h-outline-info radius-1 border-2">
-                                  <i class="fa fa-key text-190 d-block mb-2 h-4"></i>
+                                  <i class="fa fa-key text-100 d-block mb-2 h-4"></i>
                                   Password
                                 </a>
                                 <form id="logout-form" action="{{route('logout')}}" method="POST" class="d-inline-block">
                                   @csrf
                                   <button type="submit" class="mx-2px btn btn-sm btn-app btn-dark radius-1">
-                                    <i class="fa fa-sign-out-alt text-150 d-block mb-2 h-4"></i>
+                                    <i class="fa fa-sign-out-alt text-100 d-block mb-2 h-4"></i>
                                     Logout
                                   </button>
                                 </form>
@@ -206,6 +227,31 @@
             </div>
 
           </nav>
+          <nav aria-label="breadcrumb" class="bg-white">
+            <ol class="breadcrumb">
+
+             <div class="d-none d-xl-inline-flex">
+                <div>
+                  <ol class="breadcrumb breadcrumb-nosep align-items-center pl-1 text-nowrap mr-2">
+                    <li class="breadcrumb-item text-dark text-500">
+                      @hasSection ('module')
+                          @yield('module')
+                      @else
+                        Welcome
+                      @endif
+                    </li>
+                    <li class="mx-15 text-grey-l4 text-110">></li>
+                    <li class="breadcrumb-item active text-dark-tp4 text-105 text-300">
+                      @hasSection ('element')
+                          @yield('element')
+                      @endif
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </ol>
+          </nav>
+
           <div class="page-content container container-plus">
             <!-- page header -->
             <div class="d-lg-none page-header border-0 py-0">
@@ -393,7 +439,7 @@
             }
           }, 10)
         })
-      
+
 
     })
     </script>

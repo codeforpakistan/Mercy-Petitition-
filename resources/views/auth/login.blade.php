@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
     <base href="../" />
 
-    <title>Login - Ace Admin</title>
+    <title>Login - Mercy Petition System</title>
 
     <!-- include common vendor stylesheets & fontawesome -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
@@ -37,7 +37,7 @@
     <!-- "Login" page styles, specific to this page for demo only -->
     <style>
       .body-container {
-        background-image: linear-gradient(#6baace, #264783);
+        background-image: linear-gradient(#ac141b, #1a57c9);
         background-attachment: fixed;
         background-repeat: no-repeat;
       }
@@ -68,7 +68,7 @@
     <div class="body-container">
 
       <div class="main-container container bgc-transparent">
-        
+
         <div class="main-content minh-100 justify-content-center">
           <div class="p-2 p-md-4">
             <div class="row" id="row-1">
@@ -92,14 +92,15 @@
                           <!-- default carousel section that you see when you open login page -->
                           <div style="background-image: url({{asset('assets/image/login-bg-1.svg')}});" class="px-3 bgc-blue-l4 d-flex flex-column align-items-center justify-content-center">
                             <a class="mt-5 mb-2" href="html/dashboard.html">
-                              <i class="fa fa-leaf text-success-m2 fa-3x"></i>
+                              {{-- <i class="fa fa-leaf text-success-m2 fa-3x"></i> --}}
+                              <img src="{{ asset('assets/image/ig.png') }}" style="width: 300px" ;>
                             </a>
 
                             <h2 class="text-primary-d1">
-                              Ace <span class="text-80 text-dark-l1">Application</span>
+                              Mercy <span class="text-80 text-danger-l1">Petition System</span>
                             </h2>
 
-                            <div class="mt-5 mx-4 text-dark-tp3">
+                            {{-- <div class="mt-5 mx-4 text-dark-tp3">
                               <span class="text-120">
                            Join our community to make friends,<br /> meet experts &amp; receive exclusive offers!
                        </span>
@@ -120,16 +121,16 @@
                                   Make full-size
                                 </a>
                               </div>
-                            </div>
+                            </div> --}}
 
                             <div class="mt-auto mb-4 text-dark-tp2">
-                              Ace Company &copy; 2020
+                              Code For Pakistan &copy; 2021
                             </div>
                           </div>
                         </div>
 
 
-
+{{--
                         <div class="carousel-item minw-100 h-100">
                           <!-- the second carousel item with dark background -->
                           <div style="background-image: url({{asset('assets/image/login-bg-2.svg')}});" class="d-flex flex-column align-items-center justify-content-start">
@@ -138,13 +139,13 @@
                             </a>
 
                             <h2 class="text-blue-l1">
-                              Ace <span class="text-80 text-white-tp3">Application</span>
+                              Mercy <span class="text-80 text-white-tp3">petition System</span>
                             </h2>
                           </div>
-                        </div>
+                        </div> --}}
 
 
-
+{{--
                         <div class="carousel-item minw-100 h-100">
                           <div style="background-image: url({{asset('assets/image/login-bg-3.jpg')}});" class="d-flex flex-column align-items-center justify-content-start">
                             <div class="bgc-black-tp4 radius-1 p-3 w-90 text-center my-3 h-100">
@@ -153,11 +154,11 @@
                               </a>
 
                               <h2 class="text-blue-l1">
-                                Ace <span class="text-80 text-white-tp3">Application</span>
+                                Mercy <span class="text-80 text-white-tp3">Petition System</span>
                               </h2>
                             </div>
                           </div>
-                        </div>
+                        </div> --}}
 
 
 
@@ -186,11 +187,11 @@
                           Login
                         </a>
                       </li>
-                      <li class="nav-item mx-2">
+                      {{-- <li class="nav-item mx-2">
                         <a class="nav-link px-2" data-toggle="tab" href="#id-tab-signup" role="tab" aria-controls="id-tab-signup" aria-selected="false">
                           Signup
                         </a>
-                      </li>
+                      </li> --}}
                     </ul>
 
 
@@ -200,8 +201,8 @@
                         <!-- show this in desktop -->
                         <div class="d-none d-lg-block col-md-6 offset-md-3 mt-lg-4 px-0">
                           <h4 class="text-dark-tp4 border-b-1 brc-secondary-l2 pb-1 text-130">
-                            <i class="fa fa-coffee text-orange-m1 mr-1"></i>
-                            Welcome Back
+                            {{-- <i class="fa fa-coffee text-orange-m1 mr-1"></i> --}}
+                            Welcome
                           </h4>
                         </div>
 
@@ -218,7 +219,7 @@
 
                           Welcome back
                         </div>
-                     
+
   @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -226,22 +227,22 @@
                                 @enderror
 
                         <form method="POST" action="{{ route('login') }}" autocomplete="off" class="form-row mt-4">
-                            @csrf 
+                            @csrf
                           <div class="form-group col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
                                                         @if ($errors->any())
         <div class="alert alert-danger">
-         
+
             <ul>
 
                 @foreach ($errors->all() as $error)
                 {{ $error }}
                 @endforeach
             </ul>
-          
+
         </div><br />
         @endif
                             <div class="d-flex align-items-center input-floating-label text-blue brc-blue-m2">
-                                 
+
                                 <input type="email" class="form-control form-control-lg pr-4 shadow-none @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus />
 
                               <i class="fa fa-user text-grey-m2 ml-n4"></i>
@@ -260,7 +261,7 @@
                                     </span>
                                 @enderror
                               <input type="password" class="form-control form-control-lg pr-4 shadow-none @error('password') is-invalid @enderror" id="password" name="password" required autocomplete="current-password"/>
-                              
+
                               <i class="fa fa-key text-grey-m2 ml-n4"></i>
                               <label class="floating-label text-grey-l1 ml-n3" for="id-login-password">
                                 Password
@@ -270,21 +271,21 @@
 
                              <div class="form-group col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 mt-2 mt-md-1">
                             <div class="d-flex align-items-center input-floating-label text-blue brc-blue-m2">
- 
+
                 <div class="captcha">
                     <span>{!! captcha_img() !!}</span>
                     <button type="button" class="btn btn-danger" class="reload" id="reload">
                         &#x21bb;
                     </button>
                 </div>
-            
+
 </div>
                           </div>
                           <div class="form-group col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 mt-2 mt-md-1">
                             <div class="d-flex align-items-center input-floating-label text-blue brc-blue-m2">
                             <input id="captcha" type="text" class="form-control" placeholder="Enter Captcha" name="captcha">
-           
-                              
+
+
                             </div>
                           </div>
 
@@ -297,14 +298,14 @@
 
 
                           <div class="form-group col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-                            <label class="d-inline-block mt-3 mb-0 text-dark-l1">
-                              
+                            {{-- <label class="d-inline-block mt-3 mb-0 text-dark-l1">
+
                               <input class="mr-1" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                               Remember me
-                            </label>
+                            </label> --}}
 
                             <button type="Submit" class="btn btn-primary btn-block px-4 btn-bold mt-2 mb-4">
-                              Sign In
+                              Login
                             </button>
                           </div>
                         </form>
@@ -313,19 +314,19 @@
                         <div class="form-row">
                           <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 d-flex flex-column align-items-center justify-content-center">
 
-                            <hr class="brc-default-l2 mt-0 mb-2 w-100" />
+                            {{-- <hr class="brc-default-l2 mt-0 mb-2 w-100" /> --}}
 
-                            <div class="p-0 px-md-2 text-dark-tp3 my-3">
+                            {{-- <div class="p-0 px-md-2 text-dark-tp3 my-3">
                               Not a member?
                               <a class="text-success-m1 text-600 mx-1" data-toggle="tab" data-target="#id-tab-signup" href="#">
                                 Signup now
                               </a>
-                            </div>
+                            </div> --}}
 
-                            <hr class="brc-default-l2 w-100 mb-2" />
-                            <div class="mt-n4 bgc-white-tp2 px-3 py-1 text-secondary-d3 text-90">Or Get Started Using</div>
+                            {{-- <hr class="brc-default-l2 w-100 mb-2" /> --}}
+                            {{-- <div class="mt-n4 bgc-white-tp2 px-3 py-1 text-secondary-d3 text-90">Or Get Started Using</div> --}}
 
-                            <div class="my-2">
+                            {{-- <div class="my-2">
                               <button type="button" class="btn btn-bgc-white btn-lighter-primary btn-h-primary btn-a-primary border-2 radius-round btn-lg mx-1">
                                 <i class="fab fa-facebook-f text-110"></i>
                               </button>
@@ -337,7 +338,7 @@
                               <button type="button" class="btn btn-bgc-white btn-lighter-red btn-h-red btn-a-red border-2 radius-round btn-lg px-25 mx-1">
                                 <i class="fab fa-google text-110"></i>
                               </button>
-                            </div>
+                            </div> --}}
 
                           </div>
                         </div>
@@ -443,7 +444,7 @@
                             <hr class="brc-default-l2 w-100 mb-2" />
                             <div class="mt-n4 bgc-white-tp2 px-3 py-1 text-secondary-d3 text-90">Or Register Using</div>
 
-                            <div class="mt-2 mb-3">
+                            {{-- <div class="mt-2 mb-3">
                               <button type="button" class="btn btn-primary border-2 radius-round btn-lg mx-1">
                                 <i class="fab fa-facebook-f text-110"></i>
                               </button>
@@ -455,7 +456,7 @@
                               <button type="button" class="btn btn-danger border-2 radius-round btn-lg px-25 mx-1">
                                 <i class="fab fa-google text-110"></i>
                               </button>
-                            </div>
+                            </div> --}}
 
                           </div>
                         </div>
@@ -521,7 +522,7 @@
             </div><!-- /.row -->
 
             <div class="d-lg-none my-3 text-white-tp1 text-center">
-              <i class="fa fa-leaf text-success-l3 mr-1 text-110"></i> Ace Company &copy; 2020
+              <i class="fa fa-leaf text-success-l3 mr-1 text-110"></i> Code for Pakistan&copy; 2021
             </div>
           </div>
         </div>
@@ -585,7 +586,7 @@
             $('#row-1')
               .addClass('justify-content-center') // so .col is centered
 
-              .find('> .col-12') // change .col-12.col-xl-10, etc to .col-12.col-lg-6.col-xl-5 (so our login area is 50% of document width in `lg` mode , etc)        
+              .find('> .col-12') // change .col-12.col-xl-10, etc to .col-12.col-lg-6.col-xl-5 (so our login area is 50% of document width in `lg` mode , etc)
               .removeClass('col-12 col-xl-10 offset-xl-1').addClass(!isFullsize ? 'col-12 col-lg-6 col-xl-5' : '')
 
 
