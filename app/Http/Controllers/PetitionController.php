@@ -79,6 +79,8 @@ class PetitionController extends Controller
                     $request->otherdocument->move(public_path('assets/image'), $otherdocument);
 
                     // $request->otherdocument->store('assets/image', 'public');
+                  $file=  explode(".",$otherdocument);
+                  $file['1'];
 
                  }
                 //  $now = date('Y-m-d',strttotime($request->get('warrent_date'))); //Fomat Date and time //you are overwriting this variable below
@@ -127,9 +129,8 @@ class PetitionController extends Controller
         return back()->with('session','Petion Successfully save');
         }
 
-public function forward(){
-
-return view('igp.forward');
-
-}
+        public function forwardpetition($id){
+        //   dd($id);()
+        return view('IGP.forward');
+        }
 }

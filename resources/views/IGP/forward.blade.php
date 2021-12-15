@@ -37,7 +37,7 @@
                       <label for="name" class="mb-0">PetitionID</label>
                   </div>
                   <div class="col-sm-9">
-                      <input type="text" class="form-control col-sm-8 col-md-6" name="name" id="name" placeholder="Enter User Name">
+                      <input type="text" disabled value="{{ request()->route('id') }}" class="form-control col-sm-8 col-md-6" name="name" id="name" >
                   </div>
               </div>
               <div class="form-group row">
@@ -57,7 +57,7 @@
                       <label for="email" class="mb-0">Remarks</label>
                   </div>
                   <div class="col-sm-9">
-                      <textarea type="text" class="form-control col-sm-8 col-md-6" id="email" name="email" placeholder="Enter User Email"></textarea>
+                      <textarea type="text" class="form-control col-sm-8 col-md-6" id="email" name="email" placeholder="Enter remarks"></textarea>
                   </div>
               </div>
               <div class="form-group row">

@@ -29,8 +29,10 @@ Route::get('/dashboard', function () {
 Route::get('logout','Auth\loginController@logout')->name('logout');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/petitionforward/{id}','PetitionController@forwardpetition')->name('petition-forward');
 Route::get('/petitionedit/{id}','PetitionController@edit')->name('petition-edit');
-Route::Post('/petitionupdate/{id','PetitionController@petitionupdate')->name('petition-update');
+Route::Post('/petitionupdate/{id}','PetitionController@petitionupdate')->name('petition-update');
 Route::group(['middleware' => ['auth']], function() {
 
     Route::resource('roles','RoleController');

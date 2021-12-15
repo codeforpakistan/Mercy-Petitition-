@@ -156,13 +156,13 @@
                                             </span>
                                     </a>
                             </li>
-                    <li class="nav-item {{isset($sub_menu) ? ($sub_menu=='Petition' ? 'active' : '') : ''}}">
+                    {{-- <li class="nav-item {{isset($sub_menu) ? ($sub_menu=='Petition' ? 'active' : '') : ''}}">
                                     <a href="{{route('igpforward')}}" class="nav-link">
                                             <span class="nav-text">
                                                     <span>Forward</span>
                                             </span>
                                     </a>
-                            </li>
+                            </li> --}}
 
 
                     </ul>

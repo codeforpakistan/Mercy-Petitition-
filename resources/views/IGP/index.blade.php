@@ -117,9 +117,9 @@
                                   <i class="fa fa-pencil-alt"></i>
                                 </a>
 
-                                <a href="#" class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-danger btn-a-lighter-danger">
-                                  <i class="fa fa-trash-alt"></i>
-                                </a>
+                                <a href="{{route('petition-forward',[$petion->id])}}" class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success">
+                                    <i class="fa fa-plus"></i>
+                                  </a>
                                 <a href="#" class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-warning btn-a-lighter-warning">
                                   <i class="fa fa-ellipsis-v mx-1"></i>
                                 </a>
