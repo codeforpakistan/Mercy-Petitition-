@@ -16,27 +16,27 @@
                 Add New Petion
                 </h3>
               </div>
-              
-              <form style="margin-left:12px; margin-right:12px;padding-top:12px" action="{{route('storepetition')}}" method="post" enctype="multipart/form-data">
+             
+              <form style="margin-left:12px; margin-right:12px;padding-top:12px" action="{{route('petition-update',[$petitionsedit->id])}}" method="post" enctype="multipart/form-data">
                          @csrf   
               <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Name</label>
-      <input type="text" name="name" class="form-control" id="inputEmail4" placeholder="Enter Name">
+      <input type="text" name="name" value="{{$petitionsedit->name}}" class="form-control" id="inputEmail4" placeholder="Enter Name">
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">F-Name</label>
-      <input type="text" name="f_name" class="form-control" id="inputPassword4" placeholder="Father Name">
+      <input type="text" name="f_name" value="{{$petitionsedit->f_name}}" class="form-control" id="inputPassword4" placeholder="Father Name">
     </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
           <label for="inputState">Warrent Information</label>
-      <input type="text" name="warrent_information" placeholder="Enter Warrent Information" class="form-control" id="inputCity">
+      <input type="text" name="warrent_information" value="{{$petitionsedit->warrent_information}}" placeholder="Enter Warrent Information" class="form-control" id="inputCity">
     </div>
     <div class="form-group col-md-6">
     <label for="inputCity">Sentence in Court</label>
-      <input type="text" name="sentence_in_court"  placeholder="Enter name of Court"class="form-control" id="inputCity">
+      <input type="text" name="sentence_in_court" value="{{$petitionsedit->sentence_in_court}}"  placeholder="Enter name of Court"class="form-control" id="inputCity">
      
     </div>
   </div>
@@ -52,7 +52,7 @@
     </div>
     <div class="form-group col-md-6">
       <label for="inputState">Fir & Date</label>
-      <input type="text" name="fir&date" class="form-control" id="inputCity">
+      <input type="text" name="fir&date" value="" class="form-control" id="inputCity">
     </div>
   
   </div>
@@ -69,7 +69,7 @@
     <div class="form-group col-md-6">
     <label for="inputState">DOB</label>
      
-     <input type="date" name="dob"class="form-control" >
+     <input type="date" value="{{$petitionsedit->dob}}"  name="dob"class="form-control" >
     </div>
   
   </div>
@@ -86,7 +86,9 @@
     <label for="form-field-select-11">Section</label>
     <select name="section_id" class="ace-select text-dark-m1 bgc-default-l5 bgc-h-warning-l3 brc-default-m3 brc-h-warning-m1" id="form-field-select-11">
     @foreach ($sections as $section)
-                        <option value='{{$section->id}}'>{{$section->undersection}}</option>
+                      
+                        
+   <option value="{{$section->id}}"  {{$petitionsedit->select_id == $section->id ? 'selected="selected"' : '' }}>{{$section->undersection}}</option>
                        @endforeach
                       </select>
     </div>
@@ -96,11 +98,11 @@
     <div class="form-group col-md-6">
     <label for="inputState">Mercy petition Date</label>
      
-     <input type="Date"  name="mercypetitiondate" class="form-control" placeholder=" Pick Mercy petition Date" >
+     <input type="Date"  name="mercypetitiondate" value="{{$petitionsedit->mercypetitiondate}}" class="form-control" placeholder=" Pick Mercy petition Date" >
     </div>
     <div class="form-group col-md-6">
     <label for="inputCity">Date of sentence</label>
-      <input type="Date" name="date_of_sentence"class="form-control" id="inputCity">
+      <input type="Date" name="date_of_sentence"class="form-control" value="{{$petitionsedit->date_of_sentence}}"id="inputCity">
     </div>
   
   </div>
@@ -120,7 +122,7 @@
     <div class="form-group col-md-6">
       <label for="inputState">Warrent Date (Jail entry Date)</label>
      
-                    <input type="Date" class="form-control" name="warrent_date" placeholder=" Pick Warrent Date (Jail entry Date)">
+                    <input type="Date" class="form-control" value="{{$petitionsedit->warrent_date}}" name="warrent_date" placeholder=" Pick Warrent Date (Jail entry Date)">
                     
    
   
@@ -129,10 +131,12 @@
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputCity">Application Attachment</label>
+      <img src="{{ asset('/assets/image/'.$petitionsedit->application_image) }}" width="50" height="50" alt="pic"/>
       <input type="file"  name="application_image"class="ace-file-input" id="ace-file-input1">
     </div>
     <div class="form-group col-md-6">
       <label for="inputState">Health Report Attachment</label>
+      <img src="{{ asset('/assets/image/'.$petitionsedit->health_paper) }}"width="50" height="50" alt="pic"/>
       <input type="file" name="health_paper" class="ace-file-input" id="ace-file-input22">
     </div>
   
@@ -140,10 +144,12 @@
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputCity">Prisoner Image</label>
+      <img src="{{ asset('/assets/image/'.$petitionsedit->prisoner_image) }}"width="50" height="50" alt="pic"/>
       <input type="file" name="prisoner_image" class="ace-file-input" id="ace-file-input12">
     </div>
     <div class="form-group col-md-6">
       <label for="inputState">Warrent File Attachment</label>
+      <img src="{{ asset('/assets/image/'.$petitionsedit->warrent_file) }}"width="50" height="50" alt="pic"/>
       <input type="file" name="warrent_file" class="ace-file-input"  id="ace-file-input13">
     </div>
   
@@ -153,6 +159,7 @@
     <div class="form-group col-md-12">
       
       <label for="inputCity">Other FIle Attchment</label>
+      <img src="{{ asset('/assets/image/'.$filepetition->file) }}"width="50" height="50" alt="pic"/>
       <input type="file" name="otherdocument" class="ace-file-input" id="ace-file-input2" multiple="">
     </div>
     
@@ -163,7 +170,7 @@
                     <div class="offset-md-3 col-md-9 text-nowrap">
                       <button class="btn btn-info btn-bold px-4" type="submit">
                         <i class="fa fa-check mr-1"></i>
-                        Submit
+                       UPdate petition
                       </button>
 
                       <button class="btn btn-outline-lightgrey btn-bold ml-2 px-4" type="reset">

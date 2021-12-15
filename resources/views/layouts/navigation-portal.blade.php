@@ -137,7 +137,7 @@
 
         @endcan
     
-
+        @can('jail-supt-list') 
     <li class="nav-item {{isset($menu) ? ($menu=='IGP' ? 'active open' : '') : ''}}">
             <a href="#" id="IGP" class="nav-link dropdown-toggle {{isset($menu) ? ($menu=='IGP' ? '' : 'collapsed') : 'collapsed'}}">
                     <i class="nav-icon fa fa-cube"></i>
@@ -161,6 +161,7 @@
             </div>
             <b class="sub-arrow"></b>
         </li>
+        @endcan
  @can('HomeDepartment-list') 
 
 <li class="nav-item {{isset($menu) ? ($menu=='HomeDepartment' ? 'active open' : '') : ''}}">
@@ -215,7 +216,7 @@
 </div>
 <b class="sub-arrow"></b>
 </li>
-{{-- @endcan --}}
+ @endcan 
 </nav>
 
 							{{-- <li class="nav-item {{isset($sub_menu) ? ($sub_menu=='users' ? 'active' : '') : ''}}">

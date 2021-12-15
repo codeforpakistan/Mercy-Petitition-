@@ -87,7 +87,38 @@
 					</select>
 				</div>
 			</div>
+			<div class="form-group row">
+				<div class="col-sm-3 col-form-label text-sm-right pr-0">
+					<label for="roles">Confined In Jail</label>
+				</div>
+				<div class="col-sm-5 col-12 tag-input-style">
+		
 
+                      <select name="confined_in_jail" class="ace-select text-dark-m1 bgc-default-l5 bgc-h-warning-l3 brc-default-m3 brc-h-warning-m1" id="form-field-select-11">
+                        
+                        <option value='CP-peshawar'>CP-peshawar</option>
+                        <option value='Mardan'>Mardan</option>
+						<option value='Bannu'>Bannu</option>
+						<option value='haripur'>haripur</option>
+                        
+                      </select>
+					  </div>
+			</div>
+			<div class="form-group row">
+				<div class="col-sm-3 col-form-label text-sm-right pr-0">
+					<label for="roles">Status</label>
+				</div>
+				<div class="col-sm-5 col-12 tag-input-style">
+		
+
+                      <select name="status" class="ace-select text-dark-m1 bgc-default-l5 bgc-h-warning-l3 brc-default-m3 brc-h-warning-m1" id="form-field-select-11">
+                        
+                        <option value='1'>Active</option>
+                        <option value='0'>Deactive</option>
+                        
+                      </select>
+					  </div>
+			</div>
 			<div class="mt-5 border-t-1 brc-secondary-l2 py-35 mx-n25">
 				<div class="offset-md-3 col-md-9 text-nowrap">
 						<button class="btn btn-info btn-bold px-4" type="submit">
