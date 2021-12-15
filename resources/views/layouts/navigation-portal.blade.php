@@ -42,14 +42,15 @@
                                        <!-- the user avatar and image -->
               <div class="sidebar-section-item pt-2 fadeable-left fadeable-top">
                 <div class="fadeinable">
-                  <img alt="Natalie's avatar" src="assets/image/avatar/avatar3.jpg" width="48" class="p-2px border-2 brc-primary-tp2 radius-round" />
+                    <img class="mr-2 radius-round border-2 brc-primary-tp3 p-1px" src="{{ Auth::user()->picture ?? asset('..\assets\image\avatar\avatar4.png')}}" width="36" alt="Natalie's Photo">
+                    {{ Auth::user()->name }}
                 </div>
 
                 <div class="fadeable hideable">
                   <div class="py-2 d-flex flex-column align-items-center">
                     @auth
-                      <img alt="Natalie's avatar" src="assets/image/avatar/avatar.png" class="p-2px border-2 brc-primary-m2 radius-round" />
-                      {{ Auth::user()->name }}
+                    <img class="mr-2 radius-round border-2 brc-primary-tp3 p-1px" src="{{ Auth::user()->picture ?? asset('..\assets\image\avatar\avatar4.png')}}" width="36" alt="Natalie's Photo">
+                    <span style="color: white">{{ Auth::user()->name }}</span>
 
                     @endauth
 
@@ -97,7 +98,7 @@
 
 			<b class="sub-arrow"></b>
 		</li>
- @can('user-list') 
+ @can('user-list')
 
 		<li class="nav-item {{isset($menu) ? ($menu=='system_setting' ? 'active open' : '') : ''}}">
 			<a href="#" id="system_setting" class="nav-link dropdown-toggle {{isset($menu) ? ($menu=='system_setting' ? '' : 'collapsed') : 'collapsed'}}">
@@ -136,7 +137,8 @@
 		</li>
 
         @endcan
-    
+
+        @can('petition-list')
 
     <li class="nav-item {{isset($menu) ? ($menu=='IGP' ? 'active open' : '') : ''}}">
             <a href="#" id="IGP" class="nav-link dropdown-toggle {{isset($menu) ? ($menu=='IGP' ? '' : 'collapsed') : 'collapsed'}}">
@@ -155,13 +157,21 @@
                                             </span>
                                     </a>
                             </li>
+                    <li class="nav-item {{isset($sub_menu) ? ($sub_menu=='Petition' ? 'active' : '') : ''}}">
+                                    <a href="{{route('igpforward')}}" class="nav-link">
+                                            <span class="nav-text">
+                                                    <span>Forward</span>
+                                            </span>
+                                    </a>
+                            </li>
 
 
                     </ul>
             </div>
             <b class="sub-arrow"></b>
         </li>
- @can('HomeDepartment-list') 
+        @endcan
+ @can('HomeDepartment-list')
 
 <li class="nav-item {{isset($menu) ? ($menu=='HomeDepartment' ? 'active open' : '') : ''}}">
     <a href="#" id="HomeDepartment" class="nav-link dropdown-toggle {{isset($menu) ? ($menu=='HomeDepartment' ? '' : 'collapsed') : 'collapsed'}}">
@@ -215,7 +225,7 @@
 </div>
 <b class="sub-arrow"></b>
 </li>
-{{-- @endcan --}}
+@endcan
 </nav>
 
 							{{-- <li class="nav-item {{isset($sub_menu) ? ($sub_menu=='users' ? 'active' : '') : ''}}">

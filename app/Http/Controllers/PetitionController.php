@@ -7,13 +7,13 @@ use Illuminate\Http\Request;
 class PetitionController extends Controller
 {
 
-    // function __construct()
-    // {
-    //      $this->middleware('permission:petition-list|petition-create|petition-edit|petition-delete', ['only' => ['index','store']]);
-    //      $this->middleware('permission:petition-create', ['only' => ['create','store']]);
-    //      $this->middleware('permission:petition-edit', ['only' => ['edit','update']]);
-    //      $this->middleware('permission:petition-delete', ['only' => ['destroy']]);
-    // }
+    function __construct()
+    {
+         $this->middleware('permission:petition-list|petition-create|petition-edit|petition-delete', ['only' => ['index','store']]);
+         $this->middleware('permission:petition-create', ['only' => ['create','store']]);
+         $this->middleware('permission:petition-edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:petition-delete', ['only' => ['destroy']]);
+    }
     public function index(){
 
         return view('IGP.index');
@@ -29,47 +29,47 @@ class PetitionController extends Controller
     //                if ($files = $request->file('profile_image')) {
     //                // Define upload path
     //                    $destinationPath = public_path('/assets/image'); // upload path
-    //          // Upload Orginal Image           
+    //          // Upload Orginal Image          
     //                    $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
     //                    $files->move($destinationPath, $profileImage);
     //                
-            
+
     //                 }
     //         if ($files = $request->file('profile_image')) {
     //                    // Define upload path
     //                        $destinationPath = public_path('/assets/image'); // upload path
-    //              // Upload Orginal Image           
+    //              // Upload Orginal Image          
     //                        $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
     //                        $files->move($destinationPath, $profileImage);
     //                    
-                
+
     //                     }
     //             if ($files = $request->file('profile_image')) {
     //                        // Define upload path
     //                            $destinationPath = public_path('/assets/image'); // upload path
-    //                  // Upload Orginal Image           
+    //                  // Upload Orginal Image          
     //                            $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
     //                            $files->move($destinationPath, $profileImage);
     //                        
-                    
+
     //                         }
     //                 if ($files = $request->file('profile_image')) {
     //                            // Define upload path
     //                                $destinationPath = public_path('/assets/image'); // upload path
-    //                      // Upload Orginal Image           
+    //                      // Upload Orginal Image          
     //                                $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
     //                                $files->move($destinationPath, $profileImage);
     //                            
-                        
+
     //                             }
     //                     if ($files = $request->file('profile_image')) {
     //                                // Define upload path
     //                                    $destinationPath = public_path('/assets/image'); // upload path
-    //                          // Upload Orginal Image           
+    //                          // Upload Orginal Image          
     //                                    $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
     //                                    $files->move($destinationPath, $profileImage);
     //                                
-                            
+
     //                                 }
     //         $imagemodel= new Photo();
     //         $imagemodel->photo_name="$profileImage";
@@ -84,7 +84,7 @@ class PetitionController extends Controller
             'presionimage' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'file' => 'required|mimes:csv,txt,xlx,xls,jpeg,png,jpg,gif,svg,pdf|max:2048',
            ]);
-           if ($request->hasFile('applicationattachment') $$ $request->hasFile('presionimage') && $request->hasFile('warrentfileattachment')) {
+           if ($request->hasFile('applicationattachment') && $request->hasFile('presionimage') && $request->hasFile('warrentfileattachment')) {
 
                       $request->file->store('product', 'public');
 
@@ -112,5 +112,9 @@ class PetitionController extends Controller
 
         }
 
-           
+public function forward(){
+
+return view('igp.forward');
+
+}
 }

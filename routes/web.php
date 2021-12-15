@@ -29,6 +29,7 @@ Route::get('/dashboard', function () {
 Route::get('logout','Auth\loginController@logout')->name('logout');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/igpforward', 'PetitionController@forward')->name('igpforward');
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles','RoleController');
     Route::resource('Petition','PetitionController');

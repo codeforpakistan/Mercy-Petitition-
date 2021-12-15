@@ -16,9 +16,9 @@
                 Add New Petion
                 </h3>
               </div>
-              
+
               <form style="margin-left:12px; margin-right:12px;padding-top:12px" action="#" method="post" enctype="multipart/form-data">
-                         @csrf   
+                         @csrf
               <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Name</label>
@@ -37,10 +37,10 @@
     <div class="form-group col-md-6">
     <label for="inputCity">Sentence in Court</label>
       <input type="text" name="Sentence in Court"  placeholder="Enter name of Court"class="form-control" id="inputCity">
-     
+
     </div>
   </div>
- 
+
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="form-field-select-11">Physical Status</label>
@@ -54,11 +54,11 @@
       <label for="inputState">Fir & Date</label>
       <input type="text" name="firdate" class="form-control" id="inputCity">
     </div>
-  
+
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
-     
+
       <label for="form-field-select-11">Confined In Jail</label>
       <select class="ace-select text-dark-m1 bgc-default-l5 bgc-h-warning-l3 brc-default-m3 brc-h-warning-m1" id="form-field-select-11">
       <option value='WV'>West Virginia</option>
@@ -68,10 +68,10 @@
     </div>
     <div class="form-group col-md-6">
     <label for="inputState">Mercy petition Date</label>
-     
+
      <input type="date" class="form-control" placeholder=" Pick Mercy petition Date">
     </div>
-  
+
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
@@ -85,12 +85,12 @@
     <div class="form-group col-md-6">
     <label for="form-field-select-11">Section</label>
     <select class="ace-select text-dark-m1 bgc-default-l5 bgc-h-warning-l3 brc-default-m3 brc-h-warning-m1" id="form-field-select-11">
-     
+
                         <option value='WI'>Wisconsin</option>
                         <option value='WY'>Wyoming</option>
                       </select>
     </div>
-  
+
   </div>
 
   <div class="form-row">
@@ -102,7 +102,7 @@
       <label for="inputState">Health Report Attachment</label>
       <input type="file" name="healthreportattachment" class="ace-file-input" id="ace-file-input22">
     </div>
-  
+
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
@@ -113,19 +113,19 @@
       <label for="inputState">Warrent File Attachment</label>
       <input type="file" name="warrentfileattachment" class="ace-file-input"  id="ace-file-input13">
     </div>
-  
+
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
     <label for="inputState">Mercy petition Date</label>
-     
+
      <input type="Date"  name="mercypetitiondate" class="form-control" placeholder=" Pick Mercy petition Date" >
     </div>
     <div class="form-group col-md-6">
     <label for="inputCity">Date of sentence</label>
       <input type="Date" class="form-control" id="inputCity">
     </div>
-  
+
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
@@ -137,30 +137,30 @@
                         <option value="">Choose Option</option>
                         <option value='AL'>Pakistan</option>
                         <option value='AK'>Afghanistan</option>
-                        
+
                       </select>
     </div>
     <div class="form-group col-md-6">
       <label for="inputState">Warrent Date (Jail entry Date)</label>
-     
+
                     <input type="Date" class="form-control" placeholder=" Pick Warrent Date (Jail entry Date)">
-                    
-   
-  
+
+
+
   </div>
 </div>
   <div class="form-row">
     <div class="form-group col-md-12">
-      
+
       <label for="inputCity">Other FIle Attchment</label>
       <input type="file" class="ace-file-input" id="ace-file-input2" multiple="">
     </div>
-    
-  
-  </div>
- 
 
-  
+
+  </div>
+
+
+
 
                   <div class="mt-5 border-t-1 brc-secondary-l2 py-35 mx-n25">
                     <div class="offset-md-3 col-md-9 text-nowrap">
@@ -176,10 +176,10 @@
                     </div>
                   </div>
                 </form>
-         
+
             </div><!-- /.card -->
 </div>
 <script>
-  
+
   </script>
 @endsection

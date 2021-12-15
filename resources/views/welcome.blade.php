@@ -5,7 +5,7 @@
             <!-- stat boxes -->
             <div class="row px-2 mt-3" >
               <div class="col-12 col-sm-6 col-lg-3 px-2 mb-2 mb-lg-0" >
-                <div class="bcard h-100 d-flex align-items-center p-3" style="background-color: rgb(146, 118, 118)">
+                <div class="bcard h-100 d-flex align-items-center p-3" >
                   <div>
                     <span class="d-inline-block bgc-green-d1 p-3 radius-round text-center border-4 brc-green-l2">
                  <i class="fa fa-dollar-sign text-white text-180 w-4 h-4"></i>
@@ -53,7 +53,7 @@
 
 
               <div class="col-12 col-sm-6 col-lg-3 px-2 mb-2 mb-lg-0" >
-                <div class="bcard h-100 d-flex align-items-center p-3" style="background-color: rgb(146, 118, 118)">
+                <div class="bcard h-100 d-flex align-items-center p-3" >
 
                   <div>
                     <span class="d-inline-block bgc-warning-d1 p-3 radius-round text-center border-4 brc-warning-l2">
@@ -101,7 +101,7 @@
 
 
               <div class="col-12 col-sm-6 col-lg-3 px-2 mb-2 mb-lg-0" >
-                <div class="bcard h-100 d-flex align-items-center p-3" style="background-color: rgb(146, 118, 118)">
+                <div class="bcard h-100 d-flex align-items-center p-3" >
 
                   <div>
                     <span class="d-inline-block bgc-primary p-3 radius-round text-center border-4 brc-primary-l2">
@@ -153,7 +153,7 @@
 
 
               <div class="col-12 col-sm-6 col-lg-3 px-2 mb-2 mb-lg-0" >
-                <div class="bcard h-100 d-flex align-items-center p-3" style="background-color: rgb(146, 118, 118)">
+                <div class="bcard h-100 d-flex align-items-center p-3" >
 
                   <div class="text-center pos-rel ml-1">
                     <canvas id="task-progress-piechart" style="height: 75px; width: 75px; max-height: 75px; max-width: 75px;"></canvas>

@@ -37,10 +37,10 @@ class PermissionController extends Controller
             'name' => 'required|unique:permissions,name',
             'frindly_title' => 'required',
         ]);
-        
+
         Permission::create(['name' => $request->input('name'),
                             'friendly_title' => $request->input('frindly_title')]);
-        
+
         $permissions =Permission::all();
         return view('portal.permissions.index',['permissions '=>$permissions])->with('success','Permission created successfully');
     }
