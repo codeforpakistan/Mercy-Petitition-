@@ -39,6 +39,11 @@
                         </div>
                       </div>
 
+
+
+
+
+
                       <table id="simple-table" class="mb-0 table table-borderless table-bordered-x brc-secondary-l3 text-dark-m2 radius-1 overflow-hidden">
                         <thead class="text-dark-tp3 bgc-grey-l4 text-90 border-b-1 brc-transparent">
                           <tr>
@@ -57,7 +62,7 @@
                             </th>
 
                             <th class='d-none d-sm-table-cell'>
-                              Confirmed IN Jail
+                              Confined IN Jail
                             </th>
 
                             <th class="d-none d-sm-table-cell">
@@ -68,31 +73,29 @@
                             <th>Action</th>
                           </tr>
                         </thead>
-
+                        @foreach($petitions as $petion)
                         <tbody class="mt-1">
                           <tr class="bgc-h-yellow-l4 d-style">
 
 
                             <td>
-                              <a href='#' class='text-blue-d1 text-600 text-95'>ace.com</a>
+                              <a href='#' class='text-blue-d1 text-600 text-95'>{{$petion->name}}</a>
                             </td>
 
                             <td class="text-600 text-orange-d2">
-                              $45
+                              {{$petion->f_name}}
                             </td>
 
                             <td class='d-none d-sm-table-cell text-grey-d1'>
-                              3,330
+                            {{$petion->nationality}}
                             </td>
 
                             <td class='d-none d-sm-table-cell text-grey text-95'>
-                              Feb 12
+                            {{$petion->confined_in_jail}}
                             </td>
 
                             <td class='d-none d-sm-table-cell'>
-                              <span class='badge badge-sm bgc-warning-d1 text-white pb-1 px-25'>Expiring</span>
-
-
+                              <span class='badge badge-sm bgc-warning-d1 text-white pb-1 px-25'><img src="{{ asset('/assets/image/'.$petion->application_image) }}" width="50" height="50" alt="pic"/></span>
 
                             </td>
 
@@ -110,7 +113,7 @@
                             <td>
                               <!-- action buttons -->
                               <div class='d-none d-lg-flex'>
-                                <a href="#" class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success">
+                                <a href="{{route('petition-edit', [$petion->id])}}" class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success">
                                   <i class="fa fa-pencil-alt"></i>
                                 </a>
 
@@ -133,7 +136,7 @@
                                     <div class="dropdown-header text-100 text-secondary-d1 border-b-1 brc-secondary-l2 text-600 mb-2">
                                       ace.com
                                     </div>
-                                    <a href="#" class="dropdown-item">
+                                    <a href="{{route('petition-edit', [$petion->id])}}" class="dropdown-item">
                                       <i class="fa fa-pencil-alt text-blue mr-1 p-2 w-4"></i>
                                       Edit
                                     </a>
@@ -216,6 +219,7 @@
                           </tr>
 
                         </tbody>
+                        @endforeach
                       </table>
 
                       <!-- table footer -->

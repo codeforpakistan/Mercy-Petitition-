@@ -19,6 +19,7 @@ class CreatePetitionsTable extends Migration
             $table->string('nationality');
             $table->string('physicalstatus');
             $table->string('confirmed_in_jail');
+            $table->string('status');  //store department name
             $table->string('gender');
             $table->string('dob');
             $table->string('fir&date');
@@ -31,8 +32,8 @@ class CreatePetitionsTable extends Migration
             $table->string('health_paper');
             $table->string('prisoner_image');
             $table->string('department');
-            $table->string('remarks');
-            $table->string('otherdocument');
+            $table->string('remarks')->nullable();
+           
             $table->string('sentence_in_court');
             $table->string('warrent_file');
             $table->string('warrent_information');
