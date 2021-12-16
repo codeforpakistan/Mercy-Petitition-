@@ -158,20 +158,10 @@ class PetitionController extends Controller
 
         public function petitionupdate(Request $request,$id){
         
-           
-            if ($request->hasFile('application_image') && $request->hasFile('prisoner_image') && $request->hasFile('warrent_file')) {
+          
+            if ($request->hasFile('warrent_file')) {
 
-                //   $request->application_image->store('assets/image', 'public');
-                //   $request->prisoner_image->store('assets/image', 'public');
-                //   $request->warrent_file->store('assets/image', 'public');
-                  $application_image = time().'.'.$request->application_image->extension();  
-
-    $request->application_image->move(public_path('assets/image'), $application_image);
   
-    $prisoner_image = time().'.'.$request->prisoner_image->extension();  
- 
-
-    $request->prisoner_image->move(public_path('assets/image'), $prisoner_image);
 
     $warrent_file = time().'.'.$request->warrent_file->extension();  
 
@@ -185,6 +175,23 @@ class PetitionController extends Controller
                 $health_paper = time().'.'.$request->health_paper->extension();  
 
                 $request->health_paper->move(public_path('assets/image'), $health_paper);
+
+             }
+             if ($request->hasFile('application_image')) {
+
+                // $request->health_paper->store('assets/image', 'public');
+                $application_image = time().'.'.$request->application_image->extension();  
+
+                $request->application_image->move(public_path('assets/image'), $application_image);
+
+             }
+          
+             if ($request->hasFile('prisoner_image')) {
+
+                // $request->health_paper->store('assets/image', 'public');
+                $prisoner_image = time().'.'.$request->prisoner_image->extension();  
+
+                $request->prisoner_image->move(public_path('assets/image'), $prisoner_image);
 
              }
              if ($request->hasFile('otherdocument')) {
@@ -251,7 +258,7 @@ class PetitionController extends Controller
         //    dd($petitionsedit->petitions()->associate($fileupdate));
         //     $fileupdate->petitions()->associate($petitionsedit);
 
-            $fileupdate->save();
+            $petitionsedit->save();
             // $fileupdate->save();
             return redirect()->route('Petition.index')
                         ->with('success','Product deleted successfully');

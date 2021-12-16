@@ -113,9 +113,9 @@
                       </label>
 
                       <select name="nationality" class="ace-select text-dark-m1 bgc-default-l5 bgc-h-warning-l3 brc-default-m3 brc-h-warning-m1" id="form-field-select-11">
-                        <option value="">Choose Option</option>
-                        <option value='AL'>Pakistan</option>
-                        <option value='AK'>Afghanistan</option>
+                      
+                        <option value="Pakistan"{{ $petitionsedit->nationality == 'Pakistan' ? 'selected' : '' }}>Pakistan</option>
+                        <option value="Afghanistan"{{ $petitionsedit->nationality == 'Afghanistan' ? 'selected' : '' }}>Afghanistan</option>
                         
                       </select>
     </div>
@@ -160,7 +160,7 @@
       
       <label for="inputCity">Other FIle Attchment</label>
       <img src="{{ asset('/assets/image/'.$filepetition->file) }}"width="50" height="50" alt="pic"/>
-      <input type="file" name="otherdocument" value="{{$filepetition->file}}" class="ace-file-input" id="ace-file-input2" multiple="">
+      <input type="file" name="otherdocument" value="{{}}" class="ace-file-input" id="ace-file-input2" multiple="">
     </div>
     
   

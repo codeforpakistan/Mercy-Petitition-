@@ -123,9 +123,9 @@
                       </label>
 
                       <select name="nationality" class="ace-select text-dark-m1 bgc-default-l5 bgc-h-warning-l3 brc-default-m3 brc-h-warning-m1" id="form-field-select-11">
-                        <option value="">Choose Option</option>
-                        <option value='AL'>Pakistan</option>
-                        <option value='AK'>Afghanistan</option>
+                       
+                        <option value='Pakistan'>Pakistan</option>
+                        <option value='Afghanistan'>Afghanistan</option>
 
                       </select>
     </div>
