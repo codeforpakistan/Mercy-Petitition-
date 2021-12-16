@@ -30,9 +30,9 @@ Route::get('logout','Auth\loginController@logout')->name('logout');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/petitionedit/{id}','PetitionController@edit')->name('petition-edit');
-Route::Post('/petitionupdate/{id','PetitionController@petitionupdate')->name('petition-update');
+Route::Post('/petitionupdate/{id}','PetitionController@petitionupdate')->name('petition-update');
 Route::group(['middleware' => ['auth']], function() {
-    
+    Route::Post('/storepetition','PetitionController@storepetition')->name('storepetition');
     Route::resource('roles','RoleController');
     Route::resource('Petition','PetitionController');
     Route::resource('roles','RoleController');

@@ -13,7 +13,7 @@
               <div class="card-header">
                 <h3 class="card-title text-125">
                   <i class="far fa-edit text-dark-l3 mr-1"></i>
-                Add New Petion
+               Edit Petion
                 </h3>
               </div>
              
@@ -52,7 +52,7 @@
     </div>
     <div class="form-group col-md-6">
       <label for="inputState">Fir & Date</label>
-      <input type="text" name="fir&date" value="" class="form-control" id="inputCity">
+      <input type="text" name="fir&date" value="{{$petitionsedit->firdate}}" class="form-control" id="inputCity">
     </div>
   
   </div>
@@ -145,12 +145,12 @@
     <div class="form-group col-md-6">
       <label for="inputCity">Prisoner Image</label>
       <img src="{{ asset('/assets/image/'.$petitionsedit->prisoner_image) }}"width="50" height="50" alt="pic"/>
-      <input type="file" name="prisoner_image" class="ace-file-input" id="ace-file-input12">
+      <input type="file" name="prisoner_image" value="{{$petitionsedit->prisoner_image}}" class="ace-file-input" id="ace-file-input12">
     </div>
     <div class="form-group col-md-6">
       <label for="inputState">Warrent File Attachment</label>
       <img src="{{ asset('/assets/image/'.$petitionsedit->warrent_file) }}"width="50" height="50" alt="pic"/>
-      <input type="file" name="warrent_file" class="ace-file-input"  id="ace-file-input13">
+      <input type="file" name="warrent_file" value="{{$petitionsedit->warrent_file}}" class="ace-file-input"  id="ace-file-input13">
     </div>
   
   </div>
@@ -160,7 +160,7 @@
       
       <label for="inputCity">Other FIle Attchment</label>
       <img src="{{ asset('/assets/image/'.$filepetition->file) }}"width="50" height="50" alt="pic"/>
-      <input type="file" name="otherdocument" class="ace-file-input" id="ace-file-input2" multiple="">
+      <input type="file" name="otherdocument" value="{{$filepetition->file}}" class="ace-file-input" id="ace-file-input2" multiple="">
     </div>
     
   

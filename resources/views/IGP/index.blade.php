@@ -39,10 +39,23 @@
                         </div>
                       </div>
 
+                      @if ($errors->any())
+        <div class="alert alert-danger">
+
+            <ul>
+
+                @foreach ($errors->all() as $error)
+                {{ $error }}
+                @endforeach
+            </ul>
+
+        </div><br />
+        @endif
 
 
-
-
+                      @if(Session::has('message'))
+<p class="alert alert-info">{{ Session::get('message') }}</p>
+@endif
 
                       <table id="simple-table" class="mb-0 table table-borderless table-bordered-x brc-secondary-l3 text-dark-m2 radius-1 overflow-hidden">
                         <thead class="text-dark-tp3 bgc-grey-l4 text-90 border-b-1 brc-transparent">

@@ -33,7 +33,11 @@ class CreatePetitionsTable extends Migration
             $table->string('prisoner_image');
             $table->string('department');
             $table->string('remarks')->nullable();
-           
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')
+            ->references('id')
+            ->on('users')
+            ->onDelete('cascade');
             $table->string('sentence_in_court');
             $table->string('warrent_file');
             $table->string('warrent_information');

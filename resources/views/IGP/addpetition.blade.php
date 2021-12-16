@@ -19,6 +19,18 @@
               
               <form style="margin-left:12px; margin-right:12px;padding-top:12px" action="{{route('storepetition')}}" method="post" enctype="multipart/form-data">
                          @csrf   
+                         @if ($errors->any())
+        <div class="alert alert-danger">
+
+            <ul>
+
+                @foreach ($errors->all() as $error)
+                {{ $error }}<br />
+                @endforeach
+            </ul>
+
+        </div><br />
+        @endif
               <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Name</label>
@@ -52,7 +64,7 @@
     </div>
     <div class="form-group col-md-6">
       <label for="inputState">Fir & Date</label>
-      <input type="text" name="fir&date" class="form-control" id="inputCity">
+      <input type="text" name="firdate" class="form-control" id="inputCity">
     </div>
   
   </div>

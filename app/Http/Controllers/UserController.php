@@ -87,11 +87,14 @@ class UserController extends Controller
 
 
         $input = $request->all();
+       
         $input['password'] = Hash::make($input['password']);
 
         $user = User::create($input);
+        $user->confined_in_jail = $request->get('confined_in_jail');
+        
         $user->assignRole($request->input('roles'));
-
+$user->save();
 
         return redirect()->route('portal.users.index')
                         ->with('success','User created successfully');
