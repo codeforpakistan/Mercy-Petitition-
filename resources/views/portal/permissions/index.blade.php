@@ -14,7 +14,7 @@
             </div>
         @endif
       </h1>
-    </div> 
+    </div>
 
     <div class="row">
       <div class="col-12">
@@ -66,6 +66,7 @@
                         $i=0;
                     @endphp
 
+                    {{-- {{dd($permissions)}} --}}
                     @foreach ($permissions as $permission)
                     <tr class="bgc-h-yellow-l4 d-style">
                         <td class="text-center pr-0 pos-rel">
@@ -101,7 +102,7 @@
                             <a href="{{ url('portal/permissions/show',$permission->id) }}" class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-warning btn-a-lighter-warning">
                                 <i class="fa fa-search-plus text-105">   </i>
                             </a>
-                            @can('permission-edit')    
+                            @can('permission-edit')
                             <a href="{{ url('permissions/'.$permission->id,'edit') }}" class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success">
                             <i class="fa fa-pencil-alt"></i>
                             </a>
@@ -109,8 +110,8 @@
                             <a id="delete-user" class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-danger btn-a-lighter-danger">
                                 <i class="fa fa-trash-alt"></i>
                               </a>
-                            
-                            
+
+
                             <form method="POST" id="delete-permission-form" action="{{url('portal.permissions.destroy',$permission->id)}}" style="display:none">
                                 @csrf
                                 <input name="_method" type="hidden" value="DELETE">
@@ -120,12 +121,12 @@
                             {!! Form::submit('D', ['class' => 'fa fa-trash-alt']) !!}
                             {!! Form::close() !!} --}}
                             @endcan
-                           
+
                         </div>
                         </td>
                     </tr>
                     @endforeach
-      
+
 
                 </tbody>
 
@@ -170,9 +171,9 @@
   @section('scripts')
   <script>
   jQuery(function($) {
-    
+
     $('#delete-user').on('click', function() {
-      
+
     var swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         confirmButton: 'btn btn-success mx-2',
@@ -180,7 +181,7 @@
       },
       buttonsStyling: false
     })
-  
+
     swalWithBootstrapButtons.fire({
       title: 'Are you sure?',
       text: "Are you sure you want to delete this user?",

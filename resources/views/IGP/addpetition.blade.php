@@ -16,7 +16,7 @@
                 Add New Petion
                 </h3>
               </div>
-              
+
               <form style="margin-left:12px; margin-right:12px;padding-top:12px" action="{{route('storepetition')}}" method="post" enctype="multipart/form-data">
                          @csrf   
                          @if ($errors->any())
@@ -49,10 +49,10 @@
     <div class="form-group col-md-6">
     <label for="inputCity">Sentence in Court</label>
       <input type="text" name="sentence_in_court"  placeholder="Enter name of Court"class="form-control" id="inputCity">
-     
+
     </div>
   </div>
- 
+
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="form-field-select-11">Physical Status</label>
@@ -66,11 +66,11 @@
       <label for="inputState">Fir & Date</label>
       <input type="text" name="firdate" class="form-control" id="inputCity">
     </div>
-  
+
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
-     
+
       <label for="form-field-select-11">Confined In Jail</label>
       <select  name="confined_in_jail" class="ace-select text-dark-m1 bgc-default-l5 bgc-h-warning-l3 brc-default-m3 brc-h-warning-m1" id="form-field-select-11">
       <option value='WV'>West Virginia</option>
@@ -80,10 +80,10 @@
     </div>
     <div class="form-group col-md-6">
     <label for="inputState">DOB</label>
-     
+
      <input type="date" name="dob"class="form-control" >
     </div>
-  
+
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
@@ -102,19 +102,19 @@
                        @endforeach
                       </select>
     </div>
-  
+
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
     <label for="inputState">Mercy petition Date</label>
-     
+
      <input type="Date"  name="mercypetitiondate" class="form-control" placeholder=" Pick Mercy petition Date" >
     </div>
     <div class="form-group col-md-6">
     <label for="inputCity">Date of sentence</label>
       <input type="Date" name="date_of_sentence"class="form-control" id="inputCity">
     </div>
-  
+
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
@@ -126,16 +126,16 @@
                         <option value="">Choose Option</option>
                         <option value='AL'>Pakistan</option>
                         <option value='AK'>Afghanistan</option>
-                        
+
                       </select>
     </div>
     <div class="form-group col-md-6">
       <label for="inputState">Warrent Date (Jail entry Date)</label>
-     
+
                     <input type="Date" class="form-control" name="warrent_date" placeholder=" Pick Warrent Date (Jail entry Date)">
-                    
-   
-  
+
+
+
   </div>
 </div>
   <div class="form-row">
@@ -147,7 +147,7 @@
       <label for="inputState">Health Report Attachment</label>
       <input type="file" name="health_paper" class="ace-file-input" id="ace-file-input22">
     </div>
-  
+
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
@@ -158,19 +158,19 @@
       <label for="inputState">Warrent File Attachment</label>
       <input type="file" name="warrent_file" class="ace-file-input"  id="ace-file-input13">
     </div>
-  
+
   </div>
 
   <div class="form-row">
     <div class="form-group col-md-12">
-      
+
       <label for="inputCity">Other FIle Attchment</label>
       <input type="file" name="otherdocument" class="ace-file-input" id="ace-file-input2" multiple="">
     </div>
-    
-  
+
+
   </div>
- 
+
                   <div class="mt-5 border-t-1 brc-secondary-l2 py-35 mx-n25">
                     <div class="offset-md-3 col-md-9 text-nowrap">
                       <button class="btn btn-info btn-bold px-4" type="submit">
@@ -185,10 +185,10 @@
                     </div>
                   </div>
                 </form>
-         
+
             </div><!-- /.card -->
 </div>
 <script>
-  
+
   </script>
 @endsection

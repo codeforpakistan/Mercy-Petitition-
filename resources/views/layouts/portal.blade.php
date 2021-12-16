@@ -41,12 +41,14 @@
 
       background-repeat: no-repeat;
     }
+
     .b-containers {
-      background-image: linear-gradient(#1E2635, #1E2635);
+      background-image: linear-gradient(#1E2635, #1a1b1d);
       background-attachment: fixed;
       opacity: 16px;
-      box-shadow: linear-gradient(#000000, #000000);
+
       background-repeat: no-repeat;
+
     }
     </style>
 
@@ -76,7 +78,7 @@
                     <a class="navbar-brand ml-n2 text-140 text-white " href="#">
                       {{-- <i class="fa fa-leaf mr-1 text-success-l1"></i> --}}
                      <span class="text-danger"><img src="{{ asset('assets/image/ig.png') }}" style="width: 50px" ;></span>
-                    <span style="color:blue"> IG </span><span style ="color:red">|Prisons</span>
+                    <span style="color:rgb(59, 59, 170)"> Mercy </span><span style ="color:rgb(160, 50, 50)">Petition</span>
                     </a>
                   </div>
 
@@ -189,9 +191,6 @@
                       </a>
                       <div class="p-0 dropdown-menu dropdown-animated brc-primary-m3 border-b-2 ml-1 mr-1px w-auto bgc-default-l4 dropdown-clickable" style="left:auto">
                         <div class="d-flex flex-column">
-
-                          <div class="row mx-0">
-                            
 
                           <div class="order-first order-lg-last ">
                             <hr class="d-none d-lg-block brc-default-l1 my-0">

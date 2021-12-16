@@ -39,7 +39,7 @@ class PetitionController extends Controller
         $sections = Section::all();
         $petitionsedit=Petition::find($id);
        $filepetition=File::where('petition_id',$id)->first();
-      
+
         return view('IGP.petitionsedit',compact('petitionsedit','sections','filepetition'));
     }
 
@@ -79,16 +79,16 @@ class PetitionController extends Controller
                     //   $request->application_image->store('assets/image', 'public');
                     //   $request->prisoner_image->store('assets/image', 'public');
                     //   $request->warrent_file->store('assets/image', 'public');
-                      $application_image = time().'.'.$request->application_image->extension();  
-  
+                      $application_image = time().'.'.$request->application_image->extension();
+
         $request->application_image->move(public_path('assets/image'), $application_image);
-      
-        $prisoner_image = time().'.'.$request->prisoner_image->extension();  
-   
+
+        $prisoner_image = time().'.'.$request->prisoner_image->extension();
+
         $request->prisoner_image->move(public_path('assets/image'), $prisoner_image);
 
-        $warrent_file = time().'.'.$request->warrent_file->extension();  
-   
+        $warrent_file = time().'.'.$request->warrent_file->extension();
+
         $request->warrent_file->move(public_path('assets/image'), $warrent_file);
 
 
@@ -96,22 +96,24 @@ class PetitionController extends Controller
                    if ($request->hasFile('health_paper')) {
 
                     // $request->health_paper->store('assets/image', 'public');
-                    $health_paper = time().'.'.$request->health_paper->extension();  
-   
+                    $health_paper = time().'.'.$request->health_paper->extension();
+
                     $request->health_paper->move(public_path('assets/image'), $health_paper);
 
                  }
                  if ($request->hasFile('otherdocument')) {
-                    $otherdocument = time().'.'.$request->otherdocument->extension();  
-   
+                    $otherdocument = time().'.'.$request->otherdocument->extension();
+
                     $request->otherdocument->move(public_path('assets/image'), $otherdocument);
 
                     // $request->otherdocument->store('assets/image', 'public');
+                  $file=  explode(".",$otherdocument);
+                  $file['1'];
 
                  }
                 //  $now = date('Y-m-d',strttotime($request->get('warrent_date'))); //Fomat Date and time //you are overwriting this variable below
                 $warrent_date = Carbon::parse($request->get('warrent_date'))->format('Y-m-d');
-               
+
                 $date_of_sentence = Carbon::parse($request->get('date_of_sentence'))->format('Y-m-d');
                 $dob = Carbon::parse($request->get('dob'))->format('Y-m-d');
                 $mercypetitiondate = Carbon::parse($request->get('mercypetitiondate'))->format('Y-m-d');
@@ -120,7 +122,7 @@ class PetitionController extends Controller
       
         $Petition = new Petition([
             "name" => $request->get('name'),
-          
+
             "f_name" => $request->get('f_name'),
             "nationality" => $request->get('nationality'),
             "physicalstatus" => $request->get('physicalstatus'),
@@ -136,15 +138,15 @@ class PetitionController extends Controller
             "sentence_in_court" =>$request->get('sentence_in_court'),
             "warrent_information" => $request->get('warrent_information'),
             "Status" => "IGP",
-          
+
             "prisoner_image" => $prisoner_image,
             "warrent_file" =>$warrent_file,
             "application_image" => $application_image,
             "health_paper" => $health_paper,
             "remarks" =>'igpremarks',
-            
+
         ]);
-       
+
         $Petition->save();
         $file = new File([
          'petition_id'=>$Petition->id,

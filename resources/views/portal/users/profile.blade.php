@@ -1,103 +1,11 @@
 @extends('layouts.portal')
 
 @section('content')
-<div class="row mt-2 mt-md-4">
-  <div class="col-12 col-md-4">
-    <div class="card bcard">
-      <div class="card-body">
-        <div class="d-flex flex-column pt-3 justify-content-center align-items-center">
-          <div class="pos-rel">
-            <img alt="Profile image" src="{{ Auth::user()->picture ?? asset('..\assets\image\avatar\default.png')}}" class="radius-round bord1er-2 brc-warning-m1" style="width: 128px;height:128px;">
-          </div>
-          <div class="text-center mt-2">
-            <h5 class="text-130 text-dark-m3">{{Auth::user()->name}}</h5>
-            <span class="text-80 text-primary text-600">UI/UX Designer</span>
-          </div>
-          <hr class="w-90 mx-auto mb-1 brc-secondary-l3">
-          <div class="row w-100 text-center">
-            <div class="col-6">
-              <div class="px-1 pt-2">
-                <span class="text-150 text-dark-m3">15</span>
-                <br>
-                <span class="text-grey-m1 text-90">Job Applied</span>
-              </div>
-              <div class="position-rc h-75 border-l-1 brc-secondary-l3"></div>
-            </div>
-            <div class="col-6">
-              <div class="px-1 pt-2">
-                <span class="text-150 text-dark-m3">87</span>
-                <br>
-                <span class="text-grey-m1 text-90">Skills</span>
-              </div>
-            </div>
-          </div>
-          <hr class="w-90 mx-auto mb-1 border-dotted">
+<div class="row">
 
-          <div class="mt-2 mx-3">
-            <div class="text-secondary-d3 font-bolder text-90 mb-2">My Skills</div>
-            <div class="text-left d-inline-flex flex-wrap">
-              <span class="d-inline-block radius-round bgc-purple-l2 text-dark-tp3 text-90 px-25 py-3px mx-2px my-2px">Reading</span>
-              <span class="d-inline-block radius-round bgc-default-l2 text-dark-tp3 text-90 px-25 py-3px mx-2px my-2px">Excerise</span>
-              <span class="d-inline-block radius-round bgc-success-l2 text-dark-tp3 text-90 px-25 py-3px mx-2px my-2px">Travel</span>
-              <span class="d-inline-block radius-round bgc-default-l2 text-dark-tp3 text-90 px-25 py-3px mx-2px my-2px">Cooking</span>
-              <span class="d-inline-block radius-round bgc-default-l2 text-dark-tp3 text-90 px-25 py-3px mx-2px my-2px">Politics</span>
-              <span class="d-inline-block radius-round bgc-default-l2 text-dark-tp3 text-90 px-25 py-3px mx-2px my-2px">Tech</span>
-            </div>
-          </div>
-          <div class="mt-2 w-100 text-90 text-secondary radius-1 px-25 py-3">
-            <div class="d-flex mb-1">
-              <h6 class="text-600">
-                Overview
-              </h6>
-            </div>
-
-            <div class="border-1 brc-dark-l3 radius-1 px-3 py-25 bgc-white text-secondary-d1">
-              <div>
-                Task Progress:
-                <div class="progress mt-1 bgc-white overflow-visible" style="height: 0.5rem;">
-                  <div class="progress-bar bgc-green radius-2px" role="progressbar" style="width: 66%;" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
-                  <span class="align-self-center ml-2 text-dark-m3 text-sm">66%</span>
-                </div>
-              </div>
-
-              <div class="mt-4">
-                Projects:
-                <span class="float-right badge badge-pill bgc-secondary-l2 text-secondary-d3 text-90 px-3">
-                        12
-                    </span>
-              </div>
-
-              <div class="mt-2">
-                Posts:
-                <span class="float-right badge badge-pill bgc-secondary-l2 text-secondary-d3 text-90 px-3">
-                        25
-                    </span>
-              </div>
-
-              <div class="mt-2">
-                Comments:
-                <span class="float-right badge badge-pill bgc-secondary-l2 text-secondary-d3 text-90 px-3">
-                        11
-                    </span>
-              </div>
-
-              <div class="mt-2">
-                Likes:
-                <span class="float-right badge badge-pill bgc-secondary-l2 text-secondary-d3 text-90 px-3">
-                        87
-                    </span>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- the right side profile tabs -->
-  <div class="col-12 col-md-8 mt-3 mt-md-0">
+  <div class="col-12 col-md-12 mt-6 mt-md-0">
     <div class="card bcard h-100">
       <div class="card-body p-0">
         <div class="sticky-nav">

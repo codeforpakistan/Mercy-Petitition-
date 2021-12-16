@@ -60,7 +60,7 @@
                       <table id="simple-table" class="mb-0 table table-borderless table-bordered-x brc-secondary-l3 text-dark-m2 radius-1 overflow-hidden">
                         <thead class="text-dark-tp3 bgc-grey-l4 text-90 border-b-1 brc-transparent">
                           <tr>
-                           
+
 
                             <th>
                             Name
@@ -89,7 +89,7 @@
                         @foreach($petitions as $petion)
                         <tbody class="mt-1">
                           <tr class="bgc-h-yellow-l4 d-style">
-                           
+
 
                             <td>
                               <a href='#' class='text-blue-d1 text-600 text-95'>{{$petion->name}}</a>
@@ -130,9 +130,9 @@
                                   <i class="fa fa-pencil-alt"></i>
                                 </a>
 
-                                <a href="#" class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-danger btn-a-lighter-danger">
-                                  <i class="fa fa-trash-alt"></i>
-                                </a>
+                                <a href="{{route('petition-forward',[$petion->id])}}" class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success">
+                                    <i class="fa fa-plus"></i>
+                                  </a>
                                 <a href="#" class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-warning btn-a-lighter-warning">
                                   <i class="fa fa-ellipsis-v mx-1"></i>
                                 </a>
@@ -174,18 +174,63 @@
                               <div class="table-detail collapse" id="table-detail-0">
                                 <div class="row">
                                   <div class="col-12 col-md-10 offset-md-1 p-4">
-                                    <div class="alert bgc-secondary-l4 text-dark-m2 border-none border-l-4 brc-primary-m1 radius-0 mb-0">
-                                      <h4 class="text-primary">
-                                        Row Details
-                                      </h4>
-                                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo massa sed ipsum porttitor facilisis.
+                                    <div class="bg-white border-bottom">
+                                        <div class="content content-boxed">
+                                            <div class="row items-push text-center">
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered table-striped table-vcenter">
+                                                        <tbody>
+                                                            {{-- @foreach ($details as $detail) --}}
+                                                            <tr>
+                                                                <td class="text-left">Father's Name:</td>
+                                                                {{-- <td class="font-w600 font-size-sm">{{ $detail->FatherName}}</td> --}}
+                                                                <td class="text-left">CNIC:</td>
+                                                                {{-- <td class="font-w600 font-size-sm">{{ $detail->Cnic}}</td> --}}
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="text-left">Gender:</td>
+                                                                {{-- <td class="font-w600 font-size-sm"> {{ $detail->GenderTitle}} </td> --}}
+                                                                <td class="text-left">Data of Birth:</td>
+                                                                {{-- <td class="font-w600 font-size-sm">{{$employes->DateOfBirth}}</td> --}}
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="text-left">Contact Number:</td>
+                                                                {{-- <td class="font-w600 font-size-sm"> {{ $detail->ContactNumber}} </td> --}}
+                                                                <td class="text-left">Mobile Network:</td>
+                                                                {{-- <td class="font-w600 font-size-sm">{{$detail->MobileNetworkOperator}}</td> --}}
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="text-left">Present Address:</td>
+                                                                {{-- <td class="font-w600 font-size-sm"> {{ $detail->PresentAddress}} </td> --}}
+                                                                <td class="text-left">Permanent Address:</td>
+                                                                {{-- <td class="font-w600 font-size-sm">{{$detail->PermanentAddress}}</td> --}}
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="text-left">Joining Date:</td>
+                                                                {{-- <td class="font-w600 font-size-sm"> {{ $detail->JoiningDate}} </td> --}}
+                                                                <td class="text-left">Regularization Date:</td>
+                                                                {{-- <td class="font-w600 font-size-sm">{{$detail->RegularizationDate}}</td> --}}
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="text-left">Nominee:</td>
+                                                                {{-- <td class="font-w600 font-size-sm"> {{ $detail->Nominee}} </td> --}}
+                                                                <td class="text-left">Date Of Retirement:</td>
+                                                                {{-- <td class="font-w600 font-size-sm">{{$detail->DateOfRetirement}}</td> --}}
+                                                            </tr>
+                                                            {{-- @endforeach --}}
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                            </div>
+                                        </div>
                                     </div>
                                   </div>
                                 </div>
                               </div>
                             </td>
                           </tr>
-                    
+
                         </tbody>
                         @endforeach
                       </table>
