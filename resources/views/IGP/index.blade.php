@@ -11,7 +11,7 @@
    <div role="main" class="page-content container container-plus">
             <div class="page-header border-0">
               <h1 class="page-title text-primary-d2 text-140">
-                
+
               </h1>
             </div>
 
@@ -181,44 +181,50 @@
                                                 <div class="table-responsive">
                                                     <table class="table table-bordered table-striped table-vcenter">
                                                         <tbody>
-                                                            {{-- @foreach ($details as $detail) --}}
+                                                            @foreach($petitions as $petion)
                                                             <tr>
-                                                                <td class="text-left">Father's Name:</td>
-                                                                {{-- <td class="font-w600 font-size-sm">{{ $detail->FatherName}}</td> --}}
-                                                                <td class="text-left">CNIC:</td>
-                                                                {{-- <td class="font-w600 font-size-sm">{{ $detail->Cnic}}</td> --}}
+                                                                <td class="text-left">Name:</td>
+                                                                <td class="font-w600 font-size-sm">{{ $petion->name}}</td>
+                                                                <td class="text-left">Father Name:</td>
+                                                                <td class="font-w600 font-size-sm">{{ $petion->F_Name}}</td>
                                                             </tr>
                                                             <tr>
-                                                                <td class="text-left">Gender:</td>
-                                                                {{-- <td class="font-w600 font-size-sm"> {{ $detail->GenderTitle}} </td> --}}
-                                                                <td class="text-left">Data of Birth:</td>
-                                                                {{-- <td class="font-w600 font-size-sm">{{$employes->DateOfBirth}}</td> --}}
+                                                                <td class="text-left">Nationality:</td>
+                                                                <td class="font-w600 font-size-sm"> {{ $petion->Nationality}} </td>
+                                                                <td class="text-left">Confined IN Jail:</td>
+                                                                <td class="font-w600 font-size-sm">{{$petion->confined_in_jail}}</td>
                                                             </tr>
                                                             <tr>
-                                                                <td class="text-left">Contact Number:</td>
-                                                                {{-- <td class="font-w600 font-size-sm"> {{ $detail->ContactNumber}} </td> --}}
-                                                                <td class="text-left">Mobile Network:</td>
-                                                                {{-- <td class="font-w600 font-size-sm">{{$detail->MobileNetworkOperator}}</td> --}}
+                                                                <td class="text-left">Physical status:</td>
+                                                                <td class="font-w600 font-size-sm"> {{ $petion->physicalstatus}} </td>
+                                                                <td class="text-left">gender:</td>
+                                                                <td class="font-w600 font-size-sm">{{$petion->gender}}</td>
                                                             </tr>
                                                             <tr>
-                                                                <td class="text-left">Present Address:</td>
-                                                                {{-- <td class="font-w600 font-size-sm"> {{ $detail->PresentAddress}} </td> --}}
-                                                                <td class="text-left">Permanent Address:</td>
-                                                                {{-- <td class="font-w600 font-size-sm">{{$detail->PermanentAddress}}</td> --}}
+                                                                <td class="text-left">dob:</td>
+                                                                <td class="font-w600 font-size-sm"> {{ $petion->dob}} </td>
+                                                                <td class="text-left">fir&date :</td>
+                                                                {{-- <td class="font-w600 font-size-sm">{{$petion->fir&date }}</td> --}}
                                                             </tr>
                                                             <tr>
-                                                                <td class="text-left">Joining Date:</td>
-                                                                {{-- <td class="font-w600 font-size-sm"> {{ $detail->JoiningDate}} </td> --}}
-                                                                <td class="text-left">Regularization Date:</td>
-                                                                {{-- <td class="font-w600 font-size-sm">{{$detail->RegularizationDate}}</td> --}}
+                                                                <td class="text-left">mercypetitiondate:</td>
+                                                                <td class="font-w600 font-size-sm"> {{ $petion->mercypetitiondate}} </td>
+                                                                <td class="text-left">warrent_date:</td>
+                                                                <td class="font-w600 font-size-sm">{{$petion->warrent_date}}</td>
                                                             </tr>
                                                             <tr>
-                                                                <td class="text-left">Nominee:</td>
-                                                                {{-- <td class="font-w600 font-size-sm"> {{ $detail->Nominee}} </td> --}}
-                                                                <td class="text-left">Date Of Retirement:</td>
-                                                                {{-- <td class="font-w600 font-size-sm">{{$detail->DateOfRetirement}}</td> --}}
+                                                                <td class="text-left">remarks:</td>
+                                                                <td class="font-w600 font-size-sm"> {{ $petion->remarks}} </td>
+                                                                <td class="text-left">sentence_in_court:</td>
+                                                                <td class="font-w600 font-size-sm">{{$petion->sentence_in_court}}</td>
                                                             </tr>
-                                                            {{-- @endforeach --}}
+                                                            <tr>
+                                                                <td class="text-left">date_of_sentence:</td>
+                                                                <td class="font-w600 font-size-sm"> {{ $petion->date_of_sentence}} </td>
+                                                                <td class="text-left">warrent_information:</td>
+                                                                <td class="font-w600 font-size-sm">{{$petion->warrent_information}}</td>
+                                                            </tr>
+                                                            @endforeach
                                                         </tbody>
                                                     </table>
                                                 </div>
