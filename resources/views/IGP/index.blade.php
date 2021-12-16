@@ -11,7 +11,7 @@
    <div role="main" class="page-content container container-plus">
             <div class="page-header border-0">
               <h1 class="page-title text-primary-d2 text-140">
-                Simple static tables
+                
               </h1>
             </div>
 
@@ -23,7 +23,8 @@
                     <form autocomplete="off">
                       <div class="d-flex justify-content-between flex-column flex-sm-row mb-3 px-2 px-sm-0">
                         <h3 class="text-130 pl-1 mb-3 mb-sm-0">
-                          Popular products
+                        IGP Management Listing
+
                         </h3>
 
                         <div class="pos-rel ml-sm-auto mr-sm-2 order-last order-sm-0">

@@ -15,7 +15,7 @@
       </h3>
     </div>
       <div class="card-body px-3 pb-1">
-          {{-- <form class="mt-lg-3" autocomplete="off" action="{{route('portal.users.store')}}" method="post"> --}}
+        <form class="mt-lg-3" autocomplete="off" action="{{route('forwardhomedepartment',[request()->route('id')])}}" method="post" enctype="multipart/form-data"> 
               @csrf
               @if (count($errors) > 0)
                   <div class="alert bgc-red-l4 border-none border-l-4 brc-red-tp1 radius-0 text-dark-tp2" role="alert">
@@ -45,10 +45,10 @@
                     <label for="Status">Status</label>
                 </div>
                 <div class="col-sm-5 col-11 tag-input-style">
-                    <select  id="Status" name="Status" class="form-control col-sm-8 col-md-11" data-placeholder="Choose Role For User...">
-                        {{-- @foreach($roles as $role)
-                            <option value="{{$role->name}}">{{$role->name}}</option>
-                        @endforeach --}}
+                    <select  id="Status" name="status" class="form-control col-sm-8 col-md-11" data-placeholder="Choose Role For User...">
+                   
+                    <option value='HomeDepartment'>Home Department</option>
+                   
                     </select>
                 </div>
             </div>
@@ -57,16 +57,16 @@
                       <label for="email" class="mb-0">Remarks</label>
                   </div>
                   <div class="col-sm-9">
-                      <textarea type="text" class="form-control col-sm-8 col-md-6" id="email" name="email" placeholder="Enter remarks"></textarea>
+                      <textarea type="text" class="form-control col-sm-8 col-md-6" id="email" name="Remarks" placeholder="Enter remarks"></textarea>
                   </div>
               </div>
               <div class="form-group row">
                   <div class="col-sm-3 col-form-label text-sm-right pr-0">
-                      <label for="email" class="mb-0">Remarks</label>
+                      <label for="email" class="mb-0">Otherdocuments</label>
                   </div>
                   <div class="col-sm-4">
-                    <input type="file" name="warrentfileattachment" class="ace-file-input"  id="ace-file-input13">
-                    {{-- <input type="file" class="form-control col-sm-8 col-md-6" id="email" name="email" placeholder="Enter The documents"> --}}
+                  <input type="file" name="otherdocument" class="ace-file-input"  id="ace-file-input14">
+                   
                   </div>
               </div>
 

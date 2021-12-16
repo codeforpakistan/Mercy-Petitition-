@@ -33,7 +33,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/petitionforward/{id}','PetitionController@forwardpetition')->name('petition-forward');
 Route::get('/petitionedit/{id}','PetitionController@edit')->name('petition-edit');
 Route::Post('/petitionupdate/{id}','PetitionController@petitionupdate')->name('petition-update');
+Route::Post('/forwardhomedepartment/{id}','PetitionController@forwardhomedepartment')->name('forwardhomedepartment');
 Route::group(['middleware' => ['auth']], function() {
+    Route::get('/petitionforward/{id}','PetitionController@forwardpetition')->name('petition-forward');
     Route::Post('/storepetition','PetitionController@storepetition')->name('storepetition');
     Route::resource('roles','RoleController');
     Route::resource('Petition','PetitionController');
