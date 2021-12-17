@@ -132,7 +132,7 @@
 
                   <div class="ml-3">
                     <div class="pos-rel">
-                      <span class="text-dark-tp3 text-180">369</span>
+                      <span class="text-dark-tp3 text-180">3695</span>
                     
                     </div>
                     <div class="text-dark-tp4 text-110">Interior Ministry Department</div>
