@@ -11,7 +11,7 @@
    <div role="main" class="page-content container container-plus">
             <div class="page-header border-0">
               <h1 class="page-title text-primary-d2 text-140">
-
+                
               </h1>
             </div>
 
@@ -23,8 +23,7 @@
                     <form autocomplete="off">
                       <div class="d-flex justify-content-between flex-column flex-sm-row mb-3 px-2 px-sm-0">
                         <h3 class="text-130 pl-1 mb-3 mb-sm-0">
-                        IGP Management Listing
-
+                          Popular products
                         </h3>
 
                         <div class="pos-rel ml-sm-auto mr-sm-2 order-last order-sm-0">
@@ -168,11 +167,26 @@
 
                             </td>
                           </tr>
-
-                          <!-- detail row -->
                           <tr class="border-0 detail-row bgc-white">
                             <td colspan="8" class="p-0 border-none brc-secondary-l2">
                               <div class="table-detail collapse" id="table-detail-0">
+                                <div class="row">
+                                  <div class="col-12 col-md-10 offset-md-1 p-4">
+                                    <div class="alert bgc-secondary-l4 text-dark-m2 border-none border-l-4 brc-primary-m1 radius-0 mb-0">
+                                      <h4 class="text-primary">
+                                        Row Details
+                                      </h4>
+                                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo massa sed ipsum porttitor facilisis.
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <!-- detail row -->
+                          <!-- <tr class="border-0 detail-row bgc-white">
+                            <td colspan="8" class="p-0 border-none brc-secondary-l2">
+                              <div class="table-detail collapse" id="{{$petion->confined_in_jail}}">
                                 <div class="row">
                                   <div class="col-12 col-md-10 offset-md-1 p-4">
                                     <div class="bg-white border-bottom">
@@ -181,50 +195,44 @@
                                                 <div class="table-responsive">
                                                     <table class="table table-bordered table-striped table-vcenter">
                                                         <tbody>
-                                                            @foreach($petitions as $petion)
+                                                           
                                                             <tr>
-                                                                <td class="text-left">Name:</td>
-                                                                <td class="font-w600 font-size-sm">{{ $petion->name}}</td>
-                                                                <td class="text-left">Father Name:</td>
-                                                                <td class="font-w600 font-size-sm">{{ $petion->F_Name}}</td>
+                                                                <td class="text-left">Father's Name:</td>
+                                                                {{-- <td class="font-w600 font-size-sm">{{ $detail->FatherName}}</td> --}}
+                                                                <td class="text-left">CNIC:</td>
+                                                                {{-- <td class="font-w600 font-size-sm">{{ $detail->Cnic}}</td> --}}
                                                             </tr>
                                                             <tr>
-                                                                <td class="text-left">Nationality:</td>
-                                                                <td class="font-w600 font-size-sm"> {{ $petion->Nationality}} </td>
-                                                                <td class="text-left">Confined IN Jail:</td>
-                                                                <td class="font-w600 font-size-sm">{{$petion->confined_in_jail}}</td>
+                                                                <td class="text-left">Gender:</td>
+                                                                {{-- <td class="font-w600 font-size-sm"> {{ $detail->GenderTitle}} </td> --}}
+                                                                <td class="text-left">Data of Birth:</td>
+                                                                {{-- <td class="font-w600 font-size-sm">{{$employes->DateOfBirth}}</td> --}}
                                                             </tr>
                                                             <tr>
-                                                                <td class="text-left">Physical status:</td>
-                                                                <td class="font-w600 font-size-sm"> {{ $petion->physicalstatus}} </td>
-                                                                <td class="text-left">gender:</td>
-                                                                <td class="font-w600 font-size-sm">{{$petion->gender}}</td>
+                                                                <td class="text-left">Contact Number:</td>
+                                                                {{-- <td class="font-w600 font-size-sm"> {{ $detail->ContactNumber}} </td> --}}
+                                                                <td class="text-left">Mobile Network:</td>
+                                                                {{-- <td class="font-w600 font-size-sm">{{$detail->MobileNetworkOperator}}</td> --}}
                                                             </tr>
                                                             <tr>
-                                                                <td class="text-left">dob:</td>
-                                                                <td class="font-w600 font-size-sm"> {{ $petion->dob}} </td>
-                                                                <td class="text-left">fir&date :</td>
-                                                                {{-- <td class="font-w600 font-size-sm">{{$petion->fir&date }}</td> --}}
+                                                                <td class="text-left">Present Address:</td>
+                                                                {{-- <td class="font-w600 font-size-sm"> {{ $detail->PresentAddress}} </td> --}}
+                                                                <td class="text-left">Permanent Address:</td>
+                                                                {{-- <td class="font-w600 font-size-sm">{{$detail->PermanentAddress}}</td> --}}
                                                             </tr>
                                                             <tr>
-                                                                <td class="text-left">mercypetitiondate:</td>
-                                                                <td class="font-w600 font-size-sm"> {{ $petion->mercypetitiondate}} </td>
-                                                                <td class="text-left">warrent_date:</td>
-                                                                <td class="font-w600 font-size-sm">{{$petion->warrent_date}}</td>
+                                                                <td class="text-left">Joining Date:</td>
+                                                                {{-- <td class="font-w600 font-size-sm"> {{ $detail->JoiningDate}} </td> --}}
+                                                                <td class="text-left">Regularization Date:</td>
+                                                                {{-- <td class="font-w600 font-size-sm">{{$detail->RegularizationDate}}</td> --}}
                                                             </tr>
                                                             <tr>
-                                                                <td class="text-left">remarks:</td>
-                                                                <td class="font-w600 font-size-sm"> {{ $petion->remarks}} </td>
-                                                                <td class="text-left">sentence_in_court:</td>
-                                                                <td class="font-w600 font-size-sm">{{$petion->sentence_in_court}}</td>
+                                                                <td class="text-left">Nominee:</td>
+                                                                {{-- <td class="font-w600 font-size-sm"> {{ $detail->Nominee}} </td> --}}
+                                                                <td class="text-left">Date Of Retirement:</td>
+                                                                {{-- <td class="font-w600 font-size-sm">{{$detail->DateOfRetirement}}</td> --}}
                                                             </tr>
-                                                            <tr>
-                                                                <td class="text-left">date_of_sentence:</td>
-                                                                <td class="font-w600 font-size-sm"> {{ $petion->date_of_sentence}} </td>
-                                                                <td class="text-left">warrent_information:</td>
-                                                                <td class="font-w600 font-size-sm">{{$petion->warrent_information}}</td>
-                                                            </tr>
-                                                            @endforeach
+                                                           
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -236,10 +244,11 @@
                                 </div>
                               </div>
                             </td>
-                          </tr>
-
+                          </tr> -->
+                          @endforeach
+                         
                         </tbody>
-                        @endforeach
+                      
                       </table>
 
                       <!-- table footer -->

@@ -245,9 +245,9 @@
 
                                 <input type="email" class="form-control form-control-lg pr-4 shadow-none @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus />
 
-                              <i class="fa fa-user text-grey-m2 ml-n4"></i>
+                              
                               <label class="floating-label text-grey-l1 ml-n3" for="id-login-username">
-                                Username
+                              Email
                               </label>
                             </div>
                           </div>

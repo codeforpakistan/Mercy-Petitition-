@@ -46,7 +46,7 @@ class PetitionController extends Controller
     public function storepetition(Request $request)
     {
         // Validate the inputs
-  
+     
     
        
         $this->validate($request, [
@@ -60,7 +60,7 @@ class PetitionController extends Controller
         'f_name' => 'required',
         'nationality' => 'required',
         'physicalstatus' => 'required',
-        'confined_in_jail' => 'required',
+       
         'gender' => 'required',
         'dob' => 'required',
         
@@ -158,7 +158,8 @@ class PetitionController extends Controller
 
         public function petitionupdate(Request $request,$id){
         
-          
+       
+            $petitionsedit=Petition::find($id);
             if ($request->hasFile('warrent_file')) {
 
   
@@ -166,16 +167,25 @@ class PetitionController extends Controller
     $warrent_file = time().'.'.$request->warrent_file->extension();  
 
     $request->warrent_file->move(public_path('assets/image'), $warrent_file);
-
+    
+    $petitionsedit->warrent_file = $warrent_file;
      
+    
+               }else{
+                  
+                $petitionsedit->warrent_file =   $petitionsedit->warrent_file;  
                }
+               
+              
                if ($request->hasFile('health_paper')) {
 
                 // $request->health_paper->store('assets/image', 'public');
                 $health_paper = time().'.'.$request->health_paper->extension();  
 
                 $request->health_paper->move(public_path('assets/image'), $health_paper);
-
+                $petitionsedit->health_paper = $health_paper;
+             }else{
+                $petitionsedit->health_paper = $petitionsedit->health_paper ;
              }
              if ($request->hasFile('application_image')) {
 
@@ -183,7 +193,9 @@ class PetitionController extends Controller
                 $application_image = time().'.'.$request->application_image->extension();  
 
                 $request->application_image->move(public_path('assets/image'), $application_image);
-
+                $petitionsedit->application_image = $application_image;
+             }else{
+                $petitionsedit->application_image = $petitionsedit->application_image ;
              }
           
              if ($request->hasFile('prisoner_image')) {
@@ -192,16 +204,11 @@ class PetitionController extends Controller
                 $prisoner_image = time().'.'.$request->prisoner_image->extension();  
 
                 $request->prisoner_image->move(public_path('assets/image'), $prisoner_image);
-
+                $petitionsedit->prisoner_image = $prisoner_image;
+             }else{
+                $petitionsedit->prisoner_image = $petitionsedit->prisoner_image;
              }
-             if ($request->hasFile('otherdocument')) {
-                $otherdocument = time().'.'.$request->otherdocument->extension();  
-
-                $request->otherdocument->move(public_path('assets/image'), $otherdocument);
-
-                // $request->otherdocument->store('assets/image', 'public');
-
-             }
+           
            
             
             //  $now = date('Y-m-d',strttotime($request->get('warrent_date'))); //Fomat Date and time //you are overwriting this variable below
@@ -211,7 +218,7 @@ class PetitionController extends Controller
             $dob = Carbon::parse($request->get('dob'))->format('Y-m-d');
             $mercypetitiondate = Carbon::parse($request->get('mercypetitiondate'))->format('Y-m-d');
            
-            $petitionsedit=Petition::find($id);
+           
            
             $petitionsedit->name = $request->get('name');
             
@@ -234,11 +241,7 @@ class PetitionController extends Controller
             $petitionsedit->warrent_information = $request->get('warrent_information');
             $petitionsedit->nationality = $request->get('nationality');
            
-            $petitionsedit->prisoner_image = $prisoner_image;
-           $petitionsedit->application_image = $application_image;
-            $petitionsedit->warrent_file = $warrent_file;
-         
-            $petitionsedit->health_paper = $health_paper;
+          
            
             $petitionsedit->remarks = $request->get('remarks');
                                   
@@ -246,17 +249,31 @@ class PetitionController extends Controller
             
             // $fileupdate = File::where('petition_id',$id)->first();
        
-          $fileupdate = File::find($petitionsedit);
+          $fileupdate = File::where('petition_id',$petitionsedit->id)->first();
+
+   
+          if ($request->hasFile('otherdocument')) {
+            $otherdocument = time().'.'.$request->otherdocument->extension();  
+
+            $request->otherdocument->move(public_path('assets/image'), $otherdocument);
+
+                  
+            $fileupdate->file = $otherdocument;
+            
+             
+         }else{
+            $fileupdate->file = $fileupdate->file ;
+         }
+      
          
                 $fileupdate->petition_id= $id;
            
-                $fileupdate->file = $otherdocument;
+              
                 foreach ( $petitionsedit->fileattachements as $post) {
                     $post->petitions()->associate($fileupdate);; // not id
                 }
                
-        //    dd($petitionsedit->petitions()->associate($fileupdate));
-        //     $fileupdate->petitions()->associate($petitionsedit);
+   
 
             $petitionsedit->save();
             // $fileupdate->save();

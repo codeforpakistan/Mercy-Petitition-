@@ -57,9 +57,9 @@
     <div class="form-group col-md-6">
       <label for="form-field-select-11">Physical Status</label>
       <select class="ace-select text-dark-m1 bgc-default-l5 bgc-h-warning-l3 brc-default-m3 brc-h-warning-m1"  name="physicalstatus" id="form-field-select-11">
-      <option value='WV'>West Virginia</option>
-                        <option value='WI'>Wisconsin</option>
-                        <option value='WY'>Wyoming</option>
+      <option value='TB'>TB</option>
+                        <option value='Cancer'>Cancer</option>
+                        <option value='LungsCancer'>LungsCancer</option>
                       </select>
     </div>
     <div class="form-group col-md-6">
@@ -69,16 +69,8 @@
 
   </div>
   <div class="form-row">
-    <div class="form-group col-md-6">
-
-      <label for="form-field-select-11">Confined In Jail</label>
-      <select  name="confined_in_jail" class="ace-select text-dark-m1 bgc-default-l5 bgc-h-warning-l3 brc-default-m3 brc-h-warning-m1" id="form-field-select-11">
-      <option value='WV'>West Virginia</option>
-                        <option value='WI'>Wisconsin</option>
-                        <option value='WY'>Wyoming</option>
-                      </select>
-    </div>
-    <div class="form-group col-md-6">
+   
+    <div class="form-group col-md-12">
     <label for="inputState">DOB</label>
 
      <input type="date" name="dob"class="form-control" >
