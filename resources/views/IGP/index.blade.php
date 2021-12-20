@@ -114,7 +114,7 @@
 
                             <td class='text-center pr-0'>
                               <div>
-                                <a href="#" data-toggle="collapse" data-target="#table-detail-0" class="d-style btn btn-outline-info text-90 text-600 border-0 px-2 collapsed" title="Show Details">
+                                <a href="#" data-toggle="modal" data-target="#modalFullscreen" class="d-style btn btn-outline-info text-90 text-600 border-0 px-2 collapsed" title="Show Details">
                                   <span class="d-none d-md-inline mr-1">
                                             Details
                                         </span>
@@ -133,9 +133,7 @@
                                 <a href="{{route('petition-forward',[$petion->id])}}" class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success">
                                     <i class="fa fa-plus"></i>
                                   </a>
-                                <a href="#" class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-warning btn-a-lighter-warning">
-                                  <i class="fa fa-ellipsis-v mx-1"></i>
-                                </a>
+                           
                               </div>
 
                               <!-- show a dropdown in mobile -->
@@ -167,90 +165,46 @@
 
                             </td>
                           </tr>
-                          <tr class="border-0 detail-row bgc-white">
-                            <td colspan="8" class="p-0 border-none brc-secondary-l2">
-                              <div class="table-detail collapse" id="table-detail-0">
-                                <div class="row">
-                                  <div class="col-12 col-md-10 offset-md-1 p-4">
-                                    <div class="alert bgc-secondary-l4 text-dark-m2 border-none border-l-4 brc-primary-m1 radius-0 mb-0">
-                                      <h4 class="text-primary">
-                                        Row Details
-                                      </h4>
-                                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo massa sed ipsum porttitor facilisis.
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <!-- detail row -->
-                          <!-- <tr class="border-0 detail-row bgc-white">
-                            <td colspan="8" class="p-0 border-none brc-secondary-l2">
-                              <div class="table-detail collapse" id="{{$petion->confined_in_jail}}">
-                                <div class="row">
-                                  <div class="col-12 col-md-10 offset-md-1 p-4">
-                                    <div class="bg-white border-bottom">
-                                        <div class="content content-boxed">
-                                            <div class="row items-push text-center">
-                                                <div class="table-responsive">
-                                                    <table class="table table-bordered table-striped table-vcenter">
-                                                        <tbody>
-                                                           
-                                                            <tr>
-                                                                <td class="text-left">Father's Name:</td>
-                                                                {{-- <td class="font-w600 font-size-sm">{{ $detail->FatherName}}</td> --}}
-                                                                <td class="text-left">CNIC:</td>
-                                                                {{-- <td class="font-w600 font-size-sm">{{ $detail->Cnic}}</td> --}}
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="text-left">Gender:</td>
-                                                                {{-- <td class="font-w600 font-size-sm"> {{ $detail->GenderTitle}} </td> --}}
-                                                                <td class="text-left">Data of Birth:</td>
-                                                                {{-- <td class="font-w600 font-size-sm">{{$employes->DateOfBirth}}</td> --}}
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="text-left">Contact Number:</td>
-                                                                {{-- <td class="font-w600 font-size-sm"> {{ $detail->ContactNumber}} </td> --}}
-                                                                <td class="text-left">Mobile Network:</td>
-                                                                {{-- <td class="font-w600 font-size-sm">{{$detail->MobileNetworkOperator}}</td> --}}
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="text-left">Present Address:</td>
-                                                                {{-- <td class="font-w600 font-size-sm"> {{ $detail->PresentAddress}} </td> --}}
-                                                                <td class="text-left">Permanent Address:</td>
-                                                                {{-- <td class="font-w600 font-size-sm">{{$detail->PermanentAddress}}</td> --}}
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="text-left">Joining Date:</td>
-                                                                {{-- <td class="font-w600 font-size-sm"> {{ $detail->JoiningDate}} </td> --}}
-                                                                <td class="text-left">Regularization Date:</td>
-                                                                {{-- <td class="font-w600 font-size-sm">{{$detail->RegularizationDate}}</td> --}}
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="text-left">Nominee:</td>
-                                                                {{-- <td class="font-w600 font-size-sm"> {{ $detail->Nominee}} </td> --}}
-                                                                <td class="text-left">Date Of Retirement:</td>
-                                                                {{-- <td class="font-w600 font-size-sm">{{$detail->DateOfRetirement}}</td> --}}
-                                                            </tr>
-                                                           
-                                                        </tbody>
-                                                    </table>
-                                                </div>
+                     
 
-                                            </div>
-                                        </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </td>
-                          </tr> -->
                           @endforeach
-                         
+                          <div class="modal fade modal-fs" id="modalFullscreen" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel2">
+                      Modal title
+                    </h5>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+
+                  <div class="modal-body">
+                    1<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>
+                    2<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>
+                    3<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>
+                    4
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                      Close
+                    </button>
+
+                    <button type="button" class="btn btn-primary">
+                      Save changes
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
                         </tbody>
                       
                       </table>
-
+                     
                       <!-- table footer -->
                       <div class="d-flex pl-4 pr-3 pt-35 border-t-1 brc-secondary-l2 flex-column flex-sm-row mt-n1px">
                         <div class="text-nowrap align-self-center align-self-sm-start">
