@@ -47,7 +47,7 @@ class PetitionController extends Controller
     {
         // Validate the inputs
      
-    
+    // file validation
        
         $this->validate($request, [
             'prisoner_image' => 'required|mimes:jpeg,png,jpg,gif,svg',
