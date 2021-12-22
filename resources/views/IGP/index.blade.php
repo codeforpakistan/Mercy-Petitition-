@@ -11,7 +11,7 @@
    <div role="main" class="page-content container container-plus">
             <div class="page-header border-0">
               <h1 class="page-title text-primary-d2 text-140">
-                
+
               </h1>
             </div>
 
@@ -114,7 +114,7 @@
 
                             <td class='text-center pr-0'>
                               <div>
-                                <a href="#" data-toggle="modal" data-target="#modalFullscreen" class="d-style btn btn-outline-info text-90 text-600 border-0 px-2 collapsed" title="Show Details">
+                                <a href="javascript:void(0)" data-toggle="modal" data-target="#modalFullscreen" class="d-style btn btn-outline-info text-90 text-600 border-0 px-2 collapsed" data-id ="{{$petion->id}}" id="show-user" title="Show Details">
                                   <span class="d-none d-md-inline mr-1">
                                             Details
                                         </span>
@@ -133,7 +133,7 @@
                                 <a href="{{route('petition-forward',[$petion->id])}}" class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success">
                                     <i class="fa fa-plus"></i>
                                   </a>
-                           
+
                               </div>
 
                               <!-- show a dropdown in mobile -->
@@ -160,15 +160,20 @@
                                       Flag
                                     </a>
                                   </div>
+                                </td>
+                            </tr>
+
+
+
+                            @endforeach
+                          </tbody>
+
+                      </table>
                                 </div>
-                              </div>
 
-                            </td>
-                          </tr>
-                     
 
-                          @endforeach
-                          <div class="modal fade modal-fs" id="modalFullscreen" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+
+             <div class="modal fade modal-fs" id="modalFullscreen" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
               <div class="modal-dialog modal-dialog-scrollable" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -182,31 +187,76 @@
                   </div>
 
                   <div class="modal-body">
-                    1<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>
-                    2<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>
-                    3<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>
-                    4
-                  </div>
+                 {{-- <p id = "show"> </p><input type="text"  >
+                 name : <span id="firstname"></span> --}}
 
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                      Close
-                    </button>
+                 <div class="bg-white border-bottom">
+                    <div class="content content-boxed">
+                        <div class="row items-push text-center">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped table-vcenter">
+                                    <tbody>
+                                        {{-- @foreach ($details as $detail) --}}
+                                        <tr>
+                                            <td class="text-left">Name:</td>
+                                            <td id="firstname" class="font-w600 font-size-sm"></td>
+                                            <td class="text-left">Father Name:</td>
+                                            <td id ="Fathername" class="font-w600 font-size-sm"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left">Nationality:</td>
+                                            <td id="Nationality" class="font-w600 font-size-sm"></td>
+                                            <td class="text-left">Physical status:</td>
+                                            <td id="Physicalstatus" class="font-w600 font-size-sm"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left">Confined in jail:</td>
+                                            <td id="Confined_in_jail" class="font-w600 font-size-sm"></td>
+                                            <td class="text-left">Mobile Network:</td>
+                                            <td class="font-w600 font-size-sm"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left">Gender:</td>
+                                            <td id="Gender" class="font-w600 font-size-sm"></td>
+                                            <td class="text-left">Dob:</td>
+                                            <td id="Dob" class="font-w600 font-size-sm"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left">Fir and date:</td>
+                                            <td id="fir&date" class="font-w600 font-size-sm"></td>
+                                            <td class="text-left">Mercy petition date:</td>
+                                            <td id="Mercypetitiondate" class="font-w600 font-size-sm"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left">Section:</td>
+                                            <td id="Section_id" class="font-w600 font-size-sm"></td>
+                                            <td class="text-left">Remarks:</td>
+                                            <td id="Remarks" class="font-w600 font-size-sm"></td>
+                                        </tr>
+                                        {{-- @endforeach --}}
+                                    </tbody>
+                                </table>
+                            </div>
 
-                    <button type="button" class="btn btn-primary">
-                      Save changes
-                    </button>
-                  </div>
+                        </div>
+                    </div>
                 </div>
+                  </div>
+
+                </div>
+
               </div>
             </div>
-          </div>
-                        </tbody>
-                      
-                      </table>
-                     
+
+
+
+
+                        {{-- </tbody>
+
+                      </table> --}}
+
                       <!-- table footer -->
-                      <div class="d-flex pl-4 pr-3 pt-35 border-t-1 brc-secondary-l2 flex-column flex-sm-row mt-n1px">
+                      {{-- <div class="d-flex pl-4 pr-3 pt-35 border-t-1 brc-secondary-l2 flex-column flex-sm-row mt-n1px">
                         <div class="text-nowrap align-self-center align-self-sm-start">
                           <span class="d-inline-block text-grey-d2">
                             Showing 1 - 10 of 152
@@ -229,7 +279,8 @@
                             <i class="fa fa-caret-right ml-1"></i>
                           </a>
                         </div>
-                      </div>
+                      </div> --}}
+                </div>
                     </form>
 
                   </div><!-- /.card-body -->
@@ -238,3 +289,4 @@
             </div><!-- /.row -->
             </div><!-- /.row -->
             @endsection
+

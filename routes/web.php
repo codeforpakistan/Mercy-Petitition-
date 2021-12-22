@@ -37,6 +37,7 @@ Route::Post('/forwardhomedepartment/{id}','PetitionController@forwardhomedepartm
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/petitionforward/{id}','PetitionController@forwardpetition')->name('petition-forward');
     Route::Post('/storepetition','PetitionController@storepetition')->name('storepetition');
+    Route::get('/view/{id}','PetitionController@view')->name('viewpetition');
     Route::resource('roles','RoleController');
     Route::resource('Petition','PetitionController');
     Route::resource('roles','RoleController');

@@ -442,6 +442,56 @@
 
     })
     </script>
+     <script type=text/javascript>
+              $(document).ready(function() {
+              $('body').on('click','#show-user' , function(){
+                //  alert( $(this).data('id'));
+                //  $("#getData").click(function() {
+
+                //     var get = $(this).val();
+                //     alert(get);
+                var id = $(this).data('id');
+                 $.ajax({  //create an ajax request to display.php
+
+                  type: "GET",
+                  url: "{{url('view')}}/"+id,
+                  datatype: 'json',
+                  success: function (data) {
+
+                // console.log(data);
+
+                    $('#firstname').text(data.name);
+                    $('#Fathername').text(data.f_name);
+                    $('#Nationality').text(data.nationality);
+                    $('#Physicalstatus').text(data.physicalstatus);
+                    $('#Confined_in_jail').text(data.confined_in_jail);
+                    $('#Gender').text(data.gender);
+                    $('#Dob').text(data.dob);
+                    // $('#fir&date').text(data.fir&date);
+                    $('#Mercypetitiondate').text(data.mercypetitiondate);
+                    $('#Section_id').text(data.section_id);
+                    $('#Remarks').text(data.remarks);
+
+
+
+                var peti =
+                   "<tr>"+
+                        "<td class='text-left'>Name:</td>"+
+                        "<td class='font-w600 font-size-sm'>"+data.name+"</td>"+
+                        "<td class='text-left'>FatherName:</td>"+
+                        "<td class='font-w600 font-size-sm'>"+data.f_name+"</td>"+
+                   "</tr>"
+                   $('#show').text(peti);
+                   console.log(peti);
+                  }
+
+                });
+
+              });
+              });
+
+              </script>
+
     @yield('scripts')
   </body>
 </html>
