@@ -156,34 +156,43 @@
   </div>
 
   <div class="form-row">
-    <div class="form-group col-md-12">
-      
-      <label for="inputCity">Other FIle Attchment</label>
-      <img src="{{ asset('/assets/image/'.$filepetition->file) }}"width="50" height="50" alt="pic"/>
-      <input type="file" name="otherdocument" value="{{}}" class="ace-file-input" id="ace-file-input2" multiple="">
-    </div>
-    
-  
-  </div>
  
-                  <div class="mt-5 border-t-1 brc-secondary-l2 py-35 mx-n25">
-                    <div class="offset-md-3 col-md-9 text-nowrap">
-                      <button class="btn btn-info btn-bold px-4" type="submit">
-                        <i class="fa fa-check mr-1"></i>
-                       UPdate petition
-                      </button>
+ <div class="form-group col-md-12">
+ <h3 class="text-primary-d2 text-140 mb-3">
+ warrent information
+             </h3>
+             <div class="card bcard border-1 brc-dark-l1">
+               <div class="card-body p-0">
+                 <form method="post">
+                   <textarea id="summernote"  name="warrent_information">{{$petitionsedit->warrent_information}}</textarea>
+                 </form>
+               </div>
+             </div>
+ </div>
+ <div class=" form-group col-md-12 mt-5 border-t-1 brc-secondary-l2 py-35 mx-n25" >
+                 <div class=" col-md-12 text-nowrap" >
+                   <button style="float:right;" class="btn btn-info btn-bold px-4" type="submit">
+                     <i class="fa fa-check mr-1"></i>
+                     Submit
+                   </button>
 
-                      <button class="btn btn-outline-lightgrey btn-bold ml-2 px-4" type="reset">
-                        <i class="fa fa-undo mr-1"></i>
-                        Reset
-                      </button>
-                    </div>
-                  </div>
-                </form>
-         
-            </div><!-- /.card -->
+                   <button style="float:right;" class="btn btn-outline-lightgrey btn-bold ml-2 px-4" type="reset">
+                     <i class="fa fa-undo mr-1"></i>
+                     Reset
+                   </button>
+                 </div>
+               </div>
 </div>
-<script>
-  
-  </script>
+
+
+
+
+       
+
+               
+             </form>
+
+         </div><!-- /.card -->
+</div>
+
 @endsection
