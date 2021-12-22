@@ -101,16 +101,8 @@ class PetitionController extends Controller
                     $request->health_paper->move(public_path('assets/image'), $health_paper);
 
                  }
-                 if ($request->hasFile('otherdocument')) {
-                    $otherdocument = time().'.'.$request->otherdocument->extension();
-
-                    $request->otherdocument->move(public_path('assets/image'), $otherdocument);
-
-                    // $request->otherdocument->store('assets/image', 'public');
-                  $file=  explode(".",$otherdocument);
-                  $file['1'];
-
-                 }
+                
+                 
                 //  $now = date('Y-m-d',strttotime($request->get('warrent_date'))); //Fomat Date and time //you are overwriting this variable below
                 $warrent_date = Carbon::parse($request->get('warrent_date'))->format('Y-m-d');
 
@@ -136,21 +128,21 @@ class PetitionController extends Controller
             "warrent_date" =>  $warrent_date,
             "date_of_sentence" =>  $date_of_sentence,
             "sentence_in_court" =>$request->get('sentence_in_court'),
-            "warrent_information" => $request->get('warrent_information'),
+            "warrent_information" =>strip_tags($request->warrent_information),
             "status" => "IGP",
 
             "prisoner_image" => $prisoner_image,
             "warrent_file" =>$warrent_file,
             "application_image" => $application_image,
             "health_paper" => $health_paper,
-            "remarks" =>'igpremarks',
+            "remarks" =>strip_tags($request->remarks),
 
         ]);
 
         $Petition->save();
         $file = new File([
          'petition_id'=>$Petition->id,
-         "file" => $otherdocument,
+         "file" => json_encode($otherdocumentarry),
         ]);
         $file->save();
         return redirect()->route('Petition.index')->with('message','Petion Successfully save');
@@ -287,27 +279,37 @@ class PetitionController extends Controller
             }
             public function forwardhomedepartment(Request $request, $id){
                
-            
-                if ($request->hasFile('otherdocument')) {
-                    $otherdocument = time().'.'.$request->otherdocument->extension();  
-    
-                    $request->otherdocument->move(public_path('assets/image'), $otherdocument);
-    
-                    // $request->otherdocument->store('assets/image', 'public');
-                    $file=  explode(".",$otherdocument);
-                    $file['1'];
-    
+                if ($request->file('otherdocument')) {
+                    $otherdocumentarry=[];
+                    foreach($request->file('otherdocument') as $file)
+                    {
+                    $otherdocument = time().'.'.$file->extension();
+
+                    $file->move(public_path('assets/image'), $otherdocument);
+                  
+                    $otherdocumentarry[]=  $otherdocument;
+                 
+                    }
+             
                  }
+                
+              
               
            $forwardhomedepartment= Petition::find($id);
-           $forwardhomedepartment->remarks = $request->get('remarks');
+           $forwardhomedepartment->remarks = strip_tags($request->get('remarks'));
            $forwardhomedepartment->status = $request->get('status');
            $forwardhomedepartment->save();
+           $file = new File([
+            'petition_id'=>$forwardhomedepartment->id,
+            "file" => json_encode($otherdocumentarry),
            
-           $otherdoc= File::where('petition_id',$forwardhomedepartment->id)->first();
-           $otherdoc->file = $otherdocument;
-           $otherdoc->type = $file['1'];
-           $otherdoc->save();
+           ]);
+           $file->save();
+           
+        //    $otherdoc= File::where('petition_id',$forwardhomedepartment->id)->first();
+        //    $otherdoc->file = $otherdocument;
+        //    $otherdoc->type = $file['1'];
+        //    $otherdoc->save();
            return redirect()->route('Petition.index')->with('message','Petion Forward Successfully ');
                 }
             

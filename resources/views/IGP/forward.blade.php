@@ -52,28 +52,31 @@
                     </select>
                 </div>
             </div>
-              <div class="form-group row">
-                  <div class="col-sm-3 col-form-label text-sm-right pr-0">
-                      <label for="email" class="mb-0">Remarks</label>
-                  </div>
-                  <div class="col-sm-9">
-                      <textarea type="text" class="form-control col-sm-8 col-md-6" id="email" name="Remarks" placeholder="Enter remarks"></textarea>
-                  </div>
-              </div>
+            
               <div class="form-group row">
                   <div class="col-sm-3 col-form-label text-sm-right pr-0">
                       <label for="email" class="mb-0">Otherdocuments</label>
                   </div>
                   <div class="col-sm-4">
-                  <input type="file" name="otherdocument" class="ace-file-input"  id="ace-file-input14">
+                  <input type="file" class="ace-file-input" name="otherdocument[]" id="ace-file-input2" multiple="" accept="gif|jpg|jpeg|png|webp|svg|pdf">
                    
                   </div>
               </div>
-
-
-
-
-              <div class="mt-5 border-t-1 brc-secondary-l2 py-35 mx-n25">
+              <div class="form-group row">
+                  <div class="col-sm-3 col-form-label text-sm-right pr-0">
+                      <label for="email" class="mb-0">Remarks</label>
+                  </div>
+                  <div class="col-sm-9">
+                  
+                <div class="card bcard border-1 brc-dark-l1">
+                  <div class="card-body p-0">
+                    <form method="post">
+                      <textarea id="summernote" name="remarks"></textarea>
+                    </form>
+                  </div>
+                </div>
+                  </div>
+                  <div class="mt-5 border-t-1 brc-secondary-l2 py-35 mx-n25">
                   <div class="offset-md-3 col-md-9 text-nowrap">
                           <button class="btn btn-info btn-bold px-4" type="submit">
                               <i class="fa fa-check mr-1"></i>
@@ -89,6 +92,10 @@
                           </a> --}}
                   </div>
               </div>
+              </div>
+
+
+             
           </form>
       </div>
   </div>

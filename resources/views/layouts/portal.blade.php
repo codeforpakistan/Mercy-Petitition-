@@ -19,7 +19,8 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/npm/fontawesome-5.14.0/css/solid.min.css')}}">
 
     <link rel="stylesheet" type="text/css" href="{{asset('assets/npm/basictable@1.0.9/basictable.min.css')}}">
-
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/npm/summernote@0.8.18\dist/summernote-lite.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/npm/bootstrap-markdown@2.10.0/css/bootstrap-markdown.min.css')}}">
         <!-- include vendor stylesheets used in "Form Basic Elements" page. see "application/views/default/pages/partials/form-basic/@vendor-stylesheets.hbs" -->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/npm\nouislider@14.6.1\distribute\nouislider.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/npm\ion-rangeslider@2.3.1\css\ion.rangeSlider.min.css')}}">
@@ -291,6 +292,8 @@
     <script src="{{asset('assets\npm\@jaames\iro@5.2.0\dist\iro.min.js')}}"></script>
     <script src="{{asset('assets\npm\jquery-knob@1.2.11\dist\jquery.knob.min.js')}}"></script>
     <script src="{{asset('assets\npm\tiny-date-picker@3.2.8\dist\date-range-picker.min.js')}}"></script>
+    <script src="{{asset('assets\npm\summernote@0.8.18\dist\summernote-lite.min.js')}}"></script>
+    <script src="{{asset('assets\npm\bootstrap-wysiwyg@2.0.1\js\bootstrap-wysiwyg.min.js')}}"></script>
    <script>
        $('#ace-file-input1').aceFileInput({
           /**
@@ -340,15 +343,15 @@
             container: 'border-1 border-dashed brc-grey-l1 brc-h-info-m2 shadow-sm',
 
             placeholderClass: 'text-125 text-600 text-grey-l1 my-2',
-            placeholderText: 'Drop images here or click to choose',
+            placeholderText: 'Drop multiple file',
             placeholderIcon: '<i class="fa fa-cloud-upload-alt fa-3x text-info-m2 my-2"></i>',
 
             //previewSize: 64,
             thumbnail: 'large',
 
-            //allowExt: 'gif|jpg|jpeg|png|webp|svg',
-            //allowMime: 'image/png|image/jpeg',
-            allowMime: 'image/*',
+            allowExt: 'gif|jpg|jpeg|png|webp|svg|pdf',
+            //allowMime: 'image/png|image/jpeg|pdf',
+          //  allowMime: 'image/pdf/*',
 
             //maxSize: 100000,
           })
@@ -381,6 +384,54 @@
         // $('#ace-file-input2').aceFileInput('showFileList', [{name: 'avatar3.jpg', type: 'image', path: 'assets/image/avatar/avatar3.jpg'} , {name: 'avatar2.jpg', type: 'image', path: 'assets/image/avatar/avatar2.jpg'}])
         // $('#ace-file-input1').aceFileInput('showFileList', [{name: '2.txt', type: 'document'}])
         // $('#ace-file-input1').aceFileInput('resetInput');
+       
+        $.extend($.summernote.options.icons, {
+          'align': 'fa fa-align',
+          'alignCenter': 'fa fa-align-center',
+          'alignJustify': 'fa fa-align-justify',
+          'alignLeft': 'fa fa-align-left',
+          'alignRight': 'fa fa-align-right',
+          'indent': 'fa fa-indent',
+          'outdent': 'fa fa-outdent',
+          'arrowsAlt': 'fa fa-arrows-alt',
+          'bold': 'fa fa-bold',
+          'caret': 'fa fa-caret-down text-grey-m2 ml-1',
+          'circle': 'fa fa-circle',
+          'close': 'fa fa fa-close',
+          'code': 'fa fa-code',
+          'eraser': 'fa fa-eraser',
+          'font': 'fa fa-font',
+          'italic': 'fa fa-italic',
+          'link': 'fa fa-link text-success-m1',
+          'unlink': 'fas fa-unlink',
+          'magic': 'fa fa-magic text-brown-m1',
+          'menuCheck': 'fa fa-check',
+          'minus': 'fa fa-minus',
+          'orderedlist': 'fa fa-list-ol text-blue',
+          'pencil': 'fa fa-pencil',
+          'picture': 'far fa-image text-purple-d1',
+          'question': 'fa fa-question',
+          'redo': 'fa fa-repeat',
+          'square': 'fa fa-square',
+          'strikethrough': 'fa fa-strikethrough',
+          'subscript': 'fa fa-subscript',
+          'superscript': 'fa fa-superscript',
+          'table': 'fa fa-table text-danger-m2',
+          'textHeight': 'fa fa-text-height',
+          'trash': 'fa fa-trash',
+          'underline': 'fa fa-underline',
+          'undo': 'fa fa-undo',
+          'unorderedlist': 'fa fa-list-ul text-blue',
+          'video': 'far fa-file-video text-pink-m1'
+        })
+
+        $('#summernote').summernote({
+       
+          height: 250,
+          minHeight: 150,
+          maxHeight: 400
+        })
+     
      </script>
     <script>
       jQuery(function($) {
