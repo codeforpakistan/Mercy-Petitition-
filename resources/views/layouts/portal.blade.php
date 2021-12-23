@@ -384,7 +384,7 @@
         // $('#ace-file-input2').aceFileInput('showFileList', [{name: 'avatar3.jpg', type: 'image', path: 'assets/image/avatar/avatar3.jpg'} , {name: 'avatar2.jpg', type: 'image', path: 'assets/image/avatar/avatar2.jpg'}])
         // $('#ace-file-input1').aceFileInput('showFileList', [{name: '2.txt', type: 'document'}])
         // $('#ace-file-input1').aceFileInput('resetInput');
-       
+
         $.extend($.summernote.options.icons, {
           'align': 'fa fa-align',
           'alignCenter': 'fa fa-align-center',
@@ -426,12 +426,12 @@
         })
 
         $('#summernote').summernote({
-       
+
           height: 250,
           minHeight: 150,
           maxHeight: 400
         })
-     
+
      </script>
     <script>
       jQuery(function($) {
@@ -553,6 +553,9 @@
 
   
              });
+                    $('#Prisonerimage').html("<img style='height:100px;width:100px;border-radius:50px;' src=' {{ url('/assets/image/') }}/"+data.prisoner_image+"'>");
+
+
 
                 var peti =
                    "<tr>"+
