@@ -23,7 +23,10 @@
                   
                       <div class="d-flex justify-content-between flex-column flex-sm-row mb-3 px-2 px-sm-0">
                         <h3 class="text-130 pl-1 mb-3 mb-sm-0">
-                          Popular products
+                        <a href="{{ route('Petition.index') }}" class="btn btn-blue px-3 d-block w-100 text-95 radius-round border-2 brc-black-tp10">
+                            <i class="fa fa-arrow-left mr-1"></i>
+                             <span class="d-sm-none d-md-inline">Back</span> 
+</a>
                         </h3>
                         
 
@@ -45,7 +48,7 @@
      
               <form action="{{ route('petitionsearch') }}" method="get">
                           @csrf
-              <input type="text" name="search"  class="form-control w-100 pl-45 brc-primary-m4" placeholder="Search ...">
+              <input type="text" name="search" value={{request()->input('search')}} class="form-control w-100 pl-45 brc-primary-m4" placeholder="Search ...">
             </div>
             <button type="submit" class="ml-2 btn btn-sm btn-outline-primary btn-h-outline-info btn-a-outline-info" style="margin-left: -6px !important;height: 38px;margin-top: -4px;border-left: 0;padding-right: 15px;"><i class="fa fa-arrow-right ml-2 f-n-hover"></i></button>
           </form>
@@ -187,9 +190,9 @@
 
                             @endforeach
                           </tbody>
-                          
+
                       </table>
-                     
+                      
                                 </div>
 
 
@@ -235,16 +238,6 @@
                                             <td id="Confined_in_jail" class="font-w600 font-size-sm"></td>
                                             <td class="text-left">Mobile Network:</td>
                                             <td class="font-w600 font-size-sm"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-left">file:</td>
-                                          <td class="picss" id="picss"></td>
-                                            <td class="font-w600 font-size-sm pics"></td>
-                                            <td class="pic" id="pic" class=" font-w600 font-size-sm ">
-                                            <span id"getimgs"></span>
-
-
-                                            </td>
                                         </tr>
                                         <tr>
                                             <td class="text-left">Gender:</td>

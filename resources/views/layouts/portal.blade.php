@@ -495,7 +495,10 @@
     </script>
      <script type=text/javascript>
               $(document).ready(function() {
-              $('body').on('click','#show-user' , function(){
+             
+              $('body').on('click','#show-user' , function(event){
+                event.preventDefault();
+            
                 //  alert( $(this).data('id'));
                 //  $("#getData").click(function() {
 
@@ -507,10 +510,11 @@
                   type: "GET",
                   url: "{{url('view')}}/"+id,
                   datatype: 'json',
+                  
                   success: function (data) {
-
-                // console.log(data);
-
+              
+                  
+                    console.log(data);
                     $('#firstname').text(data.name);
                     $('#Fathername').text(data.f_name);
                     $('#Nationality').text(data.nationality);
@@ -523,7 +527,32 @@
                     $('#Section_id').text(data.section_id);
                     $('#Remarks').text(data.remarks);
 
+             $("#pic").empty(); 
+            $("#picss").empty();      
+             $.each(data.fileattachements, function (key, val) {
+            var fil=  val.file
+            
 
+          //  alert(val.file);
+        if(val.type=='pdf'){
+      
+      // alert(val.type=='pdf');
+      // $("#picss").empty();
+      $('#picss').append("<a   href='{{url('/assets/image/')}}/"+val.file+"'>"+val.file+'</a>');
+          
+        }else{
+     
+          
+          
+         $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{url('/assets/image/')}}/"+val.file+"'>");
+        //  $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{url('/assets/image/')}}/"+val.file+"'>");
+        
+        
+        
+        }        
+
+  
+             });
 
                 var peti =
                    "<tr>"+
@@ -533,9 +562,9 @@
                         "<td class='font-w600 font-size-sm'>"+data.f_name+"</td>"+
                    "</tr>"
                    $('#show').text(peti);
-                   console.log(peti);
+                   
                   }
-
+                
                 });
 
               });
