@@ -263,11 +263,12 @@
                                             <td class="font-w600 font-size-sm"></td>
                                         </tr>
                                         <tr>
+
                                             <td class="text-left">file:</td>
-                                          <td class="picss" id="picss"></td>
-                                            <td class="font-w600 font-size-sm pics"></td>
-                                            <td class="pic" id="pic" class=" font-w600 font-size-sm ">
-                                            <span id"getimgs"></span>
+                                          <td class="picss font-w600 font-size-sm pics" id="picss"></td>
+                                            
+                                            <td class="pic" id="pic"  class=" font-w600 font-size-sm ">
+                                           
 
 
                                             </td>

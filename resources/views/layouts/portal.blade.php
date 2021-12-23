@@ -34,6 +34,7 @@
 
 
   </head>
+ 
 
   <style>
     .b-container {
@@ -573,7 +574,8 @@
               });
               });
 
-              </script>
+            
+</script>
 
     @yield('scripts')
   </body>
