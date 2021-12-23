@@ -495,10 +495,10 @@
     </script>
      <script type=text/javascript>
               $(document).ready(function() {
-             
+
               $('body').on('click','#show-user' , function(event){
                 event.preventDefault();
-            
+
                 //  alert( $(this).data('id'));
                 //  $("#getData").click(function() {
 
@@ -510,10 +510,10 @@
                   type: "GET",
                   url: "{{url('view')}}/"+id,
                   datatype: 'json',
-                  
+
                   success: function (data) {
-              
-                  
+
+
                     console.log(data);
                     $('#firstname').text(data.name);
                     $('#Fathername').text(data.f_name);
@@ -527,33 +527,36 @@
                     $('#Section_id').text(data.section_id);
                     $('#Remarks').text(data.remarks);
 
-             $("#pic").empty(); 
-            $("#picss").empty();      
+             $("#pic").empty();
+            $("#picss").empty();
              $.each(data.fileattachements, function (key, val) {
             var fil=  val.file
-            
+
 
           //  alert(val.file);
         if(val.type=='pdf'){
-      
+
       // alert(val.type=='pdf');
       // $("#picss").empty();
       $('#picss').append("<a   href='{{url('/assets/image/')}}/"+val.file+"'>"+val.file+'</a>');
-          
+
         }else{
-     
-          
-          
+
+
+
          $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{url('/assets/image/')}}/"+val.file+"'>");
         //  $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{url('/assets/image/')}}/"+val.file+"'>");
-        
-        
-        
-        }        
 
-  
+
+
+        }
+
+
              });
                     $('#Prisonerimage').html("<img style='height:100px;width:100px;border-radius:50px;' src=' {{ url('/assets/image/') }}/"+data.prisoner_image+"'>");
+                    $('#application_image').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.application_image+"'>");
+                    $('#health_paper').html("<img style='height:70px;width:100px;' src=' {{ url('/assets/image/') }}/"+data.health_paper+"'>");
+                    $('#warrent_file').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.prisoner_image+"'>");
 
 
 
@@ -565,15 +568,22 @@
                         "<td class='font-w600 font-size-sm'>"+data.f_name+"</td>"+
                    "</tr>"
                    $('#show').text(peti);
-                   
+
                   }
-                
+
                 });
 
               });
               });
 
+              $(function() {
+	       	$('.pop').on('click', function() {
+			$('.imagepreview').attr('src', $(this).find('img').attr('src'));
+			$('#imagemodal').modal('show');
+		});
+});
               </script>
+
 
     @yield('scripts')
   </body>
