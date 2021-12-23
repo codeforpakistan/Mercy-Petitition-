@@ -7,7 +7,16 @@
 
 @section('content')
 
+<style>
+.b-container1 {
+    background-image: linear-gradient(#b33232, #304d86);
+    background-attachment: fixed;
+    opacity: 16px;
 
+    background-repeat: no-repeat;
+
+  }
+</style>
    <div role="main" class="page-content container container-plus">
             <div class="page-header border-0">
               <h1 class="page-title text-primary-d2 text-140">
@@ -186,9 +195,20 @@
                     </button>
                   </div>
 
+
                   <div class="modal-body">
                  {{-- <p id = "show"> </p><input type="text"  >
                  name : <span id="firstname"></span> --}}
+                 <div class="b-container1">
+                    <div class="bg-black-50">
+                        <div class="content content-full text-center">
+                            <div id="Prisonerimage"class="my-3" >
+                         <td class="img-avatar img-avatar-thumb"></td>                            </div>
+                            <h1 class="h2 text-white mb-0"></h1>
+                            <span style="color: white;" id="firstname" class="text-white-75"></span>
+                        </div>
+                    </div>
+                </div>
 
                  <div class="bg-white border-bottom">
                     <div class="content content-boxed">
@@ -203,6 +223,12 @@
                                             <td class="text-left">Father Name:</td>
                                             <td id ="Fathername" class="font-w600 font-size-sm"></td>
                                         </tr>
+                                        {{-- <tr>
+                                            <td class="text-left">Name:</td>
+                                            <td id="firstname" class="font-w600 font-size-sm"></td>
+                                            <td class="text-left">Image:</td>
+                                            <td id ="Prisonerimage" style="height: 100px;width:100px;" class="img-avatar img-avatar-thumb"></td>
+                                        </tr> --}}
                                         <tr>
                                             <td class="text-left">Nationality:</td>
                                             <td id="Nationality" class="font-w600 font-size-sm"></td>
