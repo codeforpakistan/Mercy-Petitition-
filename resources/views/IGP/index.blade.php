@@ -29,29 +29,29 @@
                 <div class="card bcard">
                   <div class="card-body px-1 px-md-3">
 
-                  
+
                       <div class="d-flex justify-content-between flex-column flex-sm-row mb-3 px-2 px-sm-0">
                         <h3 class="text-130 pl-1 mb-3 mb-sm-0">
                           Popular products
                         </h3>
-                        
+
 
                         <div class="pos-rel ml-sm-auto mr-sm-2 order-last order-sm-0">
                           <i class="fa fa-search position-lc ml-25 text-primary-m1"></i>
                           <!-- <form  method="get"  action="{{route('petitionsearch')}}">
-                      
+
                           <input type="text" class="form-control w-100 pl-45 radius-1 brc-primary-m4"  name="search" placeholder="Search ...">
                           <button  class="btn btn-info btn-bold px-4" type="submit">
                           <i class="fa fa-search position-lc ml-25 text-primary-m1"></i>
-                      
+
                         </button>
                         </form> -->
-                      
-  
-                        
+
+
+
             <div class="pos-rel d-inline-block" style="width: calc(100% - 48px);">
               <i class="fa fa-search position-lc ml-25 text-primary-m1"></i>
-     
+
               <form action="{{ route('petitionsearch') }}" method="get">
                           @csrf
               <input type="text" name="search"  class="form-control w-100 pl-45 brc-primary-m4" placeholder="Search ...">
@@ -59,7 +59,7 @@
             <button type="submit" class="ml-2 btn btn-sm btn-outline-primary btn-h-outline-info btn-a-outline-info" style="margin-left: -6px !important;height: 38px;margin-top: -4px;border-left: 0;padding-right: 15px;"><i class="fa fa-arrow-right ml-2 f-n-hover"></i></button>
           </form>
                         </div>
-                        
+
                         <div class="mb-2 mb-sm-0">
                           <a href="{{ route('Petition.create') }}" class="btn btn-blue px-3 d-block w-100 text-95 radius-round border-2 brc-black-tp10">
                             <i class="fa fa-plus mr-1"></i>
@@ -196,9 +196,9 @@
 
                             @endforeach
                           </tbody>
-                          
+
                       </table>
-                     
+
                                 </div>
 
 
@@ -223,7 +223,7 @@
                  <div class="b-container1">
                     <div class="bg-black-50">
                         <div class="content content-full text-center">
-                            <div id="Prisonerimage"class="my-3" >
+                            <div id="Prisonerimage"class="my-3 " >
                          <td class="img-avatar img-avatar-thumb"></td>                            </div>
                             <h1 class="h2 text-white mb-0"></h1>
                             <span style="color: white;" id="firstname" class="text-white-75"></span>
@@ -291,6 +291,22 @@
                                             <td class="text-left">Remarks:</td>
                                             <td id="Remarks" class="font-w600 font-size-sm"></td>
                                         </tr>
+                                        <tr>
+                                            <td class="text-left">Application image:</td>
+                                            <span id="application_images"></span>
+                                            <td id="application_image" class="font-w600 font-size-sm"></td>
+                                            <td class="text-left">Health paper:</td>
+                                            <span id="health_papers"></span>
+                                            <td id="health_paper" class="font-w600 font-size-sm"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left">Warrent file:</td>
+                                            <span id="warrent_files"></span>
+                                            <td id="warrent_file" class="font-w600 font-size-sm"></td>
+                                            {{-- <td class="text-left">Health paper:</td>
+                                              
+                                            <td id="health_paper" class="font-w600 font-size-sm"></td> --}}
+                                        </tr>
                                         {{-- @endforeach --}}
                                     </tbody>
                                 </table>
@@ -339,7 +355,7 @@
                         </div>
                       </div> --}}
                 </div>
-                  
+
 
                   </div><!-- /.card-body -->
                 </div><!-- /.card -->

@@ -31,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/npm\eonasdan-bootstrap-datetimepicker@4.17.47\build\css\bootstrap-datetimepicker.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/ace.min.css')}}">
 
-
+    <!-- <link rel="stylesheet" href="{{asset('assets/css/lightbox.min.css')}}"> -->
 
   </head>
  
@@ -276,7 +276,7 @@
     <script src="{{asset('assets\npm\basictable@1.0.9\jquery.basictable.min.js')}}"></script>
     <script src="{{asset('assets\npm\sweetalert2@9.17.1\dist\sweetalert2.all.min.js')}}"></script>
     <script src="{{asset('assets\npm\select2@4.0.13\dist\js\select2.min.js')}}"></script>
-
+    <!-- <script src="{{asset('assets/js/lightbox-plus-jquery.min.js')}}"></script> -->
 
     <!-- include vendor scripts used in "Form Basic Elements" page. see "application/views/default/pages/partials/form-basic/@vendor-scripts.hbs" -->
     <script src="{{asset('assets\npm\autosize@4.0.2\dist\autosize.min.js')}}"></script>
@@ -496,10 +496,10 @@
     </script>
      <script type=text/javascript>
               $(document).ready(function() {
-             
+
               $('body').on('click','#show-user' , function(event){
                 event.preventDefault();
-            
+
                 //  alert( $(this).data('id'));
                 //  $("#getData").click(function() {
 
@@ -511,10 +511,10 @@
                   type: "GET",
                   url: "{{url('view')}}/"+id,
                   datatype: 'json',
-                  
+
                   success: function (data) {
-              
-                  
+
+
                     console.log(data);
                     $('#firstname').text(data.name);
                     $('#Fathername').text(data.f_name);
@@ -528,33 +528,48 @@
                     $('#Section_id').text(data.section_id);
                     $('#Remarks').text(data.remarks);
 
-             $("#pic").empty(); 
-            $("#picss").empty();      
+             $("#pic").empty();
+            $("#picss").empty();
              $.each(data.fileattachements, function (key, val) {
             var fil=  val.file
-            
+
 
           //  alert(val.file);
         if(val.type=='pdf'){
-      
+
       // alert(val.type=='pdf');
       // $("#picss").empty();
+     // $('#picss').append("<a   href='{{url('/assets/image/')}}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{url('/assets/image/')}}/"+val.file+"'>"+'</a>');
       $('#picss').append("<a   href='{{url('/assets/image/')}}/"+val.file+"'>"+val.file+'</a>');
-          
         }else{
-     
-          
-          
          $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{url('/assets/image/')}}/"+val.file+"'>");
-        //  $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{url('/assets/image/')}}/"+val.file+"'>");
-        
-        
-        
-        }        
-
-  
+        // $('#pic').append("<a  data-lightbox='example-1' href='{{url('/assets/image/')}}/"+val.file+" '>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{url('/assets/image/')}}/"+val.file+"'>"+'</a>');
+        }
              });
+        var ap = data.application_image;
+  var finalap = ap.split(".");
+     if (finalap['1']=="pdf"){
+      $('#application_images').append("<a   href='{{url('/assets/image/')}}/"+data.application_image+"'>"+data.application_image+'</a>');
+     }else{
+      $('#application_image').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.application_image+"'>");
+     }
+     var ap = data.health_paper;
+  var finalap = ap.split(".");
+     if (finalap['1']=="pdf"){
+      $('#health_papers').append("<a   href='{{url('/assets/image/')}}/"+data.health_paper+"'>"+data.health_paper+'</a>');
+     }else{
+      $('#health_paper').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.health_paper+"'>");
+     }
+     var ap = data.warrent_file;
+  var finalap = ap.split(".");
+     if (finalap['1']=="pdf"){
+      $('#warrent_files').append("<a   href='{{url('/assets/image/')}}/"+data.warrent_file+"'>"+data.warrent_file+'</a>');
+     }else{
+      $('#warrent_file').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.warrent_file+"'>");
+     }
                     $('#Prisonerimage').html("<img style='height:100px;width:100px;border-radius:50px;' src=' {{ url('/assets/image/') }}/"+data.prisoner_image+"'>");
+                   
+                   
 
 
 
@@ -566,9 +581,9 @@
                         "<td class='font-w600 font-size-sm'>"+data.f_name+"</td>"+
                    "</tr>"
                    $('#show').text(peti);
-                   
+
                   }
-                
+
                 });
 
               });
@@ -576,6 +591,7 @@
 
             
 </script>
+
 
     @yield('scripts')
   </body>
