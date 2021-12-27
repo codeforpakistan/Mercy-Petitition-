@@ -20,7 +20,7 @@ class PetitionController extends Controller
          $this->middleware('permission:jail-supt-delete', ['only' => ['destroy']]);
     }
     public function index(){
-      
+
    if(Auth::user()->confined_in_jail ==""){
     $petitions=Petition::all();
    }else{
@@ -30,33 +30,33 @@ class PetitionController extends Controller
 
         return view('IGP.index',compact('petitions'));
     }
-    public function search(Request $request){ 
+    public function search(Request $request){
       $search = trim($request->input('search'));
-    
+
            if(Auth::user()->confined_in_jail==""){
 
-        
+
         $petitions=Petition::where('confined_in_jail',  $search)->
-        orWhere('name',  'like', "%{$search}%" )->orWhere('gender',  'like', "%{$search}%"  )-> 
+        orWhere('name',  'like', "%{$search}%" )->orWhere('gender',  'like', "%{$search}%"  )->
         orWhere('nationality',  'like', "%{$search}%" )->orWhere('f_name',  'like', "%{$search}%"  )->
-        orWhere('status',  'like', "%{$search}%" )->get(); 
+        orWhere('status',  'like', "%{$search}%" )->get();
            }else{
          //   $pet=Petition::where('status','IGP')->where('confined_in_jail', Auth::user()->confined_in_jail)->get();
-       
-            $petitions=Petition::where('status','IGP')->where('confined_in_jail', Auth::user()->confined_in_jail)->orWhere('name', $search )->orWhere('gender', $search)-> 
-                       
-            orWhere('nationality',  $search  )->orWhere('f_name',  $search  )->get(); 
-            
-            
+
+            $petitions=Petition::where('status','IGP')->where('confined_in_jail', Auth::user()->confined_in_jail)->orWhere('name', $search )->orWhere('gender', $search)->
+
+            orWhere('nationality',  $search  )->orWhere('f_name',  $search  )->get();
+
+
            }
-       
-        return view('IGP.petitionsearch',compact('petitions'));   
+
+        return view('IGP.petitionsearch',compact('petitions'));
     }
     public function view($id){
-   
+
         $pets = Petition::with('fileattachements')->get();
         $petitions = $pets->find($id);
-         
+
         return response()->json($petitions);
 
 
@@ -69,8 +69,8 @@ class PetitionController extends Controller
         return view('IGP.addpetition',compact('sections'));
     }
     public function edit($id){
-   
-      
+
+
         $sections = Section::all();
         $petitionsedit=Petition::find($id);
        $filepetition=File::where('petition_id',$id)->first();
@@ -314,7 +314,7 @@ class PetitionController extends Controller
             }
             public function forwardhomedepartment(Request $request, $id){
 
-                
+
 
 
 
@@ -330,14 +330,14 @@ class PetitionController extends Controller
 
             $file->move(public_path('assets/image'), $otherdocument);
         $otherexplode =  explode(".",$otherdocument);
-    
+
             $file = new File([
                 'petition_id'=>$forwardhomedepartment->id,
                 "file" =>  $otherdocument,
                 "type"=> $otherexplode["1"],
-    
+
                ]);
-              
+
                $file->save();
 
             }
@@ -350,5 +350,12 @@ class PetitionController extends Controller
         //    $otherdoc->save();
            return redirect()->route('Petition.index')->with('message','Petion Forward Successfully ');
                 }
+
+        public function igpreport(){
+
+        return view('IGP.reportform');
+
+
+        }
 
 }

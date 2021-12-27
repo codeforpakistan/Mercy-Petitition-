@@ -522,10 +522,14 @@
                     $('#Confined_in_jail').text(data.confined_in_jail);
                     $('#Gender').text(data.gender);
                     $('#Dob').text(data.dob);
-                    // $('#fir&date').text(data.fir&date);
+                    $('#firdate').text(data.firdate);
                     $('#Mercypetitiondate').text(data.mercypetitiondate);
                     $('#Section_id').text(data.section_id);
+                    $('#warrent_date').text(data.warrent_date);
                     $('#Remarks').text(data.remarks);
+                    $('#sentence_in_court').text(data.sentence_in_court);
+                    $('#date_of_sentence').text(data.date_of_sentence);
+                    $('#warrent_information').text(data.warrent_information);
 
              $("#pic").empty();
             $("#picss").empty();
@@ -553,21 +557,14 @@
 
 
              });
-                    $('#Prisonerimage').html("<img style='height:100px;width:100px;border-radius:50px;' src=' {{ url('/assets/image/') }}/"+data.prisoner_image+"'>");
-                    $('#application_image').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.application_image+"'>");
-                    $('#health_paper').html("<img style='height:70px;width:100px;' src=' {{ url('/assets/image/') }}/"+data.health_paper+"'>");
-                    $('#warrent_file').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.prisoner_image+"'>");
+                    $('#Prisonerimage').html("<img id='myModal' style='height:100px;width:100px;border-radius:50px;' src=' {{ url('/assets/image/') }}/"+data.prisoner_image+"'>");
+                    $('#application_image').html("<img class='figure-img img-fluid rounded' style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.application_image+"'>");
+                    $('#health_paper').html("<img class='figure-img img-fluid rounded' style='height:70px;width:100px;' src=' {{ url('/assets/image/') }}/"+data.health_paper+"'>");
+                    $('#warrent_file').html("<img class='figure-img img-fluid rounded' style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.prisoner_image+"'>");
 
 
 
-                var peti =
-                   "<tr>"+
-                        "<td class='text-left'>Name:</td>"+
-                        "<td class='font-w600 font-size-sm'>"+data.name+"</td>"+
-                        "<td class='text-left'>FatherName:</td>"+
-                        "<td class='font-w600 font-size-sm'>"+data.f_name+"</td>"+
-                   "</tr>"
-                   $('#show').text(peti);
+
 
                   }
 
@@ -575,13 +572,11 @@
 
               });
               });
-
-              $(function() {
-	       	$('.pop').on('click', function() {
-			$('.imagepreview').attr('src', $(this).find('img').attr('src'));
-			$('#imagemodal').modal('show');
-		});
+              $('#myModal').on('shown.bs.modal', function() {
+   $('#myInput').trigger('focus')
 });
+
+
               </script>
 
 
