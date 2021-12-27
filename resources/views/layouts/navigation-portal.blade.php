@@ -98,6 +98,21 @@
 
 			<b class="sub-arrow"></b>
 		</li>
+   
+<li class="nav-item {{isset($menu) ? ($menu=='SearchPetition' ? 'active open' : '') : ''}}">
+
+<a href="{{route('petitionsearchform')}}" class="nav-link {{isset($menu) ? ($menu=='SearchPetition' ? '' : 'collapsed') : 'collapsed'}}">
+<i class="nav-icon fa fa-cube"></i>
+  <span class="nav-text fadeable">
+          <span>Petiton Search</span>
+  </span>
+
+
+</a>
+
+<b class="sub-arrow"></b>
+
+</li>
  @can('user-list')
 
 		<li class="nav-item {{isset($menu) ? ($menu=='system_setting' ? 'active open' : '') : ''}}">

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
     <title>@yield('title', 'Mercy Petition System')</title>
     <link rel="icon" type="image/png" href="{{asset('assets/favicon.png')}}" />
-
+    @livewireStyles
     <!-- include common vendor stylesheets & fontawesome -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
@@ -31,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/npm\eonasdan-bootstrap-datetimepicker@4.17.47\build\css\bootstrap-datetimepicker.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/ace.min.css')}}">
 
-    <!-- <link rel="stylesheet" href="{{asset('assets/css/lightbox.min.css')}}"> -->
+    <link rel="stylesheet" href="{{asset('assets/css/lightbox.min.css')}}">
 
   </head>
  
@@ -264,7 +264,7 @@
         </div>
       </div>
     </div>
-
+    @livewireScripts
     <script src="{{asset('assets/js/jquery.min.js')}}"></script>
     <script src="{{asset('assets/js/popper.min.js')}}"></script>
     <script src="{{asset('assets/bootstrap-4.5.2/js/bootstrap.min.js')}}"></script>
@@ -542,8 +542,8 @@
      // $('#picss').append("<a   href='{{url('/assets/image/')}}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{url('/assets/image/')}}/"+val.file+"'>"+'</a>');
       $('#picss').append("<a   href='{{url('/assets/image/')}}/"+val.file+"'>"+val.file+'</a>');
         }else{
-         $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{url('/assets/image/')}}/"+val.file+"'>");
-        // $('#pic').append("<a  data-lightbox='example-1' href='{{url('/assets/image/')}}/"+val.file+" '>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{url('/assets/image/')}}/"+val.file+"'>"+'</a>');
+        // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{url('/assets/image/')}}/"+val.file+"'>");
+        $('#pic').append("<a  data-lightbox='example-1' href='{{url('/assets/image/')}}/"+val.file+" '>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{url('/assets/image/')}}/"+val.file+"'>"+'</a>');
         }
              });
         var ap = data.application_image;
@@ -551,23 +551,29 @@
      if (finalap['1']=="pdf"){
       $('#application_images').append("<a   href='{{url('/assets/image/')}}/"+data.application_image+"'>"+data.application_image+'</a>');
      }else{
-      $('#application_image').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.application_image+"'>");
+     // $('#application_image').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.application_image+"'>");
+      $('#application_image').html("<a  data-lightbox='example-1' href='{{url('/assets/image/')}}/"+data.application_image+" '>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{url('/assets/image/')}}/"+data.application_image+"'>"+'</a>');
      }
      var ap = data.health_paper;
   var finalap = ap.split(".");
      if (finalap['1']=="pdf"){
       $('#health_papers').append("<a   href='{{url('/assets/image/')}}/"+data.health_paper+"'>"+data.health_paper+'</a>');
      }else{
-      $('#health_paper').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.health_paper+"'>");
+      $('#health_paper').html("<a  data-lightbox='example-1' href='{{url('/assets/image/')}}/"+data.health_paper+" '>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{url('/assets/image/')}}/"+data.health_paper+"'>"+'</a>');
+     
+     // $('#health_paper').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.health_paper+"'>");
      }
      var ap = data.warrent_file;
   var finalap = ap.split(".");
      if (finalap['1']=="pdf"){
       $('#warrent_files').append("<a   href='{{url('/assets/image/')}}/"+data.warrent_file+"'>"+data.warrent_file+'</a>');
      }else{
-      $('#warrent_file').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.warrent_file+"'>");
+      $('#warrent_file').html("<a  data-lightbox='example-1' href='{{url('/assets/image/')}}/"+data.warrent_file+" '>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{url('/assets/image/')}}/"+data.warrent_file+"'>"+'</a>');
+     
+     // $('#warrent_file').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.warrent_file+"'>");
      }
-                    $('#Prisonerimage').html("<img style='height:100px;width:100px;border-radius:50px;' src=' {{ url('/assets/image/') }}/"+data.prisoner_image+"'>");
+                  //  $('#Prisonerimage').html("<img style='height:100px;width:100px;border-radius:50px;' src=' {{ url('/assets/image/') }}/"+data.prisoner_image+"'>");
+      $('#Prisonerimage').html("<a  data-lightbox='example-1' href='{{url('/assets/image/')}}/"+data.prisoner_image+" '>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{url('/assets/image/')}}/"+data.prisoner_image+"'>"+'</a>');
                    
                    
 
