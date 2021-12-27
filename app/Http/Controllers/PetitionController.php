@@ -63,6 +63,9 @@ class PetitionController extends Controller
 
 
     }
+    public function searchform(){
+        return view('IGP.searchform'); 
+    }
     public function create(){
         $sections = Section::all();
 

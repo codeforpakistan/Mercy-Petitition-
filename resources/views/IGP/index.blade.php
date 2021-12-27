@@ -159,6 +159,64 @@
                                             </span>
                                             <i class="fa fa-angle-down toggle-icon opacity-1 text-90"></i>
                                         </a>
+                          <tr class="bgc-h-yellow-l4 d-style">
+
+
+                            <td>
+                              <a href='#' class='text-blue-d1 text-600 text-95'>{{$petion->name}}</a>
+                            </td>
+
+                            <td class="text-600 text-orange-d2">
+                              {{$petion->f_name}}
+                            </td>
+
+                            <td class='d-none d-sm-table-cell text-grey-d1'>
+                            {{$petion->nationality}}
+                            </td>
+
+                            <td class='d-none d-sm-table-cell text-grey text-95'>
+                            {{$petion->confined_in_jail}}
+                            </td>
+
+                            <td class='d-none d-sm-table-cell'>
+                              <span class='badge badge-sm bgc-warning-d1 text-white pb-1 px-25'><img src="{{ asset('/assets/image/'.$petion->prisoner_image) }}" width="50" height="50" alt="pic"/></span>
+
+                            </td>
+
+                            <td class='text-center pr-0'>
+                              <div>
+                                <a href="javascript:void(0)" data-toggle="modal" data-target="#modalFullscreen" class="d-style btn btn-outline-info text-90 text-600 border-0 px-2 collapsed" data-id ="{{$petion->id}}" id="show-user" title="Show Details">
+                                  <span class="d-none d-md-inline mr-1">
+                                            Details
+                                        </span>
+                                  <i class="fa fa-angle-down toggle-icon opacity-1 text-90"></i>
+                                </a>
+                              </div>
+                            </td>
+
+                            <td>
+                              <!-- action buttons -->
+                              <div class='d-none d-lg-flex'>
+                                <a href="{{route('petition-edit', [$petion->id])}}" class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success">
+                                  <i class="fa fa-pencil-alt"></i>
+                                </a>
+
+                                <a href="{{route('petition-forward',[$petion->id])}}" class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success">
+                                    <i class="fa fa-plus"></i>
+                                  </a>
+
+                              </div>
+
+                              <!-- show a dropdown in mobile -->
+                              <div class='dropdown d-inline-block d-lg-none dd-backdrop dd-backdrop-none-lg'>
+                                <a href='#' class='btn btn-default btn-xs py-15 radius-round dropdown-toggle' data-toggle="dropdown">
+                                  <i class="fa fa-cog"></i>
+                                </a>
+
+                                <div class="dropdown-menu dd-slide-up dd-slide-none-lg">
+                                  <div class="dropdown-inner">
+                                    <div class="dropdown-header text-100 text-secondary-d1 border-b-1 brc-secondary-l2 text-600 mb-2">
+                                      ace.com
                                     </div>
                                 </td>
 
