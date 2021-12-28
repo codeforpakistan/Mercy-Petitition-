@@ -192,4 +192,4 @@ $user->save();
         return view('portal.users.profile',compact('user'));
     }
 
-
+}

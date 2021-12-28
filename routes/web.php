@@ -35,7 +35,7 @@ Route::get('/search','PetitionController@search')->name('petitionsearch');
 Route::get('/Homeforward/{id}','HomeDepartmentController@forwardpetition')->name('home-forward');
 Route::Post('/forwardinteriorministrydepartment/{id}','HomeDepartmentController@forwardinteriorministrydepartment')->name('forwardinteriorministrydepartment');
 Route::get('/petitionforward/{id}','PetitionController@forwardpetition')->name('petition-forward');
-Route::get('/igpreport','PetitionController@forwardpetition')->name('petition-forward');
+
 Route::get('/petitionedit/{id}','PetitionController@edit')->name('petition-edit');
 Route::get('/petitionsearch','PetitionController@searchform')->name('petitionsearchform');
 Route::Post('/petitionupdate/{id}','PetitionController@petitionupdate')->name('petition-update');

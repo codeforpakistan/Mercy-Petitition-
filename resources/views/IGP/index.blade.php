@@ -32,7 +32,7 @@
 
                     <div class="d-flex justify-content-between flex-column flex-sm-row mb-3 px-2 px-sm-0">
                         <h3 class="text-130 pl-1 mb-3 mb-sm-0">
-
+                           
                         </h3>
 
 
@@ -45,7 +45,7 @@
                           <i class="fa fa-search position-lc ml-25 text-primary-m1"></i>
 
                         </button>
-                        </form>
+                        </form> -->
 
 
 
@@ -159,12 +159,12 @@
                                             </span>
                                             <i class="fa fa-angle-down toggle-icon opacity-1 text-90"></i>
                                         </a>
+                          
 
 
+                            
 
-
-
-
+                          
 
                                 <td>
                                     <!-- action buttons -->
@@ -380,7 +380,7 @@
                                                                         <div class="form-group col-md-3">
                                                                           <figure class="figure">
                                                                             <div id="warrent_file"></div>
-
+                                                               
                                                                 <figcaption class="figure-caption text-right">Warrant File</figcaption>
                                                               </figure>
                                                               </div>
@@ -396,14 +396,14 @@
                                                                 <figcaption class="figure-caption text-right">Application Image</figcaption>
                                                               </figure>
                                                               </div>
-
+                                                             
                                                                       </div>
                                                                       <div class=" form-group row">
                                                                       <div class="form-group col-md-12">
                                                                <figure class="figure">
                                                                    <div id="pic"></div>
-
-
+                                                                
+                                                              
                                                                 <!-- <figcaption class="figure-caption text-right">Other documents</figcaption> -->
                                                               </figure>
                                                               </div>
@@ -411,10 +411,10 @@
                                                             <div class=" form-group row">
                                                                       <div class="form-group col-md-12">
                                                                <figure class="figure">
-
+                                                                 
                                                                    <div id="picss"></div>
-
-                                                                 <figcaption class="figure-caption text-right">Other documents</figcaption>
+                                                              
+                                                                 <figcaption class="figure-caption text-right">Other documents</figcaption> 
                                                               </figure>
                                                               </div>
                                                             </div>
