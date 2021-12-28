@@ -92,7 +92,7 @@ class PetitionController extends Controller
             'application_image' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
             'health_paper' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
             'warrent_file' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
-            'otherdocument' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
+          
              'name' => 'required',
 
         'f_name' => 'required',
@@ -178,11 +178,11 @@ class PetitionController extends Controller
         ]);
 
         $Petition->save();
-        $file = new File([
-         'petition_id'=>$Petition->id,
-         "file" => json_encode($otherdocumentarry),
-        ]);
-        $file->save();
+        // $file = new File([
+        //  'petition_id'=>$Petition->id,
+        //  "file" => json_encode($otherdocumentarry),
+        // ]);
+        // $file->save();
         return redirect()->route('Petition.index')->with('message','Petion Successfully save');
         }
 

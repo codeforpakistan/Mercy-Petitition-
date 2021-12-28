@@ -30,8 +30,10 @@ Route::get('logout','Auth\loginController@logout')->name('logout');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
-
+Route::get('/homesearch','HomeDepartmentController@homesearch')->name('homesearch');
 Route::get('/search','PetitionController@search')->name('petitionsearch');
+Route::get('/Homeforward/{id}','HomeDepartmentController@forwardpetition')->name('home-forward');
+Route::Post('/forwardinteriorministrydepartment/{id}','HomeDepartmentController@forwardinteriorministrydepartment')->name('forwardinteriorministrydepartment');
 Route::get('/petitionforward/{id}','PetitionController@forwardpetition')->name('petition-forward');
 Route::get('/petitionedit/{id}','PetitionController@edit')->name('petition-edit');
 Route::Post('/petitionupdate/{id}','PetitionController@petitionupdate')->name('petition-update');
