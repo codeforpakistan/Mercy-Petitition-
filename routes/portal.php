@@ -15,9 +15,9 @@ Route::prefix('/portal')->name('portal.')->group(function () {
         Route::get('/', 'DashboardController@index');
         Route::resource('roles','RoleController');
         Route::resource('users','UserController');
-        
+
         Route::match(['get', 'post'], 'users/change/password','UserController@password')->name('users.password');
-        Route::match(['get', 'post'], 'users/view/profile','UserController@profile')->name('users.profile');
+        Route::match(['get', 'post'], 'users/view/profile/{id}','UserController@profile')->name('users.profile');
     });
 });
 

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Arr;
 use App\Rules\MatchOldPassword;
+use Illuminate\Support\Facades\Auth;
 
 
 class UserController extends Controller
@@ -87,12 +88,12 @@ class UserController extends Controller
 
 
         $input = $request->all();
-       
+
         $input['password'] = Hash::make($input['password']);
 
         $user = User::create($input);
         $user->confined_in_jail = $request->get('confined_in_jail');
-        
+
         $user->assignRole($request->input('roles'));
 $user->save();
 
@@ -179,12 +180,18 @@ $user->save();
                         ->with('success','User deleted successfully');
     }
 
-    public function profile(Request $request)
+    public function profile(Request $request , $id)
     {
+        $id=  Auth::user()->id;
+          $user=  User::find($id);
+
+        //   dd($user);
+
         if($request->isMethod('post')){
             return redirect()->route('portal.users.password');
         }
-        return view('portal.users.profile');
+        return view('portal.users.profile',compact('user'));
+    }
     }
 
-}
+

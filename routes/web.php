@@ -30,14 +30,14 @@ Route::get('logout','Auth\loginController@logout')->name('logout');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
-
 Route::get('/search','PetitionController@search')->name('petitionsearch');
 Route::get('/petitionforward/{id}','PetitionController@forwardpetition')->name('petition-forward');
+Route::get('/igpreport','PetitionController@forwardpetition')->name('petition-forward');
 Route::get('/petitionedit/{id}','PetitionController@edit')->name('petition-edit');
+Route::get('/petitionsearch','PetitionController@searchform')->name('petitionsearchform');
 Route::Post('/petitionupdate/{id}','PetitionController@petitionupdate')->name('petition-update');
 Route::Post('/forwardhomedepartment/{id}','PetitionController@forwardhomedepartment')->name('forwardhomedepartment');
 Route::group(['middleware' => ['auth']], function() {
-    Route::get('/petitionsearch','PetitionController@searchform')->name('petitionsearchform');
     Route::get('/petitionforward/{id}','PetitionController@forwardpetition')->name('petition-forward');
     Route::Post('/storepetition','PetitionController@storepetition')->name('storepetition');
     Route::get('/view/{id}','PetitionController@view')->name('viewpetition');

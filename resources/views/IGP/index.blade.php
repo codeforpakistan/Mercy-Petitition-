@@ -45,7 +45,7 @@
                           <i class="fa fa-search position-lc ml-25 text-primary-m1"></i>
 
                         </button>
-                        </form> -->
+                        </form>
 
 
 
@@ -159,40 +159,6 @@
                                             </span>
                                             <i class="fa fa-angle-down toggle-icon opacity-1 text-90"></i>
                                         </a>
-                          <tr class="bgc-h-yellow-l4 d-style">
-
-
-                            <td>
-                              <a href='#' class='text-blue-d1 text-600 text-95'>{{$petion->name}}</a>
-                            </td>
-
-                            <td class="text-600 text-orange-d2">
-                              {{$petion->f_name}}
-                            </td>
-
-                            <td class='d-none d-sm-table-cell text-grey-d1'>
-                            {{$petion->nationality}}
-                            </td>
-
-                            <td class='d-none d-sm-table-cell text-grey text-95'>
-                            {{$petion->confined_in_jail}}
-                            </td>
-
-                            <td class='d-none d-sm-table-cell'>
-                              <span class='badge badge-sm bgc-warning-d1 text-white pb-1 px-25'><img src="{{ asset('/assets/image/'.$petion->prisoner_image) }}" width="50" height="50" alt="pic"/></span>
-
-                            </td>
-
-                            <td class='text-center pr-0'>
-                              <div>
-                                <a href="javascript:void(0)" data-toggle="modal" data-target="#modalFullscreen" class="d-style btn btn-outline-info text-90 text-600 border-0 px-2 collapsed" data-id ="{{$petion->id}}" id="show-user" title="Show Details">
-                                  <span class="d-none d-md-inline mr-1">
-                                            Details
-                                        </span>
-                                  <i class="fa fa-angle-down toggle-icon opacity-1 text-90"></i>
-                                </a>
-                              </div>
-                            </td>
 
                             <td>
                               <!-- action buttons -->
