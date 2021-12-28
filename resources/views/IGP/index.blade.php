@@ -175,8 +175,8 @@
                                         </a>
 
                                         <a href="{{route('petition-forward',[$petion->id])}}"
-                                            class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success">
-                                            <i class="fa fa-plus"></i>
+                                            class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
+                                            Forward  <i class="fa fa-forward"></i>
                                         </a>
 
                                     </div>

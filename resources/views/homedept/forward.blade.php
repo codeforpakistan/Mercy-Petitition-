@@ -82,7 +82,7 @@
               </div>
               <div class="mt-5 border-t-1 brc-secondary-l2 py-35 mx-n25" >
                   <div class="offset-md-3 col-md-9 text-nowrap">
-                          <button class="btn btn-info btn-bold px-4" onclick="return myFunction();" type="submit">
+                          <button class="btn btn-info btn-bold px-4 show_confirm"  type="submit">
                               <i class="fa fa-check mr-1"></i>
                              Forward TO InteriorMinstry
                           </button>

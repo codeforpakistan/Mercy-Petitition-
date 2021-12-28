@@ -154,7 +154,7 @@
         @endcan
 
         @can('jail-supt-list')
-    <li class="nav-item {{isset($menu) ? ($menu=='IGP' ? 'active open' : '') : ''}}">
+    <!-- <li class="nav-item {{isset($menu) ? ($menu=='IGP' ? 'active open' : '') : ''}}">
             <a href="#" id="IGP" class="nav-link dropdown-toggle {{isset($menu) ? ($menu=='IGP' ? '' : 'collapsed') : 'collapsed'}}">
                     <i class="nav-icon fa fa-cube"></i>
                     <span class="nav-text fadeable">
@@ -171,23 +171,31 @@
                                             </span>
                                     </a>
                             </li>
-                    {{-- <li class="nav-item {{isset($sub_menu) ? ($sub_menu=='Petition' ? 'active' : '') : ''}}">
-                                    <a href="{{route('igpforward')}}" class="nav-link">
-                                            <span class="nav-text">
-                                                    <span>Forward</span>
-                                            </span>
-                                    </a>
-                            </li> --}}
+                  
 
 
                     </ul>
             </div>
             <b class="sub-arrow"></b>
-        </li>
+        </li> -->
+        <li class="nav-item {{isset($menu) ? ($menu=='IGP' ? 'active open' : '') : ''}}">
+
+<a href="{{route('Petition.index')}}" class="nav-link {{isset($menu) ? ($menu=='IGP' ? '' : 'collapsed') : 'collapsed'}}">
+<i class="nav-icon fa fa-cube"></i>
+  <span class="nav-text fadeable">
+          <span>Petition list</span>
+  </span>
+
+
+</a>
+
+<b class="sub-arrow"></b>
+
+</li>
         @endcan
  @can('HomeDepartment-list')
 
-<li class="nav-item {{isset($menu) ? ($menu=='HomeDepartment' ? 'active open' : '') : ''}}">
+<!-- <li class="nav-item {{isset($menu) ? ($menu=='HomeDepartment' ? 'active open' : '') : ''}}">
     <a href="#" id="HomeDepartment" class="nav-link dropdown-toggle {{isset($menu) ? ($menu=='HomeDepartment' ? '' : 'collapsed') : 'collapsed'}}">
             <i class="nav-icon fa fa-cube"></i>
             <span class="nav-text fadeable">
@@ -210,6 +218,20 @@
 
 </div>
 <b class="sub-arrow"></b>
+</li> -->
+<li class="nav-item {{isset($menu) ? ($menu=='HomeDepartment' ? 'active open' : '') : ''}}">
+
+<a href="{{route('homedept.index')}}" class="nav-link {{isset($menu) ? ($menu=='HomeDepartment' ? '' : 'collapsed') : 'collapsed'}}">
+<i class="nav-icon fa fa-cube"></i>
+  <span class="nav-text fadeable">
+          <span>HomeDepartment list</span>
+  </span>
+
+
+</a>
+
+<b class="sub-arrow"></b>
+
 </li>
 
 @endcan

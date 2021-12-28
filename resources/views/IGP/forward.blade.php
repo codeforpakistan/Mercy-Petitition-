@@ -70,28 +70,22 @@
                   
                 <div class="card bcard border-1 brc-dark-l1">
                   <div class="card-body p-0">
-                    <form method="post">
+                    <!-- <form method="post"> -->
                       <textarea id="summernote" name="remarks"></textarea>
-                    </form>
+                    <!-- </form> -->
                   </div>
                 </div>
                   </div>
-                  <div class="mt-5 border-t-1 brc-secondary-l2 py-35 mx-n25">
-                  <div class="offset-md-3 col-md-9 text-nowrap">
-                          <button class="btn btn-info btn-bold px-4" type="submit">
-                              <i class="fa fa-check mr-1"></i>
-                              Submit
-                          </button>
-                          {{-- <button class="btn btn-outline-lightgrey btn-bold ml-2 px-4" type="reset">
-                              <i class="fa fa-undo mr-1"></i>
-                              Reset
-                          </button> --}}
-                          {{-- <a href="{{route('portal.users.index')}}" class="btn btn-outline-lightgrey btn-bold ml-2 px-4">
-                              <i class="fa fa-arrow-left mr-1"></i>
-                              Cancel
-                          </a> --}}
-                  </div>
+                 
               </div>
+              <div class="mt-5 border-t-1 brc-secondary-l2 py-35 mx-n25">
+                  <div class="offset-md-3 col-md-9 text-nowrap">
+                          <button class="btn btn-success btn-bold px-4 show_confirm " type="submit">
+                              <i class="fa fa-check mr-1 "></i>
+                              Forward to HomeDepartment
+                          </button>
+                       
+                  </div>
               </div>
 
 

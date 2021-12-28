@@ -593,13 +593,28 @@
 
 
 </script>
-
-<script>
-  function myFunction() {
-      if(!confirm("Are You Sure to delete this"))
-      event.preventDefault();
-  }
- </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+<script type="text/javascript">
+ 
+     $('.show_confirm').click(function(event) {
+          var form =  $(this).closest("form");
+          var name = $(this).data("name");
+          event.preventDefault();
+          swal({
+              title: `Are you sure you want to forward this petition?`,
+              text: "If you forward this, it will be gone forever.",
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              form.submit();
+            }
+          });
+      });
+  
+</script>
     @yield('scripts')
   </body>
 </html>
