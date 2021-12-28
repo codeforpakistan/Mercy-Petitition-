@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Arr;
 use App\Rules\MatchOldPassword;
-
+use auth;
 
 class UserController extends Controller
 {
@@ -179,12 +179,17 @@ $user->save();
                         ->with('success','User deleted successfully');
     }
 
-    public function profile(Request $request)
+    public function profile(Request $request , $id)
     {
+        $id=  Auth::user()->id;
+          $user=  User::find($id);
+  
+        
+
         if($request->isMethod('post')){
             return redirect()->route('portal.users.password');
         }
-        return view('portal.users.profile');
+        return view('portal.users.profile',compact('user'));
     }
 
 }

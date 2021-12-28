@@ -198,7 +198,7 @@
                             <hr class="d-none d-lg-block brc-default-l1 my-0">
                             <div class="row mx-0 bgc-primary-l4">
                               <div class="col-lg-8 offset-lg-2 d-flex justify-content-center py-4 d-flex">
-                                <a href="{{route('portal.users.profile')}}" class="mx-2px btn btn-sm btn-app btn-outline-warning btn-h-outline-warning btn-a-outline-warning radius-1 border-2">
+                                <a href="{{route('portal.users.profile',[Auth::user()->id])}}" class="mx-2px btn btn-sm btn-app btn-outline-warning btn-h-outline-warning btn-a-outline-warning radius-1 border-2">
                                   <i class="fa fa-user text-100 d-block mb-2 h-4"></i>
                                   Profile
                                 </a>
@@ -614,6 +614,25 @@
           });
       });
   
+</script>
+<script>
+    $(document).ready(function () {
+        $('#roles').change(function () {
+            var selected = $(this).val();
+        //   alert(selected);
+
+            if(selected=='jail-supt') {
+                $('#confined_in_jail').removeClass("d-lg-none");
+
+            }
+            // else if(selected=='2'){
+            //     $('#Edema').hide();
+            //     $('#Fetalposition').hide();
+            //     $('#Fundal').hide();
+
+            // }
+        });
+    });
 </script>
     @yield('scripts')
   </body>
