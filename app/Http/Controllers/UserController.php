@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Arr;
 use App\Rules\MatchOldPassword;
-use auth;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -87,12 +87,12 @@ class UserController extends Controller
 
 
         $input = $request->all();
-       
+
         $input['password'] = Hash::make($input['password']);
 
         $user = User::create($input);
         $user->confined_in_jail = $request->get('confined_in_jail');
-        
+
         $user->assignRole($request->input('roles'));
 $user->save();
 
@@ -192,4 +192,4 @@ $user->save();
         return view('portal.users.profile',compact('user'));
     }
 
-}
+
