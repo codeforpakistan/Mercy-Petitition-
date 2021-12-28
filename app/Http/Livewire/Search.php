@@ -20,7 +20,7 @@ class Search extends Component
       
         if(Auth::user()->confined_in_jail==""){
 
-        dd('here');
+       
             $petitions=Petition::where('confined_in_jail',  'like', "%{$search}%")->
             orWhere('name',  'like', "%{$search}%" )->orWhere('gender',  'like', "%{$search}%"  )-> 
             orWhere('nationality',  'like', "%{$search}%" )->orWhere('f_name',  'like', "%{$search}%"  )->

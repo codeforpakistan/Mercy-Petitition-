@@ -32,7 +32,7 @@
 
                     <div class="d-flex justify-content-between flex-column flex-sm-row mb-3 px-2 px-sm-0">
                         <h3 class="text-130 pl-1 mb-3 mb-sm-0">
-                            Popular products
+
                         </h3>
 
 
@@ -160,31 +160,11 @@
                                             <i class="fa fa-angle-down toggle-icon opacity-1 text-90"></i>
                                         </a>
 
-                            <td>
-                              <!-- action buttons -->
-                              <div class='d-none d-lg-flex'>
-                                <a href="{{route('petition-edit', [$petion->id])}}" class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success">
-                                  <i class="fa fa-pencil-alt"></i>
-                                </a>
 
-                                <a href="{{route('petition-forward',[$petion->id])}}" class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success">
-                                    <i class="fa fa-plus"></i>
-                                  </a>
 
-                              </div>
 
-                              <!-- show a dropdown in mobile -->
-                              <div class='dropdown d-inline-block d-lg-none dd-backdrop dd-backdrop-none-lg'>
-                                <a href='#' class='btn btn-default btn-xs py-15 radius-round dropdown-toggle' data-toggle="dropdown">
-                                  <i class="fa fa-cog"></i>
-                                </a>
 
-                                <div class="dropdown-menu dd-slide-up dd-slide-none-lg">
-                                  <div class="dropdown-inner">
-                                    <div class="dropdown-header text-100 text-secondary-d1 border-b-1 brc-secondary-l2 text-600 mb-2">
-                                      ace.com
-                                    </div>
-                                </td>
+
 
                                 <td>
                                     <!-- action buttons -->
@@ -248,7 +228,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel2">
-                                    Modal title
+                                   Petition View
                                 </h5>
 
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -397,36 +377,47 @@
 
                                                                     <div class=" form-group row">
 
-                                                                        <div class="form-group col-md-2">
+                                                                        <div class="form-group col-md-3">
                                                                           <figure class="figure">
                                                                             <div id="warrent_file"></div>
-                                                                {{-- <img src="..\assets\image\profile-about.jpg"  class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure."> --}}
+
                                                                 <figcaption class="figure-caption text-right">Warrant File</figcaption>
                                                               </figure>
                                                               </div>
-                                                              <div class="form-group col-md-2">
+                                                              <div class="form-group col-md-3">
                                                                    <figure class="figure">
                                                                     <div id="health_paper"></div>
-                                                                {{-- <img src="..\assets\image\profile-about.jpg"  class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure."> --}}
                                                                 <figcaption class="figure-caption text-right">Health Paper</figcaption>
                                                               </figure>
                                                               </div>
-                                                              <div class="form-group col-md-2">
+                                                              <div class="form-group col-md-3">
                                                                <figure class="figure">
                                                                    <div id="application_image"></div>
-                                                                {{-- <img   class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure."> --}}
                                                                 <figcaption class="figure-caption text-right">Application Image</figcaption>
                                                               </figure>
                                                               </div>
-                                                              <div class="form-group col-md-2">
+
+                                                                      </div>
+                                                                      <div class=" form-group row">
+                                                                      <div class="form-group col-md-12">
                                                                <figure class="figure">
                                                                    <div id="pic"></div>
-                                                                   <div id="picss"></div>
-                                                                {{-- <img   class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure."> --}}
-                                                                <figcaption class="figure-caption text-right">Other documents</figcaption>
+
+
+                                                                <!-- <figcaption class="figure-caption text-right">Other documents</figcaption> -->
                                                               </figure>
                                                               </div>
-                                                                      </div>
+                                                            </div>
+                                                            <div class=" form-group row">
+                                                                      <div class="form-group col-md-12">
+                                                               <figure class="figure">
+
+                                                                   <div id="picss"></div>
+
+                                                                 <figcaption class="figure-caption text-right">Other documents</figcaption>
+                                                              </figure>
+                                                              </div>
+                                                            </div>
                                                                       </div>
                                                                 </div>
                                                             </div>
