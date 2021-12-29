@@ -1,8 +1,8 @@
 @extends('layouts.portal', [
-    'menu' => 'IGP',
+    'menu' => 'HomeDepartment',
     'sub_menu' => 'Forward'
 ])
-@section('module','IGP Management')
+@section('module','HomeDepartment Management')
 @section('element','Forward To')
 
 @section('content')
