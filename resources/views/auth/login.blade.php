@@ -124,7 +124,8 @@
                             </div> --}}
 
                             <div class="mt-auto mb-4 text-dark-tp2">
-                              Code For Pakistan &copy; 2021
+                                KP Government Innovation Fellowship
+                                &copy; 2021
                             </div>
                           </div>
                         </div>

@@ -18,7 +18,7 @@
               </div>
 
               <form style="margin-left:12px; margin-right:12px;padding-top:12px" action="{{route('storepetition')}}" method="post" enctype="multipart/form-data">
-                         @csrf   
+                         @csrf
                          @if ($errors->any())
         <div class="alert alert-danger">
 
@@ -37,18 +37,32 @@
       <input type="text" name="name" class="form-control" id="inputEmail4" placeholder="Enter Name">
     </div>
     <div class="form-group col-md-6">
-      <label for="inputPassword4">F-Name</label>
+      <label for="inputPassword4">Father Name</label>
       <input type="text" name="f_name" class="form-control" id="inputPassword4" placeholder="Father Name">
     </div>
   </div>
   <div class="form-row">
-    
-    <div class="form-group col-md-12">
-    <label for="inputCity">Sentence in Court</label>
-      <input type="text" name="sentence_in_court"  placeholder="Enter name of Court"class="form-control" id="inputCity">
 
+    <div class="form-group col-md-6">
+    <label for="inputState">DOB</label>
+
+     <input type="date" name="dob"class="form-control" >
     </div>
+    <div class="form-group col-md-6">
+        <label for="form-field-select-11">
+                           Nationality
+                          </label>
+
+                          <select name="nationality" class="ace-select text-dark-m1 bgc-default-l5 bgc-h-warning-l3 brc-default-m3 brc-h-warning-m1" id="form-field-select-11">
+
+                            <option value='Pakistan'>Pakistan</option>
+                            <option value='Afghanistan'>Afghanistan</option>
+
+                          </select>
+        </div>
+
   </div>
+
 
   <div class="form-row">
     <div class="form-group col-md-6">
@@ -65,15 +79,7 @@
     </div>
 
   </div>
-  <div class="form-row">
-   
-    <div class="form-group col-md-12">
-    <label for="inputState">DOB</label>
 
-     <input type="date" name="dob"class="form-control" >
-    </div>
-
-  </div>
   <div class="form-row">
     <div class="form-group col-md-6">
     <label for="form-field-select-11">Gender</label>
@@ -105,28 +111,43 @@
     </div>
 
   </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-    <label for="form-field-select-11">
-                       Nationality
-                      </label>
 
-                      <select name="nationality" class="ace-select text-dark-m1 bgc-default-l5 bgc-h-warning-l3 brc-default-m3 brc-h-warning-m1" id="form-field-select-11">
-                       
-                        <option value='Pakistan'>Pakistan</option>
-                        <option value='Afghanistan'>Afghanistan</option>
+    <div class="form-row">
 
-                      </select>
-    </div>
+        <div class="form-group col-md-6">
+        <label for="inputCity">Sentence in Court</label>
+          <input type="text" name="sentence_in_court"  placeholder="Enter name of Court"class="form-control" id="inputCity">
+
+        </div>
+
     <div class="form-group col-md-6">
       <label for="inputState">Warrent Date (Jail entry Date)</label>
 
                     <input type="Date" class="form-control" name="warrent_date" placeholder=" Pick Warrent Date (Jail entry Date)">
 
 
-
+    </div>
   </div>
-</div>
+
+  <div class="form-row">
+
+    <div class="form-group col-md-12">
+    <h3 class="text-primary-d2 text-140 mb-3">
+    warrent information
+                </h3>
+                <div class="card bcard border-1 brc-dark-l1">
+                  <div class="card-body p-0">
+                    <form method="post">
+                      <textarea id="summernote" name="warrent_information"></textarea>
+                    </form>
+                  </div>
+                </div>
+    </div>
+  </div>
+
+
+
+
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputCity">Application Attachment</label>
@@ -149,20 +170,7 @@
     </div>
 
   </div>
-  <div class="form-row">
- 
-    <div class="form-group col-md-12">
-    <h3 class="text-primary-d2 text-140 mb-3">
-    warrent information
-                </h3>
-                <div class="card bcard border-1 brc-dark-l1">
-                  <div class="card-body p-0">
-                    <form method="post">
-                      <textarea id="summernote" name="warrent_information"></textarea>
-                    </form>
-                  </div>
-                </div>
-    </div>
+
     <div class=" form-group col-md-12 mt-5 border-t-1 brc-secondary-l2 py-35 mx-n25" >
                     <div class=" col-md-12 text-nowrap" >
                       <button style="float:right;" class="btn btn-info btn-bold px-4" type="submit">
@@ -177,13 +185,13 @@
                     </div>
                   </div>
   </div>
-  
+</div>
 
 
- 
-          
 
-                  
+
+
+
                 </form>
 
             </div><!-- /.card -->

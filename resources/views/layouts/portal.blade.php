@@ -79,7 +79,7 @@
 
                     <a class="navbar-brand ml-n2 text-140 text-white " href="#">
                       {{-- <i class="fa fa-leaf mr-1 text-success-l1"></i> --}}
-                     <span class="text-danger"><img src="{{ asset('assets/image/ig.png') }}" style="width: 50px" ;></span>
+                     <span class="text-danger"><img src="{{ asset('assets/image/ig.png') }}" style="width: 70px" ;></span>
                     <span style="color:rgb(59, 59, 170)"> Mercy </span><span style ="color:rgb(160, 50, 50)">Petition</span>
                     </a>
                   </div>
@@ -577,7 +577,7 @@
      // $('#warrent_file').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.warrent_file+"'>");
      }
                   //  $('#Prisonerimage').html("<img style='height:100px;width:100px;border-radius:50px;' src=' {{ url('/assets/image/') }}/"+data.prisoner_image+"'>");
-      $('#Prisonerimage').html("<a  data-lightbox='example-1' href='{{url('/assets/image/')}}/"+data.prisoner_image+" '>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{url('/assets/image/')}}/"+data.prisoner_image+"'>"+'</a>');
+      $('#Prisonerimage').html("<a  data-lightbox='example-1' href='{{url('/assets/image/')}}/"+data.prisoner_image+" '>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;border-radius:50px' src='{{url('/assets/image/')}}/"+data.prisoner_image+"'>"+'</a>');
 
 
 
@@ -595,7 +595,7 @@
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 <script type="text/javascript">
- 
+
      $('.show_confirm').click(function(event) {
           var form =  $(this).closest("form");
           var name = $(this).data("name");
@@ -613,7 +613,7 @@
             }
           });
       });
-  
+
 </script>
 <script>
     $(document).ready(function () {
