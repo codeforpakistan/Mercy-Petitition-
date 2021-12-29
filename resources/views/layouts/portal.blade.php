@@ -515,7 +515,7 @@
                   success: function (data) {
 
 
-                    console.log(data);
+
                     $('#firstname').text(data.name);
                     $('#Fathername').text(data.f_name);
                     $('#Nationality').text(data.nationality);
@@ -525,7 +525,7 @@
                     $('#Dob').text(data.dob);
                     $('#firdate').text(data.firdate);
                     $('#Mercypetitiondate').text(data.mercypetitiondate);
-                    $('#Section_id').text(data.section_id);
+                    $('#Section_id').text(data.sectionss.undersection);
                     $('#warrent_date').text(data.warrent_date);
                     $('#Remarks').text(data.remarks);
                     $('#sentence_in_court').text(data.sentence_in_court);
@@ -614,7 +614,27 @@
           });
       });
 
+
+      $('.inactive').click(function(event) {
+          var form =  $(this).closest("form");
+          var name = $(this).data("name");
+          event.preventDefault();
+          swal({
+              title: `Are you sure you want to Delete this user?`,
+              text: "If you delete this, it will be gone forever.",
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              form.submit();
+            }
+          });
+      });
+
 </script>
+
 <script>
     $(document).ready(function () {
         $('#roles').change(function () {

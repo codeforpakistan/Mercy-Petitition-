@@ -22,9 +22,9 @@ class PetitionController extends Controller
     public function index(){
 
    if(Auth::user()->confined_in_jail ==""){
-    $petitions=Petition::all();
+    $petitions=Petition::orderBy("id","desc")->get();
    }else{
-    $petitions=Petition::Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('status', 'IGP')->get();
+    $petitions=Petition::Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('status', 'IGP')->orderBy("id","desc")->get();
    }
 
 
@@ -54,7 +54,8 @@ class PetitionController extends Controller
     }
     public function view($id){
 
-        $pets = Petition::with('fileattachements')->get();
+        $pets = Petition::with('fileattachements','sectionss')->get();
+        
         $petitions = $pets->find($id);
 
         return response()->json($petitions);

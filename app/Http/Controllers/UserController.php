@@ -51,7 +51,7 @@ class UserController extends Controller
             $data = User::where('name', 'LIKE', '%'.$search.'%')->orderBy('id','DESC')->paginate(20)->onEachSide(2);
         }
         else{
-            $data = User::orderBy('id','DESC')->paginate(20)->onEachSide(2);
+            $data = User::where('status', '1')->orderBy('id','DESC')->paginate(20)->onEachSide(2);
         }
         return view('portal.users.index',compact('data', 'search'));
     }
@@ -174,7 +174,9 @@ $user->save();
      */
     public function destroy($id)
     {
-        User::find($id)->delete();
+       $useractive= User::find($id);
+       $useractive->status='0';
+       $useractive->save();
         return redirect()->route('portal.users.index')
                         ->with('success','User deleted successfully');
     }

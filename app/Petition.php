@@ -2,6 +2,7 @@
 
 namespace App;
 use App\User;
+use App\Section;
 use App\File;
 use Illuminate\Database\Eloquent\Model;
 
@@ -23,4 +24,10 @@ class Petition extends Model
     {
         return $this->hasMany(File::class);
     }
+
+    public function sectionss()
+    {
+        return $this->belongsTo(Section::class,"section_id");
+     
+}
 }
