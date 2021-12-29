@@ -20,7 +20,7 @@ class HomeDepartmentController extends Controller
          $this->middleware('permission:HomeDepartment-delete', ['only' => ['destroy']]);
     }
     public function index(){
-        $HomeDepartments=Petition::Where('status', 'HomeDepartment')->get();
+        $HomeDepartments=Petition::Where('status', 'HomeDepartment')->orderBy("id","desc")->get();
 
         return view('homedept.index',compact('HomeDepartments'));
     }
