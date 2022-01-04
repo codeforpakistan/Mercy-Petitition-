@@ -99,7 +99,7 @@
                                 </th>
 
                                 <th>
-                                    F_Name
+                                    Father Name
                                 </th>
 
                                 <th class="d-none d-sm-table-cell">
@@ -111,7 +111,7 @@
                                 </th>
 
                                 <th class="d-none d-sm-table-cell">
-                                    Presion PIC
+                                Prisoner image
                                 </th>
 
                                 <th>Show</th>
@@ -254,13 +254,8 @@
                                                     <div
                                                         class="d-flex flex-column py-3 px-lg-3 justify-content-center align-items-center">
 
-                                                        <div id="Prisonerimage" class="pos-rel">
-                                                            {{-- <img alt="Profile image"
-                                                                src="..\assets\image\avatar\avatar5.jpg"
-                                                                class="radius-round bord1er-2 brc-warning-m1"> --}}
-                                                            {{-- <span
-                                                                class=" position-tr bgc-success p-1 radius-round border-2 brc-white mt-2px mr-2px"></span>
-                                                            --}}
+                                                      <div id="Prisonerimage" class="pos-rel">
+                                                           
                                                         </div>
 
                                                         <div class="text-center mt-2">
@@ -269,15 +264,12 @@
 
                                                             </h5>
 
-                                                            <span id="Fathername" style="color: black;"
+                                                            <span class="text-80 text-primary text-600"> Father Name </span>     <span id="Fathername" style="color: black;"
                                                                 class="text-80 text-primary text-600">
 
                                                             </span>
 
-                                                            {{-- <span
-                                                                class="d-none badge bgc-orange-l3 text-orange-d3 pt-2px pb-1 text-85 radius-round px-25 border-1 brc-orange-m3">
-                                                                pro
-                                                            </span> --}}
+                                                            
                                                         </div>
 
 
@@ -314,9 +306,9 @@
                                                                     data-toggle="tab" href="#profile-tab-overview"
                                                                     role="tab" aria-controls="profile-tab-overview"
                                                                     aria-selected="true">
-                                                                    <span class="d-n-active text-dark-l1">1. Prisonor
+                                                                    <span class="d-n-active text-dark-l1">1. Prisoner
                                                                         Information</span>
-                                                                    <span class="d-active text-dark-m3">1. Prisonor
+                                                                    <span class="d-active text-dark-m3">1. Prisoner
                                                                         Information</span>
                                                                 </a>
                                                             </li>
@@ -332,94 +324,7 @@
                                                             id="profile-tab-overview">
 
                                                             <div class="row mt-1">
-                                                                <div class="col-12 px-4">
-                                                                    <!-- infobox -->
 
-                                                                </div>
-
-
-                                                                <div class="col-12 px-4 mt-3">
-
-                                                                    <h4 class="mt-2 text-dark-m3 text-130">
-                                                                        <i
-                                                                            class="fa fa-pen-alt text-85 text-purple-d1 w-3"></i>
-                                                                        Warrent Information
-                                                                    </h4>
-
-                                                                    <div
-                                                                        class="d-flex flex-column flex-sm-row align-items-center align-items-sm-start mt-3 mb-2 text-95 pl-3">
-
-
-                                                                        <div
-                                                                            class="mt-2 mt-sm-0 flex-grow-1 text-dark-m2">
-                                                                            <p id="warrent_information" class="mb-1">
-
-                                                                            </p>
-
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-
-                                                                <div class="col-12 px-4 mt-3">
-                                                                    <h4 class="text-dark-m3 text-140">
-                                                                        <i
-                                                                            class="far fa-lightbulb text-danger-d1 text-85 w-3"></i>
-                                                                        Files
-                                                                    </h4>
-
-                                                                    <div id="skill-chart"
-                                                                        class="d-flex justify-content-center mx-auto flex-wrap">
-                                                                    </div>
-
-                                                                    <div class=" form-group row">
-
-                                                                        <div class="form-group col-md-3">
-                                                                          <figure class="figure">
-                                                                            <div id="warrent_file"></div>
-                                                                
-                                                                <figcaption class="figure-caption text-right">Warrant File</figcaption>
-                                                              </figure>
-                                                              </div>
-                                                              <div class="form-group col-md-3">
-                                                                   <figure class="figure">
-                                                                    <div id="health_paper"></div>
-                                                               
-                                                                <figcaption class="figure-caption text-right">Health Paper</figcaption>
-                                                              </figure>
-                                                              </div>
-                                                              <div class="form-group col-md-3">
-                                                               <figure class="figure">
-                                                                   <div id="application_image"></div>
-                                                              
-                                                                <figcaption class="figure-caption text-right">Application Image</figcaption>
-                                                              </figure>
-                                                              </div>
-                                                             
-                                                                      </div>
-                                                                      <div class=" form-group row">
-                                                                      <div class="form-group col-md-12">
-                                                               <figure class="figure">
-                                                                   <div id="pic"></div>
-                                                                  
-                                                              
-                                                                <!-- <figcaption class="figure-caption text-right">Other documents</figcaption> -->
-                                                              </figure>
-                                                              </div>
-                                                            </div>
-                                                            <div class=" form-group row">
-                                                                      <div class="form-group col-md-12">
-                                                               <figure class="figure">
-                                                                   <div id="picss"></div>
-                                                              
-                                                                <figcaption class="figure-caption text-right">Other documents</figcaption>
-                                                              </figure>
-                                                              </div>
-                                                            </div>
-                                                                      </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
 
 
                                                         <div class="row mt-5">
@@ -427,14 +332,14 @@
 
                                                                 <h4 class="text-dark-m3 text-140">
                                                                     <i class="fa fa-info text-blue mr-1 w-2"></i>
-                                                                    More Info
+                                                                    Prisoner Info
                                                                 </h4>
 
                                                                 <hr class="w-100 mx-auto mb-0 brc-default-l2">
 
                                                                 <div class="bgc-white radius-1">
                                                                     <table
-                                                                        class="table table table-striped-default table-borderless">
+                                                                        class="table table  table-borderless">
                                                                         <tr>
                                                                             <td>
                                                                                 <i class="far fa-user text-success"></i>
@@ -567,7 +472,7 @@
 
                                                                             <td
                                                                                 class="text-95 text-600 text-secondary-d2">
-                                                                                warrent date
+                                                                                Warrant date
                                                                             </td>
 
                                                                             <td id = "warrent_date" class="text-dark-m3">
@@ -597,7 +502,7 @@
 
                                                                             <td
                                                                                 class="text-95 text-600 text-secondary-d2">
-                                                                                sentence in court
+                                                                                Sentence in court
                                                                             </td>
 
                                                                             <td id = "sentence_in_court" class="text-dark-m3">
@@ -612,44 +517,104 @@
 
                                                                             <td
                                                                                 class="text-95 text-600 text-secondary-d2">
-                                                                                date of sentence
+                                                                                Date of sentence
                                                                             </td>
 
                                                                             <td id = "date_of_sentence" class="text-dark-m3">
 
                                                                             </td>
                                                                         </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <i
-                                                                                    class="fas fa-check-square text-secondary"></i>
-                                                                            </td>
 
-                                                                            <td
-                                                                                class="text-95 text-600 text-secondary-d2">
-                                                                                warrent information
-                                                                            </td>
-
-                                                                            <td id = "warrent_information" class="text-dark-m3">
-
-                                                                            </td>
-                                                                        </tr>
-                                                                
                                                                     </table>
-                                                             
                                                                 </div>
 
                                                             </div>
-                                                            
-                                                   
-                                                          
-                                                        </div><!-- /.row -->
-                                                    
-                                                    </div><!-- /.tab-pane -->
-                                                   
-                                                    <!-- activity tab -->
 
-                                                    <div class="form-row text-center">
+                                                        {{-- </div><!-- /.row --> --}}
+
+
+
+                                                                <div class="col-12 px-4 mt-3">
+
+                                                                    <h4 class="mt-2 text-dark-m3 text-130">
+                                                                        <i
+                                                                            class="fa fa-pen-alt text-85 text-purple-d1 w-3"></i>
+                                                                            Warrant Information
+                                                                    </h4>
+
+                                                                    <div
+                                                                        class="d-flex flex-column flex-sm-row align-items-center align-items-sm-start mt-3 mb-2 text-95 pl-3">
+
+
+                                                                        <div
+                                                                            class="mt-2 mt-sm-0 flex-grow-1 text-dark-m2">
+                                                                            <p id="warrent_information" class="mb-1">
+
+                                                                            </p>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <div class="col-12 px-4 mt-3">
+                                                                    <h4 class="text-dark-m3 text-140">
+                                                                        <i
+                                                                            class="far fa-lightbulb text-danger-d1 text-85 w-3"></i>
+                                                                        Files
+                                                                    </h4>
+
+                                                                    <div id="skill-chart"
+                                                                        class="d-flex justify-content-center mx-auto flex-wrap">
+                                                                    </div>
+
+                                                                    <div class=" form-group row">
+
+                                                                        <div class="form-group col-md-3">
+                                                                          <figure class="figure">
+                                                                            <div id="warrent_file"></div>
+
+                                                                <figcaption class="figure-caption text-right">Warrant File</figcaption>
+                                                              </figure>
+                                                              </div>
+                                                              <div class="form-group col-md-3">
+                                                                   <figure class="figure">
+                                                                    <div id="health_paper"></div>
+                                                                <figcaption class="figure-caption text-right">Health Paper</figcaption>
+                                                              </figure>
+                                                              </div>
+                                                              <div class="form-group col-md-3">
+                                                               <figure class="figure">
+                                                                   <div id="application_image"></div>
+                                                                <figcaption class="figure-caption text-right">Application Image</figcaption>
+                                                              </figure>
+                                                              </div>
+
+                                                                      </div>
+                                                                      <div class=" form-group row">
+                                                                      <div class="form-group col-md-12">
+                                                               <figure class="figure">
+                                                                   <div id="pic"></div>
+
+
+                                                                <!-- <figcaption class="figure-caption text-right">Other documents</figcaption> -->
+                                                              </figure>
+                                                              </div>
+                                                            </div>
+                                                            <div class=" form-group row">
+                                                                      <div class="form-group col-md-12">
+                                                               <figure class="figure">
+
+                                                                   <div id="picss"></div>
+
+                                                                 <figcaption class="figure-caption text-right">Other documents</figcaption>
+                                                              </figure>
+                                                              </div>
+                                                            </div>
+                                                                      </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-row text-center">
     <div class="form-group col-md-6">
     <a href="{{route('home-forward',[$petion->id])}}"
                                             class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
@@ -664,6 +629,22 @@
     </div>
 
   </div>
+                                                        </div>
+
+
+
+
+
+                                                    <!-- activity tab -->
+
+
+
+
+
+                                                   
+                                                    <!-- activity tab -->
+
+    
 
                                                  
 

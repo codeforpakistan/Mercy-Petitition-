@@ -4,6 +4,7 @@ namespace App;
 use App\User;
 use App\Section;
 use App\File;
+use App\Homedepartment;
 use Illuminate\Database\Eloquent\Model;
 
 class Petition extends Model
@@ -30,4 +31,8 @@ class Petition extends Model
         return $this->belongsTo(Section::class,"section_id");
      
 }
+public function homedepartmentss()
+    {
+        return $this->hasMany(Homedepartment::class,'petition_id');
+    }
 }

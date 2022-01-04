@@ -44,6 +44,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/petitionforward/{id}','PetitionController@forwardpetition')->name('petition-forward');
     Route::Post('/storepetition','PetitionController@storepetition')->name('storepetition');
     Route::get('/view/{id}','PetitionController@view')->name('viewpetition');
+    Route::get('/Interiorview/{id}','InteriorMinstryController@view')->name('InteriorMinstryviewpetition');
     Route::resource('roles','RoleController');
     Route::resource('Petition','PetitionController');
     Route::resource('roles','RoleController');

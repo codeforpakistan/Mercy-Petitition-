@@ -47,7 +47,7 @@
                 <div class="col-sm-5 col-11 tag-input-style">
                     <select  id="Status" name="status" class="form-control col-sm-8 col-md-11" data-placeholder="Choose Role For User...">
                     <option value='IGP'>IGP</option>
-                    <option value='InteriorMinstryDepartment'>InteriorMinstryDepartment</option>
+                    <option value='InteriorMinistryDepartment'>InteriorMinistryDepartment</option>
                    
                     </select>
                 </div>

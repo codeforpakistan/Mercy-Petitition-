@@ -52,6 +52,11 @@
       background-repeat: no-repeat;
 
     }
+    .right-column { 
+    padding: 10px;
+    padding-left: 50px; 
+    background: white;  
+}
     </style>
 
   <body>
@@ -494,6 +499,131 @@
 
     })
     </script>
+    
+    <script type=text/javascript>
+              $(document).ready(function() {
+
+              $('body').on('click','#interiorshow-user' , function(event){
+                event.preventDefault();
+
+                //  alert( $(this).data('id'));
+                //  $("#getData").click(function() {
+
+                //     var get = $(this).val();
+                //     alert(get);
+                var id = $(this).data('id');
+                 $.ajax({  //create an ajax request to display.php
+
+                  type: "GET",
+                  url: "{{url('Interiorview')}}/"+id,
+                  datatype: 'json',
+
+                  success: function (data) {
+
+             
+             
+          
+                    $('#firstname').text(data.petitions.name);
+                    $('#Fathername').text(data.petitions.f_name);
+                    $('#Nationality').text(data.petitions.nationality);
+                    $('#Physicalstatus').text(data.petitions.physicalstatus);
+                    $('#Confined_in_jail').text(data.petitions.confined_in_jail);
+                    $('#Gender').text(data.petitions.gender);
+                    $('#Dob').text(data.petitions.dob);
+                    $('#firdate').text(data.petitions.firdate);
+                    $('#Mercypetitiondate').text(data.petitions.mercypetitiondate);
+                    $('#Section_id').text(data.petitions.sectionss.undersection);
+                    $('#warrent_date').text(data.petitions.warrent_date);
+                    $('#Remarks').text(data.petitions.remarks);
+                    $('#sentence_in_court').text(data.petitions.sentence_in_court);
+                    $('#date_of_sentence').text(data.petitions.date_of_sentence);
+                    $('#warrent_information').text(data.petitions.warrent_information);
+                    $('#homeremarks').text(data.homepititions.remarks);
+
+             $("#pic").empty();
+            $("#picss").empty();
+             $.each(data.petitions.fileattachements, function (key, val) {
+            var fil=  val.file
+
+
+          //  alert(val.file);
+        if(val.type=='pdf'){
+
+      // alert(val.type=='pdf');
+      // $("#picss").empty();
+     // $('#picss').append("<a   href='{{url('/assets/image/')}}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{url('/assets/image/')}}/"+val.file+"'>"+'</a>');
+      $('#picss').append("<a   href='{{url('/assets/image/')}}/"+val.file+"'>"+val.file+'</a>');
+        }else{
+        // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{url('/assets/image/')}}/"+val.file+"'>");
+        $('#pic').append("<a  data-lightbox='example-1' href='{{url('/assets/image/')}}/"+val.file+" '>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{url('/assets/image/')}}/"+val.file+"'>"+'</a>');
+        }
+             });
+
+
+
+        var ap = data.petitions.application_image;
+  var finalap = ap.split(".");
+     if (finalap['1']=="pdf"){
+      $('#application_images').append("<a   href='{{url('/assets/image/')}}/"+data.petitions.application_image+"'>"+data.petitions.application_image+'</a>');
+     }else{
+     // $('#application_image').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.application_image+"'>");
+      $('#application_image').html("<a  data-lightbox='example-1' href='{{url('/assets/image/')}}/"+data.petitions.application_image+" '>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{url('/assets/image/')}}/"+data.petitions.application_image+"'>"+'</a>');
+     }
+     var ap = data.petitions.health_paper;
+  var finalap = ap.split(".");
+     if (finalap['1']=="pdf"){
+      $('#health_papers').append("<a   href='{{url('/assets/image/')}}/"+data.petitions.health_paper+"'>"+data.petitions.health_paper+'</a>');
+     }else{
+      $('#health_paper').html("<a  data-lightbox='example-1' href='{{url('/assets/image/')}}/"+data.petitions.health_paper+" '>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{url('/assets/image/')}}/"+data.petitions.health_paper+"'>"+'</a>');
+
+     // $('#health_paper').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.health_paper+"'>");
+     }
+     var ap = data.petitions.warrent_file;
+  var finalap = ap.split(".");
+     if (finalap['1']=="pdf"){
+      $('#warrent_files').append("<a   href='{{url('/assets/image/')}}/"+data.petitions.warrent_file+"'>"+data.petitions.warrent_file+'</a>');
+     }else{
+      $('#warrent_file').html("<a  data-lightbox='example-1' href='{{url('/assets/image/')}}/"+data.petitions.warrent_file+" '>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{url('/assets/image/')}}/"+data.petitions.warrent_file+"'>"+'</a>');
+
+     // $('#warrent_file').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.warrent_file+"'>");
+     }
+                  //  $('#Prisonerimage').html("<img style='height:100px;width:100px;border-radius:50px;' src=' {{ url('/assets/image/') }}/"+data.prisoner_image+"'>");
+      $('#Prisonerimage').html("<a  data-lightbox='example-1' href='{{url('/assets/image/')}}/"+data.petitions.prisoner_image+" '>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;border-radius:50px' src='{{url('/assets/image/')}}/"+data.petitions.prisoner_image+"'>"+'</a>');
+
+
+  // home department file 
+  // $("#homefilepdf").empty();
+  //           $("#homepic").empty();
+ 
+  $.each(data.homepititions.homefileattachements, function (key, val) {
+            var fil=  val.file
+
+
+          //  alert(val.file);
+        if(val.type=='pdf'){
+
+      // alert(val.type=='pdf');
+      // $("#picss").empty();
+     // $('#picss').append("<a   href='{{url('/assets/image/')}}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{url('/assets/image/')}}/"+val.file+"'>"+'</a>');
+      $('#homefilepdf').append("<a   href='{{url('/assets/image/')}}/"+val.file+"'>"+val.file+'</a>');
+        }else{
+        // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{url('/assets/image/')}}/"+val.file+"'>");
+        $('#homepic').append("<a  data-lightbox='example-1' href='{{url('/assets/image/')}}/"+val.file+" '>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{url('/assets/image/')}}/"+val.file+"'>"+'</a>');
+        }
+             });
+
+
+
+                  }
+
+                });
+
+              });
+              });
+
+
+</script>
+
      <script type=text/javascript>
               $(document).ready(function() {
 
