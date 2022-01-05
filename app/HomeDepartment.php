@@ -19,7 +19,7 @@ class HomeDepartment extends Model
     }
     public function homepetitions()
     {
-        return $this->belongsTo(Petition::class);
+        return $this->belongsTo(Petition::class,'petition_id');
     }
     
 }

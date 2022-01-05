@@ -38,14 +38,15 @@
 
   <style>
     .b-container {
-      background-image: linear-gradient(#1E2635, #1E2635);
+      background-image: linear-gradient(#fff,#fff );
       background-attachment: fixed;
+     
 
       background-repeat: no-repeat;
     }
 
     .b-containers {
-      background-image: linear-gradient(#1E2635, #1a1b1d);
+      background-image: linear-gradient(#800000, #db1717);
       background-attachment: fixed;
       opacity: 16px;
 

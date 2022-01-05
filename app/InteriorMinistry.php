@@ -9,8 +9,9 @@ use App\HomeDepartment;
 
 class InteriorMinistry extends Model
 {
+    protected $table="interiorministries";
     protected $fillable = [
-        'remarks',  'user_id', 'homedartment_id',
+        'remarks', 'petition_id', 'user_id', 'homedepartment_id',
     ];
 
     public function interiorfileattachements()

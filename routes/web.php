@@ -35,12 +35,14 @@ Route::get('/search','PetitionController@search')->name('petitionsearch');
 Route::get('/Homeforward/{id}','HomeDepartmentController@forwardpetition')->name('home-forward');
 Route::Post('/forwardinteriorministrydepartment/{id}','HomeDepartmentController@forwardinteriorministrydepartment')->name('forwardinteriorministrydepartment');
 Route::get('/petitionforward/{id}','PetitionController@forwardpetition')->name('petition-forward');
-
+Route::get('/interiorforward/{id}','InteriorMinstryController@forwardpetition')->name('interior-forward');
+Route::Post('/decision/{id}','InteriorMinstryController@decision')->name('petition-decision');
 Route::get('/petitionedit/{id}','PetitionController@edit')->name('petition-edit');
 Route::get('/petitionsearch','PetitionController@searchform')->name('petitionsearchform');
 Route::Post('/petitionupdate/{id}','PetitionController@petitionupdate')->name('petition-update');
 Route::Post('/forwardhomedepartment/{id}','PetitionController@forwardhomedepartment')->name('forwardhomedepartment');
 Route::group(['middleware' => ['auth']], function() {
+    Route::get('/dashboard', 'dashboardController@dashboard')->name('portal.dashboard');
     Route::get('/petitionforward/{id}','PetitionController@forwardpetition')->name('petition-forward');
     Route::Post('/storepetition','PetitionController@storepetition')->name('storepetition');
     Route::get('/view/{id}','PetitionController@view')->name('viewpetition');

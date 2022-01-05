@@ -10,7 +10,7 @@
 
    
 <style>
-    .b-container1 {
+    /* .b-container1 {
         background-image: linear-gradient(#b33232, #304d86);
         background-attachment: fixed;
         opacity: 16px;
@@ -18,7 +18,7 @@
         background-repeat: no-repeat;
         
 
-    }
+    } */
     hr.rounded {
   border-top: 8px solid #bbb;
   border-radius: 5px;
@@ -177,9 +177,10 @@
                                             <i class="fa fa-pencil-alt"></i>
                                         </a> -->
 
-                                        <a href="#"
+
+                                        <a href="{{route('interior-forward',[$petion->id])}}"
                                             class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
-                                            Forward  <i class="fa fa-forward"></i>
+                                            Decision  <i class="fa fa-forward"></i>
                                         </a>
 
                                     </div>

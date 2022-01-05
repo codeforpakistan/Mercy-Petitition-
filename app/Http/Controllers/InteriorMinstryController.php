@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\HomeDepartment;
 use App\Petition;
 use App\File;
+use App\InteriorMinistry;
 use Auth;
 class InteriorMinstryController extends Controller
 {
@@ -40,8 +41,52 @@ class InteriorMinstryController extends Controller
 
         return response()->json($response);
 
-
-
-
     }
+    public function forwardpetition($id){
+ 
+        return view('InteriorMinstry.forward');
+    }
+    public function decision(Request $request, $id){
+
+
+
+        $homepetition = HomeDepartment::with('homefileattachements')->where('petition_id',$id)->first();
+    
+        $interiorministrydecision= Petition::find($id);
+      
+     //    $forwardhomedepartment->remarks = strip_tags($request->get('remarks'));
+        $interiorministrydecision->status = $request->get('status');
+        $interiorministrydecision->save();
+        $Interiorministries = new InteriorMinistry([
+         'remarks' => strip_tags($request->get('remarks')),
+         'petition_id'=>$interiorministrydecision->id,
+         'homedepartment_id'=>$homepetition->id,
+         "user_id"=> Auth::user()->id, 
+ 
+        ]);
+ 
+        $Interiorministries->save();
+        if ($request->file('otherdocument')) {
+         $otherdocumentarry=[];
+         foreach($request->file('otherdocument') as $file)
+         {
+         $otherdocument = time().'.'.$file->extension();
+ 
+         $file->move(public_path('assets/image'), $otherdocument);
+     $otherexplode =  explode(".",$otherdocument);
+           
+         $file = new File([
+             'interiorministry_id'=>$Interiorministries->id,
+             "file" =>  $otherdocument,
+             "type"=> $otherexplode["1"],
+ 
+            ]);
+             
+            $file->save();
+ 
+         }
+        }
+       
+        return redirect()->route('InteriorMinstry.index')->with('message','Petion Forward Successfully ');
+      }
 }
