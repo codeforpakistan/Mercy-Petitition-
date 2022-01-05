@@ -15,4 +15,14 @@ class File extends Model
         return $this->belongsTo(Petition::class);
       
     }
+    public function homedepartments()
+    {
+        return $this->belongsTo(HomeDepartment::class,'homedepartment_id');
+      
+    }
+    public function InteriorMinistrydepartments()
+    {
+        return $this->belongsTo(InteriorMinistry::class);
+      
+    }
 }

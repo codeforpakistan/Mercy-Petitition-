@@ -1,9 +1,9 @@
 @extends('layouts.portal', [
-    'menu' => 'HomeDepartment',
-    'sub_menu' => 'Forward'
+    'menu' => ' InteriorMinstry',
+    'sub_menu' => 'Decision'
 ])
-@section('module','HomeDepartment Management')
-@section('element','Forward To')
+@section('module','InteriorMinstry Management')
+@section('element','Decision')
 
 @section('content')
 
@@ -11,11 +11,11 @@
     <div class="card-header">
       <h3 class="card-title text-125">
         <i class="far fa-edit text-dark-l3 mr-1"></i>
-        Forward To InteriorMinstry Department
+       InteriorMinstry Department
       </h3>
     </div>
       <div class="card-body px-3 pb-1">
-        <form class="mt-lg-3" autocomplete="off" action="{{route('forwardinteriorministrydepartment',[request()->route('id')])}}" method="post" enctype="multipart/form-data"> 
+        <form class="mt-lg-3" autocomplete="off" action="{{route('petition-decision',[request()->route('id')])}}" method="post" enctype="multipart/form-data"> 
               @csrf
               @if (count($errors) > 0)
                   <div class="alert bgc-red-l4 border-none border-l-4 brc-red-tp1 radius-0 text-dark-tp2" role="alert">
@@ -42,12 +42,15 @@
               </div>
               <div class="form-group row">
                 <div class="col-sm-3 col-form-label text-sm-right pr-0">
-                    <label for="Status">Status</label>
+                    <label for="Status">Forward To</label>
                 </div>
                 <div class="col-sm-5 col-11 tag-input-style">
                     <select  id="Status" name="status" class="form-control col-sm-8 col-md-11" data-placeholder="Choose Role For User...">
                     <option value='IGP'>IGP</option>
-                    <option value='InteriorMinistryDepartment'>InteriorMinistryDepartment</option>
+                    <option value='HomeDepartment'>HomeDepartment</option>
+                    <option value='Accepted'>Accepted</option>
+                    <option value='Rejected'>Rejected</option>
+                    <option value='HumanRightDepartment'>HumanRightDepartment</option>
                    
                     </select>
                 </div>
@@ -84,7 +87,7 @@
                   <div class="offset-md-3 col-md-9 text-nowrap">
                           <button class="btn btn-info btn-bold px-4 show_confirm"  type="submit">
                               <i class="fa fa-check mr-1"></i>
-                             Forward TO InteriorMinstry
+                             Forward 
                           </button>
                          
                   </div>

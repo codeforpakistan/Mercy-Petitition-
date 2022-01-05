@@ -15,11 +15,11 @@ class HomeDepartment extends Model
 
     public function homefileattachements()
     {
-        return $this->hasMany(File::class);
+        return $this->hasMany(File::class,'homedepartment_id');
     }
     public function homepetitions()
     {
-        return $this->belongsTo(Petition::class);
+        return $this->belongsTo(Petition::class,'petition_id');
     }
     
 }

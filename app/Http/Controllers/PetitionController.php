@@ -94,22 +94,22 @@ class PetitionController extends Controller
             'health_paper' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
             'warrent_file' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
 
-             'name' => 'required',
+             'name' => 'required|regex:/^[a-zA-Z0-9 ]+$/|max:20',
 
-        'f_name' => 'required',
-        'nationality' => 'required',
+        'f_name' => 'required|regex:/^[a-zA-Z0-9 ]+$/|max:20',
+        'nationality' => 'required|regex:/^[a-zA-Z0-9 ]+$/|max:20',
         'physicalstatus' => 'required',
 
-        'gender' => 'required',
+        'gender' => 'required|regex:/^[a-zA-Z0-9 ]+$/|max:20',
         'dob' => 'required',
 
-        'firdate' => 'required',
+        'firdate' => 'required|regex:/^[0-9.-]*$/',
         'mercypetitiondate' => 'required',
         'section_id' => 'required',
         'warrent_date' =>  'required',
         'date_of_sentence' =>  'required',
-        'sentence_in_court' =>'required',
-        'warrent_information' => 'required',
+        'sentence_in_court' =>'required|regex:/^[a-zA-Z0-9 ]+$/|max:100',
+        'warrent_information' => 'required|regex:/[a-zA-Z0-9\s]+/|max:255',
 
            ]);
 
