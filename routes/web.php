@@ -23,12 +23,10 @@ Route::get('/', function () {
 
 Route::get('/reload-captcha','HomeController@reloadCaptcha')->name('reloadCaptcha');
 
-Route::get('/dashboard', function () {
-    return view('welcome');
-})->name('portal.dashboard');
 Route::get('logout','Auth\loginController@logout')->name('logout');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+
 
 Route::get('/homesearch','HomeDepartmentController@homesearch')->name('homesearch');
 Route::get('/search','PetitionController@search')->name('petitionsearch');
@@ -41,6 +39,7 @@ Route::get('/petitionsearch','PetitionController@searchform')->name('petitionsea
 Route::Post('/petitionupdate/{id}','PetitionController@petitionupdate')->name('petition-update');
 Route::Post('/forwardhomedepartment/{id}','PetitionController@forwardhomedepartment')->name('forwardhomedepartment');
 Route::group(['middleware' => ['auth']], function() {
+    Route::get('/dashboard', 'dashboardController@dashboard')->name('portal.dashboard');
     Route::get('/petitionforward/{id}','PetitionController@forwardpetition')->name('petition-forward');
     Route::Post('/storepetition','PetitionController@storepetition')->name('storepetition');
     Route::get('/view/{id}','PetitionController@view')->name('viewpetition');

@@ -38,16 +38,17 @@
 
   <style>
     .b-container {
-      background-image: linear-gradient(#1E2635, #1E2635);
+      background-image: linear-gradient(#fff, #fff);
       background-attachment: fixed;
-
+      /* color: black; */
       background-repeat: no-repeat;
     }
 
+
     .b-containers {
-      background-image: linear-gradient(#1E2635, #1a1b1d);
+        background-image: linear-gradient(#800000, #F0F8FF);
       background-attachment: fixed;
-      opacity: 16px;
+      /* opacity: 16px; */
 
       background-repeat: no-repeat;
 
@@ -79,7 +80,7 @@
 
                     <a class="navbar-brand ml-n2 text-140 text-white " href="#">
                       {{-- <i class="fa fa-leaf mr-1 text-success-l1"></i> --}}
-                     <span class="text-danger"><img src="{{ asset('assets/image/ig.png') }}" style="width: 70px" ;></span>
+                     <span class="text-danger"><img src="{{ asset('assets/image/ig.png') }}" style="width: 50px" ;></span>
                     <span style="color:rgb(59, 59, 170)"> Mercy </span><span style ="color:rgb(160, 50, 50)">Petition</span>
                     </a>
                   </div>
@@ -223,7 +224,6 @@
                   </ul>
                 </div>
               </div>
-
 
             </div>
 

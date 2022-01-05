@@ -17,11 +17,26 @@
                     <b class="sub-arrow"></b>
                   </li> --}}
 
+                  <li class="nav-item {{isset($menu) ? ($menu=='dashboard' ? 'active open' : '') : ''}}">
+
+                    <a href="{{route('portal.dashboard')}}" class="nav-link {{isset($menu) ? ($menu=='dashboard' ? '' : 'collapsed') : 'collapsed'}}">
+                    <i class="nav-icon fas fa-tachometer-alt text-danger"></i>
+                      <span class="nav-text fadeable text-secondary">
+                              <span>Dashboard</span>
+                      </span>
+
+
+                    </a>
+
+                    <b class="sub-arrow"></b>
+
+                    </li>
+
                   <li class="nav-item">
 
                     <a href="#" class="nav-link dropdown-toggle collapsed">
-                      <i class="nav-icon fa fa-cube"></i>
-                      <span class="nav-text fadeable">
+                      <i class="nav-icon fa fa-cube text-danger"></i>
+                      <span class="nav-text fadeable text-secondary">
                   	  <span>Profile</span>
                       </span>
 
@@ -98,12 +113,14 @@
 
 			<b class="sub-arrow"></b>
 		</li>
-   
+
+
+
 <li class="nav-item {{isset($menu) ? ($menu=='SearchPetition' ? 'active open' : '') : ''}}">
 
 <a href="{{route('petitionsearchform')}}" class="nav-link {{isset($menu) ? ($menu=='SearchPetition' ? '' : 'collapsed') : 'collapsed'}}">
-<i class="nav-icon fa fa-cube"></i>
-  <span class="nav-text fadeable">
+<i class="nav-icon fa fa-cube text-danger"></i>
+  <span class="nav-text fadeable text-secondary">
           <span>Petiton Search</span>
   </span>
 
@@ -113,12 +130,13 @@
 <b class="sub-arrow"></b>
 
 </li>
+
  @can('user-list')
 
 		<li class="nav-item {{isset($menu) ? ($menu=='system_setting' ? 'active open' : '') : ''}}">
 			<a href="#" id="system_setting" class="nav-link dropdown-toggle {{isset($menu) ? ($menu=='system_setting' ? '' : 'collapsed') : 'collapsed'}}">
-					<i class="nav-icon fa fa-cube"></i>
-					<span class="nav-text fadeable">
+					<i class="nav-icon fa fa-cube text-danger"></i>
+					<span class="nav-text fadeable text-secondary">
 							<span>System Setting</span>
 					</span>
 					<b class="caret fa fa-angle-left rt-n90"></b>
@@ -171,7 +189,7 @@
                                             </span>
                                     </a>
                             </li>
-                  
+
 
 
                     </ul>
@@ -181,8 +199,8 @@
         <li class="nav-item {{isset($menu) ? ($menu=='IGP' ? 'active open' : '') : ''}}">
 
 <a href="{{route('Petition.index')}}" class="nav-link {{isset($menu) ? ($menu=='IGP' ? '' : 'collapsed') : 'collapsed'}}">
-<i class="nav-icon fa fa-cube"></i>
-  <span class="nav-text fadeable">
+<i class="nav-icon fa fa-cube text-danger"></i>
+  <span class="nav-text fadeable text-secondary">
           <span>Petition list</span>
   </span>
 
@@ -222,8 +240,8 @@
 <li class="nav-item {{isset($menu) ? ($menu=='HomeDepartment' ? 'active open' : '') : ''}}">
 
 <a href="{{route('homedept.index')}}" class="nav-link {{isset($menu) ? ($menu=='HomeDepartment' ? '' : 'collapsed') : 'collapsed'}}">
-<i class="nav-icon fa fa-cube"></i>
-  <span class="nav-text fadeable">
+<i class="nav-icon fa fa-cube text-danger"></i>
+  <span class="nav-text fadeable text-secondary">
           <span>HomeDepartment list</span>
   </span>
 
@@ -239,8 +257,8 @@
 
 <li class="nav-item {{isset($menu) ? ($menu=='InteriorMinitries' ? 'active open' : '') : ''}}">
     <a href="#" id="InteriorMinitries" class="nav-link dropdown-toggle {{isset($menu) ? ($menu=='InteriorMinitries' ? '' : 'collapsed') : 'collapsed'}}">
-            <i class="nav-icon fa fa-cube"></i>
-            <span class="nav-text fadeable">
+            <i class="nav-icon fa fa-cube text-danger"></i>
+            <span class="nav-text fadeable text-secondary">
                     <span>Interior Ministry</span>
             </span>
             <b class="caret fa fa-angle-left rt-n90"></b>
