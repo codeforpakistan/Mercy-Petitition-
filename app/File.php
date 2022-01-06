@@ -22,7 +22,7 @@ class File extends Model
     }
     public function InteriorMinistrydepartments()
     {
-        return $this->belongsTo(InteriorMinistry::class);
+        return $this->belongsTo(InteriorMinistry::class,'interiorministry_id');
       
     }
 }

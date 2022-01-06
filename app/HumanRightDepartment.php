@@ -3,10 +3,18 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\File;
+use App\Petition;
+use App\HomeDepartment;
 class HumanRightDepartment extends Model
 {
+    protected $table="humanrightdepartments";
     protected $fillable = [
-        'remarks', 'file_id', 'user_id', 'homedartment_id','interiorministry_id',
+        'remarks', 'petition_id', 'user_id', 'homedepartment_id','interiorministry_id',
     ];
+
+    public function humanrightfileattachements()
+    {
+        return $this->hasMany(File::class,'interiorministry_id');
+    }
 }

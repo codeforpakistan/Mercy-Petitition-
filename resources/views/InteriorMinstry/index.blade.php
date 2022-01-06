@@ -184,7 +184,7 @@
 
                                         <a href="{{route('interior-forward',[$petion->id])}}"
                                             class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
-                                            Decision <i class="fa fa-forward"></i>
+                                            Decision/forward  <i class="fa fa-forward"></i>
                                         </a>
 
                                     </div>

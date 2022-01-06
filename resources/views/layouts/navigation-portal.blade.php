@@ -11,7 +11,7 @@
                   <li class="nav-item {{isset($menu) ? ($menu=='dashboard' ? 'active open' : '') : ''}}">
 
                     <a href="{{route('portal.dashboard')}}" class="nav-link {{isset($menu) ? ($menu=='dashboard' ? '' : 'collapsed') : 'collapsed'}}">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <i class="nav-icon fas fa-tachometer-alt"style="color:#351e23"></i>
                       <span class="nav-text fadeable text-secondary">
                               <span>Dashboard</span>
                       </span>
@@ -21,84 +21,91 @@
 
                     <b class="sub-arrow"></b>
 
+                    </li>
 
 
-      <li class="nav-item">
 
-        <a href="#" class="nav-link dropdown-toggle collapsed">
-          <i class="nav-icon fa fa-cube" style="color:#351e23"></i>
-          <span class="nav-text fadeable">
-            <span>Profile</span>
-          </span>
+                  <li class="nav-item">
 
-          <b class="caret fa fa-angle-left rt-n90"></b>
+                    <a href="#" class="nav-link dropdown-toggle collapsed">
+                      <i class="nav-icon fa fa-cube" style="color:#351e23"></i>
+                      <span class="nav-text fadeable">
+                  	  <span>Profile</span>
+                      </span>
 
-          <!-- or you can use custom icons. first add `d-style` to 'A' -->
-          <!--
-               <b class="caret d-n-collapsed fa fa-minus text-80"></b>
-               <b class="caret d-collapsed fa fa-plus text-80"></b>
-           -->
-        </a>
+                      <b class="caret fa fa-angle-left rt-n90"></b>
 
-        <div class="hideable submenu collapse">
-          <ul class="submenu-inner" style="background-color:#ffffff">
-            <li class="nav-item">
-              <span class="nav-text">
-                        <span>
-                           <!-- the user avatar and image -->
-  <div class="sidebar-section-item pt-2 fadeable-left fadeable-top">
-    <div class="fadeinable">
-        <img class="mr-2 radius-round border-2 brc-primary-tp3 p-1px" src="{{ Auth::user()->picture ?? asset('..\assets\image\avatar\avatar4.png')}}" width="36" alt="Natalie's Photo">
-        {{ Auth::user()->name }}
-    </div>
+                      <!-- or you can use custom icons. first add `d-style` to 'A' -->
+                      <!--
+                  	 	<b class="caret d-n-collapsed fa fa-minus text-80"></b>
+                  	 	<b class="caret d-collapsed fa fa-plus text-80"></b>
+                  	 -->
+                    </a>
 
-    <div class="fadeable hideable">
-      <div class="py-2 d-flex flex-column align-items-center">
-        @auth
-        <img class="mr-2 radius-round border-2 brc-primary-tp3 p-1px" src="{{ Auth::user()->picture ?? asset('..\assets\image\avatar\avatar4.png')}}" width="36" alt="Natalie's Photo">
-        <span style="color: blue">{{ Auth::user()->name }}</span>
+                    <div class="hideable submenu collapse">
+                      <ul class="submenu-inner" style="background-color:#ffffff">
+                        <li class="nav-item">
+                          <span class="nav-text">
+                  				  <span>
+                                       <!-- the user avatar and image -->
+              <div class="sidebar-section-item pt-2 fadeable-left fadeable-top">
+                <div class="fadeinable">
+                    <img class="mr-2 radius-round border-2 brc-primary-tp3 p-1px" src="{{ Auth::user()->picture ?? asset('..\assets\image\avatar\avatar4.png')}}" width="36" alt="Natalie's Photo">
+                    {{ Auth::user()->name }}
+                </div>
 
-        @endauth
+                <div class="fadeable hideable">
+                  <div class="py-2 d-flex flex-column align-items-center">
+                    @auth
+                    <img class="mr-2 radius-round border-2 brc-primary-tp3 p-1px" src="{{ Auth::user()->picture ?? asset('..\assets\image\avatar\avatar4.png')}}" width="36" alt="Natalie's Photo">
+                    <span style="color: blue">{{ Auth::user()->name }}</span>
 
-        @guest
-        <img alt="Natalie's avatar" src="assets/image/avatar/avatar2.png" class="p-2px border-2 brc-primary-m2 radius-round" />
-           <a href="{{ route('login') }}">{{ __('Login') }}</a>
-        @endguest
+                    @endauth
 
-      </div>
-    </div>
-  </div>
-                </span>
-                </span>
-              </a>
-            </li>
-            <li class="nav-item">
-            <a href="" class="nav-link">
-                <span class="nav-text">
-                        <span> Change Password </span>
-                </span>
-              </a>
-            </li>
-            @auth
+                    @guest
+                    <img alt="Natalie's avatar" src="assets/image/avatar/avatar2.png" class="p-2px border-2 brc-primary-m2 radius-round" />
+                       <a href="{{ route('login') }}">{{ __('Login') }}</a>
+                    @endguest
 
-            <li class="nav-item">
-              <a href="{{ route('logout') }}"
-              onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();"  class="nav-link">
-               {{ __('Logout') }}
-                <span class="nav-text">
-                        <span>
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                 </form>
+                  </div>
+                </div>
+              </div>
+                            </span>
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                        <a href="" class="nav-link">
+                            <span class="nav-text">
+                  				  <span> Change Password </span>
+                            </span>
+                          </a>
+                        </li>
+                        @auth
 
-                </span>
-                </span>
-              </a>
-            </li>
-            @endauth
-          </ul>
-        </div>
+                        <li class="nav-item">
+                          <a href="{{ route('logout') }}"
+                          onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();"  class="nav-link">
+                           {{ __('Logout') }}
+                            <span class="nav-text">
+                  				  <span>
+                              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                             </form>
+
+                            </span>
+                            </span>
+                          </a>
+                        </li>
+                        @endauth
+                      </ul>
+                    </div>
+
+                    <b class="sub-arrow"></b>
+
+			<b class="sub-arrow"></b>
+		</li>
 
         <b class="sub-arrow"></b>
 
@@ -242,30 +249,37 @@
 
 @endcan
 @can('interior-list')
-
 <li class="nav-item {{isset($menu) ? ($menu=='InteriorMinitries' ? 'active open' : '') : ''}}">
-<a href="#" id="InteriorMinitries" class="nav-link dropdown-toggle {{isset($menu) ? ($menu=='InteriorMinitries' ? '' : 'collapsed') : 'collapsed'}}">
-<i class="nav-icon fa fa-cube" style="color:#351e23"></i>
-<span class="nav-text fadeable">
-        <span>Interior Ministry</span>
-</span>
-<b class="caret fa fa-angle-left rt-n90"></b>
-</a>
-<div class="hideable submenu collapse {{isset($menu) ? ($menu=='InteriorMinitries' ? 'show' : '') : ''}}">
-<ul class="submenu-inner">
-<li class="nav-item {{isset($sub_menu) ? ($sub_menu=='InteriorMinstry' ? 'active' : '') : ''}}">
-                <a href="{{route('InteriorMinstry.index')}}" class="nav-link">
-                        <span class="nav-text">
-                                <span>Interior</span>
-                        </span>
-                </a>
+
+        <a href="{{route('InteriorMinstry.index')}}" class="nav-link {{isset($menu) ? ($menu=='InteriorMinitries' ? '' : 'collapsed') : 'collapsed'}}">
+        <i class="nav-icon fa fa-cube" style="color:#351e23"></i>
+          <span class="nav-text fadeable">
+                  <span>Interior Ministry</span>
+          </span>
+
+
+        </a>
+
+        <b class="sub-arrow"></b>
+
         </li>
 
 
-</ul>
+ @endcan
+ @can('HumanRightDepartment-list')
+ <li class="nav-item {{isset($menu) ? ($menu=='HumanRightDepartments' ? 'active open' : '') : ''}}">
 
-</div>
-<b class="sub-arrow"></b>
-</li>
-@endcan
+        <a href="{{route('HumanRight.index')}}" class="nav-link {{isset($menu) ? ($menu=='HumanRightDepartments' ? '' : 'collapsed') : 'collapsed'}}">
+        <i class="nav-icon fa fa-cube" style="color:#351e23"></i>
+          <span class="nav-text fadeable">
+                  <span>HumanRight list</span>
+          </span>
+
+
+        </a>
+
+        <b class="sub-arrow"></b>
+
+        </li>
+        @endcan
 </nav>
