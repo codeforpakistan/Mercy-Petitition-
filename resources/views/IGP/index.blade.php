@@ -16,6 +16,10 @@
         background-repeat: no-repeat;
 
     }
+    .center {
+        margin-left: auto;
+        margin-right: auto;
+    }
 </style>
 <div role="main" class="page-content container container-plus">
     <div class="page-header border-0">
@@ -339,19 +343,20 @@
                                                             <div class="row mt-1">
 
 
+                                                                <div class="row mt-5">
+                                                                    <div class="col-8 px-4 mb-3 text-center center">
 
-                                                        <div class="row mt-5">
-                                                            <div class="col-12 px-4 mb-3">
+                                                                        <h4 class="text-dark-m3 text-140">
+                                                                            <i
+                                                                                class="fa fa-info text-blue mr-1 w-2"></i>
+                                                                            Prisoner Info
+                                                                        </h4>
 
-                                                                <h4 class="text-dark-m3 text-140">
-                                                                    <i class="fa fa-info text-blue mr-1 w-2"></i>
-                                                                    Prisoner Info
-                                                                </h4>
+                                                                        <hr class="w-100 mx-auto mb-0 brc-default-l2">
 
-                                                                <hr class="w-100 mx-auto mb-0 brc-default-l2">
-
-                                                                <div class="bgc-white radius-1">
-                                                                    <table
+                                                                        <div class="bgc-white radius-1 center"
+                                                                            style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
+                                                                            <table
                                                                         class="table table  table-borderless">
                                                                         <tr>
                                                                             <td>
@@ -547,7 +552,7 @@
 
 
 
-                                                                <div class="col-12 px-4 mt-3">
+                                                                <div class="col-12 px-4 mt-3" style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
 
                                                                     <h4 class="mt-2 text-dark-m3 text-130">
                                                                         <i
@@ -570,7 +575,7 @@
                                                                 </div>
 
 
-                                                                <div class="col-12 px-4 mt-3">
+                                                                <div class="col-12 px-4 mt-3" style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
                                                                     <h4 class="text-dark-m3 text-140">
                                                                         <i
                                                                             class="far fa-lightbulb text-danger-d1 text-85 w-3"></i>

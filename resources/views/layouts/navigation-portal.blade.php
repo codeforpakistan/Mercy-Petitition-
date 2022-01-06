@@ -1,27 +1,27 @@
 <nav aria-label="Main">
     <ul class="nav flex-column mt-2 has-active-border active-on-top">
 
-      {{-- <li class="nav-item-caption">
-        <span class="fadeable pl-3">MAIN</span>
-        <span class="fadeinable mt-n2 text-125">&hellip;</span>
-      </li> --}}
+                  {{-- <li class="nav-item-caption">
+                    <span class="fadeable pl-3">MAIN</span>
+                    <span class="fadeinable mt-n2 text-125">&hellip;</span>
+                  </li> --}}
 
 
 
-      <li class="nav-item {{isset($menu) ? ($menu=='dashboard' ? 'active open' : '') : ''}}">
+                  <li class="nav-item {{isset($menu) ? ($menu=='dashboard' ? 'active open' : '') : ''}}">
 
-        <a href="{{route('portal.dashboard')}}" class="nav-link {{isset($menu) ? ($menu=='dashboard' ? '' : 'collapsed') : 'collapsed'}}">
-        <i class="nav-icon fas fa-tachometer-alt"style="color:#351e23"></i>
-          <span class="nav-text fadeable text-secondary">
-                  <span>Dashboard</span>
-          </span>
+                    <a href="{{route('portal.dashboard')}}" class="nav-link {{isset($menu) ? ($menu=='dashboard' ? '' : 'collapsed') : 'collapsed'}}">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                      <span class="nav-text fadeable text-secondary">
+                              <span>Dashboard</span>
+                      </span>
 
 
-        </a>
+                    </a>
 
-        <b class="sub-arrow"></b>
+                    <b class="sub-arrow"></b>
 
-        </li>
+
 
       <li class="nav-item">
 
