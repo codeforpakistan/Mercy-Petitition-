@@ -11,11 +11,11 @@ class DashboardController extends Controller
 
 
         $today = Carbon::today();
-    
+
         $totalpetitions = Petition::get()->count();
         $newpetitionToday = Petition::whereDate('created_at', '=', $today->toDateString())->count();
         return view('welcome' , ['totalpetitions' => $totalpetitions , 'newpetitionToday' => $newpetitionToday ]);
-    
-    
+
+
        }
 }

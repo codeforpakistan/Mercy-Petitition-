@@ -23,12 +23,10 @@ Route::get('/', function () {
 
 Route::get('/reload-captcha','HomeController@reloadCaptcha')->name('reloadCaptcha');
 
-Route::get('/dashboard', function () {
-    return view('welcome');
-})->name('portal.dashboard');
 Route::get('logout','Auth\loginController@logout')->name('logout');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+
 
 Route::get('/homesearch','HomeDepartmentController@homesearch')->name('homesearch');
 Route::get('/search','PetitionController@search')->name('petitionsearch');

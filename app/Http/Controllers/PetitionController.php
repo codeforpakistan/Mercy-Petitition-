@@ -55,7 +55,7 @@ class PetitionController extends Controller
     public function view($id){
 
         $pets = Petition::with('fileattachements','sectionss')->get();
-        
+
         $petitions = $pets->find($id);
 
         return response()->json($petitions);
@@ -65,7 +65,7 @@ class PetitionController extends Controller
 
     }
     public function searchform(){
-        return view('IGP.searchform'); 
+        return view('IGP.searchform');
     }
     public function create(){
         $sections = Section::all();
@@ -93,7 +93,7 @@ class PetitionController extends Controller
             'application_image' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
             'health_paper' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
             'warrent_file' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
-          
+
              'name' => 'required|regex:/^[a-zA-Z0-9 ]+$/|max:20',
 
         'f_name' => 'required|regex:/^[a-zA-Z0-9 ]+$/|max:20',

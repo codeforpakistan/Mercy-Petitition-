@@ -40,23 +40,24 @@
     .b-container {
       background-image: linear-gradient(#fff,#fff );
       background-attachment: fixed;
-     
+
 
       background-repeat: no-repeat;
     }
+
 
     .b-containers {
       background-image: linear-gradient(#800000, #db1717);
       background-attachment: fixed;
-      opacity: 16px;
+      /* opacity: 16px; */
 
       background-repeat: no-repeat;
 
     }
-    .right-column { 
+    .right-column {
     padding: 10px;
-    padding-left: 50px; 
-    background: white;  
+    padding-left: 50px;
+    background: white;
 }
     </style>
 
@@ -85,7 +86,7 @@
 
                     <a class="navbar-brand ml-n2 text-140 text-white " href="#">
                       {{-- <i class="fa fa-leaf mr-1 text-success-l1"></i> --}}
-                     <span class="text-danger"><img src="{{ asset('assets/image/ig.png') }}" style="width: 70px" ;></span>
+                     <span class="text-danger"><img src="{{ asset('assets/image/ig.png') }}" style="width: 50px" ;></span>
                     <span style="color:rgb(59, 59, 170)"> Mercy </span><span style ="color:rgb(160, 50, 50)">Petition</span>
                     </a>
                   </div>
@@ -229,7 +230,6 @@
                   </ul>
                 </div>
               </div>
-
 
             </div>
 
@@ -500,7 +500,7 @@
 
     })
     </script>
-    
+
     <script type=text/javascript>
               $(document).ready(function() {
 
@@ -521,9 +521,9 @@
 
                   success: function (data) {
 
-             
-             
-          
+
+
+
                     $('#firstname').text(data.petitions.name);
                     $('#Fathername').text(data.petitions.f_name);
                     $('#Nationality').text(data.petitions.nationality);
@@ -592,10 +592,10 @@
       $('#Prisonerimage').html("<a target='_blank'  data-lightbox='example-1' href='{{url('/assets/image/')}}/"+data.petitions.prisoner_image+" '>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;border-radius:50px' src='{{url('/assets/image/')}}/"+data.petitions.prisoner_image+"'>"+'</a>');
 
 
-  // home department file 
+  // home department file
   // $("#homefilepdf").empty();
   //           $("#homepic").empty();
- 
+
   $.each(data.homepititions.homefileattachements, function (key, val) {
             var fil=  val.file
 

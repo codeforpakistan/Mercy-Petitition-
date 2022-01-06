@@ -33,7 +33,7 @@
 
                     <div class="d-flex justify-content-between flex-column flex-sm-row mb-3 px-2 px-sm-0">
                         <h3 class="text-130 pl-1 mb-3 mb-sm-0">
-                        
+
                         </h3>
 
 
@@ -66,7 +66,7 @@
                         </div>
 
                         <div class="mb-2 mb-sm-0">
-                           
+
                         </div>
                     </div>
 
@@ -107,7 +107,7 @@
                                 </th>
 
                                 <th class='d-none d-sm-table-cell'>
-                                    Confined IN Jail
+                                    Confined iN jail
                                 </th>
 
                                 <th class="d-none d-sm-table-cell">
@@ -156,12 +156,12 @@
                                             </span>
                                             <i class="fa fa-angle-down toggle-icon opacity-1 text-90"></i>
                                         </a>
-                          
 
 
-                            
 
-                          
+
+
+
 
                                 <td>
                                     <!-- action buttons -->
@@ -255,7 +255,7 @@
                                                         class="d-flex flex-column py-3 px-lg-3 justify-content-center align-items-center">
 
                                                       <div id="Prisonerimage" class="pos-rel">
-                                                           
+
                                                         </div>
 
                                                         <div class="text-center mt-2">
@@ -269,7 +269,7 @@
 
                                                             </span>
 
-                                                            
+
                                                         </div>
 
 
@@ -641,16 +641,16 @@
 
 
 
-                                                   
+
                                                     <!-- activity tab -->
 
-    
 
-                                                 
+
+
 
 
                                                 </div><!-- /.row -->
-                                                
+
                                             </div>
 
                                         </div>
@@ -668,10 +668,10 @@
 
 
 
-          
 
-           
-        
+
+
+
         </div>
 
 

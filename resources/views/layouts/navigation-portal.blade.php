@@ -7,11 +7,26 @@
                   </li> --}}
 
 
-                 
+
                   <li class="nav-item {{isset($menu) ? ($menu=='dashboard' ? 'active open' : '') : ''}}">
 
                     <a href="{{route('portal.dashboard')}}" class="nav-link {{isset($menu) ? ($menu=='dashboard' ? '' : 'collapsed') : 'collapsed'}}">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
+                      <span class="nav-text fadeable text-secondary">
+                              <span>Dashboard</span>
+                      </span>
+
+
+                    </a>
+
+                    <b class="sub-arrow"></b>
+
+                    </li>
+
+                  <li class="nav-item {{isset($menu) ? ($menu=='dashboard' ? 'active open' : '') : ''}}">
+
+                    <a href="{{route('portal.dashboard')}}" class="nav-link {{isset($menu) ? ($menu=='dashboard' ? '' : 'collapsed') : 'collapsed'}}">
+                    <i class="nav-icon fas fa-tachometer-alt text-danger"></i>
                       <span class="nav-text fadeable text-secondary">
                               <span>Dashboard</span>
                       </span>
@@ -104,7 +119,9 @@
 
 			<b class="sub-arrow"></b>
 		</li>
-   
+
+
+
 <li class="nav-item {{isset($menu) ? ($menu=='SearchPetition' ? 'active open' : '') : ''}}">
 
 <a href="{{route('petitionsearchform')}}" class="nav-link {{isset($menu) ? ($menu=='SearchPetition' ? '' : 'collapsed') : 'collapsed'}}">
@@ -119,6 +136,7 @@
 <b class="sub-arrow"></b>
 
 </li>
+
  @can('user-list')
 
 		<li class="nav-item {{isset($menu) ? ($menu=='system_setting' ? 'active open' : '') : ''}}">
@@ -177,7 +195,7 @@
                                             </span>
                                     </a>
                             </li>
-                  
+
 
 
                     </ul>
