@@ -11,7 +11,7 @@
                   <li class="nav-item {{isset($menu) ? ($menu=='dashboard' ? 'active open' : '') : ''}}">
 
                     <a href="{{route('portal.dashboard')}}" class="nav-link {{isset($menu) ? ($menu=='dashboard' ? '' : 'collapsed') : 'collapsed'}}">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <i class="nav-icon fas fa-tachometer-alt"style="color:#351e23"></i>
                       <span class="nav-text fadeable text-secondary">
                               <span>Dashboard</span>
                       </span>
@@ -23,20 +23,7 @@
 
                     </li>
 
-                  <li class="nav-item {{isset($menu) ? ($menu=='dashboard' ? 'active open' : '') : ''}}">
-
-                    <a href="{{route('portal.dashboard')}}" class="nav-link {{isset($menu) ? ($menu=='dashboard' ? '' : 'collapsed') : 'collapsed'}}">
-                    <i class="nav-icon fas fa-tachometer-alt text-danger"></i>
-                      <span class="nav-text fadeable text-secondary">
-                              <span>Dashboard</span>
-                      </span>
-
-
-                    </a>
-
-                    <b class="sub-arrow"></b>
-
-                    </li>
+                 
 
                   <li class="nav-item">
 
@@ -260,32 +247,39 @@
 
 @endcan
 @can('interior-list')
-
 <li class="nav-item {{isset($menu) ? ($menu=='InteriorMinitries' ? 'active open' : '') : ''}}">
-    <a href="#" id="InteriorMinitries" class="nav-link dropdown-toggle {{isset($menu) ? ($menu=='InteriorMinitries' ? '' : 'collapsed') : 'collapsed'}}">
-            <i class="nav-icon fa fa-cube" style="color:#351e23"></i>
-            <span class="nav-text fadeable">
-                    <span>Interior Ministry</span>
-            </span>
-            <b class="caret fa fa-angle-left rt-n90"></b>
-    </a>
-    <div class="hideable submenu collapse {{isset($menu) ? ($menu=='InteriorMinitries' ? 'show' : '') : ''}}">
-            <ul class="submenu-inner">
-            <li class="nav-item {{isset($sub_menu) ? ($sub_menu=='InteriorMinstry' ? 'active' : '') : ''}}">
-                            <a href="{{route('InteriorMinstry.index')}}" class="nav-link">
-                                    <span class="nav-text">
-                                            <span>Interior</span>
-                                    </span>
-                            </a>
-                    </li>
+
+        <a href="{{route('InteriorMinstry.index')}}" class="nav-link {{isset($menu) ? ($menu=='InteriorMinitries' ? '' : 'collapsed') : 'collapsed'}}">
+        <i class="nav-icon fa fa-cube" style="color:#351e23"></i>
+          <span class="nav-text fadeable">
+                  <span>Interior Ministry</span>
+          </span>
+        
+        
+        </a>
+        
+        <b class="sub-arrow"></b>
+        
+        </li>
 
 
-	</ul>
-
-</div>
-<b class="sub-arrow"></b>
-</li>
  @endcan
+ @can('HumanRightDepartment-list')
+ <li class="nav-item {{isset($menu) ? ($menu=='HumanRightDepartments' ? 'active open' : '') : ''}}">
+
+        <a href="{{route('HumanRight.index')}}" class="nav-link {{isset($menu) ? ($menu=='HumanRightDepartments' ? '' : 'collapsed') : 'collapsed'}}">
+        <i class="nav-icon fa fa-cube" style="color:#351e23"></i>
+          <span class="nav-text fadeable">
+                  <span>HumanRight list</span>
+          </span>
+        
+        
+        </a>
+        
+        <b class="sub-arrow"></b>
+        
+        </li>
+        @endcan
 </nav>
 
 

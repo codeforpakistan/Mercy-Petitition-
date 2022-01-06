@@ -16,7 +16,7 @@ class InteriorMinistry extends Model
 
     public function interiorfileattachements()
     {
-        return $this->hasMany(File::class);
+        return $this->hasMany(File::class,'interiorministry_id');
     }
 
     public function interiorpetitions()

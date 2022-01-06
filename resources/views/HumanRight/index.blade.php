@@ -1,29 +1,15 @@
 @extends('layouts.portal', [
-    'menu' => 'InteriorMinitries',
-    'sub_menu' => 'InteriorMinstry'
+    'menu' => 'HumanRightDepartments',
+    'sub_menu' => 'HumanRightDepartment'
 ])
-@section('module','InteriorMinitry Management')
-@section('element','InteriorMinstry')
+@section('module','HumanRightDepartment Management')
+@section('element','List')
 
 @section('content')
 
 
    
-<style>
-    /* .b-container1 {
-        background-image: linear-gradient(#b33232, #304d86);
-        background-attachment: fixed;
-        opacity: 16px;
 
-        background-repeat: no-repeat;
-        
-
-    } */
-    hr.rounded {
-  border-top: 8px solid #bbb;
-  border-radius: 5px;
-}
-</style>
 <div role="main" class="page-content container container-plus">
     <div class="page-header border-0">
         <h1 class="page-title text-primary-d2 text-140">
@@ -124,7 +110,7 @@
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        @foreach($InteriorMinistryDepartments as $petion)
+                        @foreach($HumanRightDepartments as $petion)
                         <tbody class="mt-1">
                             <tr class="bgc-h-yellow-l4 d-style">
 
@@ -156,7 +142,7 @@
                                     <div>
                                         <a href="javascript:void(0)" data-toggle="modal" data-target="#modalFullscreen"
                                             class="d-style btn btn-outline-info text-90 text-600 border-0 px-2 collapsed"
-                                            data-id="{{$petion->id}}" id="interiorshow-user" title="Show Details">
+                                            data-id="{{$petion->id}}" id="humanrightview-user" title="Show Details">
                                             <span class="d-none d-md-inline mr-1">
                                                 Details
                                             </span>
@@ -178,7 +164,7 @@
                                         </a> -->
 
 
-                                        <a href="{{route('interior-forward',[$petion->id])}}"
+                                        <a href="{{route('humanright-back',[$petion->id])}}"
                                             class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
                                             Decision/forward  <i class="fa fa-forward"></i>
                                         </a>
@@ -669,6 +655,36 @@
                                                               </figure>
                                                               </div>
                                                             </div>
+                                                            <div class=" form-group row">
+                                                           
+                                                                <div class="form-group col-md-12">
+                                                                <hr class="rounded">
+                                                      <h4 class="text-dark-m3 text-140">
+                                                                  <i
+                                                                      class="far fa-lightbulb text-danger-d1 text-85 w-3"></i>
+                                                                      InteriorMinitries documents
+                                                              </h4>
+                                                              <div class="form-group col-md-12">
+                                                                <div id="interiorremarks"></div>
+                                                              </div>
+                                                         <figure class="figure">
+                                                             <div id="interiorpic"></div>
+
+
+                                                          <!-- <figcaption class="figure-caption text-right">Other documents</figcaption> -->
+                                                        </figure>
+                                                        </div>
+                                                      </div>
+                                                     
+                                                      <div class=" form-group row">
+                                                                <div class="form-group col-md-12">
+                                                         <figure class="figure">
+
+                                                             <div id="interiorfilepdf"></div>&nbsp;&nbsp;
+
+                                                        </figure>
+                                                        </div>
+                                                      </div>
                                                                       </div>
                                                                 </div>
                                                             </div>
