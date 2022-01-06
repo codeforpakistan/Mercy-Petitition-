@@ -11,7 +11,7 @@
                   <li class="nav-item {{isset($menu) ? ($menu=='dashboard' ? 'active open' : '') : ''}}">
 
                     <a href="{{route('portal.dashboard')}}" class="nav-link {{isset($menu) ? ($menu=='dashboard' ? '' : 'collapsed') : 'collapsed'}}">
-                    <i class="nav-icon fas fa-tachometer-alt"style="color:#351e23"></i>
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
                       <span class="nav-text fadeable text-secondary">
                               <span>Dashboard</span>
                       </span>

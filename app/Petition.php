@@ -30,7 +30,7 @@ class Petition extends Model
     {
         return $this->belongsTo(Section::class,"section_id");
      
-}
+    }
 public function homedepartmentss()
     {
         return $this->hasMany(Homedepartment::class,'petition_id');

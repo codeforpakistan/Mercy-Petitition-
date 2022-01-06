@@ -624,7 +624,7 @@
                                                                             Other documents
                                                                     </h4>
                                                                <figure class="figure">
-                                                                   <div id="pic"></div>
+                                                                   <div id="pic"></div>&nbsp;&nbsp;
 
 
                                                                 <!-- <figcaption class="figure-caption text-right">Other documents</figcaption> -->
@@ -636,7 +636,7 @@
                                                                     
                                                                <figure class="figure">
 
-                                                                   <div id="picss"></div><span style='color:red;margin-right:1.25em; display:inline-block;'>&nbsp;</span>
+                                                                   <div id="picss"></div>&nbsp;&nbsp;
 
                                                               </figure>
                                                               </div>
@@ -652,7 +652,7 @@
                                                                     </h4>
                                                               
                                                                <figure class="figure">
-                                                                   <div id="homepic"></div>
+                                                                   <div id="homepic"></div>&nbsp;&nbsp;
 
 
                                                                 <!-- <figcaption class="figure-caption text-right">Other documents</figcaption> -->
@@ -664,7 +664,7 @@
                                                                       <div class="form-group col-md-12">
                                                                <figure class="figure">
 
-                                                                   <div id="homefilepdf"></div>
+                                                                   <div id="homefilepdf"></div>&nbsp;&nbsp;
 
                                                               </figure>
                                                               </div>
