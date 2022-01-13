@@ -501,17 +501,17 @@
     </script>
       <script type=text/javascript>
         $(document).ready(function() {
-       
+
         $('body').on('click','#humanrightview-user' , function(event){
           event.preventDefault();
 
-            
+
           //  $("#getData").click(function() {
 
           //     var get = $(this).val();
           //     alert(get);
           var id = $(this).data('id');
-        
+
            $.ajax({  //create an ajax request to display.php
 
             type: "GET",
@@ -520,7 +520,7 @@
 
             success: function (data) {
 
-             
+
 
 
               $('#firstname').text(data.petitions.name);
@@ -538,7 +538,7 @@
               $('#sentence_in_court').text(data.petitions.sentence_in_court);
               $('#date_of_sentence').text(data.petitions.date_of_sentence);
               $('#warrent_information').text(data.petitions.warrent_information);
-             
+
 
        $("#pic").empty();
       $("#picss").empty();
@@ -562,7 +562,7 @@ $('#picss').append("<a   style='margin-right:15px;'  target='_blank'  href='{{ur
 
 
 
-       
+
 
   var ap = data.petitions.application_image;
 var finalap = ap.split(".");
@@ -596,7 +596,7 @@ $('#Prisonerimage').html("<a target='_blank'  data-lightbox='example-1' href='{{
 
 // home department file
 $('#homeremarks').text(data.homepititions.remarks);
-            
+
 $("#homefilepdf").empty();
           $("#homepic").empty();
 
@@ -641,7 +641,7 @@ $('#interiorfilepdf').append("<a  style='margin-right:15px;'  target='_blank'  h
 
 
        });
-            
+
 
 
             }
@@ -695,7 +695,7 @@ $('#interiorfilepdf').append("<a  style='margin-right:15px;'  target='_blank'  h
                     $('#sentence_in_court').text(data.petitions.sentence_in_court);
                     $('#date_of_sentence').text(data.petitions.date_of_sentence);
                     $('#warrent_information').text(data.petitions.warrent_information);
-                    
+
 
              $("#pic").empty();
             $("#picss").empty();
@@ -770,9 +770,9 @@ $('#interiorfilepdf').append("<a  style='margin-right:15px;'  target='_blank'  h
         $('#homepic').append("<a  target='_blank'  data-lightbox='example-1' href='{{url('/assets/image/')}}/"+val.file+" '>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{url('/assets/image/')}}/"+val.file+"'>"+'</a>');
         }
              });
-  
-                   
-           
+
+
+
  //interior mintry
  $('#interiorremarks').text(data.interiorpititions.remarks);
  $("#interiorfilepdf").empty();
@@ -817,12 +817,12 @@ $('#humanrightfilepdf').append("<a  style='margin-right:15px;'  target='_blank' 
 
 
        });
-  
- 
 
 
 
-          
+
+
+
 
 
                   }
@@ -846,7 +846,7 @@ $('#humanrightfilepdf').append("<a  style='margin-right:15px;'  target='_blank' 
     //     var get = $(this).val();
     //     alert(get);
     var id = $(this).data('id');
-   
+
      $.ajax({  //create an ajax request to display.php
 
       type: "GET",
@@ -874,7 +874,7 @@ $('#humanrightfilepdf').append("<a  style='margin-right:15px;'  target='_blank' 
         $('#date_of_sentence').text(data.petitions.date_of_sentence);
         $('#warrent_information').text(data.petitions.warrent_information);
         $('#homeremarks').text(data.homepititions.remarks);
-    
+
 
  $("#pic").empty();
 $("#picss").empty();
@@ -932,7 +932,7 @@ $.each(data.homepititions.homefileattachements, function (key, val) {
 var fil=  val.file
 
 
-  
+
 
 if(val.type=='pdf'){
 
@@ -968,7 +968,7 @@ $('#interiorpic').append("<a  target='_blank'  data-lightbox='example-1' href='{
 
 
 });
-  
+
          $('#humanrightremarks').text(data.humanrightpittions.remarks);
 //HomeDepartment
 $("#humanrightfilepdf").empty();
@@ -994,7 +994,7 @@ $('#humanrightpic').append("<a  target='_blank'  data-lightbox='example-1' href=
 //interior mintry
 
 
- 
+
 
 
 
@@ -1069,9 +1069,9 @@ $('#humanrightpic').append("<a  target='_blank'  data-lightbox='example-1' href=
         }
              });
         var ap = data.application_image;
-        
+
   var finalap = ap.split(".");
- 
+
      if (finalap['1']=="pdf"){
       $('#application_images').append("<a   href='{{url('/assets/image/')}}/"+data.application_image+"'>"+data.application_image+'</a>');
      }else{
@@ -1174,6 +1174,38 @@ $('#humanrightpic').append("<a  target='_blank'  data-lightbox='example-1' href=
         });
     });
 </script>
+
+<script>
+
+document.getElementById("btnPrint").onclick = function () {
+    document.getElementById("btnPrint").style.display='none';
+    document.getElementById('btnhide1').style.display='none';
+
+
+    printElement(document.getElementById("printThis"));
+
+}
+
+
+function printElement(elem) {
+    var domClone = elem.cloneNode(true);
+
+    document.getElementById("btnPrint").style.display='block';
+    document.getElementById('btnhide1').style.display='block';
+    var $printSection = document.getElementById("printSection");
+
+    if (!$printSection) {
+        var $printSection = document.createElement("div");
+        $printSection.id = "printSection";
+        document.body.appendChild($printSection);
+    }
+
+    $printSection.innerHTML = "";
+    $printSection.appendChild(domClone);
+
+    window.print();
+}
+    </script>
     @yield('scripts')
   </body>
 </html>
