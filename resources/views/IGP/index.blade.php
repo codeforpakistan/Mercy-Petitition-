@@ -696,11 +696,14 @@
                                                                    <div id="pic"></div>
 
 
-                                                                <!-- <figcaption class="figure-caption text-right">Other documents</figcaption> -->
+                                                                 <figcaption class="figure-caption text-right">Other documents</figcaption>
                                                               </figure>
                                                               </div>
                                                             </div>
                                                         </div>
+
+
+
                                                         <div id = "btnhide1" class="form-row text-center">
                                                             <div class="form-group col-md-6">
 
@@ -716,7 +719,6 @@
                                                                     Back <i class="fa fa-arrow-left"></i>
                                                                 </a>
                                                             </div>
-
                                                         </div>
                                                     </div>
 

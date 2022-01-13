@@ -756,4 +756,8 @@
 </div><!-- /.col -->
 </div><!-- /.row -->
 </div><!-- /.row -->
+@else
+<h4 style="background-color:#800000; text-align:center;color:#fff"> Record Not Yet Added!</h4>
+@endif
+
 @endsection
