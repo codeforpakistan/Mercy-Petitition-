@@ -160,10 +160,10 @@
                     </h3>
                     <div class="card bcard border-1 brc-dark-l1">
                         <div class="card-body p-0">
-                            <form method="post">
+                            {{-- <form method="post"> --}}
                                 <textarea id="summernote"
                                     name="warrent_information">{{$petitionsedit->warrent_information}}</textarea>
-                            </form>
+                            {{-- </form> --}}
                         </div>
                     </div>
                 </div>

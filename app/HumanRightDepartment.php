@@ -15,6 +15,6 @@ class HumanRightDepartment extends Model
 
     public function humanrightfileattachements()
     {
-        return $this->hasMany(File::class,'interiorministry_id');
+        return $this->hasMany(File::class,'humanrightdepartment_id');
     }
 }

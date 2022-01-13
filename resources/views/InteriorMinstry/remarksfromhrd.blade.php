@@ -1,10 +1,10 @@
 @extends('layouts.portal', [
-'menu' => 'InteriorMinitries',
-'sub_menu' => 'InteriorMinstry',
+'menu' => 'Remarksfromhrd',
+
 
 ])
 @section('module','InteriorMinitry Management')
-@section('element','InteriorMinstry')
+@section('element','Remarksfromhrd')
 
 @section('content')
 @if(!$InteriorMinistryDepartments->isEmpty())
@@ -126,7 +126,7 @@
                                 <th class='d-none d-sm-table-cell'>
                                     Received from department
                                 </th>
-                               
+
                                 <th class="d-none d-sm-table-cell">
                                     Prisoner image
                                 </th>
@@ -158,10 +158,10 @@
                                 <td class='d-none d-sm-table-cell text-grey text-95'>
                                     {{$petion->status}}
                                 </td>
-
                                 <td class='d-none d-sm-table-cell text-grey text-95'>
                                     {{$petion->received_from_department}}
                                 </td>
+                                
                                 <td class='d-none d-sm-table-cell'>
                                     <span class='badge badge-sm bgc-warning-d1 text-white pb-1 px-25'><img
                                             src="{{ asset('/assets/image/'.$petion->prisoner_image) }}" width="50"
@@ -633,7 +633,6 @@
                                                                         <div class="form-group col-md-3">
                                                                             <figure class="figure">
                                                                                 <div id="warrent_file"></div>
-                                                                                <div id="warrent_files"></div>
 
                                                                                 <figcaption
                                                                                     class="figure-caption text-right">
@@ -643,7 +642,6 @@
                                                                         <div class="form-group col-md-3">
                                                                             <figure class="figure">
                                                                                 <div id="health_paper"></div>
-                                                                                <div id="health_papers"></div>
                                                                                 <figcaption
                                                                                     class="figure-caption text-right">
                                                                                     Health Paper</figcaption>
@@ -652,7 +650,6 @@
                                                                         <div class="form-group col-md-3">
                                                                             <figure class="figure">
                                                                                 <div id="application_image"></div>
-                                                                                <div id="application_images"></div>
                                                                                 <figcaption
                                                                                     class="figure-caption text-right">
                                                                                     Application Image</figcaption>
@@ -911,6 +908,6 @@
 </div><!-- /.row -->
 </div><!-- /.row -->
 @else
-<h4 style="background-color:#800000; text-align:center;color:#fff"> Record Not Yet Added!</h4>
+<h4 style="background-color:#800000; text-align:center;color:#fff">No Record Found</h4>
 @endif
 @endsection

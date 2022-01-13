@@ -1,13 +1,13 @@
 @extends('layouts.portal', [
-'menu' => 'InteriorMinitries',
-'sub_menu' => 'InteriorMinstry',
+'menu' => 'Rejected',
+
 
 ])
-@section('module','InteriorMinitry Management')
-@section('element','InteriorMinstry')
+@section('module','Rejected')
+@section('element',' Rejected petition')
 
 @section('content')
-@if(!$InteriorMinistryDepartments->isEmpty())
+@if(!$Rejected->isEmpty())
 
 
 <style>
@@ -121,21 +121,18 @@
                                     Confined IN Jail
                                 </th>
                                 <th class='d-none d-sm-table-cell'>
-                                    Status
+                                   Status
                                 </th>
-                                <th class='d-none d-sm-table-cell'>
-                                    Received from department
-                                </th>
-                               
+
                                 <th class="d-none d-sm-table-cell">
                                     Prisoner image
                                 </th>
 
                                 <th>Show</th>
-                                <th>Action</th>
+                               
                             </tr>
                         </thead>
-                        @foreach($InteriorMinistryDepartments as $petion)
+                        @foreach($Rejected as $petion)
                         <tbody class="mt-1">
                             <tr class="bgc-h-yellow-l4 d-style">
 
@@ -156,12 +153,12 @@
                                     {{$petion->confined_in_jail}}
                                 </td>
                                 <td class='d-none d-sm-table-cell text-grey text-95'>
-                                    {{$petion->status}}
+                                   
+                                    <span class="badge bgc-orange-d2 text-white mr-1">
+                                        {{$petion->status}}
+                                    </span>
                                 </td>
 
-                                <td class='d-none d-sm-table-cell text-grey text-95'>
-                                    {{$petion->received_from_department}}
-                                </td>
                                 <td class='d-none d-sm-table-cell'>
                                     <span class='badge badge-sm bgc-warning-d1 text-white pb-1 px-25'><img
                                             src="{{ asset('/assets/image/'.$petion->prisoner_image) }}" width="50"
@@ -188,19 +185,7 @@
 
                                 <td>
                                     <!-- action buttons -->
-                                    <div class='d-none d-lg-flex'>
-                                        <!-- <a href="{{route('petition-edit', [$petion->id])}}"
-                                            class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success">
-                                            <i class="fa fa-pencil-alt"></i>
-                                        </a> -->
-
-
-                                        <a href="{{route('interior-forward',[$petion->id])}}"
-                                            class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
-                                            Decision/forward  <i class="fa fa-forward"></i>
-                                        </a>
-
-                                    </div>
+                                    
 
                                     <!-- show a dropdown in mobile -->
                                     <div class='dropdown d-inline-block d-lg-none dd-backdrop dd-backdrop-none-lg'>
@@ -633,7 +618,6 @@
                                                                         <div class="form-group col-md-3">
                                                                             <figure class="figure">
                                                                                 <div id="warrent_file"></div>
-                                                                                <div id="warrent_files"></div>
 
                                                                                 <figcaption
                                                                                     class="figure-caption text-right">
@@ -643,7 +627,6 @@
                                                                         <div class="form-group col-md-3">
                                                                             <figure class="figure">
                                                                                 <div id="health_paper"></div>
-                                                                                <div id="health_papers"></div>
                                                                                 <figcaption
                                                                                     class="figure-caption text-right">
                                                                                     Health Paper</figcaption>
@@ -652,7 +635,6 @@
                                                                         <div class="form-group col-md-3">
                                                                             <figure class="figure">
                                                                                 <div id="application_image"></div>
-                                                                                <div id="application_images"></div>
                                                                                 <figcaption
                                                                                     class="figure-caption text-right">
                                                                                     Application Image</figcaption>
@@ -846,13 +828,10 @@
                                                         >
                                                         <div class="form-row text-center">
                                                             <div class="form-group col-md-6">
-                                                                <a href="{{route('interior-forward',[$petion->id])}}"
-                                                                    class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
-                                                                    Forward <i class="fa fa-forward"></i>
-                                                                </a>
+                                                               
                                                             </div>
                                                             <div class="form-group col-md-6">
-                                                                <a href="{{route('InteriorMinstry.index')}}"
+                                                                <a href="{{route('rejected')}}"
                                                                     class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-primary text-white">
                                                                     Back <i class="fa fa-arrow-left"></i>
                                                                 </a>
@@ -911,6 +890,6 @@
 </div><!-- /.row -->
 </div><!-- /.row -->
 @else
-<h4 style="background-color:#800000; text-align:center;color:#fff"> Record Not Yet Added!</h4>
+<h4 style="background-color:#800000; text-align:center;color:#fff">No Record Found</h4>
 @endif
 @endsection

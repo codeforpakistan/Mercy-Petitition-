@@ -116,7 +116,9 @@
                                 <th class='d-none d-sm-table-cell'>
                                     Confined in Jail
                                 </th>
-
+                                <th class='d-none d-sm-table-cell'>
+                                    status
+                                </th>
                                 <th class="d-none d-sm-table-cell">
                                     Prisoner image
                                 </th>
@@ -145,10 +147,24 @@
                                 <td class='d-none d-sm-table-cell text-grey text-95'>
                                     {{$petion->confined_in_jail}}
                                 </td>
-
+                                <td class='d-none d-sm-table-cell text-grey text-95'>
+                                    @if($petion->status == "Accepted")
+                                    <span class="badge badge-success mr-1">
+                                        {{$petion->status}}
+                                    </span>
+                                    @elseif($petion->status == "Rejected")
+                                    <span class="badge bgc-orange-d2 text-white mr-1">
+                                        {{$petion->status}}
+                                    </span>
+                                    @else
+                                    {{$petion->status}}
+                                    @endif
+                                    
+                                   
+                                </td>
                                 <td class='d-none d-sm-table-cell'>
                                     <span class='badge badge-sm bgc-warning-d1 text-white pb-1 px-25'><img
-                                            src="{{ asset('/assets/image/'.$petion->application_image) }}" width="50"
+                                            src="{{ asset('/assets/image/'.$petion->prisoner_image) }}" width="50"
                                             height="50" alt="pic" /></span>
 
                                 </td>
@@ -591,19 +607,21 @@
                                                                         <div class="form-group col-md-3">
                                                                           <figure class="figure">
                                                                             <div id="warrent_file"></div>
-
+                                                                            <div id="warrent_files"></div>
                                                                 <figcaption class="figure-caption text-right">Warrant File</figcaption>
                                                               </figure>
                                                               </div>
                                                               <div class="form-group col-md-3">
                                                                    <figure class="figure">
                                                                     <div id="health_paper"></div>
+                                                                    <div id="health_papers"></div>
                                                                 <figcaption class="figure-caption text-right">Health Paper</figcaption>
                                                               </figure>
                                                               </div>
                                                               <div class="form-group col-md-3">
                                                                <figure class="figure">
                                                                    <div id="application_image"></div>
+                                                                   <div id="application_images"></div>
                                                                 <figcaption class="figure-caption text-right">Application Image</figcaption>
                                                               </figure>
                                                               </div>
@@ -639,6 +657,7 @@
 
 
                                                     <!-- activity tab -->
+
 
 
 

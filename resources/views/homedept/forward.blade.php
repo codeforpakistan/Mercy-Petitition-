@@ -84,7 +84,7 @@
                   <div class="offset-md-3 col-md-9 text-nowrap">
                           <button class="btn btn-info btn-bold px-4 show_confirm"  type="submit">
                               <i class="fa fa-check mr-1"></i>
-                             Forward TO InteriorMinstry
+                             Forward 
                           </button>
                          
                   </div>

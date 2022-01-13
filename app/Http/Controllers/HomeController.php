@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\HomeDepartment;
+use App\Petition;
+use App\File;
+use App\InteriorMinistry;
+use App\HumanRightDepartment;
+use Auth;
 class HomeController extends Controller
 {
     /**
@@ -26,4 +31,41 @@ class HomeController extends Controller
     {
         return response()->json(['captcha'=> captcha_img()]);
     }
+    public function view($id){
+        $homepititions = HomeDepartment::with('homefileattachements')->where('petition_id',$id)->first();
+        $interiorpititions = InteriorMinistry::with('interiorfileattachements')->where('petition_id',$id)->first();
+        $humanrightpittions = HumanRightDepartment::with('humanrightfileattachements')->where('petition_id',$id)->first();
+      
+        $pets = Petition::with('fileattachements','sectionss')->get();
+      
+        
+        $petitions = $pets->find($id);
+        $response = [
+            'petitions' => $petitions,
+            'homepititions' => $homepititions,
+            'interiorpititions'=> $interiorpititions,
+            'humanrightpittions'=>$humanrightpittions,
+        ];
+
+        return response()->json($response);
+
+    }
+    public function accepted(){
+
+       
+         $Accepted=Petition::Where('status', 'Accepted')->orderBy("id","desc")->get();
+        
+     
+     
+             return view('IGP.accepted',compact('Accepted'));
+         }
+         public function rejected(){
+
+       
+            $Rejected=Petition::Where('status', 'Rejected')->orderBy("id","desc")->get();
+           
+        
+        
+                return view('IGP.rejected',compact('Rejected'));
+            }
 }

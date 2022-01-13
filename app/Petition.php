@@ -14,7 +14,7 @@ class Petition extends Model
         'name','f_name', 'nationality', 'physicalstatus', 'confined_in_jail',
         'gender','dob','firdate','mercypetitiondate','section_id','status','date_of_sentence',
         'application_image','health_paper','prisoner_image','warrent_date', 'user_id',
-        'remarks','sentence_in_court','warrent_file','warrent_information',
+        'remarks','sentence_in_court','warrent_file','warrent_information','received_from_department'
     ];
 
     public function users()

@@ -25,4 +25,10 @@ class File extends Model
         return $this->belongsTo(InteriorMinistry::class,'interiorministry_id');
       
     }
+    public function humanrightdepartments()
+    {
+        return $this->belongsTo(HumanRightDepartment::class,'humanrightdepartment_id');
+      
+    }
+   
 }

@@ -3,7 +3,7 @@
  <div role="main" class="page-content container container-plus" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
             <div class="page-header border-0">
               <h1 class="page-title text-primary-d2 text-140">
-              Petitoin Search
+              Petition Search
               </h1>
             </div>
 
@@ -41,6 +41,13 @@
                             <th class='d-none d-sm-table-cell'>
                               Confined IN Jail
                             </th>
+                            <th class='d-none d-sm-table-cell'>
+                              Status
+                          </th>
+                          <th class='d-none d-sm-table-cell'>
+                              Received from department
+                          </th>
+                            
 
                             <th class="d-none d-sm-table-cell">
                              Presion PIC
@@ -70,6 +77,24 @@
                             <td class='d-none d-sm-table-cell text-grey text-95'>
                             {{$petion->confined_in_jail}}
                             </td>
+                            <td class='d-none d-sm-table-cell text-grey text-95'>
+                              @if($petion->status == "Accepted")
+                              <span class="badge badge-success mr-1">
+                                  {{$petion->status}}
+                              </span>
+                              @elseif($petion->status == "Rejected")
+                              <span class="badge bgc-orange-d2 text-white mr-1">
+                                  {{$petion->status}}
+                              </span>
+                              @else
+                              {{$petion->status}}
+                              @endif
+                              
+                             
+                          </td>
+                          <td class='d-none d-sm-table-cell text-grey text-95'>
+                              {{$petion->received_from_department}}
+                          </td>
 
                             <td class='d-none d-sm-table-cell'>
                               <span class='badge badge-sm bgc-warning-d1 text-white pb-1 px-25'><img src="{{ asset('/assets/image/'.$petion->prisoner_image) }}" width="50" height="50" alt="pic"/></span>

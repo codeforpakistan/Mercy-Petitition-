@@ -24,6 +24,7 @@ class CreatePetitionsTable extends Migration
             $table->string('dob');
             $table->string('fir&date');
             $table->string('mercypetitiondate');
+            $table->string('received_from_department')->nullable();
             $table->unsignedInteger('section_id');
             $table->foreign('section_id')
   ->references('id')->on('sections')
