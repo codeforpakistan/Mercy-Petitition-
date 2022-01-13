@@ -701,6 +701,8 @@
                                                               </div>
                                                             </div>
                                                         </div>
+                                                        <div class="col-12 px-8 mt-5"
+                                                        >
                                                         <div id = "btnhide1" class="form-row text-center">
                                                             <div class="form-group col-md-6">
 
@@ -717,6 +719,7 @@
                                                                 </a>
                                                             </div>
                                                         </div>
+                                                    </div>
                                                     </div>
 
 
