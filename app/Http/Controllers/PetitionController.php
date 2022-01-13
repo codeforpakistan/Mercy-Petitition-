@@ -24,7 +24,7 @@ class PetitionController extends Controller
    if(Auth::user()->confined_in_jail ==""){
     $petitions=Petition::orderBy("id","desc")->get();
    }else{
-    $petitions=Petition::Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('status', 'IGP')->orderBy("id","desc")->get();
+    $petitions=Petition::Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('status', 'IGP')->Where('received_from_department', 'IGP')->orderBy("id","desc")->get();
    }
 
 
@@ -63,6 +63,17 @@ class PetitionController extends Controller
 
 
 
+    }
+    public function  remarksfromhome(){
+        if(Auth::user()->confined_in_jail ==""){
+            $petitions=Petition::orderBy("id","desc")->get();
+           }else{
+        $petitions=Petition::Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('status', 'IGP')->Where('received_from_department', 'HomeDepartment')->orderBy("id","desc")->get();
+         
+           }
+
+    
+        return view('IGP.remarksfromhome',compact('petitions'));
     }
     public function searchform(){
         return view('IGP.searchform');
@@ -169,7 +180,7 @@ class PetitionController extends Controller
             "sentence_in_court" =>$request->get('sentence_in_court'),
             "warrent_information" =>strip_tags($request->warrent_information),
             "status" => "IGP",
-
+            
             "prisoner_image" => $prisoner_image,
             "warrent_file" =>$warrent_file,
             "application_image" => $application_image,
@@ -283,26 +294,26 @@ class PetitionController extends Controller
           $fileupdate = File::where('petition_id',$petitionsedit->id)->first();
 
 
-          if ($request->hasFile('otherdocument')) {
-            $otherdocument = time().'.'.$request->otherdocument->extension();
+        //   if ($request->hasFile('otherdocument')) {
+        //     $otherdocument = time().'.'.$request->otherdocument->extension();
 
-            $request->otherdocument->move(public_path('assets/image'), $otherdocument);
-
-
-            $fileupdate->file = $otherdocument;
+        //     $request->otherdocument->move(public_path('assets/image'), $otherdocument);
 
 
-         }else{
-            $fileupdate->file = $fileupdate->file ;
-         }
+        //     $fileupdate->file = $otherdocument;
 
 
-                $fileupdate->petition_id= $id;
+        //  }else{
+        //     $fileupdate->file = $fileupdate->file ;
+        //  }
 
 
-                foreach ( $petitionsedit->fileattachements as $post) {
-                    $post->petitions()->associate($fileupdate);; // not id
-                }
+        //         $fileupdate->petition_id= $id;
+
+
+        //         foreach ( $petitionsedit->fileattachements as $post) {
+        //             $post->petitions()->associate($fileupdate);; // not id
+        //         }
 
 
 
@@ -325,6 +336,7 @@ class PetitionController extends Controller
            $forwardhomedepartment= Petition::find($id);
            $forwardhomedepartment->remarks = strip_tags($request->get('remarks'));
            $forwardhomedepartment->status = $request->get('status');
+           $forwardhomedepartment->received_from_department = "IGP";
            $forwardhomedepartment->save();
            if ($request->file('otherdocument')) {
             $otherdocumentarry=[];

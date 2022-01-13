@@ -7,6 +7,7 @@ use App\HomeDepartment;
 use App\Petition;
 use App\File;
 use App\InteriorMinistry;
+use App\HumanRightDepartment;
 use Auth;
 class InteriorMinstryController extends Controller
 {
@@ -20,16 +21,23 @@ class InteriorMinstryController extends Controller
     }
     public function index(){
      
-     
-        
-        $InteriorMinistryDepartments=Petition::Where('status', 'InteriorMinistryDepartment')->orderBy("id","desc")->get();
+      
+        $InteriorMinistryDepartments=Petition::Where('status', 'InteriorMinistryDepartment')->Where('received_from_department', 'HomeDepartment')->orderBy("id","desc")->get();
 
         return view('InteriorMinstry.index',compact('InteriorMinistryDepartments'));
        
     }
+    public function  remarksfromhrd(){
+
+        $InteriorMinistryDepartments=Petition::Where('status', 'InteriorMinistryDepartment')->Where('received_from_department', 'HumanRightDepartment')->orderBy("id","desc")->get();
+
+        return view('InteriorMinstry.remarksfromhrd',compact('InteriorMinistryDepartments'));
+    }
     public function view($id){
         $homepititions = HomeDepartment::with('homefileattachements')->where('petition_id',$id)->first();
-       
+        $interiorpititions = InteriorMinistry::with('interiorfileattachements')->where('petition_id',$id)->first();
+        $humanrightpittions = HumanRightDepartment::with('humanrightfileattachements')->where('petition_id',$id)->first();
+      
         $pets = Petition::with('fileattachements','sectionss')->get();
       
         
@@ -37,6 +45,8 @@ class InteriorMinstryController extends Controller
         $response = [
             'petitions' => $petitions,
             'homepititions' => $homepititions,
+            'interiorpititions'=> $interiorpititions,
+            'humanrightpittions'=>$humanrightpittions,
         ];
 
         return response()->json($response);
@@ -49,11 +59,10 @@ class InteriorMinstryController extends Controller
     public function decision(Request $request, $id){
 
 
-
         $homepetition = HomeDepartment::with('homefileattachements')->where('petition_id',$id)->first();
     
         $interiorministrydecision= Petition::find($id);
-      
+        $interiorministrydecision->received_from_department = "InteriorMinistryDepartment";
      //    $forwardhomedepartment->remarks = strip_tags($request->get('remarks'));
         $interiorministrydecision->status = $request->get('status');
         $interiorministrydecision->save();

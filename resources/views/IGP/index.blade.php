@@ -48,6 +48,7 @@
         }
     }
 </style>
+@if(!$petitions->isEmpty())
 <div role="main" class="page-content container container-plus">
     <div class="page-header border-0">
         <h1 class="page-title text-primary-d2 text-140">
@@ -143,7 +144,9 @@
                                 <th class='d-none d-sm-table-cell'>
                                     Confined in Jail
                                 </th>
-
+                                <th class='d-none d-sm-table-cell'>
+                                    status
+                                </th>
                                 <th class="d-none d-sm-table-cell">
                                     Prisoner image
                                 </th>
@@ -172,10 +175,24 @@
                                 <td class='d-none d-sm-table-cell text-grey text-95'>
                                     {{$petion->confined_in_jail}}
                                 </td>
+                                <td class='d-none d-sm-table-cell text-grey text-95'>
+                                    @if($petion->status == "Accepted")
+                                    <span class="badge badge-success mr-1">
+                                        {{$petion->status}}
+                                    </span>
+                                    @elseif($petion->status == "Rejected")
+                                    <span class="badge bgc-orange-d2 text-white mr-1">
+                                        {{$petion->status}}
+                                    </span>
+                                    @else
+                                    {{$petion->status}}
+                                    @endif
 
+
+                                </td>
                                 <td class='d-none d-sm-table-cell'>
                                     <span class='badge badge-sm bgc-warning-d1 text-white pb-1 px-25'><img
-                                            src="{{ asset('/assets/image/'.$petion->application_image) }}" width="50"
+                                            src="{{ asset('/assets/image/'.$petion->prisoner_image) }}" width="50"
                                             height="50" alt="pic" /></span>
 
                                 </td>
@@ -651,55 +668,37 @@
                                                                     <div class=" form-group row">
 
                                                                         <div class="form-group col-md-3">
-                                                                            <figure class="figure">
-                                                                                <div id="warrent_file"></div>
+                                                                          <figure class="figure">
+                                                                            <div id="warrent_file"></div>
+                                                                            <div id="warrent_files"></div>
+                                                                <figcaption class="figure-caption text-right">Warrant File</figcaption>
+                                                              </figure>
+                                                              </div>
+                                                              <div class="form-group col-md-3">
+                                                                   <figure class="figure">
+                                                                    <div id="health_paper"></div>
+                                                                    <div id="health_papers"></div>
+                                                                <figcaption class="figure-caption text-right">Health Paper</figcaption>
+                                                              </figure>
+                                                              </div>
+                                                              <div class="form-group col-md-3">
+                                                               <figure class="figure">
+                                                                   <div id="application_image"></div>
+                                                                   <div id="application_images"></div>
+                                                                <figcaption class="figure-caption text-right">Application Image</figcaption>
+                                                              </figure>
+                                                              </div>
 
-                                                                                <figcaption
-                                                                                    class="figure-caption text-right">
-                                                                                    Warrant File</figcaption>
-                                                                            </figure>
-                                                                        </div>
-                                                                        <div class="form-group col-md-3">
-                                                                            <figure class="figure">
-                                                                                <div id="health_paper"></div>
-                                                                                <figcaption
-                                                                                    class="figure-caption text-right">
-                                                                                    Health Paper</figcaption>
-                                                                            </figure>
-                                                                        </div>
-                                                                        <div class="form-group col-md-3">
-                                                                            <figure class="figure">
-                                                                                <div id="application_image"></div>
-                                                                                <figcaption
-                                                                                    class="figure-caption text-right">
-                                                                                    Application Image</figcaption>
-                                                                            </figure>
-                                                                        </div>
-
-                                                                    </div>
-                                                                    <div class=" form-group row">
-                                                                        <div class="form-group col-md-12">
-                                                                            <figure class="figure">
-                                                                                <div id="pic"></div>
+                                                                      </div>
+                                                                      <div class=" form-group row">
+                                                                      <div class="form-group col-md-12">
+                                                               <figure class="figure">
+                                                                   <div id="pic"></div>
 
 
-                                                                                <!-- <figcaption class="figure-caption text-right">Other documents</figcaption> -->
-                                                                            </figure>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class=" form-group row">
-                                                                        <div class="form-group col-md-12">
-                                                                            <figure class="figure">
-
-                                                                                <div id="picss"></div>
-
-                                                                                <figcaption
-                                                                                    class="figure-caption text-right">
-                                                                                    Other documents</figcaption>
-                                                                            </figure>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
+                                                                <!-- <figcaption class="figure-caption text-right">Other documents</figcaption> -->
+                                                              </figure>
+                                                              </div>
                                                             </div>
                                                         </div>
                                                         <div id = "btnhide1" class="form-row text-center">
@@ -726,6 +725,7 @@
 
 
                                                     <!-- activity tab -->
+
 
 
 
@@ -788,4 +788,7 @@
 </div><!-- /.col -->
 </div><!-- /.row -->
 </div><!-- /.row -->
+@else
+<h4 style="background-color:#800000; text-align:center;color:#fff"> Record Not Yet Added!</h4>
+@endif
 @endsection

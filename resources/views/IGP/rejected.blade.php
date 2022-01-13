@@ -1,43 +1,34 @@
 @extends('layouts.portal', [
-'menu' => 'HumanRightDepartments',
-'sub_menu' => 'HumanRightDepartment'
+'menu' => 'Rejected',
+
+
 ])
-@section('module','HumanRightDepartment Management')
-@section('element','List')
+@section('module','Rejected')
+@section('element',' Rejected petition')
 
 @section('content')
+@if(!$Rejected->isEmpty())
+
 
 <style>
-    @media screen {
-        #printSection {
-            display: none;
-        }
-    }
+    /* .b-container1 {
+        background-image: linear-gradient(#b33232, #304d86);
+        background-attachment: fixed;
+        opacity: 16px;
+
+        background-repeat: no-repeat;
 
 
-
-
-    @media print {
-        body * {
-            visibility: hidden;
-        }
-
-        #printSection,
-        #printSection * {
-            visibility: visible;
-        }
-
-        #printSection {
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-    }
+    } */
+    /* hr.rounded {
+        border-top: 8px solid #bbb;
+        border-radius: 5px;
+    } */
+    .center {
+  margin-left: auto;
+  margin-right: auto;
+}
 </style>
-@if(!$HumanRightDepartments->isEmpty())
-
-
-
 <div role="main" class="page-content container container-plus">
     <div class="page-header border-0">
         <h1 class="page-title text-primary-d2 text-140">
@@ -132,19 +123,16 @@
                                 <th class='d-none d-sm-table-cell'>
                                    Status
                                 </th>
-                                <th class='d-none d-sm-table-cell'>
-                                    Received From Department
-                                </th>
 
                                 <th class="d-none d-sm-table-cell">
                                     Prisoner image
                                 </th>
 
                                 <th>Show</th>
-                                <th>Action</th>
+                               
                             </tr>
                         </thead>
-                        @foreach($HumanRightDepartments as $petion)
+                        @foreach($Rejected as $petion)
                         <tbody class="mt-1">
                             <tr class="bgc-h-yellow-l4 d-style">
 
@@ -165,10 +153,10 @@
                                     {{$petion->confined_in_jail}}
                                 </td>
                                 <td class='d-none d-sm-table-cell text-grey text-95'>
-                                    {{$petion->status}}
-                                </td>
-                                <td class='d-none d-sm-table-cell text-grey text-95'>
-                                    {{$petion->received_from_department}}
+                                   
+                                    <span class="badge bgc-orange-d2 text-white mr-1">
+                                        {{$petion->status}}
+                                    </span>
                                 </td>
 
                                 <td class='d-none d-sm-table-cell'>
@@ -182,7 +170,7 @@
                                     <div>
                                         <a href="javascript:void(0)" data-toggle="modal" data-target="#modalFullscreen"
                                             class="d-style btn btn-outline-info text-90 text-600 border-0 px-2 collapsed"
-                                            data-id="{{$petion->id}}" id="humanrightview-user" title="Show Details">
+                                            data-id="{{$petion->id}}" id="interiorshow-user" title="Show Details">
                                             <span class="d-none d-md-inline mr-1">
                                                 Details
                                             </span>
@@ -197,19 +185,7 @@
 
                                 <td>
                                     <!-- action buttons -->
-                                    <div class='d-none d-lg-flex'>
-                                        <!-- <a href="{{route('petition-edit', [$petion->id])}}"
-                                            class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success">
-                                            <i class="fa fa-pencil-alt"></i>
-                                        </a> -->
-
-
-                                        <a href="{{route('humanright-back',[$petion->id])}}"
-                                            class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
-                                            Decision/forward <i class="fa fa-forward"></i>
-                                        </a>
-
-                                    </div>
+                                    
 
                                     <!-- show a dropdown in mobile -->
                                     <div class='dropdown d-inline-block d-lg-none dd-backdrop dd-backdrop-none-lg'>
@@ -269,7 +245,7 @@
                             <div class="modal-body">
 
 
-                                <div role="main" id="printThis" class="page-content container container-plus">
+                                <div role="main" class="page-content container container-plus">
                                     <div class="row mt-2 mt-md-4">
 
                                         <!-- the left side profile picture and other info -->
@@ -307,7 +283,7 @@
 
 
 
-                                                        <hr class="w-90 mx-auto brc-secondary-l3">
+
 
 
 
@@ -357,29 +333,12 @@
                                                             id="profile-tab-overview">
 
                                                             <div class="row mt-1">
-                                                                <div class="row no-print">
-                                                                    <div class="col-xs-12 ">
-                                                                        {{-- <a href="invoice-print.html"
-                                                                            target="_blank" class="btn btn-default"
-                                                                            onclick="window.print();" tabindex="0"
-                                                                            type="button"><i class="fa fa-print"></i>
-                                                                            Print</a> --}}
-                                                                        {{-- <button class=" btn btn-sm btn-primary"
-                                                                            onclick="window.print();" tabindex="2"
-                                                                            type="button"><span>Print</span></button>
-                                                                        --}}
-                                                                        {{-- <button type="button" class="btn"
-                                                                            onclick="functionPrint()"
-                                                                            data-dismiss="modal">Print</button> --}}
-                                                                        <button id="btnPrint" type="button"
-                                                                            class="dt-button btn btn-default ">Print</button>
-                                                                    </div>
-                                                                </div>
 
-                                                                <hr class="rounded">
-                                                                <div class="row mt-5">
-                                                                    <div class="col-12 px-4 mb-3">
-                                                                        <hr class="rounded">
+
+                                                                {{-- <hr class="rounded"> --}}
+                                                                <div class="row mt-5 "  style="">
+                                                                    <div class="col-8 px-4 mb-3 text-center center">
+                                                                        {{-- <hr class="rounded"> --}}
                                                                         <h4 class="text-dark-m3 text-140">
                                                                             <i
                                                                                 class="fa fa-info text-blue mr-1 w-2"></i>
@@ -388,7 +347,8 @@
 
                                                                         <hr class="w-100 mx-auto mb-0 brc-default-l2">
 
-                                                                        <div class="bgc-white radius-1">
+                                                                        <div class="bgc-white radius-1 center"
+                                                                            style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
                                                                             <table
                                                                                 class="table table  table-borderless">
                                                                                 <tr>
@@ -589,7 +549,7 @@
                                                                                     </td>
 
                                                                                 </tr>
-                                                                                <tr>
+                                                                                {{-- <tr>
                                                                                     <td>
                                                                                         <i
                                                                                             class="fas fa-check-square text-secondary"></i>
@@ -604,229 +564,21 @@
                                                                                         class="text-dark-m3">
 
                                                                                     </td>
-                                                                                </tr>
+                                                                                </tr> --}}
 
                                                                             </table>
                                                                         </div>
 
-                                                            <hr class="rounded">
-                                                        <div class="row mt-5">
-                                                            <div class="col-12 px-4 mb-3">
-                                                            <hr class="rounded">
-                                                                <h4 class="text-dark-m3 text-140">
-                                                                    <i class="fa fa-info text-blue mr-1 w-2"></i>
-                                                                    Prisoner Info
-                                                                </h4>
-
-                                                                <hr class="w-100 mx-auto mb-0 brc-default-l2">
-
-                                                                <div class="bgc-white radius-1">
-                                                                    <table
-                                                                        class="table table  table-borderless">
-                                                                        <tr>
-                                                                            <td>
-                                                                                <i class="far fa-user text-success"></i>
-                                                                            </td>
-
-                                                                            <td
-                                                                                class="text-95 text-600 text-secondary-d2">
-                                                                                Nationality
-                                                                            </td>
-
-                                                                            <td id ="Nationality" class="text-dark-m3">
-
-                                                                            </td>
-                                                                        </tr>
-
-                                                                        <tr>
-                                                                            <td>
-                                                                                <i
-                                                                                    class="far fa-envelope text-blue"></i>
-                                                                            </td>
-
-                                                                            <td
-                                                                                class="text-95 text-600 text-secondary-d2">
-                                                                                Physical Status
-                                                                            </td>
-
-                                                                            <td id ="Physicalstatus" class="text-blue-d1 text-wrap">
-
-                                                                            </td>
-                                                                        </tr>
-
-                                                                        <tr>
-                                                                            <td>
-
-                                                                                <i class="fas fa-bars text-purple"></i>
-                                                                            </td>
-
-                                                                            <td
-                                                                                class="text-95 text-600 text-secondary-d2">
-                                                                                Confined in jail
-                                                                            </td>
-
-                                                                            <td id="Confined_in_jail" class="text-dark-m3">
-
-                                                                            </td>
-                                                                        </tr>
-
-                                                                        <tr>
-                                                                            <td>
-                                                                                <i
-                                                                                    class="fa fa-map-marker text-orange-d1"></i>
-                                                                            </td>
-
-                                                                            <td
-                                                                                class="text-95 text-600 text-secondary-d2">
-                                                                                Gender
-                                                                            </td>
-
-                                                                            <td id ="Gender" class="text-dark-m3">
-
-                                                                            </td>
-                                                                        </tr>
-
-                                                                        <tr>
-                                                                            <td>
-                                                                                <i
-                                                                                    class="far fa-clock text-secondary"></i>
-                                                                            </td>
-
-                                                                            <td
-                                                                                class="text-95 text-600 text-secondary-d2">
-                                                                            DOB
-                                                                            </td>
-
-                                                                            <td id = "Dob" class="text-dark-m3">
-
-                                                                            </td>
-                                                                        </tr>
-
-                                                                        <tr>
-                                                                            <td>
-                                                                                <i
-                                                                                    class="far fa-clock text-secondary"></i>
-                                                                            </td>
-
-                                                                            <td
-                                                                                class="text-95 text-600 text-secondary-d2">
-                                                                                firdate
-                                                                            </td>
-
-                                                                            <td id = "firdate" class="text-dark-m3">
-
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <i
-                                                                                    class="far fa-clock text-secondary"></i>
-                                                                            </td>
-
-                                                                            <td
-                                                                                class="text-95 text-600 text-secondary-d2">
-                                                                                Mercy petition date
-                                                                            </td>
-
-                                                                            <td id = "Mercypetitiondate" class="text-dark-m3">
-
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <i
-                                                                                    class="far fa-clock text-secondary"></i>
-                                                                            </td>
-
-                                                                            <td
-                                                                                class="text-95 text-600 text-secondary-d2">
-                                                                                Section
-                                                                            </td>
-
-                                                                            <td id = "Section_id" class="text-dark-m3">
-
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <i
-                                                                                    class="fas fa-border-all text-secondary"></i>
-                                                                            </td>
-
-                                                                            <td
-                                                                                class="text-95 text-600 text-secondary-d2">
-                                                                                Warrant date
-                                                                            </td>
-
-                                                                            <td id = "warrent_date" class="text-dark-m3">
-
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <i
-                                                                                    class="fas fa-border-all text-secondary"></i>
-                                                                            </td>
-
-                                                                            <td
-                                                                                class="text-95 text-600 text-secondary-d2">
-                                                                                Remarks
-                                                                            </td>
-
-                                                                            <td id = "Remarks" class="text-dark-m3">
-
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <i
-                                                                                    class="fas fa-building text-secondary"></i>
-                                                                            </td>
-
-                                                                            <td
-                                                                                class="text-95 text-600 text-secondary-d2">
-                                                                                Sentence in court
-                                                                            </td>
-
-                                                                            <td id = "sentence_in_court" class="text-dark-m3">
-
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <i
-                                                                                    class="fas fa-check-square text-secondary"></i>
-                                                                            </td>
-
-                                                                            <td
-                                                                                class="text-95 text-600 text-secondary-d2">
-                                                                                Date of sentence
-                                                                            </td>
-
-                                                                            <td id = "date_of_sentence" class="text-dark-m3">
-
-                                                                            </td>
-
-                                                                        </tr>
-                                                                        <tr>
-                                                                        <td>
-                                                                                <i
-                                                                                    class="fas fa-check-square text-secondary"></i>
-                                                                            </td>
-
-
-                                                                       </tr>
-
-                                                                    </table>
-                                                                </div>
+                                                                    </div>
 
                                                                     {{--
                                                                 </div><!-- /.row --> --}}
 
 
 
-                                                                <div class="col-12 px-4 mt-3">
-                                                                    <hr class="rounded">
+                                                                <div class="col-12 px-4 mt-3"
+                                                                style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
+                                                                    {{-- <hr class="rounded"> --}}
                                                                     <h4 class="mt-2 text-dark-m3 text-130">
                                                                         <i
                                                                             class="fa fa-pen-alt text-85 text-purple-d1 w-3"></i>
@@ -834,11 +586,11 @@
                                                                     </h4>
 
                                                                     <div
-                                                                        class="d-flex flex-column flex-sm-row align-items-center align-items-sm-start mt-3 mb-2 text-95 pl-3">
+                                                                        class="d-flex flex-column flex-sm-row align-items-center align-items-sm-start mt-3 mb-2 text-95 pl-3" >
 
 
                                                                         <div
-                                                                            class="mt-2 mt-sm-0 flex-grow-1 text-dark-m2">
+                                                                            class="mt-2 mt-sm-0 flex-grow-1 text-dark-m2"  >
                                                                             <p id="warrent_information" class="mb-1">
 
                                                                             </p>
@@ -848,8 +600,9 @@
                                                                 </div>
 
 
-                                                                <div class="col-12 px-4 mt-3">
-                                                                    <hr class="rounded">
+                                                                <div class="col-12 px-4 mt-3"
+                                                                style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
+                                                                    {{-- <hr class="rounded"> --}}
                                                                     <h4 class="text-dark-m3 text-140">
                                                                         <i
                                                                             class="far fa-lightbulb text-danger-d1 text-85 w-3"></i>
@@ -889,9 +642,13 @@
                                                                         </div>
 
                                                                     </div>
+                                                                </div>
+                                                                <div class="col-12 px-4 mt-3"
+                                                                style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
                                                                     <div class=" form-group row">
-                                                                        <div class="form-group col-md-12">
-                                                                            <hr class="rounded">
+                                                                        <div class="form-group col-md-12"
+                                                                            >
+                                                                            {{-- <hr class="rounded"> --}}
                                                                             <h4 class="text-dark-m3 text-140">
                                                                                 <i
                                                                                     class="far fa-lightbulb text-danger-d1 text-85 w-3"></i>
@@ -901,10 +658,22 @@
                                                                                 <div id="pic"></div>&nbsp;&nbsp;
 
 
-                                                              </figure>
-                                                              </div>
-                                                            </div>
-                                                            <div class="col-12 px-4 mt-3"
+                                                                                <!-- <figcaption class="figure-caption text-right">Other documents</figcaption> -->
+                                                                            </figure>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class=" form-group row">
+                                                                        <div class="form-group col-md-12">
+
+                                                                            <figure class="figure">
+
+                                                                                <div id="picss"></div>&nbsp;&nbsp;
+
+                                                                            </figure>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12 px-4 mt-3"
                                                                 style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
                                                                     <div class=" form-group row">
 
@@ -950,7 +719,7 @@
                                                                                 <!-- <figcaption class="figure-caption text-right">Other documents</figcaption> -->
                                                                             </figure>
                                                                         </div>
-
+                                                                        
                                                                     </div>
                                                                 </div>
                                                                 {{-- InteriorMinitries --}}
@@ -965,34 +734,14 @@
                                                                                     class="far fa-lightbulb text-danger-d1 text-85 w-3"></i>
                                                                                 InteriorMinitries documents
                                                                             </h4>
-                                                                        </div>
-                                                                    </div>
 
-                                                                        <div class="form-group col-md-12">
                                                                             <figure class="figure">
+                                                                                <div id="interiorpic"></div>&nbsp;&nbsp;
 
-                                                                                <div id="interiorfilepdf"></div>
-                                                                                &nbsp;&nbsp;
 
+                                                                                <!-- <figcaption class="figure-caption text-right">Other documents</figcaption> -->
                                                                             </figure>
                                                                         </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div id = "btnhide1" class="form-row text-center">
-                                                            <div class="form-group col-md-6">
-                                                                <a href="#"
-                                                                    class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
-                                                                    Forward <i class="fa fa-forward"></i>
-                                                                </a>
-                                                            </div>
-                                                            <div class="form-group col-md-6">
-                                                                <a href="{{route('InteriorMinstry.index')}}"
-                                                                    class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-primary text-white">
-                                                                    Back <i class="fa fa-arrow-left"></i>
-                                                                </a>
-                                                            </div>
 
 
                                                                         <div class=" form-group row">
@@ -1000,7 +749,7 @@
                                                                                 <figure class="figure">
 
                                                                                     <div id="interiorfilepdf"></div>
-
+                                                                                   
 
                                                                                 </figure>
                                                                             </div>
@@ -1020,33 +769,77 @@
                                                                                 <!-- <figcaption class="figure-caption text-right">Other documents</figcaption> -->
                                                                             </figure>
                                                                         </div>
-
+                                                                        
                                                                     </div>
                                                                 </div>
                                                                 {{-- humanright --}}
+                                                                <div class="col-12 px-4 mt-3"
+                                                                style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
+                                                                    <div class=" form-group row">
 
-                                                                      </div>
+                                                                        <div class="form-group col-md-12">
+                                                                            {{-- <hr class="rounded"> --}}
+                                                                            <h4 class="text-dark-m3 text-140">
+                                                                                <i
+                                                                                    class="far fa-lightbulb text-danger-d1 text-85 w-3"></i>
+                                                                               HumanRightDepartment documents
+                                                                            </h4>
+
+                                                                            <figure class="figure">
+                                                                                <div id="humanrightpic"></div>&nbsp;&nbsp;
+
+
+                                                                                <!-- <figcaption class="figure-caption text-right">Other documents</figcaption> -->
+                                                                            </figure>
+                                                                        </div>
+
+
+                                                                        <div class=" form-group row">
+                                                                            <div class="form-group col-md-12">
+                                                                                <figure class="figure">
+
+                                                                                    <div id="humanrightfilepdf"></div>
+                                                                                    &nbsp;&nbsp;
+
+                                                                                </figure>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group col-md-12">
+                                                                            {{-- <hr class="rounded"> --}}
+                                                                            <h4 class="text-dark-m3 text-140">
+                                                                                <i
+                                                                                    class="fas fa-comment text-danger-d1 text-85 w-3"></i>
+                                                                               HumanRightDepartment Remarks
+                                                                            </h4>
+
+                                                                            <figure class="figure">
+                                                                                <div id="humanrightremarks"></div>
+
+
+                                                                                <!-- <figcaption class="figure-caption text-right">Other documents</figcaption> -->
+                                                                            </figure>
+                                                                        </div>
+                                                                        
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="form-row text-center">
-    <div class="form-group col-md-6">
-        @foreach($HumanRightDepartments as $petion)
-    <a href="{{route('humanright-back',[$petion->id])}}"
-                                            class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
-                                            Forward  <i class="fa fa-forward"></i>
-                                        </a>
-                                        @endforeach
-    </div>
-    <div class="form-group col-md-6">
-    <a href="{{route('InteriorMinstry.index')}}"
-                                            class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-primary text-white">
-                                            Back <i class="fa fa-arrow-left"></i>
-                                        </a>
-    </div>
+                                                        </div>
+                                                        <div class="col-12 px-8 mt-5"
+                                                        >
+                                                        <div class="form-row text-center">
+                                                            <div class="form-group col-md-6">
+                                                               
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <a href="{{route('rejected')}}"
+                                                                    class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-primary text-white">
+                                                                    Back <i class="fa fa-arrow-left"></i>
+                                                                </a>
+                                                            </div>
 
                                                         </div>
                                                     </div>
-
+                                                    </div>
 
 
 
@@ -1097,6 +890,6 @@
 </div><!-- /.row -->
 </div><!-- /.row -->
 @else
-<h4 style="background-color:#800000; text-align:center;color:#fff"> Record Not Yet Added!</h4>
+<h4 style="background-color:#800000; text-align:center;color:#fff">No Record Found</h4>
 @endif
-            @endsection
+@endsection

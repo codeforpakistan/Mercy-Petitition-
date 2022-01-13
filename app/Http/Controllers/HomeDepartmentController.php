@@ -20,8 +20,11 @@ class HomeDepartmentController extends Controller
          $this->middleware('permission:HomeDepartment-delete', ['only' => ['destroy']]);
     }
     public function index(){
-        $HomeDepartments=Petition::Where('status', 'HomeDepartment')->orderBy("id","desc")->get();
-
+        $HomeDepartments=Petition::where([
+            ['status', '=', 'HomeDepartment'],
+            ['received_from_department', '=', 'IGP']
+        ])->orderBy("id","desc")->get();
+      
         return view('homedept.index',compact('HomeDepartments'));
     }
 
@@ -38,7 +41,38 @@ class HomeDepartmentController extends Controller
            
           return view('homedept.petitionsearch',compact('petitions'));
       }
-  
+      
+      public function  remarksfrominterior(){
+
+        $HomeDepartments=Petition::where([
+            ['status', '=', 'HomeDepartment'],
+            ['received_from_department', '=', 'InteriorMinistryDepartment']
+        ])->orderBy("id","desc")->get();
+
+        return view('homedept.remarksfrominterior',compact('HomeDepartments'));
+    }
+
+
+
+    public function view($id){
+        $homepititions = HomeDepartment::with('homefileattachements')->where('petition_id',$id)->first();
+        $interiorpititions = InteriorMinistry::with('interiorfileattachements')->where('petition_id',$id)->first();
+        $humanrightpittions = HumanRightDepartment::with('humanrightfileattachements')->where('petition_id',$id)->first();
+      
+        $pets = Petition::with('fileattachements','sectionss')->get();
+      
+        
+        $petitions = $pets->find($id);
+        $response = [
+            'petitions' => $petitions,
+            'homepititions' => $homepititions,
+            'interiorpititions'=> $interiorpititions,
+            'humanrightpittions'=>$humanrightpittions,
+        ];
+
+        return response()->json($response);
+
+    }
 
     public function forwardpetition($id){
  
@@ -52,6 +86,8 @@ class HomeDepartmentController extends Controller
 
        $forwardhomedepartment= Petition::find($id);
     //    $forwardhomedepartment->remarks = strip_tags($request->get('remarks'));
+    $forwardhomedepartment->received_from_department = "HomeDepartment";
+
        $forwardhomedepartment->status = $request->get('status');
        $forwardhomedepartment->save();
        $HomeDepartments = new HomeDepartment([

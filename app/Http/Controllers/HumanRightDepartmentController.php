@@ -25,7 +25,7 @@ class HumanRightDepartmentController extends Controller
      
        
      
-        $HumanRightDepartments=Petition::Where('status', 'HumanRightDepartment')->orderBy("id","desc")->get();
+        $HumanRightDepartments=Petition::Where('status', 'HumanRightDepartment')->Where('received_from_department', 'InteriorMinistryDepartment')->orderBy("id","desc")->get();
 
         return view('HumanRight.index',compact('HumanRightDepartments'));
        
@@ -60,6 +60,9 @@ class HumanRightDepartmentController extends Controller
         
       
      //    $forwardhomedepartment->remarks = strip_tags($request->get('remarks'));
+    
+     $humanrightdecision->received_from_department = "HumanRightDepartment";
+     $humanrightdecision->status = $request->get('status');
         $humanrightdecision->status = $request->get('status');
         $humanrightdecision->save();
         $HumanRightDepartments = new HumanRightDepartment([

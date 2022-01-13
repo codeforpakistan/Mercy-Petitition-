@@ -126,6 +126,34 @@
 <b class="sub-arrow"></b>
 
 </li>
+<li class="nav-item {{isset($menu) ? ($menu=='Accepted' ? 'active open' : '') : ''}}">
+
+        <a href="{{route('accepted')}}" class="nav-link {{isset($menu) ? ($menu=='Accepted' ? '' : 'collapsed') : 'collapsed'}}">
+        <i class="nav-icon fa fa-cube" style="color:#351e23"></i>
+          <span class="nav-text fadeable">
+                  <span>Accepted Petition</span>
+          </span>
+
+
+        </a>
+
+        <b class="sub-arrow"></b>
+
+        </li>
+        <li class="nav-item {{isset($menu) ? ($menu=='Rejected' ? 'active open' : '') : ''}}">
+
+                <a href="{{route('rejected')}}" class="nav-link {{isset($menu) ? ($menu=='Rejected' ? '' : 'collapsed') : 'collapsed'}}">
+                <i class="nav-icon fa fa-cube" style="color:#351e23"></i>
+                  <span class="nav-text fadeable">
+                          <span>Rejected Petition</span>
+                  </span>
+        
+        
+                </a>
+        
+                <b class="sub-arrow"></b>
+        
+                </li>
 @can('user-list')
 
 <li class="nav-item {{isset($menu) ? ($menu=='system_setting' ? 'active open' : '') : ''}}">
@@ -137,7 +165,7 @@
         <b class="caret fa fa-angle-left rt-n90"></b>
 </a>
 <div class="hideable submenu collapse {{isset($menu) ? ($menu=='system_setting' ? 'show' : '') : ''}}">
-        <ul class="submenu-inner">
+        <ul class="submenu-inner" style="background-color:#fff">
                 <li class="nav-item">
                         <a href="{{route('portal.roles.index')}}" class="nav-link">
                                 <span class="nav-text">
@@ -191,20 +219,35 @@
 </div>
 <b class="sub-arrow"></b>
 </li> -->
+
 <li class="nav-item {{isset($menu) ? ($menu=='IGP' ? 'active open' : '') : ''}}">
 
-<a href="{{route('Petition.index')}}" class="nav-link {{isset($menu) ? ($menu=='IGP' ? '' : 'collapsed') : 'collapsed'}}">
-<i class="nav-icon fa fa-cube" style="color:#351e23"></i>
-<span class="nav-text fadeable">
-<span>Petition list</span>
-</span>
+        <a href="{{route('Petition.index')}}" class="nav-link {{isset($menu) ? ($menu=='IGP' ? '' : 'collapsed') : 'collapsed'}}">
+        <i class="nav-icon fa fa-cube" style="color:#351e23"></i>
+        <span class="nav-text fadeable">
+        <span>Petition list</span>
+        </span>
+        
+        
+        </a>
+        
+        <b class="sub-arrow"></b>
+        
+        </li>
+        <li class="nav-item {{isset($menu) ? ($menu=='homeremarks' ? 'active open' : '') : ''}}">
 
-
-</a>
-
-<b class="sub-arrow"></b>
-
-</li>
+                <a href="{{route('remarksfromhome')}}" class="nav-link {{isset($menu) ? ($menu=='homeremarks' ? '' : 'collapsed') : 'collapsed'}}">
+                <i class="nav-icon fa fa-cube" style="color:#351e23"></i>
+                <span class="nav-text fadeable">
+                <span>Remarks from home</span>
+                </span>
+                
+                
+                </a>
+                
+                <b class="sub-arrow"></b>
+                
+                </li>
 @endcan
 @can('HomeDepartment-list')
 
@@ -247,8 +290,24 @@
 
 </li>
 
+        <li class="nav-item {{isset($menu) ? ($menu=='HomeDepartments' ? 'active open' : '') : ''}}">
+
+                <a href="{{route('remarksfrominterior')}}" class="nav-link {{isset($menu) ? ($menu=='HomeDepartments' ? '' : 'collapsed') : 'collapsed'}}">
+                <i class="nav-icon fa fa-cube" style="color:#351e23"></i>
+                <span class="nav-text fadeable">
+                <span>Remarks from interior</span>
+                </span>
+                
+                
+                </a>
+                
+                <b class="sub-arrow"></b>
+                
+                </li>
+
 @endcan
 @can('interior-list')
+ 
 <li class="nav-item {{isset($menu) ? ($menu=='InteriorMinitries' ? 'active open' : '') : ''}}">
 
         <a href="{{route('InteriorMinstry.index')}}" class="nav-link {{isset($menu) ? ($menu=='InteriorMinitries' ? '' : 'collapsed') : 'collapsed'}}">
@@ -263,6 +322,22 @@
         <b class="sub-arrow"></b>
 
         </li>
+        <li class="nav-item {{isset($menu) ? ($menu=='Remarksfromhrd' ? 'active open' : '') : ''}}">
+
+                <a href="{{route('InteriorMinstry.hrd')}}" class="nav-link {{isset($menu) ? ($menu=='Remarksfromhrd' ? '' : 'collapsed') : 'collapsed'}}">
+                <i class="nav-icon fa fa-cube" style="color:#351e23"></i>
+                  <span class="nav-text fadeable">
+                          <span>Remarks from HRD</span>
+                  </span>
+        
+        
+                </a>
+        
+                <b class="sub-arrow"></b>
+        
+                </li>
+
+        
 
 
  @endcan
