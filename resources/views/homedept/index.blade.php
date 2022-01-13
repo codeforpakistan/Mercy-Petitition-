@@ -22,6 +22,27 @@
         margin-left: auto;
         margin-right: auto;
     }
+
+
+    @media screen {
+  #printSection {
+      display: none;
+  }
+}
+
+@media print {
+  body * {
+    visibility:hidden;
+  }
+  #printSection, #printSection * {
+    visibility:visible;
+  }
+  #printSection {
+    position:absolute;
+    left:0;
+    top:0;
+  }
+}
 </style>
 <div role="main" class="page-content container container-plus">
     <div class="page-header border-0">
@@ -242,7 +263,7 @@
                             <div class="modal-body">
 
 
-                                <div role="main" class="page-content container container-plus">
+                                <div role="main" id = "printThis" class="page-content container container-plus">
                                     <div class="row mt-2 mt-md-4">
 
                                         <!-- the left side profile picture and other info -->
@@ -331,7 +352,14 @@
 
                                                             <div class="row mt-1">
 
-
+                                                                <div class="row no-print">
+                                                                    <div class="col-xs-12 ">
+                                                      {{-- <a href="invoice-print.html" target="_blank" class="btn btn-default" onclick="window.print();" tabindex="0" type="button"><i class="fa fa-print"></i> Print</a> --}}
+                                                      {{-- <button class=" btn btn-sm btn-primary" onclick="window.print();" tabindex="2" type="button"><span>Print</span></button> --}}
+                                                      {{-- <button type="button" class="btn" onclick="functionPrint()" data-dismiss="modal">Print</button> --}}
+                                                      <button id="btnPrint" type="button" class="dt-button btn btn-default ">Print</button>
+                                                                    </div>
+                                                                  </div>
 
                                                                 <div class="row mt-5">
                                                                     <div class="col-8 px-4 mb-3 text-center center">
@@ -646,17 +674,17 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-12 px-8 mt-5">
+                                                        <div id ="btnhide1" class="col-12 px-8 mt-5">
                                                         <div class="form-row text-center">
-                                                            <div class="form-group col-md-6">
+                                                            <div   class="form-group col-md-6">
                                                                 <a href="{{route('home-forward',[$petion->id])}}"
-                                                                    class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
+                                                                    class="no-print mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
                                                                     Forward <i class="fa fa-forward"></i>
                                                                 </a>
                                                             </div>
                                                             <div class="form-group col-md-6">
-                                                                <a href="{{route('homedept.index')}}"
-                                                                    class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-primary text-white">
+                                                                <a  href="{{route('homedept.index')}}"
+                                                                    class="no-print mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-primary text-white">
                                                                     Back <i class="fa fa-arrow-left"></i>
                                                                 </a>
                                                             </div>

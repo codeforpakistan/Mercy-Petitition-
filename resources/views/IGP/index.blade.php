@@ -16,9 +16,36 @@
         background-repeat: no-repeat;
 
     }
+
     .center {
         margin-left: auto;
         margin-right: auto;
+    }
+
+    @media screen {
+        #printSection {
+            display: none;
+        }
+    }
+
+
+
+
+    @media print {
+        body * {
+            visibility: hidden;
+        }
+
+        #printSection,
+        #printSection * {
+            visibility: visible;
+        }
+
+        #printSection {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
     }
 </style>
 <div role="main" class="page-content container container-plus">
@@ -180,7 +207,7 @@
 
                                         <a href="{{route('petition-forward',[$petion->id])}}"
                                             class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
-                                            Forward  <i class="fa fa-forward"></i>
+                                            Forward <i class="fa fa-forward"></i>
                                         </a>
 
                                     </div>
@@ -232,7 +259,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel2">
-                                   Petition View
+                                    Petition View
                                 </h5>
 
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -244,7 +271,7 @@
                             <div class="modal-body">
 
 
-                                <div role="main" class="page-content container container-plus">
+                                <div role="main" id="printThis" class="page-content container container-plus">
                                     <div class="row mt-2 mt-md-4">
 
                                         <!-- the left side profile picture and other info -->
@@ -276,8 +303,9 @@
                                                                 class="text-130 text-dark-m3">
 
                                                             </h5>
-                                                            <span  style="color: black;"
-                                                            class="text-80 text-primary text-600">Father Name :</span>
+                                                            <span style="color: black;"
+                                                                class="text-80 text-primary text-600">Father Name
+                                                                :</span>
                                                             <span id="Fathername" style="color: black;"
                                                                 class="text-80 text-primary text-600">
 
@@ -341,9 +369,27 @@
                                                             id="profile-tab-overview">
 
                                                             <div class="row mt-1">
-
+                                                                <div class="row no-print">
+                                                                    <div class="col-xs-12 ">
+                                                                        {{-- <a href="invoice-print.html"
+                                                                            target="_blank" class="btn btn-default"
+                                                                            onclick="window.print();" tabindex="0"
+                                                                            type="button"><i class="fa fa-print"></i>
+                                                                            Print</a> --}}
+                                                                        {{-- <button class=" btn btn-sm btn-primary"
+                                                                            onclick="window.print();" tabindex="2"
+                                                                            type="button"><span>Print</span></button>
+                                                                        --}}
+                                                                        {{-- <button type="button" class="btn"
+                                                                            onclick="functionPrint()"
+                                                                            data-dismiss="modal">Print</button> --}}
+                                                                        <button id="btnPrint" type="button"
+                                                                            class="dt-button btn btn-default ">Print</button>
+                                                                    </div>
+                                                                </div>
 
                                                                 <div class="row mt-5">
+
                                                                     <div class="col-8 px-4 mb-3 text-center center">
 
                                                                         <h4 class="text-dark-m3 text-140">
@@ -357,207 +403,222 @@
                                                                         <div class="bgc-white radius-1 center"
                                                                             style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
                                                                             <table
-                                                                        class="table table  table-borderless">
-                                                                        <tr>
-                                                                            <td>
-                                                                                <i class="far fa-user text-success"></i>
-                                                                            </td>
+                                                                                class="table table  table-borderless">
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <i
+                                                                                            class="far fa-user text-success"></i>
+                                                                                    </td>
 
-                                                                            <td
-                                                                                class="text-95 text-600 text-secondary-d2">
-                                                                                Nationality
-                                                                            </td>
+                                                                                    <td
+                                                                                        class="text-95 text-600 text-secondary-d2">
+                                                                                        Nationality
+                                                                                    </td>
 
-                                                                            <td id ="Nationality" class="text-dark-m3">
+                                                                                    <td id="Nationality"
+                                                                                        class="text-dark-m3">
 
-                                                                            </td>
-                                                                        </tr>
+                                                                                    </td>
+                                                                                </tr>
 
-                                                                        <tr>
-                                                                            <td>
-                                                                                <i
-                                                                                    class="far fa-envelope text-blue"></i>
-                                                                            </td>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <i
+                                                                                            class="far fa-envelope text-blue"></i>
+                                                                                    </td>
 
-                                                                            <td
-                                                                                class="text-95 text-600 text-secondary-d2">
-                                                                                Physical Status
-                                                                            </td>
+                                                                                    <td
+                                                                                        class="text-95 text-600 text-secondary-d2">
+                                                                                        Physical Status
+                                                                                    </td>
 
-                                                                            <td id ="Physicalstatus" class="text-blue-d1 text-wrap">
+                                                                                    <td id="Physicalstatus"
+                                                                                        class="text-blue-d1 text-wrap">
 
-                                                                            </td>
-                                                                        </tr>
+                                                                                    </td>
+                                                                                </tr>
 
-                                                                        <tr>
-                                                                            <td>
+                                                                                <tr>
+                                                                                    <td>
 
-                                                                                <i class="fas fa-bars text-purple"></i>
-                                                                            </td>
+                                                                                        <i
+                                                                                            class="fas fa-bars text-purple"></i>
+                                                                                    </td>
 
-                                                                            <td
-                                                                                class="text-95 text-600 text-secondary-d2">
-                                                                                Confined in jail
-                                                                            </td>
+                                                                                    <td
+                                                                                        class="text-95 text-600 text-secondary-d2">
+                                                                                        Confined in jail
+                                                                                    </td>
 
-                                                                            <td id="Confined_in_jail" class="text-dark-m3">
+                                                                                    <td id="Confined_in_jail"
+                                                                                        class="text-dark-m3">
 
-                                                                            </td>
-                                                                        </tr>
+                                                                                    </td>
+                                                                                </tr>
 
-                                                                        <tr>
-                                                                            <td>
-                                                                                <i
-                                                                                    class="fa fa-map-marker text-orange-d1"></i>
-                                                                            </td>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <i
+                                                                                            class="fa fa-map-marker text-orange-d1"></i>
+                                                                                    </td>
 
-                                                                            <td
-                                                                                class="text-95 text-600 text-secondary-d2">
-                                                                                Gender
-                                                                            </td>
+                                                                                    <td
+                                                                                        class="text-95 text-600 text-secondary-d2">
+                                                                                        Gender
+                                                                                    </td>
 
-                                                                            <td id ="Gender" class="text-dark-m3">
+                                                                                    <td id="Gender"
+                                                                                        class="text-dark-m3">
 
-                                                                            </td>
-                                                                        </tr>
+                                                                                    </td>
+                                                                                </tr>
 
-                                                                        <tr>
-                                                                            <td>
-                                                                                <i
-                                                                                    class="far fa-clock text-secondary"></i>
-                                                                            </td>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <i
+                                                                                            class="far fa-clock text-secondary"></i>
+                                                                                    </td>
 
-                                                                            <td
-                                                                                class="text-95 text-600 text-secondary-d2">
-                                                                            DOB
-                                                                            </td>
+                                                                                    <td
+                                                                                        class="text-95 text-600 text-secondary-d2">
+                                                                                        DOB
+                                                                                    </td>
 
-                                                                            <td id = "Dob" class="text-dark-m3">
+                                                                                    <td id="Dob" class="text-dark-m3">
 
-                                                                            </td>
-                                                                        </tr>
+                                                                                    </td>
+                                                                                </tr>
 
-                                                                        <tr>
-                                                                            <td>
-                                                                                <i
-                                                                                    class="far fa-clock text-secondary"></i>
-                                                                            </td>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <i
+                                                                                            class="far fa-clock text-secondary"></i>
+                                                                                    </td>
 
-                                                                            <td
-                                                                                class="text-95 text-600 text-secondary-d2">
-                                                                                firdate
-                                                                            </td>
+                                                                                    <td
+                                                                                        class="text-95 text-600 text-secondary-d2">
+                                                                                        firdate
+                                                                                    </td>
 
-                                                                            <td id = "firdate" class="text-dark-m3">
+                                                                                    <td id="firdate"
+                                                                                        class="text-dark-m3">
 
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <i
-                                                                                    class="far fa-clock text-secondary"></i>
-                                                                            </td>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <i
+                                                                                            class="far fa-clock text-secondary"></i>
+                                                                                    </td>
 
-                                                                            <td
-                                                                                class="text-95 text-600 text-secondary-d2">
-                                                                                Mercy petition date
-                                                                            </td>
+                                                                                    <td
+                                                                                        class="text-95 text-600 text-secondary-d2">
+                                                                                        Mercy petition date
+                                                                                    </td>
 
-                                                                            <td id = "Mercypetitiondate" class="text-dark-m3">
+                                                                                    <td id="Mercypetitiondate"
+                                                                                        class="text-dark-m3">
 
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <i
-                                                                                    class="far fa-clock text-secondary"></i>
-                                                                            </td>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <i
+                                                                                            class="far fa-clock text-secondary"></i>
+                                                                                    </td>
 
-                                                                            <td
-                                                                                class="text-95 text-600 text-secondary-d2">
-                                                                                Section
-                                                                            </td>
+                                                                                    <td
+                                                                                        class="text-95 text-600 text-secondary-d2">
+                                                                                        Section
+                                                                                    </td>
 
-                                                                            <td id = "Section_id" class="text-dark-m3">
+                                                                                    <td id="Section_id"
+                                                                                        class="text-dark-m3">
 
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <i
-                                                                                    class="fas fa-border-all text-secondary"></i>
-                                                                            </td>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <i
+                                                                                            class="fas fa-border-all text-secondary"></i>
+                                                                                    </td>
 
-                                                                            <td
-                                                                                class="text-95 text-600 text-secondary-d2">
-                                                                                Warrant date
-                                                                            </td>
+                                                                                    <td
+                                                                                        class="text-95 text-600 text-secondary-d2">
+                                                                                        Warrant date
+                                                                                    </td>
 
-                                                                            <td id = "warrent_date" class="text-dark-m3">
+                                                                                    <td id="warrent_date"
+                                                                                        class="text-dark-m3">
 
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <i
-                                                                                    class="fas fa-border-all text-secondary"></i>
-                                                                            </td>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <i
+                                                                                            class="fas fa-border-all text-secondary"></i>
+                                                                                    </td>
 
-                                                                            <td
-                                                                                class="text-95 text-600 text-secondary-d2">
-                                                                                Remarks
-                                                                            </td>
+                                                                                    <td
+                                                                                        class="text-95 text-600 text-secondary-d2">
+                                                                                        Remarks
+                                                                                    </td>
 
-                                                                            <td id = "Remarks" class="text-dark-m3">
+                                                                                    <td id="Remarks"
+                                                                                        class="text-dark-m3">
 
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <i
-                                                                                    class="fas fa-building text-secondary"></i>
-                                                                            </td>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <i
+                                                                                            class="fas fa-building text-secondary"></i>
+                                                                                    </td>
 
-                                                                            <td
-                                                                                class="text-95 text-600 text-secondary-d2">
-                                                                                Sentence in court
-                                                                            </td>
+                                                                                    <td
+                                                                                        class="text-95 text-600 text-secondary-d2">
+                                                                                        Sentence in court
+                                                                                    </td>
 
-                                                                            <td id = "sentence_in_court" class="text-dark-m3">
+                                                                                    <td id="sentence_in_court"
+                                                                                        class="text-dark-m3">
 
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <i
-                                                                                    class="fas fa-check-square text-secondary"></i>
-                                                                            </td>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <i
+                                                                                            class="fas fa-check-square text-secondary"></i>
+                                                                                    </td>
 
-                                                                            <td
-                                                                                class="text-95 text-600 text-secondary-d2">
-                                                                                Date of sentence
-                                                                            </td>
+                                                                                    <td
+                                                                                        class="text-95 text-600 text-secondary-d2">
+                                                                                        Date of sentence
+                                                                                    </td>
 
-                                                                            <td id = "date_of_sentence" class="text-dark-m3">
+                                                                                    <td id="date_of_sentence"
+                                                                                        class="text-dark-m3">
 
-                                                                            </td>
-                                                                        </tr>
+                                                                                    </td>
+                                                                                </tr>
 
-                                                                    </table>
-                                                                </div>
+                                                                            </table>
+                                                                        </div>
 
-                                                            </div>
+                                                                    </div>
 
-                                                        {{-- </div><!-- /.row --> --}}
+                                                                    {{--
+                                                                </div><!-- /.row --> --}}
 
 
 
-                                                                <div class="col-12 px-4 mt-3" style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
+                                                                <div class="col-12 px-4 mt-3"
+                                                                    style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
 
                                                                     <h4 class="mt-2 text-dark-m3 text-130">
                                                                         <i
                                                                             class="fa fa-pen-alt text-85 text-purple-d1 w-3"></i>
-                                                                            Warrant Information
+                                                                        Warrant Information
                                                                     </h4>
 
                                                                     <div
@@ -575,7 +636,8 @@
                                                                 </div>
 
 
-                                                                <div class="col-12 px-4 mt-3" style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
+                                                                <div class="col-12 px-4 mt-3"
+                                                                    style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
                                                                     <h4 class="text-dark-m3 text-140">
                                                                         <i
                                                                             class="far fa-lightbulb text-danger-d1 text-85 w-3"></i>
@@ -589,50 +651,75 @@
                                                                     <div class=" form-group row">
 
                                                                         <div class="form-group col-md-3">
-                                                                          <figure class="figure">
-                                                                            <div id="warrent_file"></div>
+                                                                            <figure class="figure">
+                                                                                <div id="warrent_file"></div>
 
-                                                                <figcaption class="figure-caption text-right">Warrant File</figcaption>
-                                                              </figure>
-                                                              </div>
-                                                              <div class="form-group col-md-3">
-                                                                   <figure class="figure">
-                                                                    <div id="health_paper"></div>
-                                                                <figcaption class="figure-caption text-right">Health Paper</figcaption>
-                                                              </figure>
-                                                              </div>
-                                                              <div class="form-group col-md-3">
-                                                               <figure class="figure">
-                                                                   <div id="application_image"></div>
-                                                                <figcaption class="figure-caption text-right">Application Image</figcaption>
-                                                              </figure>
-                                                              </div>
+                                                                                <figcaption
+                                                                                    class="figure-caption text-right">
+                                                                                    Warrant File</figcaption>
+                                                                            </figure>
+                                                                        </div>
+                                                                        <div class="form-group col-md-3">
+                                                                            <figure class="figure">
+                                                                                <div id="health_paper"></div>
+                                                                                <figcaption
+                                                                                    class="figure-caption text-right">
+                                                                                    Health Paper</figcaption>
+                                                                            </figure>
+                                                                        </div>
+                                                                        <div class="form-group col-md-3">
+                                                                            <figure class="figure">
+                                                                                <div id="application_image"></div>
+                                                                                <figcaption
+                                                                                    class="figure-caption text-right">
+                                                                                    Application Image</figcaption>
+                                                                            </figure>
+                                                                        </div>
 
-                                                                      </div>
-                                                                      <div class=" form-group row">
-                                                                      <div class="form-group col-md-12">
-                                                               <figure class="figure">
-                                                                   <div id="pic"></div>
+                                                                    </div>
+                                                                    <div class=" form-group row">
+                                                                        <div class="form-group col-md-12">
+                                                                            <figure class="figure">
+                                                                                <div id="pic"></div>
 
 
-                                                                <!-- <figcaption class="figure-caption text-right">Other documents</figcaption> -->
-                                                              </figure>
-                                                              </div>
-                                                            </div>
-                                                            <div class=" form-group row">
-                                                                      <div class="form-group col-md-12">
-                                                               <figure class="figure">
+                                                                                <!-- <figcaption class="figure-caption text-right">Other documents</figcaption> -->
+                                                                            </figure>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class=" form-group row">
+                                                                        <div class="form-group col-md-12">
+                                                                            <figure class="figure">
 
-                                                                   <div id="picss"></div>
+                                                                                <div id="picss"></div>
 
-                                                                 <figcaption class="figure-caption text-right">Other documents</figcaption>
-                                                              </figure>
-                                                              </div>
-                                                            </div>
-                                                                      </div>
+                                                                                <figcaption
+                                                                                    class="figure-caption text-right">
+                                                                                    Other documents</figcaption>
+                                                                            </figure>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <div id = "btnhide1" class="form-row text-center">
+                                                            <div class="form-group col-md-6">
+
+                                                                <a href="{{route('petition-forward',[$petion->id])}}"
+                                                                    class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
+                                                                    Forward <i class="fa fa-forward"></i>
+                                                                </a>
+
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <a href="{{route('Petition.index')}}"
+                                                                    class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-primary text-white">
+                                                                    Back <i class="fa fa-arrow-left"></i>
+                                                                </a>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
 
 
 

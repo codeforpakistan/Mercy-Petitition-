@@ -24,9 +24,35 @@
         border-radius: 5px;
     } */
     .center {
-  margin-left: auto;
-  margin-right: auto;
-}
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    @media screen {
+        #printSection {
+            display: none;
+        }
+    }
+
+
+
+
+    @media print {
+        body * {
+            visibility: hidden;
+        }
+
+        #printSection,
+        #printSection * {
+            visibility: visible;
+        }
+
+        #printSection {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    }
 </style>
 <div role="main" class="page-content container container-plus">
     <div class="page-header border-0">
@@ -184,7 +210,7 @@
 
                                         <a href="{{route('interior-forward',[$petion->id])}}"
                                             class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
-                                            Decision/forward  <i class="fa fa-forward"></i>
+                                            Decision/forward <i class="fa fa-forward"></i>
                                         </a>
 
                                     </div>
@@ -247,7 +273,7 @@
                             <div class="modal-body">
 
 
-                                <div role="main" class="page-content container container-plus">
+                                <div id="printThis" role="main" class="page-content container container-plus">
                                     <div class="row mt-2 mt-md-4">
 
                                         <!-- the left side profile picture and other info -->
@@ -335,12 +361,31 @@
                                                             id="profile-tab-overview">
 
                                                             <div class="row mt-1">
+                                                                <div class="row no-print">
+                                                                    <div class="col-xs-12 ">
+                                                                        {{-- <a href="invoice-print.html"
+                                                                            target="_blank" class="btn btn-default"
+                                                                            onclick="window.print();" tabindex="0"
+                                                                            type="button"><i class="fa fa-print"></i>
+                                                                            Print</a> --}}
+                                                                        {{-- <button class=" btn btn-sm btn-primary"
+                                                                            onclick="window.print();" tabindex="2"
+                                                                            type="button"><span>Print</span></button>
+                                                                        --}}
+                                                                        {{-- <button type="button" class="btn"
+                                                                            onclick="functionPrint()"
+                                                                            data-dismiss="modal">Print</button> --}}
+                                                                        <button id="btnPrint" type="button"
+                                                                            class="dt-button btn btn-default ">Print</button>
+                                                                    </div>
+                                                                </div>
 
-
-                                                                {{-- <hr class="rounded"> --}}
-                                                                <div class="row mt-5 "  style="">
+                                                                {{--
+                                                                <hr class="rounded"> --}}
+                                                                <div class="row mt-5 " style="">
                                                                     <div class="col-8 px-4 mb-3 text-center center">
-                                                                        {{-- <hr class="rounded"> --}}
+                                                                        {{--
+                                                                        <hr class="rounded"> --}}
                                                                         <h4 class="text-dark-m3 text-140">
                                                                             <i
                                                                                 class="fa fa-info text-blue mr-1 w-2"></i>
@@ -579,8 +624,9 @@
 
 
                                                                 <div class="col-12 px-4 mt-3"
-                                                                style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
-                                                                    {{-- <hr class="rounded"> --}}
+                                                                    style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
+                                                                    {{--
+                                                                    <hr class="rounded"> --}}
                                                                     <h4 class="mt-2 text-dark-m3 text-130">
                                                                         <i
                                                                             class="fa fa-pen-alt text-85 text-purple-d1 w-3"></i>
@@ -588,11 +634,11 @@
                                                                     </h4>
 
                                                                     <div
-                                                                        class="d-flex flex-column flex-sm-row align-items-center align-items-sm-start mt-3 mb-2 text-95 pl-3" >
+                                                                        class="d-flex flex-column flex-sm-row align-items-center align-items-sm-start mt-3 mb-2 text-95 pl-3">
 
 
                                                                         <div
-                                                                            class="mt-2 mt-sm-0 flex-grow-1 text-dark-m2"  >
+                                                                            class="mt-2 mt-sm-0 flex-grow-1 text-dark-m2">
                                                                             <p id="warrent_information" class="mb-1">
 
                                                                             </p>
@@ -603,8 +649,9 @@
 
 
                                                                 <div class="col-12 px-4 mt-3"
-                                                                style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
-                                                                    {{-- <hr class="rounded"> --}}
+                                                                    style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
+                                                                    {{--
+                                                                    <hr class="rounded"> --}}
                                                                     <h4 class="text-dark-m3 text-140">
                                                                         <i
                                                                             class="far fa-lightbulb text-danger-d1 text-85 w-3"></i>
@@ -646,11 +693,11 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-12 px-4 mt-3"
-                                                                style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
+                                                                    style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
                                                                     <div class=" form-group row">
-                                                                        <div class="form-group col-md-12"
-                                                                            >
-                                                                            {{-- <hr class="rounded"> --}}
+                                                                        <div class="form-group col-md-12">
+                                                                            {{--
+                                                                            <hr class="rounded"> --}}
                                                                             <h4 class="text-dark-m3 text-140">
                                                                                 <i
                                                                                     class="far fa-lightbulb text-danger-d1 text-85 w-3"></i>
@@ -676,11 +723,12 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-12 px-4 mt-3"
-                                                                style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
+                                                                    style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
                                                                     <div class=" form-group row">
 
                                                                         <div class="form-group col-md-12">
-                                                                            {{-- <hr class="rounded"> --}}
+                                                                            {{--
+                                                                            <hr class="rounded"> --}}
                                                                             <h4 class="text-dark-m3 text-140">
                                                                                 <i
                                                                                     class="far fa-lightbulb text-danger-d1 text-85 w-3"></i>
@@ -707,7 +755,8 @@
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-group col-md-12">
-                                                                            {{-- <hr class="rounded"> --}}
+                                                                            {{--
+                                                                            <hr class="rounded"> --}}
                                                                             <h4 class="text-dark-m3 text-140">
                                                                                 <i
                                                                                     class="fas fa-comment text-danger-d1 text-85 w-3"></i>
@@ -725,24 +774,23 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-12 px-8 mt-5"
-                                                        >
-                                                        <div class="form-row text-center">
-                                                            <div class="form-group col-md-6">
-                                                                <a href="#"
-                                                                    class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
-                                                                    Forward <i class="fa fa-forward"></i>
-                                                                </a>
-                                                            </div>
-                                                            <div class="form-group col-md-6">
-                                                                <a href="{{route('InteriorMinstry.index')}}"
-                                                                    class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-primary text-white">
-                                                                    Back <i class="fa fa-arrow-left"></i>
-                                                                </a>
-                                                            </div>
+                                                        <div id="btnhide1" class="col-12 px-8 mt-5">
+                                                            <div class="form-row text-center">
+                                                                <div class="form-group col-md-6">
+                                                                    <a href="#"
+                                                                        class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
+                                                                        Forward <i class="fa fa-forward"></i>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="form-group col-md-6">
+                                                                    <a href="{{route('InteriorMinstry.index')}}"
+                                                                        class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-primary text-white">
+                                                                        Back <i class="fa fa-arrow-left"></i>
+                                                                    </a>
+                                                                </div>
 
+                                                            </div>
                                                         </div>
-                                                    </div>
                                                     </div>
 
 

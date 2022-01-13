@@ -7,15 +7,15 @@
               </h1>
             </div>
 
-              
+
                   <div class="card-body px-1 px-md-3">
-                 
+
                   <h3 class="text-130 pl-1 mb-3 mb-sm-0">
-                   
+
                         </h3>
                   <div class="row">
               <div class="col-12">
-            
+
             <input type="text"  class="form-control" placeholder="Search" wire:model="searchText" />
 
 
@@ -46,7 +46,7 @@
                              Presion PIC
                             </th>
                             <th> </th>
-                           
+
                             <th>Action</th>
                           </tr>
                         </thead>
@@ -97,12 +97,14 @@
                                 <a href="{{route('petition-forward',[$petion->id])}}" class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success">
                                     <i class="fa fa-plus"></i>
                                   </a> -->
-                                  <a href="javascript:void(0)" data-toggle="modal" data-target="#modalFullscreen" class="d-style btn btn-outline-info text-90 text-600 border-0 px-2 collapsed" data-id ="{{$petion->id}}" id="show-user" title="Show Details">
-                                  <span class="d-none d-md-inline mr-1">
-                                            Details
-                                        </span>
-                                  <i class="fa fa-angle-down toggle-icon opacity-1 text-90"></i>
-                                </a>
+                                  <a href="javascript:void(0)" data-toggle="modal" data-target="#modalFullscreen"
+                                            class="d-style btn btn-outline-info text-90 text-600 border-0 px-2 collapsed"
+                                            data-id="{{$petion->id}}" id="show-user" title="Show Details">
+                                            <span class="d-none d-md-inline mr-1">
+                                                Details
+                                            </span>
+                                            <i class="fa fa-angle-down toggle-icon opacity-1 text-90"></i>
+                                        </a>
 
                               </div>
 
@@ -121,8 +123,8 @@
                                       <i class="fa fa-pencil-alt text-blue mr-1 p-2 w-4"></i>
                                       Edit
                                     </a>
-                                   
-                                    
+
+
                                   </div>
                                 </td>
                             </tr>
@@ -135,125 +137,439 @@
                       </table>
 
             {{ $petitions->links() }}
-            <div class="modal fade modal-fs" id="modalFullscreen" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal fade modal-fs" id="modalFullscreen" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalLabel2" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable" role="document">
                 <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel2">
-                      Modal title
-                    </h5>
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel2">
+                           Petition View
+                        </h5>
 
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-
-
-                  <div class="modal-body">
-                 {{-- <p id = "show"> </p><input type="text"  >
-                 name : <span id="firstname"></span> --}}
-                 <div class="b-container1">
-                    <div class="bg-black-50">
-                        <div class="content content-full text-center">
-                            <div id="Prisonerimage"class="my-3 " >
-                         <td class="img-avatar img-avatar-thumb"></td>                            </div>
-                            <h1 class="h2 text-white mb-0"></h1>
-                            <span style="color: white;" id="firstname" class="text-white-75"></span>
-                        </div>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                </div>
-
-                 <div class="bg-white border-bottom">
-                    <div class="content content-boxed">
-                        <div class="row items-push text-center">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-vcenter">
-                                    <tbody>
-                                        {{-- @foreach ($details as $detail) --}}
-                                        <tr>
-                                            <td class="text-left">Name:</td>
-                                            <td id="firstname" class="font-w600 font-size-sm"></td>
-                                            <td class="text-left">Father Name:</td>
-                                            <td id ="Fathername" class="font-w600 font-size-sm"></td>
-                                        </tr>
-                                        {{-- <tr>
-                                            <td class="text-left">Name:</td>
-                                            <td id="firstname" class="font-w600 font-size-sm"></td>
-                                            <td class="text-left">Image:</td>
-                                            <td id ="Prisonerimage" style="height: 100px;width:100px;" class="img-avatar img-avatar-thumb"></td>
-                                        </tr> --}}
-                                        <tr>
-                                            <td class="text-left">Nationality:</td>
-                                            <td id="Nationality" class="font-w600 font-size-sm"></td>
-                                            <td class="text-left">Physical status:</td>
-                                            <td id="Physicalstatus" class="font-w600 font-size-sm"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-left">Confined in jail:</td>
-                                            <td id="Confined_in_jail" class="font-w600 font-size-sm"></td>
-                                            <td class="text-left">Mobile Network:</td>
-                                            <td class="font-w600 font-size-sm"></td>
-                                        </tr>
-                                        <tr>
-
-                                            <td class="text-left">file:</td>
-                                          <td class="picss font-w600 font-size-sm pics" id="picss"></td>
-                                            
-                                            <td class="pic" id="pic"  class=" font-w600 font-size-sm ">
-                                           
 
 
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-left">Gender:</td>
-                                            <td id="Gender" class="font-w600 font-size-sm"></td>
-                                            <td class="text-left">Dob:</td>
-                                            <td id="Dob" class="font-w600 font-size-sm"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-left">Fir and date:</td>
-                                            <td id="fir&date" class="font-w600 font-size-sm"></td>
-                                            <td class="text-left">Mercy petition date:</td>
-                                            <td id="Mercypetitiondate" class="font-w600 font-size-sm"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-left">Section:</td>
-                                            <td id="Section_id" class="font-w600 font-size-sm"></td>
-                                            <td class="text-left">Remarks:</td>
-                                            <td id="Remarks" class="font-w600 font-size-sm"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-left">Application image:</td>
-                                            <span id="application_images"></span>
-                                            <td id="application_image" class="font-w600 font-size-sm"></td>
-                                            <td class="text-left">Health paper:</td>
-                                            <span id="health_papers"></span>
-                                            <td id="health_paper" class="font-w600 font-size-sm"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-left">Warrent file:</td>
-                                            <span id="warrent_files"></span>
-                                            <td id="warrent_file" class="font-w600 font-size-sm"></td>
-                                            {{-- <td class="text-left">Health paper:</td>
-                                              
-                                            <td id="health_paper" class="font-w600 font-size-sm"></td> --}}
-                                        </tr>
-                                        {{-- @endforeach --}}
-                                    </tbody>
-                                </table>
+                    <div class="modal-body">
+
+
+                        <div role="main" class="page-content container container-plus">
+                            <div class="row mt-2 mt-md-4">
+
+                                <!-- the left side profile picture and other info -->
+                                <div class="col-12 col-md-12">
+                                    <div class="card bcard">
+                                        <div class="card-body">
+                                            <span class="d-none position-tl mt-2 pt-3px">
+                                                <span class="text-white bgc-blue-d1 ml-2 radius-b-1 py-2 px-2">
+                                                    <i class="fa fa-star"></i>
+                                                </span>
+                                            </span>
+
+
+                                            <div
+                                                class="d-flex flex-column py-3 px-lg-3 justify-content-center align-items-center">
+
+                                                <div id="Prisonerimage" class="pos-rel">
+                                                    {{-- <img alt="Profile image"
+                                                        src="..\assets\image\avatar\avatar5.jpg"
+                                                        class="radius-round bord1er-2 brc-warning-m1"> --}}
+                                                    {{-- <span
+                                                        class=" position-tr bgc-success p-1 radius-round border-2 brc-white mt-2px mr-2px"></span>
+                                                    --}}
+                                                </div>
+
+                                                <div class="text-center mt-2">
+
+                                                    <h5 id="firstname" style="color: black;"
+                                                        class="text-130 text-dark-m3">
+
+                                                    </h5>
+                                                    <span  style="color: black;"
+                                                    class="text-80 text-primary text-600">Father Name :</span>
+                                                    <span id="Fathername" style="color: black;"
+                                                        class="text-80 text-primary text-600">
+
+                                                    </span>
+
+                                                    {{-- <span
+                                                        class="d-none badge bgc-orange-l3 text-orange-d3 pt-2px pb-1 text-85 radius-round px-25 border-1 brc-orange-m3">
+                                                        pro
+                                                    </span> --}}
+                                                </div>
+
+
+
+                                                <hr class="w-90 mx-auto brc-secondary-l3">
+
+
+
+
+
+                                            </div><!-- /.d-flex -->
+                                        </div><!-- /.card-body -->
+                                    </div><!-- /.card -->
+
+
+
+                                </div><!-- .col -->
+
+
+                                <!-- the right side profile tabs -->
+                                <div class="col-12 col-md-12 mt-3 mt-md-0">
+                                    <div class="card bcard h-100">
+                                        <div class="card-body p-0">
+                                            <div class="sticky-nav">
+                                                <div
+                                                    class="position-tr w-100 border-t-4 brc-blue-m2 radius-2 d-md-none">
+                                                </div>
+
+                                                <ul id="profile-tabs"
+                                                    class="nav nav-tabs-scroll is-scrollable nav-tabs nav-tabs-simple p-1px pl-25 bgc-white border-b-1 brc-dark-l3"
+                                                    role="tablist">
+                                                    <li class="nav-item mr-2 mr-lg-3">
+                                                        <a class="d-style nav-link active px-2 py-35 brc-green-tp1"
+                                                            data-toggle="tab" href="#profile-tab-overview"
+                                                            role="tab" aria-controls="profile-tab-overview"
+                                                            aria-selected="true">
+                                                            <span class="d-n-active text-dark-l1">1. Prisoner
+                                                                Information</span>
+                                                            <span class="d-active text-dark-m3">1. Prisoner
+                                                                Information</span>
+                                                        </a>
+                                                    </li>
+
+
+                                            </div><!-- /.sticky-nav-md -->
+
+
+                                            <div class="tab-content px-0 tab-sliding flex-grow-1 border-0">
+
+                                                <!-- overview tab -->
+                                                <div class="tab-pane active show px-1 px-md-2 px-lg-4"
+                                                    id="profile-tab-overview">
+
+                                                    <div class="row mt-1">
+
+
+                                                        <div class="row mt-5">
+                                                            <div class="col-8 px-4 mb-3 text-center center">
+
+                                                                <h4 class="text-dark-m3 text-140">
+                                                                    <i
+                                                                        class="fa fa-info text-blue mr-1 w-2"></i>
+                                                                    Prisoner Info
+                                                                </h4>
+
+                                                                <hr class="w-100 mx-auto mb-0 brc-default-l2">
+
+                                                                <div class="bgc-white radius-1 center"
+                                                                    style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
+                                                                    <table
+                                                                class="table table  table-borderless">
+                                                                <tr>
+                                                                    <td>
+                                                                        <i class="far fa-user text-success"></i>
+                                                                    </td>
+
+                                                                    <td
+                                                                        class="text-95 text-600 text-secondary-d2">
+                                                                        Nationality
+                                                                    </td>
+
+                                                                    <td id ="Nationality" class="text-dark-m3">
+
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td>
+                                                                        <i
+                                                                            class="far fa-envelope text-blue"></i>
+                                                                    </td>
+
+                                                                    <td
+                                                                        class="text-95 text-600 text-secondary-d2">
+                                                                        Physical Status
+                                                                    </td>
+
+                                                                    <td id ="Physicalstatus" class="text-blue-d1 text-wrap">
+
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td>
+
+                                                                        <i class="fas fa-bars text-purple"></i>
+                                                                    </td>
+
+                                                                    <td
+                                                                        class="text-95 text-600 text-secondary-d2">
+                                                                        Confined in jail
+                                                                    </td>
+
+                                                                    <td id="Confined_in_jail" class="text-dark-m3">
+
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td>
+                                                                        <i
+                                                                            class="fa fa-map-marker text-orange-d1"></i>
+                                                                    </td>
+
+                                                                    <td
+                                                                        class="text-95 text-600 text-secondary-d2">
+                                                                        Gender
+                                                                    </td>
+
+                                                                    <td id ="Gender" class="text-dark-m3">
+
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td>
+                                                                        <i
+                                                                            class="far fa-clock text-secondary"></i>
+                                                                    </td>
+
+                                                                    <td
+                                                                        class="text-95 text-600 text-secondary-d2">
+                                                                    DOB
+                                                                    </td>
+
+                                                                    <td id = "Dob" class="text-dark-m3">
+
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td>
+                                                                        <i
+                                                                            class="far fa-clock text-secondary"></i>
+                                                                    </td>
+
+                                                                    <td
+                                                                        class="text-95 text-600 text-secondary-d2">
+                                                                        firdate
+                                                                    </td>
+
+                                                                    <td id = "firdate" class="text-dark-m3">
+
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <i
+                                                                            class="far fa-clock text-secondary"></i>
+                                                                    </td>
+
+                                                                    <td
+                                                                        class="text-95 text-600 text-secondary-d2">
+                                                                        Mercy petition date
+                                                                    </td>
+
+                                                                    <td id = "Mercypetitiondate" class="text-dark-m3">
+
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <i
+                                                                            class="far fa-clock text-secondary"></i>
+                                                                    </td>
+
+                                                                    <td
+                                                                        class="text-95 text-600 text-secondary-d2">
+                                                                        Section
+                                                                    </td>
+
+                                                                    <td id = "Section_id" class="text-dark-m3">
+
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <i
+                                                                            class="fas fa-border-all text-secondary"></i>
+                                                                    </td>
+
+                                                                    <td
+                                                                        class="text-95 text-600 text-secondary-d2">
+                                                                        Warrant date
+                                                                    </td>
+
+                                                                    <td id = "warrent_date" class="text-dark-m3">
+
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <i
+                                                                            class="fas fa-border-all text-secondary"></i>
+                                                                    </td>
+
+                                                                    <td
+                                                                        class="text-95 text-600 text-secondary-d2">
+                                                                        Remarks
+                                                                    </td>
+
+                                                                    <td id = "Remarks" class="text-dark-m3">
+
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <i
+                                                                            class="fas fa-building text-secondary"></i>
+                                                                    </td>
+
+                                                                    <td
+                                                                        class="text-95 text-600 text-secondary-d2">
+                                                                        Sentence in court
+                                                                    </td>
+
+                                                                    <td id = "sentence_in_court" class="text-dark-m3">
+
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <i
+                                                                            class="fas fa-check-square text-secondary"></i>
+                                                                    </td>
+
+                                                                    <td
+                                                                        class="text-95 text-600 text-secondary-d2">
+                                                                        Date of sentence
+                                                                    </td>
+
+                                                                    <td id = "date_of_sentence" class="text-dark-m3">
+
+                                                                    </td>
+                                                                </tr>
+
+                                                            </table>
+                                                        </div>
+
+                                                    </div>
+
+                                                {{-- </div><!-- /.row --> --}}
+
+
+
+                                                        <div class="col-12 px-4 mt-3" style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
+
+                                                            <h4 class="mt-2 text-dark-m3 text-130">
+                                                                <i
+                                                                    class="fa fa-pen-alt text-85 text-purple-d1 w-3"></i>
+                                                                    Warrant Information
+                                                            </h4>
+
+                                                            <div
+                                                                class="d-flex flex-column flex-sm-row align-items-center align-items-sm-start mt-3 mb-2 text-95 pl-3">
+
+
+                                                                <div
+                                                                    class="mt-2 mt-sm-0 flex-grow-1 text-dark-m2">
+                                                                    <p id="warrent_information" class="mb-1">
+
+                                                                    </p>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="col-12 px-4 mt-3" style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
+                                                            <h4 class="text-dark-m3 text-140">
+                                                                <i
+                                                                    class="far fa-lightbulb text-danger-d1 text-85 w-3"></i>
+                                                                Files
+                                                            </h4>
+
+                                                            <div id="skill-chart"
+                                                                class="d-flex justify-content-center mx-auto flex-wrap">
+                                                            </div>
+
+                                                            <div class=" form-group row">
+
+                                                                <div class="form-group col-md-3">
+                                                                  <figure class="figure">
+                                                                    <div id="warrent_file"></div>
+
+                                                        <figcaption class="figure-caption text-right">Warrant File</figcaption>
+                                                      </figure>
+                                                      </div>
+                                                      <div class="form-group col-md-3">
+                                                           <figure class="figure">
+                                                            <div id="health_paper"></div>
+                                                        <figcaption class="figure-caption text-right">Health Paper</figcaption>
+                                                      </figure>
+                                                      </div>
+                                                      <div class="form-group col-md-3">
+                                                       <figure class="figure">
+                                                           <div id="application_image"></div>
+                                                        <figcaption class="figure-caption text-right">Application Image</figcaption>
+                                                      </figure>
+                                                      </div>
+
+                                                              </div>
+                                                              <div class=" form-group row">
+                                                              <div class="form-group col-md-12">
+                                                       <figure class="figure">
+                                                           <div id="pic"></div>
+
+
+                                                        <!-- <figcaption class="figure-caption text-right">Other documents</figcaption> -->
+                                                      </figure>
+                                                      </div>
+                                                    </div>
+                                                    <div class=" form-group row">
+                                                              <div class="form-group col-md-12">
+                                                       <figure class="figure">
+
+                                                           <div id="picss"></div>
+
+                                                         <figcaption class="figure-caption text-right">Other documents</figcaption>
+                                                      </figure>
+                                                      </div>
+                                                    </div>
+                                                              </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+
+
+                                            <!-- activity tab -->
+
+
+
+
+
+
+                                        </div><!-- /.row -->
+                                    </div>
+
+                                </div>
+
                             </div>
-
                         </div>
                     </div>
                 </div>
-                  </div>
 
-                </div>
-
-              </div>
             </div>
+
+        </div>
 </div>
 </div>
-  
+
 

@@ -501,17 +501,17 @@
     </script>
       <script type=text/javascript>
         $(document).ready(function() {
-       
+
         $('body').on('click','#humanrightview-user' , function(event){
           event.preventDefault();
 
-            
+
           //  $("#getData").click(function() {
 
           //     var get = $(this).val();
           //     alert(get);
           var id = $(this).data('id');
-        
+
            $.ajax({  //create an ajax request to display.php
 
             type: "GET",
@@ -520,7 +520,7 @@
 
             success: function (data) {
 
-             
+
 
 
               $('#firstname').text(data.petitions.name);
@@ -563,7 +563,7 @@ $('#picss').append("<a   style='margin-right:15px;'  target='_blank'  href='{{ur
 
 
 
-       
+
 
   var ap = data.petitions.application_image;
 var finalap = ap.split(".");
@@ -639,7 +639,7 @@ $('#interiorfilepdf').append("<a  style='margin-right:15px;'  target='_blank'  h
 
 
        });
-            
+
 
 
             }
@@ -750,8 +750,8 @@ $('#interiorfilepdf').append("<a  style='margin-right:15px;'  target='_blank'  h
   // $("#homefilepdf").empty();
   //           $("#homepic").empty();
 
- 
-  
+
+
 
   $.each(data.homepititions.homefileattachements, function (key, val) {
             var fil=  val.file
@@ -772,7 +772,7 @@ $('#interiorfilepdf').append("<a  style='margin-right:15px;'  target='_blank'  h
 
 
 
-          
+
 
 
                   }
@@ -945,6 +945,38 @@ $('#interiorfilepdf').append("<a  style='margin-right:15px;'  target='_blank'  h
         });
     });
 </script>
+
+<script>
+
+document.getElementById("btnPrint").onclick = function () {
+    document.getElementById("btnPrint").style.display='none';
+    document.getElementById('btnhide1').style.display='none';
+
+
+    printElement(document.getElementById("printThis"));
+
+}
+
+
+function printElement(elem) {
+    var domClone = elem.cloneNode(true);
+
+    document.getElementById("btnPrint").style.display='block';
+    document.getElementById('btnhide1').style.display='block';
+    var $printSection = document.getElementById("printSection");
+
+    if (!$printSection) {
+        var $printSection = document.createElement("div");
+        $printSection.id = "printSection";
+        document.body.appendChild($printSection);
+    }
+
+    $printSection.innerHTML = "";
+    $printSection.appendChild(domClone);
+
+    window.print();
+}
+    </script>
     @yield('scripts')
   </body>
 </html>
