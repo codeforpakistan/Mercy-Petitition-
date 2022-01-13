@@ -295,10 +295,18 @@
                                         <div class="col-12 col-md-12">
                                             <div class="card bcard">
                                                 <div class="card-body">
+                                                    <div class="row no-print"  style="float:right;margin-right:10%;font-size:160%" >
+
+
+                                                        <i id="btnPrint" data-toggle="tooltip" title="print" type="button" class="mr-1 fa fa-print text-primary text-120 w-2"></i>
+
+
+                                            </div>
                                                     <span class="d-none position-tl mt-2 pt-3px">
                                                         <span class="text-white bgc-blue-d1 ml-2 radius-b-1 py-2 px-2">
                                                             <i class="fa fa-star"></i>
                                                         </span>
+
                                                     </span>
 
 
@@ -336,7 +344,7 @@
 
 
 
-                                                        <hr class="w-90 mx-auto brc-secondary-l3">
+
 
 
 
@@ -386,24 +394,7 @@
                                                             id="profile-tab-overview">
 
                                                             <div class="row mt-1">
-                                                                <div class="row no-print">
-                                                                    <div class="col-xs-12 ">
-                                                                        {{-- <a href="invoice-print.html"
-                                                                            target="_blank" class="btn btn-default"
-                                                                            onclick="window.print();" tabindex="0"
-                                                                            type="button"><i class="fa fa-print"></i>
-                                                                            Print</a> --}}
-                                                                        {{-- <button class=" btn btn-sm btn-primary"
-                                                                            onclick="window.print();" tabindex="2"
-                                                                            type="button"><span>Print</span></button>
-                                                                        --}}
-                                                                        {{-- <button type="button" class="btn"
-                                                                            onclick="functionPrint()"
-                                                                            data-dismiss="modal">Print</button> --}}
-                                                                        <button id="btnPrint" type="button"
-                                                                            class="dt-button btn btn-default ">Print</button>
-                                                                    </div>
-                                                                </div>
+
 
                                                                 <div class="row mt-5">
 
@@ -701,9 +692,8 @@
                                                               </div>
                                                             </div>
                                                         </div>
-
-
-
+                                                        <div class="col-12 px-8 mt-5"
+                                                        >
                                                         <div id = "btnhide1" class="form-row text-center">
                                                             <div class="form-group col-md-6">
 
@@ -720,6 +710,7 @@
                                                                 </a>
                                                             </div>
                                                         </div>
+                                                    </div>
                                                     </div>
 
 

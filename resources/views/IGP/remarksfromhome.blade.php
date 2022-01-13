@@ -278,7 +278,15 @@
                                         <!-- the left side profile picture and other info -->
                                         <div class="col-12 col-md-12">
                                             <div class="card bcard">
+                                             
                                                 <div class="card-body">
+                                                    <div class="row no-print"  style="float:right;margin-right:10%;font-size:160%" >
+                                                                   
+                                                                        
+                                                        <i id="btnPrint" data-toggle="tooltip" title="print" type="button" class="mr-1 fa fa-print text-primary text-120 w-2"></i>
+                                                   
+                                               
+                                            </div>
                                                     <span class="d-none position-tl mt-2 pt-3px">
                                                         <span class="text-white bgc-blue-d1 ml-2 radius-b-1 py-2 px-2">
                                                             <i class="fa fa-star"></i>
@@ -319,7 +327,7 @@
 
 
 
-                                                        <hr class="w-90 mx-auto brc-secondary-l3">
+                                                        
 
 
 
@@ -809,6 +817,24 @@
                                                                 </div>
                                                                 </div>
                                                             </div>
+                                                            <div id="btnhide1" class="col-12 px-8 mt-5"
+                                                            >
+                                                            <div class="form-row text-center">
+                                                                <div class="form-group col-md-6">
+                                                                    <a href="{{route('petition-forward',[$petion->id])}}"
+                                                                        class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
+                                                                        Forward <i class="fa fa-forward"></i>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="form-group col-md-6">
+                                                                    <a href="{{route('remarksfromhome')}}"
+                                                                        class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-primary text-white">
+                                                                        Back <i class="fa fa-arrow-left"></i>
+                                                                    </a>
+                                                                </div>
+    
+                                                            </div>
+                                                        </div>
                                                         </div>
 
 
