@@ -92,6 +92,21 @@ class PetitionController extends Controller
 
         return view('IGP.petitionsedit',compact('petitionsedit','sections','filepetition'));
     }
+    public function petitionremarksedit($id){
+
+
+       
+        $petitionsedit=Petition::find($id);
+     
+        $pets = Petition::with('fileattachements')->get();
+
+        $petitions = $pets->find($id);
+     
+      
+
+
+        return view('IGP.petitionremarksedit',compact('petitionsedit','petitions'));
+    }
 
     public function storepetition(Request $request)
     {
@@ -293,10 +308,61 @@ class PetitionController extends Controller
 
           $fileupdate = File::where('petition_id',$petitionsedit->id)->first();
 
+            $petitionsedit->save();
+            // $fileupdate->save();
+            return redirect()->route('Petition.index')
+                        ->with('success','Product deleted successfully');
+        }
 
+        //petition remarks and file update
+        public function petitionremarksupdate(Request $request,$id){
+
+
+            $petitionsedit=Petition::find($id);
+            
+            $petitionsedit->remarks = strip_tags($request->get('remarks'));
+        
+            $petitionsedit->status = $request->get('status');
+
+            $petitionsedit->save();
+            // $fileupdate = File::where('petition_id',$id)->first();
+
+          $fileupdate = File::where('petition_id',$petitionsedit->id)->first();
+        
+          if ($request->file('otherdocument')) {
+            $otherdocumentarry=[];
+
+            foreach($request->file('otherdocument') as $file)
+            {
+            $otherdocument = time().'.'.$file->extension();
+         
+            $file->move(public_path('assets/image'), $otherdocument);
+        $otherexplode =  explode(".",$otherdocument);
+        $fileupdate->file = $otherdocument;
+        
+        $fileupdate->petition_id = $petitionsedit->id;
+        $fileupdate->type = $otherexplode["1"];
+       
+        foreach ( $petitionsedit->fileattachements as $post) {
+            
+            $post->petitions()->associate($fileupdate);// not id
+            $fileupdate->save();
+        }
+       
+                   
+
+            }
+
+         }else{
+             
+            $fileupdate->file = $fileupdate->file ;
+         }
+         
+ 
         //   if ($request->hasFile('otherdocument')) {
-        //     $otherdocument = time().'.'.$request->otherdocument->extension();
-
+        //     $otherdocument = rand(10,100).'.'.$request->otherdocument->extension();
+        //     dd(otherdocument);
+         
         //     $request->otherdocument->move(public_path('assets/image'), $otherdocument);
 
 
@@ -317,11 +383,13 @@ class PetitionController extends Controller
 
 
 
-            $petitionsedit->save();
+        //     $petitionsedit->save();
             // $fileupdate->save();
-            return redirect()->route('Petition.index')
-                        ->with('success','Product deleted successfully');
+            return redirect()->route('remarksfromhome')
+                        ->with('success','Petition forward successfully');
         }
+
+
 
         public function forwardpetition($id){
 
@@ -367,11 +435,20 @@ class PetitionController extends Controller
            return redirect()->route('Petition.index')->with('message','Petion Forward Successfully ');
                 }
 
-        public function igpreport(){
+        public function reportform(){
+            if(Auth::user()->confined_in_jail ==""){
+                $petitions=Petition::orderBy("id","desc")->get();
+               }else{
+                $petitions=Petition::Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('status', 'IGP')->Where('received_from_department', 'IGP')->orderBy("id","desc")->get();
+               }
+            
+            
+                    return view('IGP.reportform',compact('petitions'));
+                }
 
-        return view('IGP.reportform');
+     
 
 
-        }
+        
 
 }

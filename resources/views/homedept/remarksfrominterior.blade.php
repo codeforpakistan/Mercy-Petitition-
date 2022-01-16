@@ -209,20 +209,11 @@
                                             <div class="dropdown-inner">
                                                 <div
                                                     class="dropdown-header text-100 text-secondary-d1 border-b-1 brc-secondary-l2 text-600 mb-2">
-                                                    ace.com
+                                                    Remarks from InteriorMinistryDepartment
                                                 </div>
-                                                <a href="{{route('petition-edit', [$petion->id])}}"
-                                                    class="dropdown-item">
-                                                    <i class="fa fa-pencil-alt text-blue mr-1 p-2 w-4"></i>
-                                                    Edit
-                                                </a>
-                                                <a href="#" class="dropdown-item">
-                                                    <i class="fa fa-trash-alt text-danger-m1 mr-1 p-2 w-4"></i>
-                                                    Delete
-                                                </a>
-                                                <a href="#" class="dropdown-item">
-                                                    <i class="far fa-flag text-orange-d1 mr-1 p-2 w-4"></i>
-                                                    Flag
+                                                <a href="{{route('home-forward',[$petion->id])}}"
+                                                    class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
+                                                    Forward <i class="fa fa-forward"></i>
                                                 </a>
                                             </div>
                                 </td>
@@ -230,16 +221,16 @@
 
 
 
-                            @endforeach
+                           
                         </tbody>
-
+                        @endforeach
                     </table>
 
-                </div>
+               
 
 
-
-                <div class="modal fade modal-fs" id="modalFullscreen" tabindex="-1" role="dialog"
+    </div><!-- /.card-body -->
+    <div class="modal fade modal-fs" id="modalFullscreen" tabindex="-1" role="dialog"
                 aria-labelledby="exampleModalLabel2" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-scrollable" role="document">
                     <div class="modal-content">
@@ -568,22 +559,7 @@
                                                                                 </td>
 
                                                                             </tr>
-                                                                            {{-- <tr>
-                                                                                <td>
-                                                                                    <i
-                                                                                        class="fas fa-check-square text-secondary"></i>
-                                                                                </td>
-
-                                                                                <td
-                                                                                    class="text-95 text-600 text-secondary-d2">
-                                                                                    Home Department Remarks
-                                                                                </td>
-
-                                                                                <td id="homeremarks"
-                                                                                    class="text-dark-m3">
-
-                                                                                </td>
-                                                                            </tr> --}}
+                                                                           
 
                                                                         </table>
                                                                     </div>
@@ -897,21 +873,6 @@
                     </div>
 
                 </div>
-
-            </div>
-            </div>
-
-
-
-
-
-
-
-
-        </div>
-
-
-    </div><!-- /.card-body -->
 </div><!-- /.card -->
 </div><!-- /.col -->
 </div><!-- /.row -->

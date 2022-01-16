@@ -174,140 +174,100 @@
                                       <i class="fa fa-pencil-alt text-blue mr-1 p-2 w-4"></i>
                                       Edit
                                     </a>
-                                    <a href="#" class="dropdown-item">
-                                      <i class="fa fa-trash-alt text-danger-m1 mr-1 p-2 w-4"></i>
-                                      Delete
-                                    </a>
-                                    <a href="#" class="dropdown-item">
-                                      <i class="far fa-flag text-orange-d1 mr-1 p-2 w-4"></i>
-                                      Flag
-                                    </a>
+                                    
+    
+                                    <a href="{{route('petition-forward',[$petion->id])}}" class=" dropdown-item mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success">
+                                        <i class="fa fa-plus"></i>
+                                      </a>
                                   </div>
                                 </td>
                             </tr>
 
 
 
-                            @endforeach
+                          
                           </tbody>
-
+                          @endforeach
                       </table>
 
-                                </div>
-
-
-
-             <div class="modal fade modal-fs" id="modalFullscreen" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-scrollable" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel2">
-                      Modal title
-                    </h5>
-
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-
-                  <div class="modal-body">
-                 {{-- <p id = "show"> </p><input type="text"  >
-                 name : <span id="firstname"></span> --}}
-
-                 <div class="bg-white border-bottom">
-                    <div class="content content-boxed">
-                        <div class="row items-push text-center">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-vcenter">
-                                    <tbody>
-                                        {{-- @foreach ($details as $detail) --}}
-                                        <tr>
-                                            <td class="text-left">Name:</td>
-                                            <td id="firstname" class="font-w600 font-size-sm"></td>
-                                            <td class="text-left">Father Name:</td>
-                                            <td id ="Fathername" class="font-w600 font-size-sm"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-left">Nationality:</td>
-                                            <td id="Nationality" class="font-w600 font-size-sm"></td>
-                                            <td class="text-left">Physical status:</td>
-                                            <td id="Physicalstatus" class="font-w600 font-size-sm"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-left">Confined in jail:</td>
-                                            <td id="Confined_in_jail" class="font-w600 font-size-sm"></td>
-                                            <td class="text-left">Mobile Network:</td>
-                                            <td class="font-w600 font-size-sm"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-left">Gender:</td>
-                                            <td id="Gender" class="font-w600 font-size-sm"></td>
-                                            <td class="text-left">Dob:</td>
-                                            <td id="Dob" class="font-w600 font-size-sm"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-left">Fir and date:</td>
-                                            <td id="fir&date" class="font-w600 font-size-sm"></td>
-                                            <td class="text-left">Mercy petition date:</td>
-                                            <td id="Mercypetitiondate" class="font-w600 font-size-sm"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-left">Section:</td>
-                                            <td id="Section_id" class="font-w600 font-size-sm"></td>
-                                            <td class="text-left">Remarks:</td>
-                                            <td id="Remarks" class="font-w600 font-size-sm"></td>
-                                        </tr>
-                                        {{-- @endforeach --}}
-                                    </tbody>
-                                </table>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                  </div>
-
-                </div>
-
-              </div>
-            </div>
-
-
-
-
-                        {{-- </tbody>
-
-                      </table> --}}
-
-                      <!-- table footer -->
-                      {{-- <div class="d-flex pl-4 pr-3 pt-35 border-t-1 brc-secondary-l2 flex-column flex-sm-row mt-n1px">
-                        <div class="text-nowrap align-self-center align-self-sm-start">
-                          <span class="d-inline-block text-grey-d2">
-                            Showing 1 - 10 of 152
-                        </span>
-
-                          <select class="ml-3 ace-select no-border angle-down brc-h-blue-m3 w-auto pr-45 text-secondary-d3">
-                            <option value="10">Show 10</option>
-                            <option value="20">Show 20</option>
-                            <option value="50">Show 50</option>
-                          </select>
-                        </div>
-
-                        <div class="btn-group ml-sm-auto mt-3 mt-sm-0">
-                          <a href="#" class="btn btn-lighter-default btn-bgc-white btn-a-secondary radius-l-1 px-3 border-2">
-                            <i class="fa fa-caret-left mr-1"></i>
-                            Prev
-                          </a>
-                          <a href="#" class="btn btn-lighter-default btn-bgc-white btn-a-secondary radius-r-1 px-3 border-2 ml-n2px">
-                            Next
-                            <i class="fa fa-caret-right ml-1"></i>
-                          </a>
-                        </div>
-                      </div> --}}
-                </div>
+                            
 
 
                   </div><!-- /.card-body -->
+                  <div class="modal fade modal-fs" id="modalFullscreen" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel2">
+                          Petition view
+                          </h5>
+      
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+      
+                        <div class="modal-body">
+                       {{-- <p id = "show"> </p><input type="text"  >
+                       name : <span id="firstname"></span> --}}
+      
+                       <div class="bg-white border-bottom">
+                          <div class="content content-boxed">
+                              <div class="row items-push text-center">
+                                  <div class="table-responsive">
+                                      <table class="table table-bordered table-striped table-vcenter">
+                                          <tbody>
+                                              {{-- @foreach ($details as $detail) --}}
+                                              <tr>
+                                                  <td class="text-left">Name:</td>
+                                                  <td id="firstname" class="font-w600 font-size-sm"></td>
+                                                  <td class="text-left">Father Name:</td>
+                                                  <td id ="Fathername" class="font-w600 font-size-sm"></td>
+                                              </tr>
+                                              <tr>
+                                                  <td class="text-left">Nationality:</td>
+                                                  <td id="Nationality" class="font-w600 font-size-sm"></td>
+                                                  <td class="text-left">Physical status:</td>
+                                                  <td id="Physicalstatus" class="font-w600 font-size-sm"></td>
+                                              </tr>
+                                              <tr>
+                                                  <td class="text-left">Confined in jail:</td>
+                                                  <td id="Confined_in_jail" class="font-w600 font-size-sm"></td>
+                                                  <td class="text-left">Mobile Network:</td>
+                                                  <td class="font-w600 font-size-sm"></td>
+                                              </tr>
+                                              <tr>
+                                                  <td class="text-left">Gender:</td>
+                                                  <td id="Gender" class="font-w600 font-size-sm"></td>
+                                                  <td class="text-left">Dob:</td>
+                                                  <td id="Dob" class="font-w600 font-size-sm"></td>
+                                              </tr>
+                                              <tr>
+                                                  <td class="text-left">Fir and date:</td>
+                                                  <td id="fir&date" class="font-w600 font-size-sm"></td>
+                                                  <td class="text-left">Mercy petition date:</td>
+                                                  <td id="Mercypetitiondate" class="font-w600 font-size-sm"></td>
+                                              </tr>
+                                              <tr>
+                                                  <td class="text-left">Section:</td>
+                                                  <td id="Section_id" class="font-w600 font-size-sm"></td>
+                                                  <td class="text-left">Remarks:</td>
+                                                  <td id="Remarks" class="font-w600 font-size-sm"></td>
+                                              </tr>
+                                              {{-- @endforeach --}}
+                                          </tbody>
+                                      </table>
+                                  </div>
+      
+                              </div>
+                          </div>
+                      </div>
+                        </div>
+      
+                      </div>
+      
+                    </div>
+                  </div>
                 </div><!-- /.card -->
               </div><!-- /.col -->
             </div><!-- /.row -->

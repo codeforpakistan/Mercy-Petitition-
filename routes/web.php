@@ -41,8 +41,11 @@ Route::Post('/decision/{id}','InteriorMinstryController@decision')->name('petiti
 Route::get('/humangrightback/{id}','HumanRightDepartmentController@backpetition')->name('humanright-back');
 Route::Post('/humanrighdecision/{id}','HumanRightDepartmentController@humanrightdecision')->name('petition-humanrighdecision');
 Route::get('/petitionedit/{id}','PetitionController@edit')->name('petition-edit');
+Route::get('/reportform','PetitionController@reportform')->name('reportform');
 Route::get('/petitionsearch','PetitionController@searchform')->name('petitionsearchform');
 Route::Post('/petitionupdate/{id}','PetitionController@petitionupdate')->name('petition-update');
+Route::Post('/petitionrmarksupdate/{id}','PetitionController@petitionremarksupdate')->name('petitionremarksupdate');
+Route::get('/petitionrmarksedit/{id}','PetitionController@petitionremarksedit')->name('petitionremarksedit');
 Route::Post('/forwardhomedepartment/{id}','PetitionController@forwardhomedepartment')->name('forwardhomedepartment');
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/dashboard', 'dashboardController@dashboard')->name('portal.dashboard');
