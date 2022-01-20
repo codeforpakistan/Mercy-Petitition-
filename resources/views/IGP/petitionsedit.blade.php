@@ -22,12 +22,12 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Name</label>
-                    <input type="text" name="name" value="{{$petitionsedit->name}}" class="form-control"
+                    <input onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');" type="text" name="name" value="{{$petitionsedit->name}}" class="form-control"
                         id="inputEmail4" placeholder="Enter Name">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputPassword4">Father Name</label>
-                    <input type="text" name="f_name" value="{{$petitionsedit->f_name}}" class="form-control"
+                    <input onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');" type="text" name="f_name" value="{{$petitionsedit->f_name}}" class="form-control"
                         id="inputPassword4" placeholder="Father Name">
                 </div>
             </div>
@@ -71,7 +71,7 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputState">Fir & Date</label>
-                    <input type="text" name="fir&date" value="{{$petitionsedit->firdate}}" class="form-control"
+                    <input onkeyup="this.value=this.value.replace(/[^-/0-9\s]/g,'');" type="text" name="fir&date" value="{{$petitionsedit->firdate}}" class="form-control"
                         id="inputCity">
                 </div>
 
@@ -138,7 +138,7 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputState">Warrent Information</label>
-                    <input type="text" name="warrent_information" value="{{$petitionsedit->warrent_information}}"
+                    <input onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');" type="text" name="warrent_information" value="{{$petitionsedit->warrent_information}}"
                         placeholder="Enter Warrent Information" class="form-control" id="inputCity">
                 </div>
                 <div class="form-group col-md-6">

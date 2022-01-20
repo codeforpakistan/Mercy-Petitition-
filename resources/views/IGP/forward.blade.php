@@ -15,7 +15,7 @@
       </h3>
     </div>
       <div class="card-body px-3 pb-1">
-        <form class="mt-lg-3" autocomplete="off" action="{{route('forwardhomedepartment',[request()->route('id')])}}" method="post" enctype="multipart/form-data"> 
+        <form class="mt-lg-3" autocomplete="off" action="{{route('forwardhomedepartment',[request()->route('id')])}}" method="post" enctype="multipart/form-data">
               @csrf
               @if (count($errors) > 0)
                   <div class="alert bgc-red-l4 border-none border-l-4 brc-red-tp1 radius-0 text-dark-tp2" role="alert">
@@ -46,20 +46,20 @@
                 </div>
                 <div class="col-sm-5 col-11 tag-input-style">
                     <select  id="Status" name="status" class="form-control col-sm-8 col-md-11" data-placeholder="Choose Role For User...">
-                   
+
                     <option value='HomeDepartment'>Home Department</option>
-                   
+
                     </select>
                 </div>
             </div>
-            
+
               <div class="form-group row">
                   <div class="col-sm-3 col-form-label text-sm-right pr-0">
                       <label for="email" class="mb-0">Otherdocuments</label>
                   </div>
                   <div class="col-sm-4">
                   <input type="file" class="ace-file-input" name="otherdocument[]" id="ace-file-input2" multiple="" accept="gif|jpg|jpeg|png|webp|svg|pdf">
-                   
+
                   </div>
               </div>
               <div class="form-group row">
@@ -67,16 +67,16 @@
                       <label for="email" class="mb-0">Remarks</label>
                   </div>
                   <div class="col-sm-9">
-                  
+
                 <div class="card bcard border-1 brc-dark-l1">
                   <div class="card-body p-0">
                     <!-- <form method="post"> -->
-                      <textarea id="summernote" name="remarks"></textarea>
+                      <textarea onkeyup="this.value=this.value.replace(/[^A-Za-z0-9\s]/g,'');" id="summernote" name="remarks"></textarea>
                     <!-- </form> -->
                   </div>
                 </div>
                   </div>
-                 
+
               </div>
               <div class="mt-5 border-t-1 brc-secondary-l2 py-35 mx-n25">
                   <div class="offset-md-3 col-md-9 text-nowrap">
@@ -84,12 +84,12 @@
                               <i class="fa fa-check mr-1 "></i>
                               Forward to HomeDepartment
                           </button>
-                       
+
                   </div>
               </div>
 
 
-             
+
           </form>
       </div>
   </div>

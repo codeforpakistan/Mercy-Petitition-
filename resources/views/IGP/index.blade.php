@@ -296,17 +296,17 @@
                                             <div class="card bcard">
                                                 <div class="card-body">
                                                     <div class="row no-print"  style="float:right;margin-right:10%;font-size:160%" >
-                                                                   
-                                                                        
+
+
                                                         <i id="btnPrint" data-toggle="tooltip" title="print" type="button" class="mr-1 fa fa-print text-primary text-120 w-2"></i>
-                                                   
-                                               
+
+
                                             </div>
                                                     <span class="d-none position-tl mt-2 pt-3px">
                                                         <span class="text-white bgc-blue-d1 ml-2 radius-b-1 py-2 px-2">
                                                             <i class="fa fa-star"></i>
                                                         </span>
-                                                      
+
                                                     </span>
 
 
@@ -344,10 +344,10 @@
 
 
 
-                                                        
 
 
-                                                     
+
+
 
 
                                                     </div><!-- /.d-flex -->
@@ -394,7 +394,7 @@
                                                             id="profile-tab-overview">
 
                                                             <div class="row mt-1">
-                                                                
+
 
                                                                 <div class="row mt-5">
 
@@ -687,7 +687,7 @@
                                                                    <div id="pic"></div>
 
 
-                                                                 <figcaption class="figure-caption text-right">Other documents</figcaption> 
+                                                                 <figcaption class="figure-caption text-right">Other documents</figcaption>
                                                               </figure>
                                                               </div>
                                                             </div>

@@ -1206,6 +1206,40 @@ function printElement(elem) {
     window.print();
 }
     </script>
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script>
+      $(document).ready(function() {
+        $('.del-PS').on('click', function(e){
+          e.preventDefault();
+          if($(this).attr('id') > 0)
+          {
+            var del_route = "<?php echo 'physicalstatus/destroy/';?>"+$(this).attr('id');
+            Swal.fire({
+            //html: true,
+            title: 'Are you sure?',
+            html: "You want to delete?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+              if (result.value) {
+                window.location = del_route;
+              }
+            })
+            return false;
+          }
+        });
+      });
+    </script>
+    <style>
+    .myclass{
+      float: left;
+      margin-top: 1px;
+      margin-right: 6px;
+    }
+    </style>
     @yield('scripts')
   </body>
 </html>
