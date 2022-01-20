@@ -147,12 +147,12 @@
                   <span class="nav-text fadeable">
                           <span>Rejected Petition</span>
                   </span>
-        
-        
+
+
                 </a>
-        
+
                 <b class="sub-arrow"></b>
-        
+
                 </li>
 @can('user-list')
 
@@ -185,6 +185,14 @@
         <span class="nav-text">
             <span>Permission</span>
         </span>
+    </a>
+</li>
+
+<li class="nav-item {{isset($sub_menu) ? ($sub_menu=='users' ? 'active' : '') : ''}}">
+    <a href="{{route('physicalstatus.index')}}" class="nav-link">
+            <span class="nav-text">
+                    <span>Physical Status</span>
+            </span>
     </a>
 </li>
         </ul>
@@ -227,12 +235,12 @@
         <span class="nav-text fadeable">
         <span>Petition list</span>
         </span>
-        
-        
+
+
         </a>
-        
+
         <b class="sub-arrow"></b>
-        
+
         </li>
         <li class="nav-item {{isset($menu) ? ($menu=='homeremarks' ? 'active open' : '') : ''}}">
 
@@ -241,12 +249,12 @@
                 <span class="nav-text fadeable">
                 <span>Remarks from home</span>
                 </span>
-                
-                
+
+
                 </a>
-                
+
                 <b class="sub-arrow"></b>
-                
+
                 </li>
 @endcan
 @can('HomeDepartment-list')
@@ -297,17 +305,17 @@
                 <span class="nav-text fadeable">
                 <span>Remarks from interior</span>
                 </span>
-                
-                
+
+
                 </a>
-                
+
                 <b class="sub-arrow"></b>
-                
+
                 </li>
 
 @endcan
 @can('interior-list')
- 
+
 <li class="nav-item {{isset($menu) ? ($menu=='InteriorMinitries' ? 'active open' : '') : ''}}">
 
         <a href="{{route('InteriorMinstry.index')}}" class="nav-link {{isset($menu) ? ($menu=='InteriorMinitries' ? '' : 'collapsed') : 'collapsed'}}">
@@ -329,15 +337,15 @@
                   <span class="nav-text fadeable">
                           <span>Remarks from HRD</span>
                   </span>
-        
-        
+
+
                 </a>
-        
+
                 <b class="sub-arrow"></b>
-        
+
                 </li>
 
-        
+
 
 
  @endcan

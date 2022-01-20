@@ -61,4 +61,9 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('InteriorMinstry','InteriorMinstryController');
     Route::resource('HumanRight','HumanRightDepartmentController');
 });
-
+Route::get('physicalstatus','PhysicalStatusController@index')->name('physicalstatus.index');
+Route::get('physicalstatus/add','PhysicalStatusController@create')->name('physicalstatus.add');
+Route::post('physicalstatus/store','PhysicalStatusController@store')->name('physicalstatus.store');
+Route::get('physicalstatus/edit/{id}', 'PhysicalStatusController@edit')->name('physicalstatus.edit');
+Route::post('physicalstatus/update/{id}','PhysicalStatusController@update')->name('physicalstatus.update');
+Route::get('physicalstatus/destroy/{id}', 'PhysicalStatusController@destroy')->name('physicalstatus.destroy');

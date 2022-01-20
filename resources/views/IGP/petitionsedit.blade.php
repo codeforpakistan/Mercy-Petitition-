@@ -22,12 +22,12 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Name</label>
-                    <input type="text" name="name" value="{{$petitionsedit->name}}" class="form-control"
+                    <input onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');" type="text" name="name" value="{{$petitionsedit->name}}" class="form-control"
                         id="inputEmail4" placeholder="Enter Name">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputPassword4">Father Name</label>
-                    <input type="text" name="f_name" value="{{$petitionsedit->f_name}}" class="form-control"
+                    <input onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');" type="text" name="f_name" value="{{$petitionsedit->f_name}}" class="form-control"
                         id="inputPassword4" placeholder="Father Name">
                 </div>
             </div>
@@ -71,7 +71,7 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputState">Fir & Date</label>
-                    <input type="text" name="fir&date" value="{{$petitionsedit->firdate}}" class="form-control"
+                    <input onkeyup="this.value=this.value.replace(/[^-/0-9\s]/g,'');" type="text" name="fir&date" value="{{$petitionsedit->firdate}}" class="form-control"
                         id="inputCity">
                 </div>
 
@@ -138,7 +138,7 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputState">Warrent Information</label>
-                    <input type="text" name="warrent_information" value="{{$petitionsedit->warrent_information}}"
+                    <input onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');" type="text" name="warrent_information" value="{{$petitionsedit->warrent_information}}"
                         placeholder="Enter Warrent Information" class="form-control" id="inputCity">
                 </div>
                 <div class="form-group col-md-6">
@@ -173,13 +173,13 @@
                     <label for="inputCity">Application Attachment</label>
                     <img src="{{ asset('/assets/image/'.$petitionsedit->application_image) }}" width="50" height="50"
                         alt="pic" />
-                    <input type="file" name="application_image" class="ace-file-input" id="ace-file-input1">
+                    <input accept=".pdf,.png,.jpeg,.jpg" type="file" name="application_image" class="ace-file-input" id="ace-file-input1">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputState">Health Report Attachment</label>
                     <img src="{{ asset('/assets/image/'.$petitionsedit->health_paper) }}" width="50" height="50"
                         alt="pic" />
-                    <input type="file" name="health_paper" class="ace-file-input" id="ace-file-input22">
+                    <input accept=".pdf,.png,.jpeg,.jpg" type="file" name="health_paper" class="ace-file-input" id="ace-file-input22">
                 </div>
 
             </div>
@@ -188,14 +188,14 @@
                     <label for="inputCity">Prisoner Image</label>
                     <img src="{{ asset('/assets/image/'.$petitionsedit->prisoner_image) }}" width="50" height="50"
                         alt="pic" />
-                    <input type="file" name="prisoner_image" value="{{$petitionsedit->prisoner_image}}"
+                    <input accept=".png,.jpeg,.jpg" type="file" name="prisoner_image" value="{{$petitionsedit->prisoner_image}}"
                         class="ace-file-input" id="ace-file-input12">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputState">Warrent File Attachment</label>
                     <img src="{{ asset('/assets/image/'.$petitionsedit->warrent_file) }}" width="50" height="50"
                         alt="pic" />
-                    <input type="file" name="warrent_file" value="{{$petitionsedit->warrent_file}}"
+                    <input accept=".pdf,.png,.jpeg,.jpg" type="file" name="warrent_file" value="{{$petitionsedit->warrent_file}}"
                         class="ace-file-input" id="ace-file-input13">
                 </div>
 
