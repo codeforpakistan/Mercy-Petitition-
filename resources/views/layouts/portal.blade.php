@@ -37,7 +37,7 @@
 
   <style>
     .b-container {
-      background-image: linear-gradient(#fff,#fff );
+      background-image: linear-gradient(#10073d,#10073d );
       background-attachment: fixed;
 
 

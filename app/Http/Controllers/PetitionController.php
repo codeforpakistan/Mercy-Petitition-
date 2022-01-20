@@ -24,8 +24,9 @@ class PetitionController extends Controller
    if(Auth::user()->confined_in_jail ==""){
     $petitions=Petition::orderBy("id","desc")->get();
    }else{
-    $petitions=Petition::Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('status', 'IGP')->Where('received_from_department', 'IGP')->orderBy("id","desc")->get();
-   }
+    $petitions=Petition::Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('status', 'IGP')->orderBy("id","desc")->get();
+
+}
 
 
         return view('IGP.index',compact('petitions'));
@@ -101,6 +102,22 @@ class PetitionController extends Controller
         $pets = Petition::with('fileattachements')->get();
 
         $petitions = $pets->find($id);
+       
+        foreach($petitions->fileattachements as $post){
+               $path=[];
+                $path = public_path()."/assets/image/".$post->file;
+            
+              
+                if(!isset($path)){ 
+                 
+                  
+                unlink($path);
+                }
+                
+            }
+        $home= File::where('petition_id',$petitions->id)->get();
+        $home->each->delete();
+     
      
       
 
@@ -319,72 +336,44 @@ class PetitionController extends Controller
 
 
             $petitionsedit=Petition::find($id);
+
             
             $petitionsedit->remarks = strip_tags($request->get('remarks'));
+            $petitionsedit->received_from_department ="IGP";
         
             $petitionsedit->status = $request->get('status');
 
             $petitionsedit->save();
             // $fileupdate = File::where('petition_id',$id)->first();
 
-          $fileupdate = File::where('petition_id',$petitionsedit->id)->first();
-        
-          if ($request->file('otherdocument')) {
-            $otherdocumentarry=[];
-
-            foreach($request->file('otherdocument') as $file)
-            {
-            $otherdocument = time().'.'.$file->extension();
          
-            $file->move(public_path('assets/image'), $otherdocument);
-        $otherexplode =  explode(".",$otherdocument);
-        $fileupdate->file = $otherdocument;
         
-        $fileupdate->petition_id = $petitionsedit->id;
-        $fileupdate->type = $otherexplode["1"];
-       
-        foreach ( $petitionsedit->fileattachements as $post) {
-            
-            $post->petitions()->associate($fileupdate);// not id
-            $fileupdate->save();
-        }
-       
+            if ($request->file('otherdocument')) {
                    
-
-            }
-
-         }else{
-             
-            $fileupdate->file = $fileupdate->file ;
-         }
+                foreach($request->file('otherdocument') as $file)
+                {
+                $otherdocument = time().rand(10,100).'.'.$file->extension();
+        
+                $file->move(public_path('assets/image'), $otherdocument);
+            $otherexplode =  explode(".",$otherdocument);
+        
+                $file = new File([
+                    'petition_id'=>$petitionsedit->id,
+                    "file" =>  $otherdocument,
+                    "type"=> $otherexplode["1"],
+    
+                   ]);
+        
+                   $file->save();
+        
+                }
+      
+        
+             }
+      
          
  
-        //   if ($request->hasFile('otherdocument')) {
-        //     $otherdocument = rand(10,100).'.'.$request->otherdocument->extension();
-        //     dd(otherdocument);
-         
-        //     $request->otherdocument->move(public_path('assets/image'), $otherdocument);
-
-
-        //     $fileupdate->file = $otherdocument;
-
-
-        //  }else{
-        //     $fileupdate->file = $fileupdate->file ;
-        //  }
-
-
-        //         $fileupdate->petition_id= $id;
-
-
-        //         foreach ( $petitionsedit->fileattachements as $post) {
-        //             $post->petitions()->associate($fileupdate);; // not id
-        //         }
-
-
-
-        //     $petitionsedit->save();
-            // $fileupdate->save();
+       
             return redirect()->route('remarksfromhome')
                         ->with('success','Petition forward successfully');
         }

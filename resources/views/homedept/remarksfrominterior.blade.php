@@ -7,8 +7,15 @@
 
 @section('content')
 
-
-@if(!$HomeDepartments->isEmpty())))
+@if(Session::has('message'))
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>{{ Session::get('message') }}!</strong> .
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  @endif
+@if(!$HomeDepartments->isEmpty())
 
 
 
@@ -191,7 +198,7 @@
                                             <i class="fa fa-pencil-alt"></i>
                                         </a> -->
 
-                                        <a href="{{route('home-forward',[$petion->id])}}"
+                                        <a href="{{route('homeremarksedit',[$petion->id])}}"
                                             class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
                                             Forward <i class="fa fa-forward"></i>
                                         </a>
@@ -211,7 +218,7 @@
                                                     class="dropdown-header text-100 text-secondary-d1 border-b-1 brc-secondary-l2 text-600 mb-2">
                                                     Remarks from InteriorMinistryDepartment
                                                 </div>
-                                                <a href="{{route('home-forward',[$petion->id])}}"
+                                                <a href="{{route('homeremarksedit',[$petion->id])}}"
                                                     class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
                                                     Forward <i class="fa fa-forward"></i>
                                                 </a>

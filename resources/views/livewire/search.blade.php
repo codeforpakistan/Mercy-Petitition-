@@ -1,6 +1,6 @@
 
 
- <div role="main" class="page-content container container-plus" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
+ <div role="main" style="background-color: #fff" class="page-content container container-plus" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
             <div class="page-header border-0">
               <h1 class="page-title text-primary-d2 text-140">
               Petition Search
@@ -50,9 +50,9 @@
                             
 
                             <th class="d-none d-sm-table-cell">
-                             Presion PIC
+                             Prisonerimage 
                             </th>
-                            <th> </th>
+                           
 
                             <th>Action</th>
                           </tr>
@@ -101,16 +101,7 @@
 
                             </td>
 
-                            <td class='text-center pr-0'>
-                              <div>
-                                <!-- <a href="javascript:void(0)" data-toggle="modal" data-target="#modalFullscreen" class="d-style btn btn-outline-info text-90 text-600 border-0 px-2 collapsed" data-id ="{{$petion->id}}" id="show-user" title="Show Details">
-                                  <span class="d-none d-md-inline mr-1">
-                                            Details
-                                        </span>
-                                  <i class="fa fa-angle-down toggle-icon opacity-1 text-90"></i>
-                                </a> -->
-                              </div>
-                            </td>
+                            
 
                             <td>
                               <!-- action buttons -->
@@ -123,13 +114,13 @@
                                     <i class="fa fa-plus"></i>
                                   </a> -->
                                   <a href="javascript:void(0)" data-toggle="modal" data-target="#modalFullscreen"
-                                            class="d-style btn btn-outline-info text-90 text-600 border-0 px-2 collapsed"
-                                            data-id="{{$petion->id}}" id="show-user" title="Show Details">
-                                            <span class="d-none d-md-inline mr-1">
-                                                Details
-                                            </span>
-                                            <i class="fa fa-angle-down toggle-icon opacity-1 text-90"></i>
-                                        </a>
+                                  class="d-style btn btn-outline-info text-90 text-600 border-0 px-2 collapsed"
+                                  data-id="{{$petion->id}}" id="remarksview" title="Show Details">
+                                  <span class="d-none d-md-inline mr-1">
+                                      Details
+                                  </span>
+                                  <i class="fa fa-angle-down toggle-icon opacity-1 text-90"></i>
+                              </a>
 
                               </div>
 
@@ -142,12 +133,16 @@
                                 <div class="dropdown-menu dd-slide-up dd-slide-none-lg">
                                   <div class="dropdown-inner">
                                     <div class="dropdown-header text-100 text-secondary-d1 border-b-1 brc-secondary-l2 text-600 mb-2">
-                                      ace.com
+                                      Petition Search
                                     </div>
-                                    <a href="{{route('petition-edit', [$petion->id])}}" class="dropdown-item">
-                                      <i class="fa fa-pencil-alt text-blue mr-1 p-2 w-4"></i>
-                                      Edit
-                                    </a>
+                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#modalFullscreen"
+                                            class="d-style btn btn-outline-info text-90 text-600 border-0 px-2 collapsed"
+                                            data-id="{{$petion->id}}" id="remarksview" title="Show Details">
+                                            <span class="d-none d-md-inline mr-1">
+                                                Details
+                                            </span>
+                                            <i class="fa fa-angle-down toggle-icon opacity-1 text-90"></i>
+                                        </a>
 
 
                                   </div>
@@ -186,7 +181,15 @@
                                 <!-- the left side profile picture and other info -->
                                 <div class="col-12 col-md-12">
                                     <div class="card bcard">
+                                     
                                         <div class="card-body">
+                                            <div class="row no-print"  style="float:right;margin-right:10%;font-size:160%" >
+                                                           
+                                                                
+                                                <i id="btnPrint" data-toggle="tooltip" title="print" type="button" class="mr-1 fa fa-print text-primary text-120 w-2"></i>
+                                           
+                                       
+                                    </div>
                                             <span class="d-none position-tl mt-2 pt-3px">
                                                 <span class="text-white bgc-blue-d1 ml-2 radius-b-1 py-2 px-2">
                                                     <i class="fa fa-star"></i>
@@ -227,7 +230,7 @@
 
 
 
-                                                <hr class="w-90 mx-auto brc-secondary-l3">
+                                                
 
 
 
@@ -527,19 +530,21 @@
                                                                 <div class="form-group col-md-3">
                                                                   <figure class="figure">
                                                                     <div id="warrent_file"></div>
-
+                                                                    <div id="warrent_files"></div>
                                                         <figcaption class="figure-caption text-right">Warrant File</figcaption>
                                                       </figure>
                                                       </div>
                                                       <div class="form-group col-md-3">
                                                            <figure class="figure">
                                                             <div id="health_paper"></div>
+                                                            <div id="health_papers"></div>
                                                         <figcaption class="figure-caption text-right">Health Paper</figcaption>
                                                       </figure>
                                                       </div>
                                                       <div class="form-group col-md-3">
                                                        <figure class="figure">
                                                            <div id="application_image"></div>
+                                                           <div id="application_images"></div>
                                                         <figcaption class="figure-caption text-right">Application Image</figcaption>
                                                       </figure>
                                                       </div>
@@ -566,8 +571,173 @@
                                                       </div>
                                                     </div>
                                                               </div>
+                                                              <div class="col-12 px-4 mt-3"
+                                                              style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
+                                                                  <div class=" form-group row">
+
+                                                                      <div class="form-group col-md-12">
+                                                                          {{-- <hr class="rounded"> --}}
+                                                                          <h4 class="text-dark-m3 text-140">
+                                                                              <i
+                                                                                  class="far fa-lightbulb text-danger-d1 text-85 w-3"></i>
+                                                                              Home Department documents
+                                                                          </h4>
+
+                                                                          <figure class="figure">
+                                                                              <div id="homepic"></div>&nbsp;&nbsp;
+
+
+                                                                              <!-- <figcaption class="figure-caption text-right">Other documents</figcaption> -->
+                                                                          </figure>
+                                                                      </div>
+
+
+                                                                      <div class=" form-group row">
+                                                                          <div class="form-group col-md-12">
+                                                                              <figure class="figure">
+
+                                                                                  <div id="homefilepdf"></div>
+                                                                                  &nbsp;&nbsp;
+
+                                                                              </figure>
+                                                                          </div>
+                                                                      </div>
+                                                                      <div class="form-group col-md-12">
+                                                                          {{-- <hr class="rounded"> --}}
+                                                                          <h4 class="text-dark-m3 text-140">
+                                                                              <i
+                                                                                  class="fas fa-comment text-danger-d1 text-85 w-3"></i>
+                                                                              Home Department Remarks
+                                                                          </h4>
+
+                                                                          <figure class="figure">
+                                                                              <div id="homeremarks"></div>
+
+
+                                                                              <!-- <figcaption class="figure-caption text-right">Other documents</figcaption> -->
+                                                                          </figure>
+                                                                      </div>
+                                                                      
+                                                                  </div>
+                                                              </div>
+                                                              <div class="col-12 px-4 mt-3"
+                                                        style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
+                                                            <div class=" form-group row">
+
+                                                                <div class="form-group col-md-12">
+                                                                    {{-- <hr class="rounded"> --}}
+                                                                    <h4 class="text-dark-m3 text-140">
+                                                                        <i
+                                                                            class="far fa-lightbulb text-danger-d1 text-85 w-3"></i>
+                                                                        InteriorMinitries documents
+                                                                    </h4>
+
+                                                                    <figure class="figure">
+                                                                        <div id="interiorpic"></div>&nbsp;&nbsp;
+
+
+                                                                        <!-- <figcaption class="figure-caption text-right">Other documents</figcaption> -->
+                                                                    </figure>
+                                                                </div>
+
+
+                                                                <div class=" form-group row">
+                                                                    <div class="form-group col-md-12">
+                                                                        <figure class="figure">
+
+                                                                            <div id="interiorfilepdf"></div>
+                                                                           
+
+                                                                        </figure>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group col-md-12">
+                                                                    {{-- <hr class="rounded"> --}}
+                                                                    <h4 class="text-dark-m3 text-140">
+                                                                        <i
+                                                                            class="fas fa-comment text-danger-d1 text-85 w-3"></i>
+                                                                       InteriorMinistry Remarks
+                                                                    </h4>
+
+                                                                    <figure class="figure">
+                                                                        <div id="interiorremarks"></div>
+
+
+                                                                        <!-- <figcaption class="figure-caption text-right">Other documents</figcaption> -->
+                                                                    </figure>
+                                                                </div>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 px-4 mt-3"
+                                                        style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
+                                                            <div class=" form-group row">
+
+                                                                <div class="form-group col-md-12">
+                                                                    {{-- <hr class="rounded"> --}}
+                                                                    <h4 class="text-dark-m3 text-140">
+                                                                        <i
+                                                                            class="far fa-lightbulb text-danger-d1 text-85 w-3"></i>
+                                                                       HumanRightDepartment documents
+                                                                    </h4>
+
+                                                                    <figure class="figure">
+                                                                        <div id="humanrightpic"></div>&nbsp;&nbsp;
+
+
+                                                                        <!-- <figcaption class="figure-caption text-right">Other documents</figcaption> -->
+                                                                    </figure>
+                                                                </div>
+
+
+                                                                <div class=" form-group row">
+                                                                    <div class="form-group col-md-12">
+                                                                        <figure class="figure">
+
+                                                                            <div id="humanrightfilepdf"></div>
+                                                                            &nbsp;&nbsp;
+
+                                                                        </figure>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group col-md-12">
+                                                                    {{-- <hr class="rounded"> --}}
+                                                                    <h4 class="text-dark-m3 text-140">
+                                                                        <i
+                                                                            class="fas fa-comment text-danger-d1 text-85 w-3"></i>
+                                                                       HumanRightDepartment Remarks
+                                                                    </h4>
+
+                                                                    <figure class="figure">
+                                                                        <div id="humanrightremarks"></div>
+
+
+                                                                        <!-- <figcaption class="figure-caption text-right">Other documents</figcaption> -->
+                                                                    </figure>
+                                                                </div>
+                                                                
+                                                            </div>
+                                                        </div>
                                                         </div>
                                                     </div>
+                                                    <div id="btnhide1" class="col-12 px-8 mt-5"
+                                                    >
+                                                    <div class="form-row text-center">
+                                                        <div class="form-group col-md-6">
+                                                            <a href="{{route('petitionremarksedit',[$petion->id])}}"
+                                                                class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
+                                                                Forward <i class="fa fa-forward"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                            <a href="{{route('remarksfromhome')}}"
+                                                                class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-primary text-white">
+                                                                Back <i class="fa fa-arrow-left"></i>
+                                                            </a>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
                                                 </div>
 
 
@@ -575,6 +745,7 @@
 
 
                                             <!-- activity tab -->
+
 
 
 

@@ -19,7 +19,7 @@ class PermissionController extends Controller
 
     public function index(){
         $permissions=DB::table('permissions')->get();
-        return view('portal.permissions.index',['permissions'=>$permissions]);
+        return view('portal.permissions.index',compact('permissions'));
     }
     public function create(){
         return view('portal.permissions.create');
@@ -41,7 +41,8 @@ class PermissionController extends Controller
         Permission::create(['name' => $request->input('name'),
                             'friendly_title' => $request->input('frindly_title')]);
 
-        $permissions =Permission::all();
-        return view('portal.permissions.index',['permissions '=>$permissions])->with('success','Permission created successfully');
+        // $permissions =Permission::all();
+        // return view('portal.permissions.index',compact('permissions'))->with('message','Permission created successfully');
+        return redirect()->route('permissions.index')->with('message','Permission created successfully');
     }
 }

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\HomeDepartment;
 use App\Petition;
 use App\File;
+
 use Auth;
 class HomeDepartmentController extends Controller
 {
@@ -102,7 +103,7 @@ class HomeDepartmentController extends Controller
         $otherdocumentarry=[];
         foreach($request->file('otherdocument') as $file)
         {
-        $otherdocument = time().'.'.$file->extension();
+        $otherdocument = time().rand(10,100).'.'.$file->extension();
 
         $file->move(public_path('assets/image'), $otherdocument);
     $otherexplode =  explode(".",$otherdocument);
@@ -126,4 +127,93 @@ class HomeDepartmentController extends Controller
  
        return redirect()->route('homedept.index')->with('message','Petion Forward Successfully ');
             }
+
+            public function homeremarksedit($id){
+
+                $homepititions = HomeDepartment::with('homefileattachements')->where('petition_id',$id)->first();
+                foreach($homepititions->homefileattachements as $post){
+                       $path=[];
+                        $path = public_path()."/assets/image/".$post->file;
+                    
+                      
+                        if(!isset($path)){ 
+                         
+                          
+                        unlink($path);
+                        }
+                        
+                    }
+                $home= File::where('homedepartment_id',$homepititions->id)->get();
+                $home->each->delete();
+             
+                
+                
+                   
+                
+                                 
+                  
+        
+        
+                return view('homedept.homeremarksedit',compact('homepititions'));
+            }
+            public function homeremarksupdate(Request $request,$id){
+               
+
+                
+    
+                $petitionsedit=Petition::find($id);
+                
+               
+                $petitionsedit->received_from_department = "HomeDepartment";
+                $petitionsedit->status = $request->get('status');
+    
+                $petitionsedit->save();
+
+                //homedepartment remarks
+               
+
+                $homeedit=HomeDepartment::with('homefileattachements')->where('petition_id',$id)->first();
+              
+            
+                
+                
+                
+                $homeedit->remarks = strip_tags($request->get('remarks'));
+            
+               
+    
+                $homeedit->save();
+ 
+              
+                
+                 
+                if ($request->file('otherdocument')) {
+                   
+                    foreach($request->file('otherdocument') as $file)
+                    {
+                    $otherdocument = time().rand(10,100).'.'.$file->extension();
+            
+                    $file->move(public_path('assets/image'), $otherdocument);
+                $otherexplode =  explode(".",$otherdocument);
+            
+                    $file = new File([
+                        'homedepartment_id'=>$homeedit->id,
+                        "file" =>  $otherdocument,
+                        "type"=> $otherexplode["1"],
+        
+                       ]);
+            
+                       $file->save();
+            
+                    }
+          
+            
+                 }
+          
+             
+             
+                return redirect()->route('remarksfrominterior')
+                            ->with('success','Petition forward successfully');
+            }
+               
 }

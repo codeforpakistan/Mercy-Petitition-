@@ -6,7 +6,7 @@
 @section('element','homeremarks')
 
 @section('content')
-@if(isset($petitions))
+
 
 
     
@@ -25,6 +25,16 @@
         margin-right: auto;
     }
 </style>
+@if(!$petitions->isEmpty())
+@if(!$petitions->isEmpty())
+@if(Session::has('message'))
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>{{ Session::get('message') }}!</strong> .
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  @endif
 <div role="main" class="page-content container container-plus">
     <div class="page-header border-0">
         <h1 class="page-title text-primary-d2 text-140">
@@ -866,7 +876,5 @@
 </div><!-- /.row -->
 @else
 <h4 style="background-color:#800000; text-align:center;color:#fff">No Record Found</h4>
-
 @endif
-
 @endsection

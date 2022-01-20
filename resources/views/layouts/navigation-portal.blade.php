@@ -11,7 +11,7 @@
                   <li class="nav-item {{isset($menu) ? ($menu=='dashboard' ? 'active open' : '') : ''}}">
 
                     <a href="{{route('portal.dashboard')}}" class="nav-link {{isset($menu) ? ($menu=='dashboard' ? '' : 'collapsed') : 'collapsed'}}">
-                    <i class="nav-icon fas fa-tachometer-alt"style="color:#351e23"></i>
+                    <i class="nav-icon fas fa-tachometer-alt"style="color:dark-white"></i>
                       <span class="nav-text fadeable text-secondary">
                               <span>Dashboard</span>
                       </span>
@@ -28,7 +28,7 @@
                   <li class="nav-item">
 
                     <a href="#" class="nav-link dropdown-toggle collapsed">
-                      <i class="nav-icon fa fa-cube" style="color:#351e23"></i>
+                      <i class="nav-icon fa fa-cube" style="color:#fff"></i>
                       <span class="nav-text fadeable">
                   	  <span>Profile</span>
                       </span>
@@ -43,7 +43,7 @@
                     </a>
 
                     <div class="hideable submenu collapse">
-                      <ul class="submenu-inner" style="background-color:#ffffff">
+                      <ul class="submenu-inner" style="background-color:#160C47">
                         <li class="nav-item">
                           <span class="nav-text">
                   				  <span>
@@ -58,7 +58,7 @@
                   <div class="py-2 d-flex flex-column align-items-center">
                     @auth
                     <img class="mr-2 radius-round border-2 brc-primary-tp3 p-1px" src="{{ Auth::user()->picture ?? asset('..\assets\image\avatar\avatar4.png')}}" width="36" alt="Natalie's Photo">
-                    <span style="color: blue">{{ Auth::user()->name }}</span>
+                    <span style="color: #fff">{{ Auth::user()->name }}</span>
 
                     @endauth
 
@@ -115,7 +115,7 @@
 <li class="nav-item {{isset($menu) ? ($menu=='SearchPetition' ? 'active open' : '') : ''}}">
 
 <a href="{{route('petitionsearchform')}}" class="nav-link {{isset($menu) ? ($menu=='SearchPetition' ? '' : 'collapsed') : 'collapsed'}}">
-<i class="nav-icon fa fa-cube" style="color:#351e23"></i>
+<i class="nav-icon fa fa-cube" style="color:#fff"></i>
 <span class="nav-text fadeable">
 <span>Petiton Search</span>
 </span>
@@ -129,7 +129,7 @@
 <li class="nav-item {{isset($menu) ? ($menu=='Accepted' ? 'active open' : '') : ''}}">
 
         <a href="{{route('accepted')}}" class="nav-link {{isset($menu) ? ($menu=='Accepted' ? '' : 'collapsed') : 'collapsed'}}">
-        <i class="nav-icon fa fa-cube" style="color:#351e23"></i>
+        <i class="nav-icon fa fa-cube" style="color:#fff"></i>
           <span class="nav-text fadeable">
                   <span>Accepted Petition</span>
           </span>
@@ -143,7 +143,7 @@
         <li class="nav-item {{isset($menu) ? ($menu=='Rejected' ? 'active open' : '') : ''}}">
 
                 <a href="{{route('rejected')}}" class="nav-link {{isset($menu) ? ($menu=='Rejected' ? '' : 'collapsed') : 'collapsed'}}">
-                <i class="nav-icon fa fa-cube" style="color:#351e23"></i>
+                <i class="nav-icon fa fa-cube" style="color:#fff"></i>
                   <span class="nav-text fadeable">
                           <span>Rejected Petition</span>
                   </span>
@@ -158,14 +158,14 @@
 
 <li class="nav-item {{isset($menu) ? ($menu=='system_setting' ? 'active open' : '') : ''}}">
 <a href="#" id="system_setting" class="nav-link dropdown-toggle {{isset($menu) ? ($menu=='system_setting' ? '' : 'collapsed') : 'collapsed'}}">
-        <i class="nav-icon fa fa-cube" style="color:#351e23"></i>
+        <i class="nav-icon fa fa-cube" style="color:#fff"></i>
         <span class="nav-text fadeable">
                 <span>System Setting</span>
         </span>
         <b class="caret fa fa-angle-left rt-n90"></b>
 </a>
 <div class="hideable submenu collapse {{isset($menu) ? ($menu=='system_setting' ? 'show' : '') : ''}}">
-        <ul class="submenu-inner" style="background-color:#fff">
+        <ul class="submenu-inner" style="background-color:#261f49">
                 <li class="nav-item">
                         <a href="{{route('portal.roles.index')}}" class="nav-link">
                                 <span class="nav-text">
@@ -223,7 +223,7 @@
 <li class="nav-item {{isset($menu) ? ($menu=='IGP' ? 'active open' : '') : ''}}">
 
         <a href="{{route('Petition.index')}}" class="nav-link {{isset($menu) ? ($menu=='IGP' ? '' : 'collapsed') : 'collapsed'}}">
-        <i class="nav-icon fa fa-cube" style="color:#351e23"></i>
+        <i class="nav-icon fa fa-cube" style="color:#fff"></i>
         <span class="nav-text fadeable">
         <span>Petition list</span>
         </span>
@@ -237,7 +237,7 @@
         <li class="nav-item {{isset($menu) ? ($menu=='homeremarks' ? 'active open' : '') : ''}}">
 
                 <a href="{{route('remarksfromhome')}}" class="nav-link {{isset($menu) ? ($menu=='homeremarks' ? '' : 'collapsed') : 'collapsed'}}">
-                <i class="nav-icon fa fa-cube" style="color:#351e23"></i>
+                <i class="nav-icon fa fa-cube" style="color:##fff"></i>
                 <span class="nav-text fadeable">
                 <span>Remarks from home</span>
                 </span>
@@ -278,7 +278,7 @@
 <li class="nav-item {{isset($menu) ? ($menu=='HomeDepartment' ? 'active open' : '') : ''}}">
 
 <a href="{{route('homedept.index')}}" class="nav-link {{isset($menu) ? ($menu=='HomeDepartment' ? '' : 'collapsed') : 'collapsed'}}">
-<i class="nav-icon fa fa-cube" style="color:#351e23"></i>
+<i class="nav-icon fa fa-cube" style="color:#fff"></i>
 <span class="nav-text fadeable">
 <span>HomeDepartment list</span>
 </span>
@@ -293,7 +293,7 @@
         <li class="nav-item {{isset($menu) ? ($menu=='HomeDepartments' ? 'active open' : '') : ''}}">
 
                 <a href="{{route('remarksfrominterior')}}" class="nav-link {{isset($menu) ? ($menu=='HomeDepartments' ? '' : 'collapsed') : 'collapsed'}}">
-                <i class="nav-icon fa fa-cube" style="color:#351e23"></i>
+                <i class="nav-icon fa fa-cube" style="color:#fff"></i>
                 <span class="nav-text fadeable">
                 <span>Remarks from interior</span>
                 </span>
@@ -311,7 +311,7 @@
 <li class="nav-item {{isset($menu) ? ($menu=='InteriorMinitries' ? 'active open' : '') : ''}}">
 
         <a href="{{route('InteriorMinstry.index')}}" class="nav-link {{isset($menu) ? ($menu=='InteriorMinitries' ? '' : 'collapsed') : 'collapsed'}}">
-        <i class="nav-icon fa fa-cube" style="color:#351e23"></i>
+        <i class="nav-icon fa fa-cube" style="color:#fff"></i>
           <span class="nav-text fadeable">
                   <span>Interior Ministry</span>
           </span>
@@ -325,7 +325,7 @@
         <li class="nav-item {{isset($menu) ? ($menu=='Remarksfromhrd' ? 'active open' : '') : ''}}">
 
                 <a href="{{route('InteriorMinstry.hrd')}}" class="nav-link {{isset($menu) ? ($menu=='Remarksfromhrd' ? '' : 'collapsed') : 'collapsed'}}">
-                <i class="nav-icon fa fa-cube" style="color:#351e23"></i>
+                <i class="nav-icon fa fa-cube" style="color:#fff"></i>
                   <span class="nav-text fadeable">
                           <span>Remarks from HRD</span>
                   </span>
@@ -345,7 +345,7 @@
  <li class="nav-item {{isset($menu) ? ($menu=='HumanRightDepartments' ? 'active open' : '') : ''}}">
 
         <a href="{{route('HumanRight.index')}}" class="nav-link {{isset($menu) ? ($menu=='HumanRightDepartments' ? '' : 'collapsed') : 'collapsed'}}">
-        <i class="nav-icon fa fa-cube" style="color:#351e23"></i>
+        <i class="nav-icon fa fa-cube" style="color:#fff"></i>
           <span class="nav-text fadeable">
                   <span>HumanRight list</span>
           </span>

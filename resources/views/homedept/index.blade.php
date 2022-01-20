@@ -47,7 +47,28 @@
         }
     }
 </style>
+@if ($errors->any())
+<div class="alert alert-danger">
 
+    <ul>
+
+        @foreach ($errors->all() as $error)
+        {{ $error }}
+        @endforeach
+    </ul>
+
+</div><br />
+@endif
+
+
+@if(Session::has('message'))
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>{{ Session::get('message') }}!</strong> .
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  @endif
 @if(!$HomeDepartments->isEmpty())
 <div role="main" class="page-content container container-plus">
     <div class="page-header border-0">
@@ -101,23 +122,7 @@
                         </div>
                     </div>
 
-                    @if ($errors->any())
-                    <div class="alert alert-danger">
-
-                        <ul>
-
-                            @foreach ($errors->all() as $error)
-                            {{ $error }}
-                            @endforeach
-                        </ul>
-
-                    </div><br />
-                    @endif
-
-
-                    @if(Session::has('message'))
-                    <p class="alert alert-info">{{ Session::get('message') }}</p>
-                    @endif
+                   
 
                     <table id="simple-table"
                         class="mb-0 table table-borderless table-bordered-x brc-secondary-l3 text-dark-m2 radius-1 overflow-hidden">
@@ -139,6 +144,12 @@
 
                                 <th class='d-none d-sm-table-cell'>
                                     Confined iN jail
+                                </th>
+                                <th class='d-none d-sm-table-cell'>
+                                    Status
+                                </th>
+                                <th class='d-none d-sm-table-cell'>
+                                    Received From Department
                                 </th>
 
                                 <th class="d-none d-sm-table-cell">
@@ -168,6 +179,15 @@
 
                                 <td class='d-none d-sm-table-cell text-grey text-95'>
                                     {{$petion->confined_in_jail}}
+                                </td>
+                                <td class='d-none d-sm-table-cell text-grey text-95'>
+                                  
+                                    {{$petion->status}}
+                                                                 
+                                   
+                                </td>
+                                <td class='d-none d-sm-table-cell text-grey text-95'>
+                                    {{$petion->received_from_department}}
                                 </td>
 
                                 <td class='d-none d-sm-table-cell'>

@@ -171,14 +171,33 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputCity">Application Attachment</label>
-                    <img src="{{ asset('/assets/image/'.$petitionsedit->application_image) }}" width="50" height="50"
-                        alt="pic" />
+                  <?php
+                     $applicationimage = $petitionsedit->application_image;
+                   $pic= explode(".",$applicationimage);
+                  $pic[1];
+
+                    ?>
+@if($pic[1]=='pdf')
+<a style='height:100px;width:100px;margin-right:15px;' target='_blank'  data-lightbox='example-1' href="{{asset('/assets/image/'.$petitionsedit->application_image)}}"> <img class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src="{{ asset('/assets/image/pdf.png') }}" width="50"  height="50" margin-righ="5%" alt="pic" />  </a>
+@else
+<a target='_blank'  data-lightbox='example-1' href="{{asset('/assets/image/'.$petitionsedit->application_image)}}"> <img class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src="{{ asset('/assets/image/'.$petitionsedit->application_image) }}" width="50"  height="50" margin-righ="5%" alt="pic" />  </a>
+      @endif                  
                     <input type="file" name="application_image" class="ace-file-input" id="ace-file-input1">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputState">Health Report Attachment</label>
-                    <img src="{{ asset('/assets/image/'.$petitionsedit->health_paper) }}" width="50" height="50"
-                        alt="pic" />
+                    <?php
+                    $applicationimage = $petitionsedit->health_paper;
+                  $pic= explode(".",$applicationimage);
+                 $pic[1];
+
+                   ?>
+@if($pic[1]=='pdf')
+<a style='height:100px;width:100px;margin-right:15px;' target='_blank'  data-lightbox='example-1' href="{{asset('/assets/image/'.$petitionsedit->health_paper)}}"> <img class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src="{{ asset('/assets/image/pdf.png') }}" width="50"  height="50" margin-righ="5%" alt="pic" />  </a>
+@else
+<a target='_blank'  data-lightbox='example-1' href="{{asset('/assets/image/'.$petitionsedit->health_paper)}}"> <img class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src="{{ asset('/assets/image/'.$petitionsedit->health_paper) }}" width="50"  height="50" margin-righ="5%" alt="pic" />  </a>
+     @endif  
+                    
                     <input type="file" name="health_paper" class="ace-file-input" id="ace-file-input22">
                 </div>
 
@@ -186,15 +205,25 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputCity">Prisoner Image</label>
-                    <img src="{{ asset('/assets/image/'.$petitionsedit->prisoner_image) }}" width="50" height="50"
-                        alt="pic" />
+                   
+                        <a target='_blank'  data-lightbox='example-1' href="{{asset('/assets/image/'.$petitionsedit->prisoner_image)}}"> <img class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src="{{ asset('/assets/image/'.$petitionsedit->prisoner_image) }}" width="50"  height="50" margin-righ="5%" alt="pic" />  </a>
                     <input type="file" name="prisoner_image" value="{{$petitionsedit->prisoner_image}}"
                         class="ace-file-input" id="ace-file-input12">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputState">Warrent File Attachment</label>
-                    <img src="{{ asset('/assets/image/'.$petitionsedit->warrent_file) }}" width="50" height="50"
-                        alt="pic" />
+                    <?php
+                    $applicationimage = $petitionsedit->warrent_file;
+                  $pic= explode(".",$applicationimage);
+                 $pic[1];
+
+                   ?>
+@if($pic[1]=='pdf')
+<a style='height:100px;width:100px;margin-right:15px;' target='_blank'  data-lightbox='example-1' href="{{asset('/assets/image/'.$petitionsedit->warrent_file)}}"> <img class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src="{{ asset('/assets/image/pdf.png') }}" width="50"  height="50" margin-righ="5%" alt="pic" />  </a>
+@else
+<a target='_blank'  data-lightbox='example-1' href="{{asset('/assets/image/'.$petitionsedit->warrent_file)}}"> <img class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src="{{ asset('/assets/image/'.$petitionsedit->warrent_file) }}" width="50"  height="50" margin-righ="5%" alt="pic" />  </a>
+     @endif
+                   
                     <input type="file" name="warrent_file" value="{{$petitionsedit->warrent_file}}"
                         class="ace-file-input" id="ace-file-input13">
                 </div>

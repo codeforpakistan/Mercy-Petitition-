@@ -79,7 +79,7 @@ class InteriorMinstryController extends Controller
          $otherdocumentarry=[];
          foreach($request->file('otherdocument') as $file)
          {
-         $otherdocument = time().'.'.$file->extension();
+         $otherdocument = time().rand(10,100).'.'.$file->extension();
  
          $file->move(public_path('assets/image'), $otherdocument);
      $otherexplode =  explode(".",$otherdocument);

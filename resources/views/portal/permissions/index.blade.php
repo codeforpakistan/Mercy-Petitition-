@@ -3,10 +3,17 @@
 @section('element','List of Permissions')
 
 @section('content')
-
+@if(Session::has('message'))
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>{{ Session::get('message') }}!</strong> .
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  @endif
 
 <div role="main" class="page-content container container-plus">
-    <div class="page-header border-0">
+    {{-- <div class="page-header border-0">
       <h1 class="page-title text-primary-d2 text-140">
         @if ($message = Session::get('success'))
             <div class="alert alert-success">
@@ -14,7 +21,7 @@
             </div>
         @endif
       </h1>
-    </div>
+    </div> --}}
 
     <div class="row">
       <div class="col-12">

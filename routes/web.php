@@ -33,6 +33,7 @@ Route::get('/homeremarks','HomeDepartmentController@remarksfrominterior')->name(
 Route::get('/homesearch','HomeDepartmentController@homesearch')->name('homesearch');
 Route::get('/search','PetitionController@search')->name('petitionsearch');
 Route::get('/Homeforward/{id}','HomeDepartmentController@forwardpetition')->name('home-forward');
+Route::get('/homeremarksedit/{id}','HomeDepartmentController@homeremarksedit')->name('homeremarksedit');
 Route::Post('/forwardinteriorministrydepartment/{id}','HomeDepartmentController@forwardinteriorministrydepartment')->name('forwardinteriorministrydepartment');
 Route::get('/petitionforward/{id}','PetitionController@forwardpetition')->name('petition-forward');
 Route::get('/remarksfromhome','PetitionController@remarksfromhome')->name('remarksfromhome');
@@ -45,6 +46,7 @@ Route::get('/reportform','PetitionController@reportform')->name('reportform');
 Route::get('/petitionsearch','PetitionController@searchform')->name('petitionsearchform');
 Route::Post('/petitionupdate/{id}','PetitionController@petitionupdate')->name('petition-update');
 Route::Post('/petitionrmarksupdate/{id}','PetitionController@petitionremarksupdate')->name('petitionremarksupdate');
+Route::Post('/homeremarksupdate/{id}','HomeDepartmentController@homeremarksupdate')->name('homeremarksupdate');
 Route::get('/petitionrmarksedit/{id}','PetitionController@petitionremarksedit')->name('petitionremarksedit');
 Route::Post('/forwardhomedepartment/{id}','PetitionController@forwardhomedepartment')->name('forwardhomedepartment');
 Route::group(['middleware' => ['auth']], function() {
