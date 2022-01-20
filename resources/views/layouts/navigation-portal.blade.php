@@ -165,7 +165,7 @@
         <b class="caret fa fa-angle-left rt-n90"></b>
 </a>
 <div class="hideable submenu collapse {{isset($menu) ? ($menu=='system_setting' ? 'show' : '') : ''}}">
-        <ul class="submenu-inner" style="background-color:#261f49">
+        <ul class="submenu-inner" style="background-color:#160C47">
                 <li class="nav-item">
                         <a href="{{route('portal.roles.index')}}" class="nav-link">
                                 <span class="nav-text">
