@@ -282,7 +282,7 @@
                                             Welcome
                                         @endif
                                     </li>
-                                    <li class="mx-15 text-grey-l4 text-110">></li>
+                                    <li class="mx-15 text-grey-l4 text-110">/</li>
                                     <li class="breadcrumb-item active text-dark-tp4 text-105 text-300">
                                         @hasSection('element')
                                             @yield('element')

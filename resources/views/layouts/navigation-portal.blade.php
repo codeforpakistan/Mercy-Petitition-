@@ -112,48 +112,6 @@
 <b class="sub-arrow"></b>
 </li>
 
-<li class="nav-item {{isset($menu) ? ($menu=='SearchPetition' ? 'active open' : '') : ''}}">
-
-<a href="{{route('petitionsearchform')}}" class="nav-link {{isset($menu) ? ($menu=='SearchPetition' ? '' : 'collapsed') : 'collapsed'}}">
-<i class="nav-icon fa fa-cube" style="color:#fff"></i>
-<span class="nav-text fadeable">
-<span>Petiton Search</span>
-</span>
-
-
-</a>
-
-<b class="sub-arrow"></b>
-
-</li>
-<li class="nav-item {{isset($menu) ? ($menu=='Accepted' ? 'active open' : '') : ''}}">
-
-        <a href="{{route('accepted')}}" class="nav-link {{isset($menu) ? ($menu=='Accepted' ? '' : 'collapsed') : 'collapsed'}}">
-        <i class="nav-icon fa fa-cube" style="color:#fff"></i>
-          <span class="nav-text fadeable">
-                  <span>Accepted Petition</span>
-          </span>
-
-
-        </a>
-
-        <b class="sub-arrow"></b>
-
-        </li>
-        <li class="nav-item {{isset($menu) ? ($menu=='Rejected' ? 'active open' : '') : ''}}">
-
-                <a href="{{route('rejected')}}" class="nav-link {{isset($menu) ? ($menu=='Rejected' ? '' : 'collapsed') : 'collapsed'}}">
-                <i class="nav-icon fa fa-cube" style="color:#fff"></i>
-                  <span class="nav-text fadeable">
-                          <span>Rejected Petition</span>
-                  </span>
-
-
-                </a>
-
-                <b class="sub-arrow"></b>
-
-                </li>
 @can('user-list')
 
 <li class="nav-item {{isset($menu) ? ($menu=='system_setting' ? 'active open' : '') : ''}}">
@@ -222,6 +180,49 @@
 </li>
 
 @endcan
+
+<li class="nav-item {{isset($menu) ? ($menu=='SearchPetition' ? 'active open' : '') : ''}}">
+
+        <a href="{{route('petitionsearchform')}}" class="nav-link {{isset($menu) ? ($menu=='SearchPetition' ? '' : 'collapsed') : 'collapsed'}}">
+        <i class="nav-icon fa fa-cube" style="color:#fff"></i>
+        <span class="nav-text fadeable">
+        <span>Petiton Search</span>
+        </span>
+        
+        
+        </a>
+        
+        <b class="sub-arrow"></b>
+        
+        </li>
+        <li class="nav-item {{isset($menu) ? ($menu=='Accepted' ? 'active open' : '') : ''}}">
+        
+                <a href="{{route('accepted')}}" class="nav-link {{isset($menu) ? ($menu=='Accepted' ? '' : 'collapsed') : 'collapsed'}}">
+                <i class="nav-icon fa fa-cube" style="color:#fff"></i>
+                  <span class="nav-text fadeable">
+                          <span>Accepted Petition</span>
+                  </span>
+        
+        
+                </a>
+        
+                <b class="sub-arrow"></b>
+        
+                </li>
+                <li class="nav-item {{isset($menu) ? ($menu=='Rejected' ? 'active open' : '') : ''}}">
+        
+                        <a href="{{route('rejected')}}" class="nav-link {{isset($menu) ? ($menu=='Rejected' ? '' : 'collapsed') : 'collapsed'}}">
+                        <i class="nav-icon fa fa-cube" style="color:#fff"></i>
+                          <span class="nav-text fadeable">
+                                  <span>Rejected Petition</span>
+                          </span>
+        
+        
+                        </a>
+        
+                        <b class="sub-arrow"></b>
+        
+                        </li>
 
 @can('jail-supt-list')
 <!-- <li class="nav-item {{isset($menu) ? ($menu=='IGP' ? 'active open' : '') : ''}}">
