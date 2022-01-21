@@ -1,4 +1,8 @@
-@extends('layouts.portal')
+@extends('layouts.portal',
+[
+  'menu' => 'system_setting',
+  'sub_menu' => 'roles'
+])
 @section('module','Access Control System')
 @section('element','List of Roles')
 

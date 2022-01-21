@@ -1,4 +1,7 @@
-@extends('layouts.portal')
+@extends('layouts.portal',, [
+  'menu' => 'system_setting',
+  'sub_menu' => 'Permission'
+]))
 @section('module','Access Control System')
 @section('element','Add New Permission')
 
@@ -32,7 +35,7 @@
           </div>
          
           <div class="col-sm-9">
-          <input type="text" name="name" value="" class="form-control col-sm-8 col-md-6" id="id-form-field-1">
+          <input type="text" name="name" value="" onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');"  class="form-control col-sm-8 col-md-6" id="id-form-field-1">
           </div>
         </div>
 
@@ -44,7 +47,7 @@
             </div>
            
             <div class="col-sm-9">
-            <input type="text" name="frindly_title" class="form-control col-sm-8 col-md-6" id="id-form-field-1">
+            <input type="text" onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');"  name="frindly_title" class="form-control col-sm-8 col-md-6" id="id-form-field-1">
             </div>
           </div>
 

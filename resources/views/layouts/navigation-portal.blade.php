@@ -11,9 +11,9 @@
                   <li class="nav-item {{isset($menu) ? ($menu=='dashboard' ? 'active open' : '') : ''}}">
 
                     <a href="{{route('portal.dashboard')}}" class="nav-link {{isset($menu) ? ($menu=='dashboard' ? '' : 'collapsed') : 'collapsed'}}">
-                    <i class="nav-icon fas fa-tachometer-alt"style="color:dark-white"></i>
+                    <i class="nav-icon fas fa-tachometer-alt" style="color:#fff"></i>
                       <span class="nav-text fadeable text-secondary">
-                              <span>Dashboard</span>
+                              <span style="color:#fff">Dashboard</span>
                       </span>
 
 
@@ -75,7 +75,7 @@
                           </a>
                         </li>
                         <li class="nav-item">
-                        <a href="" class="nav-link">
+                        <a href="{{route('portal.users.password')}}" class="nav-link">
                             <span class="nav-text">
                   				  <span> Change Password </span>
                             </span>
@@ -166,35 +166,76 @@
 </a>
 <div class="hideable submenu collapse {{isset($menu) ? ($menu=='system_setting' ? 'show' : '') : ''}}">
         <ul class="submenu-inner" style="background-color:#160C47">
-                <li class="nav-item">
-                        <a href="{{route('portal.roles.index')}}" class="nav-link">
+                <div class="hideable submenu collapse {{isset($menu) ? ($menu=='system_setting' ? 'show' : '') : ''}}">
+                        <ul class="submenu-inner">
+                        <li class="nav-item {{isset($sub_menu) ? ($sub_menu=='roles' ? 'active' : '') : ''}}">
+                                        <a href="{{route('portal.roles.index')}}" class="nav-link">
+                                                <span class="nav-text">
+                                                        <span>Roles</span>
+                                                </span>
+                                        </a>
+                                </li>
+                
+                
+                
+                        </ul>
+                </div>
+                <b class="sub-arrow"></b>
+                <div class="hideable submenu collapse {{isset($menu) ? ($menu=='system_setting' ? 'show' : '') : ''}}">
+                        <ul class="submenu-inner">
+                        <li class="nav-item {{isset($sub_menu) ? ($sub_menu=='users' ? 'active' : '') : ''}}">
+                                        <a href="{{route('portal.users.index')}}" class="nav-link">
+                                                <span class="nav-text">
+                                                        <span>Users</span>
+                                                </span>
+                                        </a>
+                                </li>
+                
+                
+                
+                        </ul>
+                </div>
+                <b class="sub-arrow"></b>
+                </li>
+               
+                      
+
+
+  <div class="hideable submenu collapse {{isset($menu) ? ($menu=='system_setting' ? 'show' : '') : ''}}">
+        <ul class="submenu-inner">
+        <li class="nav-item {{isset($sub_menu) ? ($sub_menu=='Permission' ? 'active' : '') : ''}}">
+                        <a href="{{url('permissions')}}" class="nav-link">
                                 <span class="nav-text">
-                                        <span>Roles</span>
+                                        <span>Permission</span>
                                 </span>
                         </a>
                 </li>
-                <li class="nav-item {{isset($sub_menu) ? ($sub_menu=='users' ? 'active' : '') : ''}}">
-                        <a href="{{route('portal.users.index')}}" class="nav-link">
-                                <span class="nav-text">
-                                        <span>Users</span>
-                                </span>
-                        </a>
-  </li>
-  <li class="nav-item">
-    <a href="{{url('permissions')}}" class="nav-link">
-        <span class="nav-text">
-            <span>Permission</span>
-        </span>
-    </a>
+
+
+
+        </ul>
+</div>
+<b class="sub-arrow"></b>
 </li>
 
-<li class="nav-item {{isset($sub_menu) ? ($sub_menu=='users' ? 'active' : '') : ''}}">
-    <a href="{{route('physicalstatus.index')}}" class="nav-link">
-            <span class="nav-text">
-                    <span>Physical Status</span>
-            </span>
-    </a>
+<div class="hideable submenu collapse {{isset($menu) ? ($menu=='system_setting' ? 'show' : '') : ''}}">
+        <ul class="submenu-inner">
+        <li class="nav-item {{isset($sub_menu) ? ($sub_menu=='physicalstatus' ? 'active' : '') : ''}}">
+                        <a href="{{route('physicalstatus.index')}}" class="nav-link">
+                                <span class="nav-text">
+                                        <span>Physical Status</span>
+                                </span>
+                        </a>
+                </li>
+
+
+
+        </ul>
+</div>
+<b class="sub-arrow"></b>
 </li>
+
+
         </ul>
 </div>
 <b class="sub-arrow"></b>
@@ -245,7 +286,7 @@
         <li class="nav-item {{isset($menu) ? ($menu=='homeremarks' ? 'active open' : '') : ''}}">
 
                 <a href="{{route('remarksfromhome')}}" class="nav-link {{isset($menu) ? ($menu=='homeremarks' ? '' : 'collapsed') : 'collapsed'}}">
-                <i class="nav-icon fa fa-cube" style="color:##fff"></i>
+                <i class="nav-icon fa fa-cube" style="color:#fff"></i>
                 <span class="nav-text fadeable">
                 <span>Remarks from home</span>
                 </span>

@@ -1,4 +1,8 @@
-@extends('layouts.portal')
+@extends('layouts.portal',
+[
+  'menu' => 'system_setting',
+  'sub_menu' => 'roles'
+])
 @section('module','Access Control System')
 @section('element','Add New Role')
 
@@ -33,8 +37,10 @@
 </div>
 <div class="col-xs-12 col-sm-12 col-md-12">
 <div class="form-group">
+<input id="selectAll" type="checkbox"><label for='selectAll'>Select All</label><br/>
 <strong>Permission:</strong>
 <br/>
+
 @foreach($permission as $value)
 <label>{{ Form::checkbox('permission[]', $value->id, false, array('class' => 'name')) }}
 {{ $value->name }}</label>

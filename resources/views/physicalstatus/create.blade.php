@@ -6,6 +6,16 @@
 @section('element','physicalstatus')
 
 @section('content')
+@if(count($errors) > 0)
+    <div class="alert alert-danger">
+        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+        </ul>
+    </div>
+@endif
 <div class="card bcard mt-2 mt-lg-3">
   <div class="card-header">
     <h3 class="card-title text-125">
@@ -36,7 +46,7 @@
 					<label for="physicalstatus" class="mb-0">Physical Status</label>
 				</div>
 				<div class="col-sm-5 col-12 tag-input-styler d-inline-flex align-items-center">
-					<input type="text" class="form-control form-control-lg pr-5" name="physicalstatus" id="name" placeholder="Enter physicalstatus">
+					<input  type="text" onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');"  class="form-control form-control-lg pr-5" name="physicalstatus" id="name" placeholder="Enter physicalstatus">
 				</div>
 			</div>
 
