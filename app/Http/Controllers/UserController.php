@@ -1,18 +1,16 @@
 <?php
 
-
 namespace App\Http\Controllers;
 
-
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Rules\MatchOldPassword;
 use App\User;
-use Spatie\Permission\Models\Role;
+use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Arr;
-use App\Rules\MatchOldPassword;
-use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -30,15 +28,15 @@ class UserController extends Controller
      */
     public function password(Request $request)
     {
-        if($request->isMethod('post')){
+        if ($request->isMethod('post')) {
             $request->validate([
                 'old_password' => ['required', new MatchOldPassword],
                 'new_password' => ['required'],
                 'new_confirm_password' => ['same:new_password'],
             ]);
 
-            User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
-            return redirect()->route('portal.users.password')->with('success','Password Change successfully');
+            User::find(auth()->user()->id)->update(['password' => Hash::make($request->new_password)]);
+            return redirect()->route('portal.users.password')->with('success', 'Password Change successfully');
         }
         return view('portal.users.password');
     }
@@ -46,16 +44,14 @@ class UserController extends Controller
     public function index(Request $request)
     {
         \Debugbar::info($request->input('search'));
-        $search= $request->input('search');
-        if($request->input('search')){
-            $data = User::where('name', 'LIKE', '%'.$search.'%')->orderBy('id','DESC')->paginate(20)->onEachSide(2);
+        $search = $request->input('search');
+        if ($request->input('search')) {
+            $data = User::where('name', 'LIKE', '%' . $search . '%')->orderBy('id', 'DESC')->paginate(20)->onEachSide(2);
+        } else {
+            $data = User::where('status', '1')->orderBy('id', 'DESC')->paginate(20)->onEachSide(2);
         }
-        else{
-            $data = User::where('status', '1')->orderBy('id','DESC')->paginate(20)->onEachSide(2);
-        }
-        return view('portal.users.index',compact('data', 'search'));
+        return view('portal.users.index', compact('data', 'search'));
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -65,9 +61,8 @@ class UserController extends Controller
     public function create()
     {
         $roles = Role::all();
-        return view('portal.users.create',compact('roles'));
+        return view('portal.users.create', compact('roles'));
     }
-
 
     /**
      * Store a newly created resource in storage.
@@ -81,10 +76,9 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|same:confirm-password',
-            'roles' => 'required'
+            'roles' => 'required',
 
         ]);
-
 
         $input = $request->all();
 
@@ -94,12 +88,11 @@ class UserController extends Controller
         $user->confined_in_jail = $request->get('confined_in_jail');
 
         $user->assignRole($request->input('roles'));
-$user->save();
+        $user->save();
 
         return redirect()->route('portal.users.index')
-                        ->with('success','User created successfully');
+            ->with('success', 'User created successfully');
     }
-
 
     /**
      * Display the specified resource.
@@ -110,9 +103,8 @@ $user->save();
     public function show($id)
     {
         $user = User::find($id);
-        return view('portal.users.show',compact('user'));
+        return view('portal.users.show', compact('user'));
     }
-
 
     /**
      * Show the form for editing the specified resource.
@@ -126,10 +118,8 @@ $user->save();
         $roles = Role::all();
         $userRole = $user->roles->pluck('name', 'name')->all();
 
-
-        return view('portal.users.edit',compact('user','roles','userRole'));
+        return view('portal.users.edit', compact('user', 'roles', 'userRole'));
     }
-
 
     /**
      * Update the specified resource in storage.
@@ -149,22 +139,21 @@ $user->save();
 
         $input = $request->all();
         \Debugbar::info($input);
-        if(!empty($input['password'])){
+        if (!empty($input['password'])) {
             $input['password'] = Hash::make($input['password']);
-        }else{
-            $input = Arr::except($input,array('password'));
+        } else {
+            $input = Arr::except($input, array('password'));
         }
 
         $user = User::find($id);
         $user->update($input);
-        DB::table('model_has_roles')->where('model_id',$id)->delete();
+        DB::table('model_has_roles')->where('model_id', $id)->delete();
 
         $user->assignRole($request->input('roles'));
 
         return redirect()->route('portal.users.index')
-                        ->with('success','User updated successfully');
+            ->with('success', 'User updated successfully');
     }
-
 
     /**
      * Remove the specified resource from storage.
@@ -174,24 +163,22 @@ $user->save();
      */
     public function destroy($id)
     {
-       $useractive= User::find($id);
-       $useractive->status='0';
-       $useractive->save();
+        $useractive = User::find($id);
+        $useractive->status = '0';
+        $useractive->save();
         return redirect()->route('portal.users.index')
-                        ->with('success','User deleted successfully');
+            ->with('success', 'User deleted successfully');
     }
 
-    public function profile(Request $request , $id)
+    public function profile(Request $request, $id)
     {
-        $id=  Auth::user()->id;
-          $user=  User::find($id);
-  
-        
+        $id = Auth::user()->id;
+        $user = User::find($id);
 
-        if($request->isMethod('post')){
+        if ($request->isMethod('post')) {
             return redirect()->route('portal.users.password');
         }
-        return view('portal.users.profile',compact('user'));
+        return view('portal.users.profile', compact('user'));
     }
 
 }

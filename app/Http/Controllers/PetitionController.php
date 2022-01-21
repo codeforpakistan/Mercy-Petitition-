@@ -2,134 +2,126 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\File;
 use App\Petition;
 use App\Section;
-Use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class PetitionController extends Controller
 {
 
-    function __construct()
+    public function __construct()
     {
-         $this->middleware('permission:jail-supt-list|jail-supt-create|jail-supt-edit|jail-supt-delete', ['only' => ['index','store']]);
-         $this->middleware('permission:jail-supt-create', ['only' => ['create','store']]);
-         $this->middleware('permission:jail-supt-edit', ['only' => ['edit','update']]);
-         $this->middleware('permission:jail-supt-delete', ['only' => ['destroy']]);
+        $this->middleware('permission:jail-supt-list|jail-supt-create|jail-supt-edit|jail-supt-delete', ['only' => ['index', 'store']]);
+        $this->middleware('permission:jail-supt-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:jail-supt-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:jail-supt-delete', ['only' => ['destroy']]);
     }
-    public function index(){
+    public function index()
+    {
 
-   if(Auth::user()->confined_in_jail ==""){
-    $petitions=Petition::orderBy("id","desc")->get();
-   }else{
-    $petitions=Petition::Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('status', 'IGP')->orderBy("id","desc")->get();
+        if (Auth::user()->confined_in_jail == "") {
+            $petitions = Petition::orderBy("id", "desc")->get();
+        } else {
+            $petitions = Petition::Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('status', 'IGP')->orderBy("id", "desc")->get();
 
-}
+        }
 
-
-        return view('IGP.index',compact('petitions'));
+        return view('IGP.index', compact('petitions'));
     }
-    public function search(Request $request){
-      $search = trim($request->input('search'));
+    public function search(Request $request)
+    {
+        $search = trim($request->input('search'));
 
-           if(Auth::user()->confined_in_jail==""){
+        if (Auth::user()->confined_in_jail == "") {
 
+            $petitions = Petition::where('confined_in_jail', $search)->
+                orWhere('name', 'like', "%{$search}%")->orWhere('gender', 'like', "%{$search}%")->
+                orWhere('nationality', 'like', "%{$search}%")->orWhere('f_name', 'like', "%{$search}%")->
+                orWhere('status', 'like', "%{$search}%")->get();
+        } else {
+            //   $pet=Petition::where('status','IGP')->where('confined_in_jail', Auth::user()->confined_in_jail)->get();
 
-        $petitions=Petition::where('confined_in_jail',  $search)->
-        orWhere('name',  'like', "%{$search}%" )->orWhere('gender',  'like', "%{$search}%"  )->
-        orWhere('nationality',  'like', "%{$search}%" )->orWhere('f_name',  'like', "%{$search}%"  )->
-        orWhere('status',  'like', "%{$search}%" )->get();
-           }else{
-         //   $pet=Petition::where('status','IGP')->where('confined_in_jail', Auth::user()->confined_in_jail)->get();
+            $petitions = Petition::where('status', 'IGP')->where('confined_in_jail', Auth::user()->confined_in_jail)->orWhere('name', $search)->orWhere('gender', $search)->
 
-            $petitions=Petition::where('status','IGP')->where('confined_in_jail', Auth::user()->confined_in_jail)->orWhere('name', $search )->orWhere('gender', $search)->
+                orWhere('nationality', $search)->orWhere('f_name', $search)->get();
 
-            orWhere('nationality',  $search  )->orWhere('f_name',  $search  )->get();
+        }
 
-
-           }
-
-        return view('IGP.petitionsearch',compact('petitions'));
+        return view('IGP.petitionsearch', compact('petitions'));
     }
-    public function view($id){
+    public function view($id)
+    {
 
-        $pets = Petition::with('fileattachements','sectionss')->get();
+        $pets = Petition::with('fileattachements', 'sectionss')->get();
 
         $petitions = $pets->find($id);
 
         return response()->json($petitions);
 
-
-
-
     }
-    public function  remarksfromhome(){
-        if(Auth::user()->confined_in_jail ==""){
-            $petitions=Petition::orderBy("id","desc")->get();
-           }else{
-        $petitions=Petition::Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('status', 'IGP')->Where('received_from_department', 'HomeDepartment')->orderBy("id","desc")->get();
-         
-           }
+    public function remarksfromhome()
+    {
+        if (Auth::user()->confined_in_jail == "") {
+            $petitions = Petition::orderBy("id", "desc")->get();
+        } else {
+            $petitions = Petition::Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('status', 'IGP')->Where('received_from_department', 'HomeDepartment')->orderBy("id", "desc")->get();
 
-    
-        return view('IGP.remarksfromhome',compact('petitions'));
+        }
+
+        return view('IGP.remarksfromhome', compact('petitions'));
     }
-    public function searchform(){
+    public function searchform()
+    {
         return view('IGP.searchform');
     }
-    public function create(){
+    public function create()
+    {
         $sections = Section::all();
 
-        return view('IGP.addpetition',compact('sections'));
+        return view('IGP.addpetition', compact('sections'));
     }
-    public function edit($id){
-
+    public function edit($id)
+    {
 
         $sections = Section::all();
-        $petitionsedit=Petition::find($id);
-       $filepetition=File::where('petition_id',$id)->first();
+        $petitionsedit = Petition::find($id);
+        $filepetition = File::where('petition_id', $id)->first();
 
-        return view('IGP.petitionsedit',compact('petitionsedit','sections','filepetition'));
+        return view('IGP.petitionsedit', compact('petitionsedit', 'sections', 'filepetition'));
     }
-    public function petitionremarksedit($id){
+    public function petitionremarksedit($id)
+    {
 
+        $petitionsedit = Petition::find($id);
 
-       
-        $petitionsedit=Petition::find($id);
-     
         $pets = Petition::with('fileattachements')->get();
 
         $petitions = $pets->find($id);
-       
-        foreach($petitions->fileattachements as $post){
-               $path=[];
-                $path = public_path()."/assets/image/".$post->file;
-            
-              
-                if(!isset($path)){ 
-                 
-                  
+
+        foreach ($petitions->fileattachements as $post) {
+            $path = [];
+            $path = public_path() . "/assets/image/" . $post->file;
+
+            if (!isset($path)) {
+
                 unlink($path);
-                }
-                
             }
-        $home= File::where('petition_id',$petitions->id)->get();
+
+        }
+        $home = File::where('petition_id', $petitions->id)->get();
         $home->each->delete();
-     
-     
-      
 
-
-        return view('IGP.petitionremarksedit',compact('petitionsedit','petitions'));
+        return view('IGP.petitionremarksedit', compact('petitionsedit', 'petitions'));
     }
 
     public function storepetition(Request $request)
     {
         // Validate the inputs
 
-    // file validation
+        // file validation
 
         $this->validate($request, [
             'prisoner_image' => 'required|mimes:jpeg,png,jpg,gif,svg',
@@ -137,62 +129,58 @@ class PetitionController extends Controller
             'health_paper' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
             'warrent_file' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
 
-             'name' => 'required|regex:/^[a-zA-Z0-9 ]+$/|max:20',
+            'name' => 'required|regex:/^[a-zA-Z0-9 ]+$/|max:20',
 
-        'f_name' => 'required|regex:/^[a-zA-Z0-9 ]+$/|max:20',
-        'nationality' => 'required|regex:/^[a-zA-Z0-9 ]+$/|max:20',
-        'physicalstatus' => 'required',
+            'f_name' => 'required|regex:/^[a-zA-Z0-9 ]+$/|max:20',
+            'nationality' => 'required|regex:/^[a-zA-Z0-9 ]+$/|max:20',
+            'physicalstatus' => 'required',
 
-        'gender' => 'required|regex:/^[a-zA-Z0-9 ]+$/|max:20',
-        'dob' => 'required',
+            'gender' => 'required|regex:/^[a-zA-Z0-9 ]+$/|max:20',
+            'dob' => 'required',
 
-        'firdate' => 'required|regex:/^[0-9.-]*$/',
-        'mercypetitiondate' => 'required',
-        'section_id' => 'required',
-        'warrent_date' =>  'required',
-        'date_of_sentence' =>  'required',
-        'sentence_in_court' =>'required|regex:/^[a-zA-Z0-9 ]+$/|max:100',
-        'warrent_information' => 'required|regex:/[a-zA-Z0-9\s]+/|max:255',
+            'firdate' => 'required|regex:/^[0-9.-]*$/',
+            'mercypetitiondate' => 'required',
+            'section_id' => 'required',
+            'warrent_date' => 'required',
+            'date_of_sentence' => 'required',
+            'sentence_in_court' => 'required|regex:/^[a-zA-Z0-9 ]+$/|max:100',
+            'warrent_information' => 'required|regex:/[a-zA-Z0-9\s]+/|max:255',
 
-           ]);
+        ]);
 
-           if ($request->hasFile('application_image') && $request->hasFile('prisoner_image') && $request->hasFile('warrent_file')) {
+        if ($request->hasFile('application_image') && $request->hasFile('prisoner_image') && $request->hasFile('warrent_file')) {
 
-                    //   $request->application_image->store('assets/image', 'public');
-                    //   $request->prisoner_image->store('assets/image', 'public');
-                    //   $request->warrent_file->store('assets/image', 'public');
-                      $application_image = time().'.'.$request->application_image->extension();
+            //   $request->application_image->store('assets/image', 'public');
+            //   $request->prisoner_image->store('assets/image', 'public');
+            //   $request->warrent_file->store('assets/image', 'public');
+            $application_image = time() . '.' . $request->application_image->extension();
 
-        $request->application_image->move(public_path('assets/image'), $application_image);
+            $request->application_image->move(public_path('assets/image'), $application_image);
 
-        $prisoner_image = time().'.'.$request->prisoner_image->extension();
+            $prisoner_image = time() . '.' . $request->prisoner_image->extension();
 
-        $request->prisoner_image->move(public_path('assets/image'), $prisoner_image);
+            $request->prisoner_image->move(public_path('assets/image'), $prisoner_image);
 
-        $warrent_file = time().'.'.$request->warrent_file->extension();
+            $warrent_file = time() . '.' . $request->warrent_file->extension();
 
-        $request->warrent_file->move(public_path('assets/image'), $warrent_file);
+            $request->warrent_file->move(public_path('assets/image'), $warrent_file);
 
+        }
+        if ($request->hasFile('health_paper')) {
 
-                   }
-                   if ($request->hasFile('health_paper')) {
+            // $request->health_paper->store('assets/image', 'public');
+            $health_paper = time() . '.' . $request->health_paper->extension();
 
-                    // $request->health_paper->store('assets/image', 'public');
-                    $health_paper = time().'.'.$request->health_paper->extension();
+            $request->health_paper->move(public_path('assets/image'), $health_paper);
 
-                    $request->health_paper->move(public_path('assets/image'), $health_paper);
+        }
 
-                 }
+        //  $now = date('Y-m-d',strttotime($request->get('warrent_date'))); //Fomat Date and time //you are overwriting this variable below
+        $warrent_date = Carbon::parse($request->get('warrent_date'))->format('Y-m-d');
 
-
-                //  $now = date('Y-m-d',strttotime($request->get('warrent_date'))); //Fomat Date and time //you are overwriting this variable below
-                $warrent_date = Carbon::parse($request->get('warrent_date'))->format('Y-m-d');
-
-                $date_of_sentence = Carbon::parse($request->get('date_of_sentence'))->format('Y-m-d');
-                $dob = Carbon::parse($request->get('dob'))->format('Y-m-d');
-                $mercypetitiondate = Carbon::parse($request->get('mercypetitiondate'))->format('Y-m-d');
-
-
+        $date_of_sentence = Carbon::parse($request->get('date_of_sentence'))->format('Y-m-d');
+        $dob = Carbon::parse($request->get('dob'))->format('Y-m-d');
+        $mercypetitiondate = Carbon::parse($request->get('mercypetitiondate'))->format('Y-m-d');
 
         $Petition = new Petition([
             "name" => $request->get('name'),
@@ -203,21 +191,21 @@ class PetitionController extends Controller
             "confined_in_jail" => Auth::user()->confined_in_jail,
             "gender" => $request->get('gender'),
             "dob" => $dob,
-            "user_id"=> Auth::user()->id,
+            "user_id" => Auth::user()->id,
             "firdate" => $request->get('firdate'),
             "mercypetitiondate" => $mercypetitiondate,
             "section_id" => $request->get('section_id'),
-            "warrent_date" =>  $warrent_date,
-            "date_of_sentence" =>  $date_of_sentence,
-            "sentence_in_court" =>$request->get('sentence_in_court'),
-            "warrent_information" =>strip_tags($request->warrent_information),
+            "warrent_date" => $warrent_date,
+            "date_of_sentence" => $date_of_sentence,
+            "sentence_in_court" => $request->get('sentence_in_court'),
+            "warrent_information" => strip_tags($request->warrent_information),
             "status" => "IGP",
-            
+
             "prisoner_image" => $prisoner_image,
-            "warrent_file" =>$warrent_file,
+            "warrent_file" => $warrent_file,
             "application_image" => $application_image,
             "health_paper" => $health_paper,
-            "remarks" =>strip_tags($request->remarks),
+            "remarks" => strip_tags($request->remarks),
 
         ]);
 
@@ -227,217 +215,187 @@ class PetitionController extends Controller
         //  "file" => json_encode($otherdocumentarry),
         // ]);
         // $file->save();
-        return redirect()->route('Petition.index')->with('message','Petion Successfully save');
+        return redirect()->route('Petition.index')->with('message', 'Petion Successfully save');
+    }
+
+    public function petitionupdate(Request $request, $id)
+    {
+
+        $petitionsedit = Petition::find($id);
+        if ($request->hasFile('warrent_file')) {
+
+            $warrent_file = time() . '.' . $request->warrent_file->extension();
+
+            $request->warrent_file->move(public_path('assets/image'), $warrent_file);
+
+            $petitionsedit->warrent_file = $warrent_file;
+
+        } else {
+
+            $petitionsedit->warrent_file = $petitionsedit->warrent_file;
         }
 
-        public function petitionupdate(Request $request,$id){
+        if ($request->hasFile('health_paper')) {
 
+            // $request->health_paper->store('assets/image', 'public');
+            $health_paper = time() . '.' . $request->health_paper->extension();
 
-            $petitionsedit=Petition::find($id);
-            if ($request->hasFile('warrent_file')) {
+            $request->health_paper->move(public_path('assets/image'), $health_paper);
+            $petitionsedit->health_paper = $health_paper;
+        } else {
+            $petitionsedit->health_paper = $petitionsedit->health_paper;
+        }
+        if ($request->hasFile('application_image')) {
 
+            // $request->health_paper->store('assets/image', 'public');
+            $application_image = time() . '.' . $request->application_image->extension();
 
-
-    $warrent_file = time().'.'.$request->warrent_file->extension();
-
-    $request->warrent_file->move(public_path('assets/image'), $warrent_file);
-
-    $petitionsedit->warrent_file = $warrent_file;
-
-
-               }else{
-
-                $petitionsedit->warrent_file =   $petitionsedit->warrent_file;
-               }
-
-
-               if ($request->hasFile('health_paper')) {
-
-                // $request->health_paper->store('assets/image', 'public');
-                $health_paper = time().'.'.$request->health_paper->extension();
-
-                $request->health_paper->move(public_path('assets/image'), $health_paper);
-                $petitionsedit->health_paper = $health_paper;
-             }else{
-                $petitionsedit->health_paper = $petitionsedit->health_paper ;
-             }
-             if ($request->hasFile('application_image')) {
-
-                // $request->health_paper->store('assets/image', 'public');
-                $application_image = time().'.'.$request->application_image->extension();
-
-                $request->application_image->move(public_path('assets/image'), $application_image);
-                $petitionsedit->application_image = $application_image;
-             }else{
-                $petitionsedit->application_image = $petitionsedit->application_image ;
-             }
-
-             if ($request->hasFile('prisoner_image')) {
-
-                // $request->health_paper->store('assets/image', 'public');
-                $prisoner_image = time().'.'.$request->prisoner_image->extension();
-
-                $request->prisoner_image->move(public_path('assets/image'), $prisoner_image);
-                $petitionsedit->prisoner_image = $prisoner_image;
-             }else{
-                $petitionsedit->prisoner_image = $petitionsedit->prisoner_image;
-             }
-
-
-
-            //  $now = date('Y-m-d',strttotime($request->get('warrent_date'))); //Fomat Date and time //you are overwriting this variable below
-            $warrent_date = Carbon::parse($request->get('warrent_date'))->format('Y-m-d');
-
-            $date_of_sentence = Carbon::parse($request->get('date_of_sentence'))->format('Y-m-d');
-            $dob = Carbon::parse($request->get('dob'))->format('Y-m-d');
-            $mercypetitiondate = Carbon::parse($request->get('mercypetitiondate'))->format('Y-m-d');
-
-
-
-            $petitionsedit->name = $request->get('name');
-
-            $petitionsedit->f_name = $request->get('f_name');
-            $petitionsedit->nationality = $request->get('nationality');
-            $petitionsedit->physicalstatus = $request->get('physicalstatus');
-            $petitionsedit->dob = $request->get('dob');
-
-            $petitionsedit->user_id = Auth::user()->id;
-
-            $petitionsedit->firdate = $request->get('fir&date');
-            $petitionsedit->mercypetitiondate = $mercypetitiondate;
-            $petitionsedit->confined_in_jail = Auth::user()->confined_in_jail;
-
-            $petitionsedit->gender = $request->get('gender');
-            $petitionsedit->section_id = $request->get('section_id');
-            $petitionsedit->warrent_date =  $warrent_date;
-            $petitionsedit->date_of_sentence = $date_of_sentence;
-            $petitionsedit->sentence_in_court = $request->get('sentence_in_court');
-            $petitionsedit->warrent_information = $request->get('warrent_information');
-            $petitionsedit->nationality = $request->get('nationality');
-
-
-
-            $petitionsedit->remarks = $request->get('remarks');
-
-
-
-            // $fileupdate = File::where('petition_id',$id)->first();
-
-          $fileupdate = File::where('petition_id',$petitionsedit->id)->first();
-
-            $petitionsedit->save();
-            // $fileupdate->save();
-            return redirect()->route('Petition.index')
-                        ->with('success','Product deleted successfully');
+            $request->application_image->move(public_path('assets/image'), $application_image);
+            $petitionsedit->application_image = $application_image;
+        } else {
+            $petitionsedit->application_image = $petitionsedit->application_image;
         }
 
-        //petition remarks and file update
-        public function petitionremarksupdate(Request $request,$id){
+        if ($request->hasFile('prisoner_image')) {
 
+            // $request->health_paper->store('assets/image', 'public');
+            $prisoner_image = time() . '.' . $request->prisoner_image->extension();
 
-            $petitionsedit=Petition::find($id);
+            $request->prisoner_image->move(public_path('assets/image'), $prisoner_image);
+            $petitionsedit->prisoner_image = $prisoner_image;
+        } else {
+            $petitionsedit->prisoner_image = $petitionsedit->prisoner_image;
+        }
 
-            
-            $petitionsedit->remarks = strip_tags($request->get('remarks'));
-            $petitionsedit->received_from_department ="IGP";
-        
-            $petitionsedit->status = $request->get('status');
+        //  $now = date('Y-m-d',strttotime($request->get('warrent_date'))); //Fomat Date and time //you are overwriting this variable below
+        $warrent_date = Carbon::parse($request->get('warrent_date'))->format('Y-m-d');
 
-            $petitionsedit->save();
-            // $fileupdate = File::where('petition_id',$id)->first();
+        $date_of_sentence = Carbon::parse($request->get('date_of_sentence'))->format('Y-m-d');
+        $dob = Carbon::parse($request->get('dob'))->format('Y-m-d');
+        $mercypetitiondate = Carbon::parse($request->get('mercypetitiondate'))->format('Y-m-d');
 
-         
-        
-            if ($request->file('otherdocument')) {
-                   
-                foreach($request->file('otherdocument') as $file)
-                {
-                $otherdocument = time().rand(10,100).'.'.$file->extension();
-        
+        $petitionsedit->name = $request->get('name');
+
+        $petitionsedit->f_name = $request->get('f_name');
+        $petitionsedit->nationality = $request->get('nationality');
+        $petitionsedit->physicalstatus = $request->get('physicalstatus');
+        $petitionsedit->dob = $request->get('dob');
+
+        $petitionsedit->user_id = Auth::user()->id;
+
+        $petitionsedit->firdate = $request->get('fir&date');
+        $petitionsedit->mercypetitiondate = $mercypetitiondate;
+        $petitionsedit->confined_in_jail = Auth::user()->confined_in_jail;
+
+        $petitionsedit->gender = $request->get('gender');
+        $petitionsedit->section_id = $request->get('section_id');
+        $petitionsedit->warrent_date = $warrent_date;
+        $petitionsedit->date_of_sentence = $date_of_sentence;
+        $petitionsedit->sentence_in_court = $request->get('sentence_in_court');
+        $petitionsedit->warrent_information = $request->get('warrent_information');
+        $petitionsedit->nationality = $request->get('nationality');
+
+        $petitionsedit->remarks = $request->get('remarks');
+
+        // $fileupdate = File::where('petition_id',$id)->first();
+
+        $fileupdate = File::where('petition_id', $petitionsedit->id)->first();
+
+        $petitionsedit->save();
+        // $fileupdate->save();
+        return redirect()->route('Petition.index')
+            ->with('success', 'Product deleted successfully');
+    }
+
+    //petition remarks and file update
+    public function petitionremarksupdate(Request $request, $id)
+    {
+
+        $petitionsedit = Petition::find($id);
+
+        $petitionsedit->remarks = strip_tags($request->get('remarks'));
+        $petitionsedit->received_from_department = "IGP";
+
+        $petitionsedit->status = $request->get('status');
+
+        $petitionsedit->save();
+        // $fileupdate = File::where('petition_id',$id)->first();
+
+        if ($request->file('otherdocument')) {
+
+            foreach ($request->file('otherdocument') as $file) {
+                $otherdocument = time() . rand(10, 100) . '.' . $file->extension();
+
                 $file->move(public_path('assets/image'), $otherdocument);
-            $otherexplode =  explode(".",$otherdocument);
-        
+                $otherexplode = explode(".", $otherdocument);
+
                 $file = new File([
-                    'petition_id'=>$petitionsedit->id,
-                    "file" =>  $otherdocument,
-                    "type"=> $otherexplode["1"],
-    
-                   ]);
-        
-                   $file->save();
-        
-                }
-      
-        
-             }
-      
-         
- 
-       
-            return redirect()->route('remarksfromhome')
-                        ->with('success','Petition forward successfully');
+                    'petition_id' => $petitionsedit->id,
+                    "file" => $otherdocument,
+                    "type" => $otherexplode["1"],
+
+                ]);
+
+                $file->save();
+
+            }
+
         }
 
+        return redirect()->route('remarksfromhome')
+            ->with('success', 'Petition forward successfully');
+    }
 
+    public function forwardpetition($id)
+    {
 
-        public function forwardpetition($id){
+        return view('IGP.forward');
+    }
+    public function forwardhomedepartment(Request $request, $id)
+    {
 
-            return view('IGP.forward');
+        $forwardhomedepartment = Petition::find($id);
+        $forwardhomedepartment->remarks = strip_tags($request->get('remarks'));
+        $forwardhomedepartment->status = $request->get('status');
+        $forwardhomedepartment->received_from_department = "IGP";
+        $forwardhomedepartment->save();
+        if ($request->file('otherdocument')) {
+            $otherdocumentarry = [];
+            foreach ($request->file('otherdocument') as $file) {
+                $otherdocument = time() . '.' . $file->extension();
+
+                $file->move(public_path('assets/image'), $otherdocument);
+                $otherexplode = explode(".", $otherdocument);
+
+                $file = new File([
+                    'petition_id' => $forwardhomedepartment->id,
+                    "file" => $otherdocument,
+                    "type" => $otherexplode["1"],
+
+                ]);
+
+                $file->save();
+
             }
-            public function forwardhomedepartment(Request $request, $id){
 
-
-
-
-
-           $forwardhomedepartment= Petition::find($id);
-           $forwardhomedepartment->remarks = strip_tags($request->get('remarks'));
-           $forwardhomedepartment->status = $request->get('status');
-           $forwardhomedepartment->received_from_department = "IGP";
-           $forwardhomedepartment->save();
-           if ($request->file('otherdocument')) {
-            $otherdocumentarry=[];
-            foreach($request->file('otherdocument') as $file)
-            {
-            $otherdocument = time().'.'.$file->extension();
-
-            $file->move(public_path('assets/image'), $otherdocument);
-        $otherexplode =  explode(".",$otherdocument);
-
-            $file = new File([
-                'petition_id'=>$forwardhomedepartment->id,
-                "file" =>  $otherdocument,
-                "type"=> $otherexplode["1"],
-
-               ]);
-
-               $file->save();
-
-            }
-
-         }
+        }
 
         //    $otherdoc= File::where('petition_id',$forwardhomedepartment->id)->first();
         //    $otherdoc->file = $otherdocument;
         //    $otherdoc->type = $file['1'];
         //    $otherdoc->save();
-           return redirect()->route('Petition.index')->with('message','Petion Forward Successfully ');
-                }
+        return redirect()->route('Petition.index')->with('message', 'Petion Forward Successfully ');
+    }
 
-        public function reportform(){
-            if(Auth::user()->confined_in_jail ==""){
-                $petitions=Petition::orderBy("id","desc")->get();
-               }else{
-                $petitions=Petition::Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('status', 'IGP')->Where('received_from_department', 'IGP')->orderBy("id","desc")->get();
-               }
-            
-            
-                    return view('IGP.reportform',compact('petitions'));
-                }
+    public function reportform()
+    {
+        if (Auth::user()->confined_in_jail == "") {
+            $petitions = Petition::orderBy("id", "desc")->get();
+        } else {
+            $petitions = Petition::Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('status', 'IGP')->Where('received_from_department', 'IGP')->orderBy("id", "desc")->get();
+        }
 
-     
-
-
-        
+        return view('IGP.reportform', compact('petitions'));
+    }
 
 }

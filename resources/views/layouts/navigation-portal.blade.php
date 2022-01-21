@@ -75,7 +75,7 @@
                           </a>
                         </li>
                         <li class="nav-item">
-                        <a href="{{route('portal.users.password')}}" class="nav-link">
+                        <a href="" class="nav-link">
                             <span class="nav-text">
                   				  <span> Change Password </span>
                             </span>
@@ -166,6 +166,7 @@
 </a>
 <div class="hideable submenu collapse {{isset($menu) ? ($menu=='system_setting' ? 'show' : '') : ''}}">
         <ul class="submenu-inner" style="background-color:#160C47">
+               
                 <div class="hideable submenu collapse {{isset($menu) ? ($menu=='system_setting' ? 'show' : '') : ''}}">
                         <ul class="submenu-inner">
                         <li class="nav-item {{isset($sub_menu) ? ($sub_menu=='roles' ? 'active' : '') : ''}}">
@@ -181,6 +182,7 @@
                         </ul>
                 </div>
                 <b class="sub-arrow"></b>
+                </li>
                 <div class="hideable submenu collapse {{isset($menu) ? ($menu=='system_setting' ? 'show' : '') : ''}}">
                         <ul class="submenu-inner">
                         <li class="nav-item {{isset($sub_menu) ? ($sub_menu=='users' ? 'active' : '') : ''}}">
@@ -197,45 +199,23 @@
                 </div>
                 <b class="sub-arrow"></b>
                 </li>
-               
-                      
-
-
-  <div class="hideable submenu collapse {{isset($menu) ? ($menu=='system_setting' ? 'show' : '') : ''}}">
-        <ul class="submenu-inner">
-        <li class="nav-item {{isset($sub_menu) ? ($sub_menu=='Permission' ? 'active' : '') : ''}}">
-                        <a href="{{url('permissions')}}" class="nav-link">
-                                <span class="nav-text">
-                                        <span>Permission</span>
-                                </span>
-                        </a>
-                </li>
-
-
-
-        </ul>
-</div>
-<b class="sub-arrow"></b>
+                
+         
+  <li class="nav-item {{isset($sub_menu) ? ($sub_menu=='Permission' ? 'active' : '') : ''}}">
+    <a href="{{url('permissions')}}" class="nav-link">
+        <span class="nav-text">
+            <span>Permission</span>
+        </span>
+    </a>
 </li>
 
-<div class="hideable submenu collapse {{isset($menu) ? ($menu=='system_setting' ? 'show' : '') : ''}}">
-        <ul class="submenu-inner">
-        <li class="nav-item {{isset($sub_menu) ? ($sub_menu=='physicalstatus' ? 'active' : '') : ''}}">
-                        <a href="{{route('physicalstatus.index')}}" class="nav-link">
-                                <span class="nav-text">
-                                        <span>Physical Status</span>
-                                </span>
-                        </a>
-                </li>
-
-
-
-        </ul>
-</div>
-<b class="sub-arrow"></b>
+<li class="nav-item {{isset($sub_menu) ? ($sub_menu=='physicalstatus' ? 'active' : '') : ''}}">
+    <a href="{{route('physicalstatus.index')}}" class="nav-link">
+            <span class="nav-text">
+                    <span>Physical Status</span>
+            </span>
+    </a>
 </li>
-
-
         </ul>
 </div>
 <b class="sub-arrow"></b>
