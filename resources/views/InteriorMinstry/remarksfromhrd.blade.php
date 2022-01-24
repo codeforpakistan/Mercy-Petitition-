@@ -116,7 +116,7 @@
 
 
                                             <th>
-                                                Name
+                                                Prisoner Name
                                             </th>
 
                                             <th>

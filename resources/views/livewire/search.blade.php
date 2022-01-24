@@ -27,11 +27,11 @@
 
 
                     <th>
-                        Name
+                      Prisoner Name
                     </th>
 
                     <th>
-                        F_Name
+                        Father Name
                     </th>
 
                     <th class="d-none d-sm-table-cell">
@@ -39,7 +39,7 @@
                     </th>
 
                     <th class='d-none d-sm-table-cell'>
-                        Confined IN Jail
+                        Confined In Jail
                     </th>
                     <th class='d-none d-sm-table-cell'>
                         Status
@@ -50,7 +50,7 @@
 
 
                     <th class="d-none d-sm-table-cell">
-                        Prisonerimage
+                        Prisoner Image
                     </th>
 
 

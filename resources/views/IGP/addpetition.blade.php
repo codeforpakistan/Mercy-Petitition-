@@ -29,12 +29,12 @@
 
             </div><br />
             @endif -->
-            <form style="margin-left:12px; margin-right:12px;padding-top:12px" action="{{ route('storepetition') }}"
+            <form style=" margin-left:12px; margin-right:12px;padding-top:12px" action="{{ route('storepetition') }}"
                 method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="inputEmail4">Name</label>
+                        <label for="inputEmail4">Prisoner Name</label>
                         <input type="text" onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');"
                             class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" name="name"
                             class="form-control" id="inputEmail4" placeholder="Enter Name">
@@ -103,6 +103,7 @@
                             <option value='TB'>TB</option>
                             <option value='Cancer'>Cancer</option>
                             <option value='LungsCancer'>LungsCancer</option>
+                            <option value='Normall'>Normall</option>
                         </select>
                         @error('physicalstatus')
                             <span class="invalid-feedback" role="alert">
