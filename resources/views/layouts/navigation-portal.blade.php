@@ -132,8 +132,8 @@
                                 </span>
                         </a>
                 </li>
-               
-               
+
+
                 <li class="nav-item {{isset($sub_menu) ? ($sub_menu=='users' ? 'active' : '') : ''}}">
                         <a href="{{route('portal.users.index')}}" class="nav-link">
                             <span class="nav-text">
@@ -141,7 +141,7 @@
                             </span>
                         </a>
                     </li>
-         
+
   <li class="nav-item {{isset($sub_menu) ? ($sub_menu=='Permission' ? 'active' : '') : ''}}">
     <a href="{{url('permissions')}}" class="nav-link">
         <span class="nav-text">
@@ -154,6 +154,13 @@
     <a href="{{route('physicalstatus.index')}}" class="nav-link">
             <span class="nav-text">
                     <span>Physical Status</span>
+            </span>
+    </a>
+</li>
+<li class="nav-item {{isset($sub_menu) ? ($sub_menu=='LogPetition' ? 'active' : '') : ''}}">
+    <a href="{{route('logpetition')}}" class="nav-link">
+            <span class="nav-text">
+                    <span>Log Petition</span>
             </span>
     </a>
 </li>
@@ -170,40 +177,40 @@
         <span class="nav-text fadeable">
         <span>Petiton Search</span>
         </span>
-        
-        
+
+
         </a>
-        
+
         <b class="sub-arrow"></b>
-        
+
         </li>
         <li class="nav-item {{isset($menu) ? ($menu=='Accepted' ? 'active open' : '') : ''}}">
-        
+
                 <a href="{{route('accepted')}}" class="nav-link {{isset($menu) ? ($menu=='Accepted' ? '' : 'collapsed') : 'collapsed'}}">
                 <i class="nav-icon fa fa-cube" style="color:#fff"></i>
                   <span class="nav-text fadeable">
                           <span>Accepted Petition</span>
                   </span>
-        
-        
+
+
                 </a>
-        
+
                 <b class="sub-arrow"></b>
-        
+
                 </li>
                 <li class="nav-item {{isset($menu) ? ($menu=='Rejected' ? 'active open' : '') : ''}}">
-        
+
                         <a href="{{route('rejected')}}" class="nav-link {{isset($menu) ? ($menu=='Rejected' ? '' : 'collapsed') : 'collapsed'}}">
                         <i class="nav-icon fa fa-cube" style="color:#fff"></i>
                           <span class="nav-text fadeable">
                                   <span>Rejected Petition</span>
                           </span>
-        
-        
+
+
                         </a>
-        
+
                         <b class="sub-arrow"></b>
-        
+
                         </li>
 
 @can('jail-supt-list')

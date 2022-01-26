@@ -277,23 +277,23 @@
 
                              <div class="form-group col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 mt-2 mt-md-1">
                             <div class="d-flex align-items-center input-floating-label text-blue brc-blue-m2">
-
+{{--
                 <div class="captcha">
                     <span>{!! captcha_img() !!}</span>
                     <button type="button" class="btn btn-danger" class="reload" id="reload">
                         &#x21bb;
                     </button>
-                </div>
+                </div> --}}
 
 </div>
                           </div>
-                          <div class="form-group col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 mt-2 mt-md-1">
+                          {{-- <div class="form-group col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 mt-2 mt-md-1">
                             <div class="d-flex align-items-center input-floating-label text-blue brc-blue-m2">
                             <input id="captcha" type="text" class="form-control" placeholder="Enter Captcha" name="captcha">
 
 
                             </div>
-                          </div>
+                          </div> --}}
 
 
                           <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-right text-md-right mt-n2 mb-2">

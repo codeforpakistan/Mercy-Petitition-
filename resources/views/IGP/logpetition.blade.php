@@ -1,6 +1,6 @@
 @extends('layouts.portal', [
 'menu' => 'IGP',
-'sub_menu' => 'Petition'
+'sub_menu' => 'LogPetition'
 ])
 @section('module', 'IGP Management')
 @section('element', 'LogPetition')
@@ -49,7 +49,7 @@
         }
 
     </style>
-   
+
         @if (Session::has('message'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <strong>{{ Session::get('message') }}!</strong> .
@@ -106,7 +106,7 @@
                                     </form>
                                 </div>
 
-                                
+
                             </div>
                             @if (!$logpetitions->isEmpty())
                             @if ($errors->any())
@@ -145,7 +145,7 @@
                                             Confined in Jail
                                         </th>
 
-                                       
+
                                         <th class='d-none d-sm-table-cell'>
                                            Department
                                         </th>
@@ -154,11 +154,11 @@
                                         </th>
 
                                         <th>User</th>
-                                        
+
                                     </tr>
                                 </thead>
                                 @foreach ($logpetitions as $petion)
-                             
+
                                     <tbody class="mt-1">
                                         <tr class="bgc-h-yellow-l4 d-style">
 
@@ -175,7 +175,7 @@
                                                 {{ $petion->petitions->confined_in_jail }}
                                             </td>
 
-                                           
+
                                             <td class='d-none d-sm-table-cell text-grey text-95'>
                                                 @if ($petion->department == 'Accepted')
                                                     <span class="badge badge-success mr-1">
@@ -192,35 +192,37 @@
 
                                             </td>
                                             <td class='d-none d-sm-table-cell'>
-                                                {{ $petion->created_at}}
+                                                {{-- {{ $petion->created_at}}
+                                                 --}}
+                                               {{ $petion->created_at->timezone($visitor['timezone']) }}
 
                                             </td>
 
                                             <td class='text-center pr-0'>
-                                               
-                                                    {{ $petion->users->name}}  
+
+                                                    {{ $petion->users->name}}
 
                                             <td>
                                                 <!-- action buttons -->
-                                                
+
 
                                                 <!-- show a dropdown in mobile -->
-                                                 
+
 
                                             </td>
                                         </tr>
 
                                     </tbody>
                                 @endforeach
-                               
+
                             </table>
-                       
-                            
-                        
-                       
+
+
+
+
                         </div><!-- /.card-body -->
-                   
-                          
+
+
 
 
 
@@ -234,7 +236,7 @@
 
 
 
-                                                     
+
                                 </div><!-- /.card -->
                             </div><!-- /.col -->
                         </div><!-- /.row -->
@@ -245,5 +247,5 @@
                 </div><!-- /.row -->
             </div><!-- /.row -->
         </div><!-- /.row -->
-         
+
 @endsection
