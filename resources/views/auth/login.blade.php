@@ -126,7 +126,12 @@
                             <div class="mt-auto mb-4 text-dark-tp2">
                                 KP Government Innovation Fellowship
                                 &copy; 2021
+
                             </div>
+                            <span class="text-danger"><img src="{{ asset('assets/image/cfp.png') }}"
+                                style="width: 150px" ;></span>
+
+
                           </div>
                         </div>
 
