@@ -40,6 +40,10 @@ class User extends Authenticatable
 
     public function petitions()
     {
-        return $this->hasMany(Petition::class);
+        return $this->hasMany(Petition::class,'petition_id');
+    }
+    public function logpetitions()
+    {
+        return $this->hasMany(LogPetition::class,'user_id');
     }
 }

@@ -7,6 +7,7 @@ use App\HomeDepartment;
 use App\HumanRightDepartment;
 use App\InteriorMinistry;
 use App\Petition;
+use App\LogPetition;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -81,7 +82,7 @@ class InteriorMinstryController extends Controller
         if ($request->file('otherdocument')) {
             $otherdocumentarry = [];
             foreach ($request->file('otherdocument') as $file) {
-                $otherdocument = time() . rand(10, 100) . '.' . $file->extension();
+                $otherdocument = $file->getClientOriginalName();;
 
                 $file->move(public_path('assets/image'), $otherdocument);
                 $otherexplode = explode(".", $otherdocument);
@@ -96,6 +97,12 @@ class InteriorMinstryController extends Controller
                 $file->save();
 
             }
+            $logPetitions =  new LogPetition([
+                "user_id" => Auth::user()->id,
+                "department" => $request->get('status'),
+                "petition_id" => $interiorministrydecision->id,
+            ]);
+            $logPetitions->save();
         }
 
         return redirect()->route('InteriorMinstry.index')->with('message', 'Petion Forward Successfully ');

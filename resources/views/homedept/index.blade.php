@@ -266,7 +266,7 @@
                                 @endforeach
                             </table>
 
-
+                        </div>
 
 
                         </div><!-- /.card-body -->

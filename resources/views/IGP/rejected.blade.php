@@ -211,7 +211,7 @@
                                 </tbody>
 
                             </table>
-
+                            {{ $Rejected->links() }}
                         </div>
 
 

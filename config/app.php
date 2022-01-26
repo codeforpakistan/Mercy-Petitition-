@@ -233,6 +233,8 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Captcha' => Mews\Captcha\Facades\Captcha::class,
+        'RateLimiter' => Illuminate\Support\Facades\RateLimiter::class,
+
     ],
 
 ];

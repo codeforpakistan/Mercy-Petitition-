@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('web')->group(base_path('routes/portal.php'));
 
-Route::get('/', function () {
+Route::middleware('throttle:4|60,1')->get('/', function () {
     return view('auth.login');
 });
 
@@ -31,6 +31,7 @@ Route::get('remarks/{id}', 'HomeController@view')->name('remarksview');
 Route::get('/homeremarks', 'HomeDepartmentController@remarksfrominterior')->name('remarksfrominterior');
 Route::get('/homesearch', 'HomeDepartmentController@homesearch')->name('homesearch');
 Route::get('/search', 'PetitionController@search')->name('petitionsearch');
+Route::get('/logpetition', 'PetitionController@logpetition')->name('logpetition');
 Route::get('/Homeforward/{id}', 'HomeDepartmentController@forwardpetition')->name('home-forward');
 Route::get('/homeremarksedit/{id}', 'HomeDepartmentController@homeremarksedit')->name('homeremarksedit');
 Route::Post('/forwardinteriorministrydepartment/{id}', 'HomeDepartmentController@forwardinteriorministrydepartment')->name('forwardinteriorministrydepartment');

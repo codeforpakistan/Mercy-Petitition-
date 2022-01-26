@@ -7,7 +7,7 @@
     <!-- here is start 2nd row -->
     <!-- stat boxes -->
     <div class="row px-2 mt-3">
-        @can('user-list')
+        @can('jail-supt-list')
             <div class="col-12 col-sm-6 col-lg-4 px-2 mb-2 mb-lg-0">
                 <div class="bcard h-100 d-flex align-items-center p-3">
                     <div>
@@ -46,7 +46,7 @@
 
                     <div class="ml-3">
                         <div class="pos-rel">
-                            <span class="text-dark-tp3 text-180">{{ $newpetitionToday }}</span>
+                            <span class="text-dark-tp3 text-180"></span>
 
                         </div>
                         <div class="text-dark-tp4 text-110">New Petitions</div>
@@ -107,11 +107,11 @@
                     <div class="ml-3">
                         <div class="pos-rel">
 
-                            <span class="text-dark-tp3 text-180">85k</span>
+                            <span class="text-dark-tp3 text-180">{{$HomeDepartment}}</span>
 
 
                         </div>
-                        <div class="text-dark-tp4">Total Petitions</div>
+                        <div class="text-dark-tp4">Total HomeDeparment Petitions</div>
                     </div>
 
                     <div class="position-tr m-1">
@@ -182,6 +182,8 @@
 
 
         @endcan
+    </div>
+    <div class="row px-2 mt-3">
         @can('interior-list')
 
             <div class="col-12 col-sm-6 col-lg-4 px-2 mb-2 mb-lg-0">
@@ -195,11 +197,11 @@
                     <div class="ml-3">
                         <div class="pos-rel">
 
-                            <span class="text-dark-tp3 text-180">85k</span>
+                            <span class="text-dark-tp3 text-180">{{$InteriorMinistryDepartment}}</span>
 
 
                         </div>
-                        <div class="text-dark-tp4">Total Petitions</div>
+                        <div class="text-dark-tp4">Total interiorMinistryDepartment Petitions</div>
                     </div>
 
                     <div class="position-tr m-1">
@@ -268,7 +270,8 @@
                 </div>
             </div>
         @endcan
-
+    </div>
+    <div class="row px-2 mt-3">
         @can('HumanRightDepartment-list')
             <div class="col-12 col-sm-6 col-lg-4 px-2 mb-2 mb-lg-0">
                 <div class="bcard h-100 d-flex align-items-center p-3">
@@ -281,7 +284,7 @@
 
                     <div class="ml-3 flex-grow-1">
                         <div>
-                            <span class="text-dark-tp3 text-180">2343</span>
+                            <span class="text-dark-tp3 text-180">{{$HumanRightDepartment}}</span>
 
 
                         </div>
@@ -317,7 +320,7 @@
                 <div class="ml-3">
                     <div class="pos-rel">
 
-                        <span class="text-dark-tp3 text-180">85k</span>
+                        <span class="text-dark-tp3 text-180">{{$Accepted}}</span>
 
 
                         </span>
@@ -345,7 +348,7 @@
 
                 <div class="ml-3">
                     <div class="pos-rel">
-                        <span class="text-dark-tp3 text-180">369</span>
+                        <span class="text-dark-tp3 text-180">{{$Rejected}}</span>
 
                     </div>
                     <div class="text-dark-tp4 text-110">Rejected Petition</div>

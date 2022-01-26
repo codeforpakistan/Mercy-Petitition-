@@ -49,7 +49,7 @@
         }
 
     </style>
-    @if (!$petitions->isEmpty())
+   
         @if (Session::has('message'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <strong>{{ Session::get('message') }}!</strong> .
@@ -114,7 +114,7 @@
                                     </a>
                                 </div>
                             </div>
-
+                            @if (!$petitions->isEmpty())
                             @if ($errors->any())
                                 <div class="alert alert-danger">
 
@@ -264,15 +264,13 @@
                                             </td>
                                         </tr>
 
-
-
-
                                     </tbody>
                                 @endforeach
                             </table>
-
-
-
+                       
+                            {{ $petitions->links() }}
+                        
+                       
                         </div><!-- /.card-body -->
                         <div class="modal fade modal-fs" id="modalFullscreen" tabindex="-1" role="dialog"
                             aria-labelledby="exampleModalLabel2" aria-hidden="true">
@@ -765,8 +763,12 @@
                                 </div><!-- /.card -->
                             </div><!-- /.col -->
                         </div><!-- /.row -->
+                        @else
+                        <h4 style="background-color:#800000; text-align:center;color:#fff"> Record Not Yet Added!</h4>
+        @endif
                     </div><!-- /.row -->
-                @else
-                    <h4 style="background-color:#800000; text-align:center;color:#fff"> Record Not Yet Added!</h4>
-    @endif
+                </div><!-- /.row -->
+            </div><!-- /.row -->
+        </div><!-- /.row -->
+         
 @endsection

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\File;
 use App\Petition;
 use App\Section;
+use App\LogPetition;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -23,9 +24,9 @@ class PetitionController extends Controller
     {
 
         if (Auth::user()->confined_in_jail == "") {
-            $petitions = Petition::orderBy("id", "desc")->get();
+            $petitions = Petition::orderBy("id", "desc")->paginate(5);
         } else {
-            $petitions = Petition::Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('status', 'IGP')->orderBy("id", "desc")->get();
+            $petitions = Petition::Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('status', 'IGP')->orderBy("id", "desc")->paginate(5);
 
         }
 
@@ -40,13 +41,13 @@ class PetitionController extends Controller
             $petitions = Petition::where('confined_in_jail', $search)->
                 orWhere('name', 'like', "%{$search}%")->orWhere('gender', 'like', "%{$search}%")->
                 orWhere('nationality', 'like', "%{$search}%")->orWhere('f_name', 'like', "%{$search}%")->
-                orWhere('status', 'like', "%{$search}%")->get();
+                orWhere('status', 'like', "%{$search}%")->paginate(5);
         } else {
             //   $pet=Petition::where('status','IGP')->where('confined_in_jail', Auth::user()->confined_in_jail)->get();
 
             $petitions = Petition::where('status', 'IGP')->where('confined_in_jail', Auth::user()->confined_in_jail)->orWhere('name', $search)->orWhere('gender', $search)->
 
-                orWhere('nationality', $search)->orWhere('f_name', $search)->get();
+                orWhere('nationality', $search)->orWhere('f_name', $search)->paginate(5);
 
         }
 
@@ -62,12 +63,20 @@ class PetitionController extends Controller
         return response()->json($petitions);
 
     }
+    public function logpetition()
+    {
+
+        $logpetitions = LogPetition::with('petitions', 'users')->get();
+        return view('IGP.logpetition', compact('logpetitions'));
+     
+
+    }
     public function remarksfromhome()
     {
         if (Auth::user()->confined_in_jail == "") {
-            $petitions = Petition::orderBy("id", "desc")->get();
+            $petitions = Petition::orderBy("id", "desc")->paginate(5);
         } else {
-            $petitions = Petition::Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('status', 'IGP')->Where('received_from_department', 'HomeDepartment')->orderBy("id", "desc")->get();
+            $petitions = Petition::Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('status', 'IGP')->Where('received_from_department', 'HomeDepartment')->orderBy("id", "desc")->paginate(5);
 
         }
 
@@ -153,15 +162,18 @@ class PetitionController extends Controller
             //   $request->application_image->store('assets/image', 'public');
             //   $request->prisoner_image->store('assets/image', 'public');
             //   $request->warrent_file->store('assets/image', 'public');
-            $application_image = time() . '.' . $request->application_image->extension();
+
+          //  $application_image = time() . '.' . $request->application_image->extension();
+          $application_image = $request->file('application_image')->getClientOriginalName();
+        //   dd($application_image);
 
             $request->application_image->move(public_path('assets/image'), $application_image);
 
-            $prisoner_image = time() . '.' . $request->prisoner_image->extension();
+            $prisoner_image = $request->file('prisoner_image')->getClientOriginalName();
 
             $request->prisoner_image->move(public_path('assets/image'), $prisoner_image);
 
-            $warrent_file = time() . '.' . $request->warrent_file->extension();
+            $warrent_file = $request->file('warrent_file')->getClientOriginalName();
 
             $request->warrent_file->move(public_path('assets/image'), $warrent_file);
 
@@ -169,7 +181,7 @@ class PetitionController extends Controller
         if ($request->hasFile('health_paper')) {
 
             // $request->health_paper->store('assets/image', 'public');
-            $health_paper = time() . '.' . $request->health_paper->extension();
+            $health_paper = $request->file('health_paper')->getClientOriginalName();
 
             $request->health_paper->move(public_path('assets/image'), $health_paper);
 
@@ -215,6 +227,7 @@ class PetitionController extends Controller
         //  "file" => json_encode($otherdocumentarry),
         // ]);
         // $file->save();
+       
         return redirect()->route('Petition.index')->with('message', 'Petion Successfully save');
     }
 
@@ -224,7 +237,7 @@ class PetitionController extends Controller
         $petitionsedit = Petition::find($id);
         if ($request->hasFile('warrent_file')) {
 
-            $warrent_file = time() . '.' . $request->warrent_file->extension();
+            $warrent_file =  $request->file('warrent_file')->getClientOriginalName();
 
             $request->warrent_file->move(public_path('assets/image'), $warrent_file);
 
@@ -238,7 +251,7 @@ class PetitionController extends Controller
         if ($request->hasFile('health_paper')) {
 
             // $request->health_paper->store('assets/image', 'public');
-            $health_paper = time() . '.' . $request->health_paper->extension();
+            $health_paper = $request->file('health_paper')->getClientOriginalName();
 
             $request->health_paper->move(public_path('assets/image'), $health_paper);
             $petitionsedit->health_paper = $health_paper;
@@ -248,7 +261,7 @@ class PetitionController extends Controller
         if ($request->hasFile('application_image')) {
 
             // $request->health_paper->store('assets/image', 'public');
-            $application_image = time() . '.' . $request->application_image->extension();
+            $application_image = $request->file('application_image')->getClientOriginalName();
 
             $request->application_image->move(public_path('assets/image'), $application_image);
             $petitionsedit->application_image = $application_image;
@@ -259,7 +272,8 @@ class PetitionController extends Controller
         if ($request->hasFile('prisoner_image')) {
 
             // $request->health_paper->store('assets/image', 'public');
-            $prisoner_image = time() . '.' . $request->prisoner_image->extension();
+            $prisoner_image = $request->file('prisoner_image')->getClientOriginalName();
+
 
             $request->prisoner_image->move(public_path('assets/image'), $prisoner_image);
             $petitionsedit->prisoner_image = $prisoner_image;
@@ -324,7 +338,7 @@ class PetitionController extends Controller
         if ($request->file('otherdocument')) {
 
             foreach ($request->file('otherdocument') as $file) {
-                $otherdocument = time() . rand(10, 100) . '.' . $file->extension();
+                $otherdocument = $file->getClientOriginalName();
 
                 $file->move(public_path('assets/image'), $otherdocument);
                 $otherexplode = explode(".", $otherdocument);
@@ -339,6 +353,12 @@ class PetitionController extends Controller
                 $file->save();
 
             }
+            $logPetitions =  new LogPetition([
+                "user_id" => Auth::user()->id,
+                "department" => $request->get('status'),
+                "petition_id" => $petitionsedit->id,
+            ]);
+            $logPetitions->save();
 
         }
 
@@ -362,7 +382,7 @@ class PetitionController extends Controller
         if ($request->file('otherdocument')) {
             $otherdocumentarry = [];
             foreach ($request->file('otherdocument') as $file) {
-                $otherdocument = time() . '.' . $file->extension();
+                $otherdocument = $file->getClientOriginalName();
 
                 $file->move(public_path('assets/image'), $otherdocument);
                 $otherexplode = explode(".", $otherdocument);
@@ -377,6 +397,12 @@ class PetitionController extends Controller
                 $file->save();
 
             }
+            $logPetitions =  new LogPetition([
+                "user_id" => Auth::user()->id,
+                "department" => $request->get('status'),
+                "petition_id" => $forwardhomedepartment->id,
+            ]);
+            $logPetitions->save();
 
         }
 

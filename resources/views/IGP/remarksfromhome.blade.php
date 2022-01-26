@@ -265,7 +265,7 @@
                                         </tbody>
                                     @endforeach
                                 </table>
-
+                                {{ $petitions->links() }}
 
 
 

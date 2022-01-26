@@ -340,30 +340,31 @@
     <script src="{{ asset('assets\npm\bootstrap-wysiwyg@2.0.1\js\bootstrap-wysiwyg.min.js') }}"></script>
     <script>
         $('#ace-file-input1').aceFileInput({
-            /**
-            btnChooseClass: 'bgc-grey-l2 pt-15 px-2 my-1px mr-1px',
-            btnChooseText: 'SELECT FILE',
-            placeholderText: 'NO FILE YET',
-            placeholderIcon: '<i class="fa fa-file bgc-warning-m1 text-white w-4 py-2 text-center"></i>'
-            */
+            
+            // btnChooseClass: 'bgc-grey-l2 pt-15 px-2 my-1px mr-1px',
+            // btnChooseText: 'SELEC',
+            placeholderText: 'Application Attachment',
+            // placeholderIcon: '<i class="fa fa-file bgc-warning-m1 text-white w-4 py-2 text-center"></i>'
+            
         })
         $('#ace-file-input22').aceFileInput({
-            /**
-            btnChooseClass: 'bgc-grey-l2 pt-15 px-2 my-1px mr-1px',
-            btnChooseText: 'SELECT FILE',
-            placeholderText: 'NO FILE YET',
-            placeholderIcon: '<i class="fa fa-file bgc-warning-m1 text-white w-4 py-2 text-center"></i>'
-            */
+            
+            // btnChooseClass: 'bgc-grey-l2 pt-15 px-2 my-1px mr-1px',
+            // btnChooseText: 'SELECT FILE',
+            placeholderText: 'Health Report Attachment',
+            // placeholderIcon: '<i class="fa fa-file bgc-warning-m1 text-white w-4 py-2 text-center"></i>'
+            
         })
         $('#ace-file-input12').aceFileInput({
-            /**
-            btnChooseClass: 'bgc-grey-l2 pt-15 px-2 my-1px mr-1px',
-            btnChooseText: 'SELECT FILE',
-            placeholderText: 'NO FILE YET',
-            placeholderIcon: '<i class="fa fa-file bgc-warning-m1 text-white w-4 py-2 text-center"></i>'
-            */
+            
+            // btnChooseClass: 'bgc-grey-l2 pt-15 px-2 my-1px mr-1px',
+            // btnChooseText: 'SELECT FILE',
+            placeholderText: 'Prisoner Image',
+            // placeholderIcon: '<i class="fa fa-file bgc-warning-m1 text-white w-4 py-2 text-center"></i>'
+            
         })
         $('#ace-file-input13').aceFileInput({
+            placeholderText: 'Warrent File Attachment',
             /**
             btnChooseClass: 'bgc-grey-l2 pt-15 px-2 my-1px mr-1px',
             btnChooseText: 'SELECT FILE',

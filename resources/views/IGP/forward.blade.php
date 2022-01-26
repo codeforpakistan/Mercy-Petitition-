@@ -63,7 +63,7 @@
                     </div>
                     <div class="col-sm-4">
                         <input type="file" class="ace-file-input" name="otherdocument[]" id="ace-file-input2" multiple=""
-                            accept="gif|jpg|jpeg|png|webp|svg|pdf">
+                            accept=".pdf,.png,.jpeg,.jpg">
 
                     </div>
                 </div>

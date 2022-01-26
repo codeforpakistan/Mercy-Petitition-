@@ -56,7 +56,7 @@
             }
 
         </style>
-        @if (!$petitions->isEmpty())
+       
             @if (Session::has('message'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     <strong>{{ Session::get('message') }}!</strong> .

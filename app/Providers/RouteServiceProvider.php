@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
 
+
 class RouteServiceProvider extends ServiceProvider
 {
     /**
@@ -13,7 +14,14 @@ class RouteServiceProvider extends ServiceProvider
      * In addition, it is set as the URL generator's root namespace.
      *
      * @var string
+     * 
      */
+    // public function boot(): void
+    // {
+    //     $this->configureRateLimiting();
+        
+    //     // ...
+    // }
     protected $namespace = 'App\Http\Controllers';
 
     /**
@@ -28,13 +36,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
-    {
-        //
-
-        parent::boot();
-    }
-
+    
     /**
      * Define the routes for the application.
      *
@@ -77,4 +79,10 @@ class RouteServiceProvider extends ServiceProvider
             ->namespace($this->namespace)
             ->group(base_path('routes/api.php'));
     }
+    // protected function configureRateLimiting(): void
+    // {
+    //     RateLimiter::for('rate', function (Request $request) {
+    //         return Limit::perMinute(5);
+    //     });
+    // }
 }

@@ -230,9 +230,8 @@
                                     </tbody>
                                 @endforeach
                             </table>
-
-
-
+                            {{ $Accepted->links() }}
+                        </div>
 
                         </div><!-- /.card-body -->
                         <div class="modal fade modal-fs" id="modalFullscreen" tabindex="-1" role="dialog"
