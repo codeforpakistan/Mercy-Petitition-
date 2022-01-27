@@ -1,5 +1,5 @@
 @extends('layouts.portal', [
-'menu' => 'IGP',
+'menu' => 'system_setting',
 'sub_menu' => 'LogPetition'
 ])
 @section('module', 'IGP Management')
@@ -192,9 +192,9 @@
 
                                             </td>
                                             <td class='d-none d-sm-table-cell'>
-                                                {{-- {{ $petion->created_at}}
-                                                 --}}
-                                               {{ $petion->created_at->timezone($visitor['timezone']) }}
+                                                {{ $petion->created_at}}
+                                                
+                                               
 
                                             </td>
 
