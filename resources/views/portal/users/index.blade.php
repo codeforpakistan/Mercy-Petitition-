@@ -26,8 +26,14 @@
                         </div>
 
                         <div class="mb-2 mb-sm-0">
-                            <a class="btn btn-outline-success" href="{{ route('portal.users.create') }}"><i
-                                    class="fa fa-fw fa-plus mr-1"></i> New User</a>
+                            
+                                     <a href="{{ route('portal.users.create') }}">
+                                        <button type="button" " class="
+                                            btn btn-blue px-3 d-block w-100 text-95 radius-round border-2 brc-black-tp10">
+                                            <i class="fa fa-plus mr-1"></i>
+                                             <span class="d-sm-none d-md-inline">New</span>User
+                                        </button>
+                                    </a>
                         </div>
                     </div>
 

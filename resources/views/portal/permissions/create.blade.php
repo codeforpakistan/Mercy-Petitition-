@@ -1,7 +1,7 @@
-@extends('layouts.portal',, [
+@extends('layouts.portal', [
 'menu' => 'system_setting',
 'sub_menu' => 'Permission'
-]))
+])
 @section('module', 'Access Control System')
 @section('element', 'Add New Permission')
 

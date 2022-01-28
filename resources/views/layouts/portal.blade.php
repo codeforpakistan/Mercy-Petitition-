@@ -1325,10 +1325,10 @@
             event.preventDefault();
             swal({
                     title: `Are you sure you want to forward this petition?`,
-                    text: "If you forward this, it will be gone forever.",
+                   
                     icon: "warning",
                     buttons: true,
-                    dangerMode: true,
+                    dangerMode: false,
                 })
                 .then((willDelete) => {
                     if (willDelete) {
@@ -1366,6 +1366,8 @@
                 if (selected == 'jail-supt') {
                     $('#confined_in_jail').removeClass("d-lg-none");
 
+                }else{
+                    $('#confined_in_jail').addClass("d-lg-none");
                 }
                 // else if(selected=='2'){
                 //     $('#Edema').hide();

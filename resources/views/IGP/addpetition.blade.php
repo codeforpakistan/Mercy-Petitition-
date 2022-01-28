@@ -79,8 +79,8 @@
                             class="ace-select text-dark-m1 bgc-default-l5 bgc-h-warning-l3 brc-default-m3 brc-h-warning-m1"
                             id="form-field-select-11">
 
-                            <option value='Pakistan'>Pakistan</option>
-                            <option value='Afghanistan'>Afghanistan</option>
+                            <option value='Pakistani'>Pakistani</option>
+                            <option value='Afghani'>Afghani</option>
 
                         </select>
                         @error('nationality')
@@ -218,7 +218,7 @@
 
                     <div class="form-group col-md-12">
                         <h3 class="text-primary-d2 text-140 mb-3">
-                            warrent information
+                            warrant information
                         </h3>
                         <div class="card bcard border-1 brc-dark-l1">
                             <div class="card-body p-0">
@@ -245,7 +245,7 @@
                 <div class="form-row" style="margin:5px;">
 
                     <div class="form-group col-md-6">
-                        <label for="inputCity">Application Attachment</label>
+                        <label for="inputCity">  Application </label>
                         <input accept=".pdf,.png,.jpeg,.jpg"
                             class="form-control @error('application_image') is-invalid @enderror"
                             value="{{ old('application_image') }}" type="file" name="application_image"
@@ -259,7 +259,7 @@
                     @enderror
                     <div class="form-group col-md-6">
 
-                        <label for="inputState">Health Report Attachment</label>
+                        <label for="inputState"> Attach Health Report </label>
                         <input accept=".pdf,.png,.jpeg,.jpg"
                             class="form-control @error('health_paper') is-invalid @enderror"
                             value="{{ old('health_paper') }}" type="file" name="health_paper" class="ace-file-input"
@@ -277,7 +277,7 @@
 
 
                     <div class="form-group col-md-6">
-                        <label for="inputCity">Prisoner Image</label>
+                        <label for="inputCity"> Attach Prisoner Image</label>
                         <input type="file" accept=".png,.jpeg,.jpg" value="{{ old('prisoner_image') }}"
                             name="prisoner_image"
                             class="ace-file-input form-control @error('prisoner_image') is-invalid @enderror"
@@ -293,7 +293,7 @@
                     @enderror
                     <div class="form-group col-md-6">
 
-                        <label for="inputState">Warrent File Attachment</label>
+                        <label for="inputState"> Attach Warrant File </label>
                         <input type="file" accept=".pdf,.png,.jpeg,.jpg" value="{{ old('warrent_file') }}"
                             name="warrent_file"
                             class="ace-file-input form-control @error('warrent_file') is-invalid @enderror"

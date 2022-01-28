@@ -25,7 +25,7 @@
 
 
 
-                  <li class="nav-item">
+                  {{-- <li class="nav-item">
 
                     <a href="#" class="nav-link dropdown-toggle collapsed">
                       <i class="nav-icon fa fa-cube" style="color:#fff"></i>
@@ -110,7 +110,7 @@
         <b class="sub-arrow"></b>
 
 <b class="sub-arrow"></b>
-</li>
+</li> --}}
 
 
 @can('user-list')
@@ -170,6 +170,61 @@
 </li>
 
 @endcan
+@can('jail-supt-list')
+<!-- <li class="nav-item {{isset($menu) ? ($menu=='IGP' ? 'active open' : '') : ''}}">
+<a href="#" id="IGP" class="nav-link dropdown-toggle {{isset($menu) ? ($menu=='IGP' ? '' : 'collapsed') : 'collapsed'}}">
+        <i class="nav-icon fa fa-cube"></i>
+        <span class="nav-text fadeable">
+                <span>IGP</span>
+        </span>
+        <b class="caret fa fa-angle-left rt-n90"></b>
+</a>
+<div class="hideable submenu collapse {{isset($menu) ? ($menu=='IGP' ? 'show' : '') : ''}}">
+        <ul class="submenu-inner">
+        <li class="nav-item {{isset($sub_menu) ? ($sub_menu=='Petition' ? 'active' : '') : ''}}">
+                        <a href="{{route('Petition.index')}}" class="nav-link">
+                                <span class="nav-text">
+                                        <span>Petition list</span>
+                                </span>
+                        </a>
+                </li>
+
+
+
+        </ul>
+</div>
+<b class="sub-arrow"></b>
+</li> -->
+
+<li class="nav-item {{isset($menu) ? ($menu=='IGP' ? 'active open' : '') : ''}}">
+
+        <a href="{{route('Petition.index')}}" class="nav-link {{isset($menu) ? ($menu=='IGP' ? '' : 'collapsed') : 'collapsed'}}">
+        <i class="nav-icon fa fa-cube" style="color:#fff"></i>
+        <span class="nav-text fadeable">
+        <span>Petition </span>
+        </span>
+
+
+        </a>
+
+        <b class="sub-arrow"></b>
+
+        </li>
+        <li class="nav-item {{isset($menu) ? ($menu=='homeremarks' ? 'active open' : '') : ''}}">
+
+                <a href="{{route('remarksfromhome')}}" class="nav-link {{isset($menu) ? ($menu=='homeremarks' ? '' : 'collapsed') : 'collapsed'}}">
+                <i class="nav-icon fa fa-cube" style="color:#fff"></i>
+                <span class="nav-text fadeable">
+                <span>Remarks from home</span>
+                </span>
+
+
+                </a>
+
+                <b class="sub-arrow"></b>
+
+                </li>
+@endcan
 <li class="nav-item {{isset($menu) ? ($menu=='SearchPetition' ? 'active open' : '') : ''}}">
 
         <a href="{{route('petitionsearchform')}}" class="nav-link {{isset($menu) ? ($menu=='SearchPetition' ? '' : 'collapsed') : 'collapsed'}}">
@@ -213,61 +268,7 @@
 
                         </li>
 
-@can('jail-supt-list')
-<!-- <li class="nav-item {{isset($menu) ? ($menu=='IGP' ? 'active open' : '') : ''}}">
-<a href="#" id="IGP" class="nav-link dropdown-toggle {{isset($menu) ? ($menu=='IGP' ? '' : 'collapsed') : 'collapsed'}}">
-        <i class="nav-icon fa fa-cube"></i>
-        <span class="nav-text fadeable">
-                <span>IGP</span>
-        </span>
-        <b class="caret fa fa-angle-left rt-n90"></b>
-</a>
-<div class="hideable submenu collapse {{isset($menu) ? ($menu=='IGP' ? 'show' : '') : ''}}">
-        <ul class="submenu-inner">
-        <li class="nav-item {{isset($sub_menu) ? ($sub_menu=='Petition' ? 'active' : '') : ''}}">
-                        <a href="{{route('Petition.index')}}" class="nav-link">
-                                <span class="nav-text">
-                                        <span>Petition list</span>
-                                </span>
-                        </a>
-                </li>
 
-
-
-        </ul>
-</div>
-<b class="sub-arrow"></b>
-</li> -->
-
-<li class="nav-item {{isset($menu) ? ($menu=='IGP' ? 'active open' : '') : ''}}">
-
-        <a href="{{route('Petition.index')}}" class="nav-link {{isset($menu) ? ($menu=='IGP' ? '' : 'collapsed') : 'collapsed'}}">
-        <i class="nav-icon fa fa-cube" style="color:#fff"></i>
-        <span class="nav-text fadeable">
-        <span>Petition list</span>
-        </span>
-
-
-        </a>
-
-        <b class="sub-arrow"></b>
-
-        </li>
-        <li class="nav-item {{isset($menu) ? ($menu=='homeremarks' ? 'active open' : '') : ''}}">
-
-                <a href="{{route('remarksfromhome')}}" class="nav-link {{isset($menu) ? ($menu=='homeremarks' ? '' : 'collapsed') : 'collapsed'}}">
-                <i class="nav-icon fa fa-cube" style="color:#fff"></i>
-                <span class="nav-text fadeable">
-                <span>Remarks from home</span>
-                </span>
-
-
-                </a>
-
-                <b class="sub-arrow"></b>
-
-                </li>
-@endcan
 @can('HomeDepartment-list')
 
 <!-- <li class="nav-item {{isset($menu) ? ($menu=='HomeDepartment' ? 'active open' : '') : ''}}">
@@ -299,7 +300,7 @@
 <a href="{{route('homedept.index')}}" class="nav-link {{isset($menu) ? ($menu=='HomeDepartment' ? '' : 'collapsed') : 'collapsed'}}">
 <i class="nav-icon fa fa-cube" style="color:#fff"></i>
 <span class="nav-text fadeable">
-<span>HomeDepartment list</span>
+<span> HomeDepartment list</span>
 </span>
 
 

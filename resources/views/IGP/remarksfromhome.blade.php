@@ -85,13 +85,7 @@
                                         </form>
                                     </div>
 
-                                    <div class="mb-2 mb-sm-0">
-                                        <a href="{{ route('Petition.create') }}"
-                                            class="btn btn-blue px-3 d-block w-100 text-95 radius-round border-2 brc-black-tp10">
-                                            <i class="fa fa-plus mr-1"></i>
-                                            Add <span class="d-sm-none d-md-inline">New</span> Petition
-                                        </a>
-                                    </div>
+                                    
                                 </div>
 
                                 @if ($errors->any())
