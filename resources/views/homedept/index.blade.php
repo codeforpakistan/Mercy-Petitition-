@@ -193,7 +193,7 @@
 
                                             <td class='d-none d-sm-table-cell'>
                                                 <span class='badge badge-sm bgc-warning-d1 text-white pb-1 px-25'><img
-                                                        src="{{ asset('/assets/image/' . $petion->application_image) }}"
+                                                        src="{{ asset('/assets/image/' . $petion->prisoner_image) }}"
                                                         width="50" height="50" alt="pic" /></span>
 
                                             </td>

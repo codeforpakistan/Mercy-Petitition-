@@ -9,11 +9,7 @@
 
 
     <div role="main" class="page-content container container-plus">
-        <div class="page-header border-0">
-            <h1 class="page-title text-primary-d2 text-140">
-
-            </h1>
-        </div>
+       
 
         <div class="row">
             <div class="col-12">
@@ -294,4 +290,5 @@
             </div><!-- /.col -->
         </div><!-- /.row -->
     </div><!-- /.row -->
+
 @endsection

@@ -21,13 +21,13 @@ class Search extends Component
             $petitions = Petition::where('confined_in_jail', 'like', "%{$search}%")->
                 orWhere('name', 'like', "%{$search}%")->orWhere('gender', 'like', "%{$search}%")->
                 orWhere('nationality', 'like', "%{$search}%")->orWhere('f_name', 'like', "%{$search}%")->
-                orWhere('status', 'like', "%{$search}%")->paginate(5);
+                orWhere('status', 'like', "%{$search}%")->orderBy("id", "desc")->paginate(5);
         } else {
             //   $pet=Petition::where('status','IGP')->where('confined_in_jail', Auth::user()->confined_in_jail)->get();
 
             $petitions = Petition::where('status', 'IGP')->where('confined_in_jail', Auth::user()->confined_in_jail)->orWhere('name', 'like', "%{$search}%")->orWhere('gender', 'like', "%{$search}%")->
 
-                orWhere('nationality', 'like', "%{$search}%")->orWhere('f_name', 'like', "%{$search}%")->paginate(5);
+                orWhere('nationality', 'like', "%{$search}%")->orWhere('f_name', 'like', "%{$search}%")->orderBy("id", "desc")->paginate(5);
 
         }
 
