@@ -192,9 +192,9 @@
 
                                             </td>
                                             <td class='d-none d-sm-table-cell'>
-                                                {{-- {{ $petion->created_at}}
-                                                 --}}
-                                               {{ $petion->created_at->timezone($visitor['timezone']) }}
+                                                {{ $petion->created_at}}
+
+                                               {{-- {{ $petion->created_at->timezone($visitor['timezone']) }} --}}
 
                                             </td>
 

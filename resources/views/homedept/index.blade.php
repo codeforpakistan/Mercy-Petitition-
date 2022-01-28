@@ -370,11 +370,7 @@
                                                                             data-toggle="tab" href="#profile-tab-overview"
                                                                             role="tab" aria-controls="profile-tab-overview"
                                                                             aria-selected="true">
-                                                                            <span class="d-n-active text-dark-l1">1.
-                                                                                Prisoner
-                                                                                Information</span>
-                                                                            <span class="d-active text-dark-m3">1. Prisoner
-                                                                                Information</span>
+
                                                                         </a>
                                                                     </li>
 

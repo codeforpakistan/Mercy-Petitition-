@@ -191,8 +191,8 @@
                                                 style="float:right;margin-right:10%;font-size:160%">
 
 
-                                                <i id="btnPrint" data-toggle="tooltip" title="print" type="button"
-                                                    class="mr-1 fa fa-print text-primary text-120 w-2"></i>
+                                                {{-- <i id="btnPrint" data-toggle="tooltip" title="print" type="button"
+                                                    class="mr-1 fa fa-print text-primary text-120 w-2"></i> --}}
 
 
                                             </div>
@@ -266,10 +266,8 @@
                                                         <a class="d-style nav-link active px-2 py-35 brc-green-tp1"
                                                             data-toggle="tab" href="#profile-tab-overview" role="tab"
                                                             aria-controls="profile-tab-overview" aria-selected="true">
-                                                            <span class="d-n-active text-dark-l1">1. Prisoner
-                                                                Information</span>
-                                                            <span class="d-active text-dark-m3">1. Prisoner
-                                                                Information</span>
+
+
                                                         </a>
                                                     </li>
 
