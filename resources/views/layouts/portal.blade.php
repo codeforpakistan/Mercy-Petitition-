@@ -182,29 +182,7 @@
                             </div>
                         </div>
 
-                        {{-- <div class="ml-auto navbar-menu collapse navbar-collapse navbar-backdrop" id="navbarMenu2">
-
-                <div class="navbar-nav navbar-links">
-                  <ul class="nav">
-                    <li class="nav-item mx-2">
-                      <a href="#" class="active btn bgc-h-primary-l4 btn-brc-tp btn-outline-secondary btn-h-lighter-secondary btn-a-outline-primary btn-a-bgc-tp btn-a-bold px-4 px-lg-2">
-                       @hasSection('topTitle')
-                           @yield('topTitle')
-                       @else
-                          Welcome to Dashboard
-                       @endif
-                        <!--
-                              Or use these along with `d-style` on parent 'A' for a different highlight color
-                              <div class="d-none d-lg-block v-active position-bl w-100 border-t-3 brc-primary-m1 mb-n3px"></div>
-                              <div class="d-lg-none v-active position-tl h-100 border-l-4 brc-primary-m1 ml-n3px"></div>
-                              -->
-                      </a>
-                    </li>
-
-                  </ul>
-                </div>
-
-              </div> --}}
+                  
 
 
                         <div class="ml-auto mr-xl-3 navbar-menu collapse navbar-collapse navbar-backdrop"
@@ -1343,7 +1321,7 @@
             var name = $(this).data("name");
             event.preventDefault();
             swal({
-                    title: `Are you sure you want to Delete this user?`,
+                    title: "Are you sure you want to Delete this user?",
                     text: "If you delete this, it will be gone forever.",
                     icon: "warning",
                     buttons: true,
@@ -1357,27 +1335,22 @@
         });
     </script>
 
-    <script>
+     <script>
         $(document).ready(function() {
-            $('#roles').change(function() {
-                var selected = $(this).val();
-                //   alert(selected);
+            $('#IGP').click(function() {
+               
 
-                if (selected == 'jail-supt') {
-                    $('#confined_in_jail').removeClass("d-lg-none");
+                 
+    if ($(this).is(":checked")) {
+        $("#status").hide();
+    } else {
+        $("#status").show();
+    }
 
-                }else{
-                    $('#confined_in_jail').addClass("d-lg-none");
-                }
-                // else if(selected=='2'){
-                //     $('#Edema').hide();
-                //     $('#Fetalposition').hide();
-                //     $('#Fundal').hide();
-
-                // }
+               
             });
         });
-    </script>
+    </script> 
 
     <script>
         document.getElementById("btnPrint").onclick = function() {
