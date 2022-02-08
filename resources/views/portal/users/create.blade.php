@@ -96,7 +96,7 @@
                 </div>
                 <div id="confined_in_jail" class="form-group row d-lg-none">
                     <div class="col-sm-3 col-form-label text-sm-right pr-0">
-                        <label for="roles">Confined In Jail</label>
+                        <label for="roles"> Jail</label>
                     </div>
                     <div class="col-sm-5 col-12 tag-input-style">
 

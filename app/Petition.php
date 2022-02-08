@@ -35,4 +35,8 @@ public function homedepartmentss()
     {
         return $this->hasMany(Homedepartment::class,'petition_id');
     }
+    public function logpetitions()
+    {
+        return $this->hasMany(LogPetition::class,'petition_id');
+    }
 }

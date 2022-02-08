@@ -43,12 +43,21 @@
                             class="form-control col-sm-8 col-md-6" name="name" id="name">
                     </div>
                 </div>
+               
                 <div class="form-group row">
+                    <div class="col-sm-3 col-form-label text-sm-right pr-0">
+                        <label for="Status">File Back</label>
+                    </div>
+                    <div class="col-sm-5 col-11 tag-input-style">
+                    <input id="IGP"  value="IGP" name="IGP" type="checkbox"><label for='IGP'>IGP</label><br/> 
+                </div>
+            </div> 
+                <div class="form-group row" id="status">
                     <div class="col-sm-3 col-form-label text-sm-right pr-0">
                         <label for="Status">Status</label>
                     </div>
                     <div class="col-sm-5 col-11 tag-input-style">
-                        <select id="Status" name="status" class="form-control col-sm-8 col-md-11"
+                        <select  name="status" class="form-control col-sm-8 col-md-11"
                             data-placeholder="Choose Role For User...">
                             <option value='IGP'>IGP</option>
                             <option value='InteriorMinistryDepartment'>InteriorMinistryDepartment</option>
