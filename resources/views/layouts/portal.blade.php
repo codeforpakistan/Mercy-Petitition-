@@ -78,8 +78,7 @@
             <div id="sidebar"
                 class="b-container sidebar sidebar-dark sidebar-color sidebar-fixed sidebar-backdrop expandable"
                 data-swipe="true" data-dismiss="true">
-                <div class="sidebar-inner"
-                    style="box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;">
+                <div class="sidebar-inner">
                     <div class="ace-scroll flex-grow-1 mt-1px" data-ace-scroll="{}">
                         <!-- all sidebar header is inside scrollable area -->
                         <!-- .navbar-brand inside sidebar, only shown in desktop view -->
@@ -100,10 +99,10 @@
 
                                     <a class="navbar-brand ml-n2 text-140 text-white " href="#">
                                         {{-- <i class="fa fa-leaf mr-1 text-success-l1"></i> --}}
-                                        <span class="text-danger"><img src="{{ asset('assets/image/ig.png') }}"
+                                        <span class="text-danger"><img src="{{ asset('assets/image/ig1.png') }}"
                                                 style="width: 70px" ;></span>
-                                        <span style="color:rgb(59, 59, 170)"> Mercy </span><span
-                                            style="color:rgb(160, 50, 50)">Petition</span>
+                                        <span style="color:rgb(250, 250, 250)"> Mercy </span><span
+                                            style="color:rgb(250, 250, 250)">Petition</span>
                                     </a>
                                 </div>
 
@@ -123,7 +122,7 @@
 
             <div role="main" class="main-content">
                 <nav class="navbar navbar-sm navbar-expand-lg sidebar-dark navbar-fixed navbar-dark">
-                    <div class="b-containers navbar-inner shadow-md sidebar-light">
+                    <div class="b-containers navbar-inner shadow-md sidebar-light"  >
 
                         <button type="button"
                             class="btn btn-burger align-self-center ml-25 mr-2 d-none d-xl-flex btn-h-lighter-blue"
@@ -1325,10 +1324,10 @@
             event.preventDefault();
             swal({
                     title: `Are you sure you want to forward this petition?`,
-                    text: "If you forward this, it will be gone forever.",
+
                     icon: "warning",
                     buttons: true,
-                    dangerMode: true,
+                    dangerMode: false,
                 })
                 .then((willDelete) => {
                     if (willDelete) {
@@ -1366,6 +1365,8 @@
                 if (selected == 'jail-supt') {
                     $('#confined_in_jail').removeClass("d-lg-none");
 
+                }else{
+                    $('#confined_in_jail').addClass("d-lg-none");
                 }
                 // else if(selected=='2'){
                 //     $('#Edema').hide();
@@ -1407,36 +1408,7 @@
             window.print();
         }
     </script>
-    <script>
-        document.getElementById("btnPrint1").onclick = function() {
-            document.getElementById("btnPrint1").style.display = 'none';
 
-
-
-            printElement(document.getElementById("printThis1"));
-
-        }
-
-
-        function printElement(elem) {
-            var domClone = elem.cloneNode(true);
-
-            document.getElementById("btnPrint1").style.display = 'block';
-
-            var $printSection = document.getElementById("printSection1");
-
-            if (!$printSection) {
-                var $printSection = document.createElement("div");
-                $printSection.id = "printSection1";
-                document.body.appendChild($printSection);
-            }
-
-            $printSection.innerHTML = "";
-            $printSection.appendChild(domClone);
-
-            window.print();
-        }
-    </script>
     <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
     <script>
