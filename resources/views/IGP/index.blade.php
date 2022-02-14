@@ -49,7 +49,7 @@
         }
 
     </style>
-   
+
         @if (Session::has('message'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <strong>{{ Session::get('message') }}!</strong> .
@@ -140,6 +140,9 @@
 
 
                                         <th>
+                                           Prisoner ID
+                                        </th>
+                                        <th>
                                            Prisoner Name
                                         </th>
 
@@ -170,6 +173,9 @@
                                         <tr class="bgc-h-yellow-l4 d-style">
 
 
+                                            <td>
+                                                <a href='#' class='text-blue-d1 text-600 text-95'>{{ $petion->prisonerid }}</a>
+                                            </td>
                                             <td>
                                                 <a href='#' class='text-blue-d1 text-600 text-95'>{{ $petion->name }}</a>
                                             </td>
@@ -267,10 +273,10 @@
                                     </tbody>
                                 @endforeach
                             </table>
-                       
+
                             {{ $petitions->links() }}
-                        
-                       
+
+
                         </div><!-- /.card-body -->
                         <div class="modal fade modal-fs" id="modalFullscreen" tabindex="-1" role="dialog"
                             aria-labelledby="exampleModalLabel2" aria-hidden="true">
@@ -770,5 +776,5 @@
                 </div><!-- /.row -->
             </div><!-- /.row -->
         </div><!-- /.row -->
-         
+
 @endsection
