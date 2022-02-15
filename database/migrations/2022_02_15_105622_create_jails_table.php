@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePhysicalStatusTable extends Migration
+class CreateJailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreatePhysicalStatusTable extends Migration
      */
     public function up()
     {
-        Schema::create('physical_status', function (Blueprint $table) {
-            $table->bigIncrements('PSid');
-            $table->string('PhysicalStatus');
+        Schema::create('jails', function (Blueprint $table) {
+            $table->Increments('id');
+            $table->string('jail_name');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreatePhysicalStatusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('physical_status');
+        Schema::dropIfExists('jails');
     }
 }

@@ -181,7 +181,7 @@
                             </div>
                         </div>
 
-                  
+
 
 
                         <div class="ml-auto mr-xl-3 navbar-menu collapse navbar-collapse navbar-backdrop"
@@ -1337,19 +1337,19 @@
      <script>
         $(document).ready(function() {
             $('#IGP').click(function() {
-               
 
-                 
+
+
     if ($(this).is(":checked")) {
         $("#status").hide();
     } else {
         $("#status").show();
     }
 
-               
+
             });
         });
-    </script> 
+    </script>
 
     <script>
         document.getElementById("btnPrint").onclick = function() {
@@ -1419,7 +1419,16 @@
             }
         });
     </script>
-
+<script>
+$(document).ready(function() {
+    $('#mytable').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+</script>
 
     <style>
         .myclass {
