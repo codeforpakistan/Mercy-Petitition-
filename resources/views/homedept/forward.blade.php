@@ -49,22 +49,30 @@
                         <label for="Status">File Back</label>
                     </div>
                     <div class="col-sm-5 col-11 tag-input-style">
-                    <input id="IGP"  value="IGP" name="IGP" type="checkbox"><label for='IGP'>IGP</label><br/> 
+                    <input id="Jail-Supt"  value="Jail-Supt"  name="file_in_department" type="radio"><label for='Jail-Supt'>Jail-Supt</label><br/> 
                 </div>
             </div> 
-                <div class="form-group row" id="status">
+            <div class="form-group row">
+                <div class="col-sm-3 col-form-label text-sm-right pr-0">
+                    <label for="Status">Forward To</label>
+                </div>
+                <div class="col-sm-5 col-11 tag-input-style">
+                <input id="InteriorMinistry"  value="InteriorMinistry"  name="file_in_department" type="radio" checked="checked"><label for='InteriorMinistry'>InteriorMinistry</label><br/> 
+            </div>
+        </div> 
+                {{-- <div class="form-group row " id="statuss">
                     <div class="col-sm-3 col-form-label text-sm-right pr-0">
-                        <label for="Status">Status</label>
+                        <label for="Status">Forward TO</label>
                     </div>
                     <div class="col-sm-5 col-11 tag-input-style">
-                        <select  name="status" class="form-control col-sm-8 col-md-11"
+                        <select  name="file_in_department" class="form-control col-sm-8 col-md-11"
                             data-placeholder="Choose Role For User...">
-                            <option value='IGP'>IGP</option>
-                            <option value='InteriorMinistryDepartment'>InteriorMinistryDepartment</option>
+                            
+                            <option value='InteriorMinistry'>InteriorMinistry</option>
 
                         </select>
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="form-group row">
                     <div class="col-sm-3 col-form-label text-sm-right pr-0">

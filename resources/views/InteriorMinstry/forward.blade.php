@@ -45,18 +45,31 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-3 col-form-label text-sm-right pr-0">
+                        <label for="Status">File Back</label>
+                    </div>
+                    <div class="col-sm-5 col-11 tag-input-style">
+                   
+                    <input id="Jail-Supt"  value="HomeDepartment" name="file_in_department" type="radio"><label for='HomeDepartment'>HomeDepartment</label><br/> 
+
+                </div>
+            </div> 
+            <div class="form-group row">
+                <div class="col-sm-3 col-form-label text-sm-right pr-0">
+                    <label for="Status">Status</label>
+                </div>
+                <div class="col-sm-5 col-11 tag-input-style">
+                <input id="Jail-Supt"  value="Accepted" name="status" type="radio"><label for='Accepted'>Accepted</label><br/> 
+                <input id="Jail-Supt"  value="Rejected" name="status" type="radio"><label for='Rejected'>Rejected</label><br/> 
+
+            </div>
+        </div> 
+                <div class="form-group row" id="Status">
+                    <div class="col-sm-3 col-form-label text-sm-right pr-0">
                         <label for="Status">Forward To</label>
                     </div>
                     <div class="col-sm-5 col-11 tag-input-style">
-                        <select id="Status" name="status" class="form-control col-sm-8 col-md-11"
-                            data-placeholder="Choose Role For User...">
-                            <option value='IGP'>IGP</option>
-                            <option value='HomeDepartment'>HomeDepartment</option>
-                            <option value='Accepted'>Accepted</option>
-                            <option value='Rejected'>Rejected</option>
-                            <option value='HumanRightDepartment'>HumanRightDepartment</option>
+                        <input id="Jail-Supt"  value="HumanRightDepartment" name="file_in_department" type="radio" checked="checked"><label for='HumanRightDepartment'>HumanRightDepartment</label><br/> 
 
-                        </select>
                     </div>
                 </div>
 

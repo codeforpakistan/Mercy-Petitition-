@@ -157,6 +157,9 @@
                                         <th class='d-none d-sm-table-cell'>
                                             status
                                         </th>
+                                        <th class='d-none d-sm-table-cell'>
+                                            File Location
+                                        </th>
                                         <th class="d-none d-sm-table-cell">
                                             Prisoner image
                                         </th>
@@ -199,6 +202,9 @@
                                                 @endif
 
 
+                                            </td>
+                                            <td class='d-none d-sm-table-cell text-grey text-95'>
+                                                {{ $petion->file_in_department }}
                                             </td>
                                             <td class='d-none d-sm-table-cell'>
                                                 <span class='badge badge-sm bgc-warning-d1 text-white pb-1 px-25'><img
@@ -744,7 +750,9 @@
 
 
 
-
+                                                                        @else
+                                                                        <h4 style="background-color:#800000; text-align:center;color:#fff"> Record Not Yet Added!</h4>
+                                                        @endif
 
 
                                                                     </div><!-- /.row -->
@@ -762,10 +770,12 @@
                                     </div>
                                 </div><!-- /.card -->
                             </div><!-- /.col -->
+                       
+                       
+                       
+                       
                         </div><!-- /.row -->
-                        @else
-                        <h4 style="background-color:#800000; text-align:center;color:#fff"> Record Not Yet Added!</h4>
-        @endif
+             
                     </div><!-- /.row -->
                 </div><!-- /.row -->
             </div><!-- /.row -->

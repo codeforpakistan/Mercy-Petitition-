@@ -14,7 +14,7 @@ class CreatePhysicalStatusTable extends Migration
     public function up()
     {
         Schema::create('physical_status', function (Blueprint $table) {
-            $table->bigIncrements('PSid');
+            $table->Increments('id');
             $table->string('PhysicalStatus');
             $table->timestamps();
         });

@@ -29,9 +29,20 @@
 
             </div><br />
             @endif -->
+            <?php date_default_timezone_set("Asia/Karachi");?>
             <form style=" margin-left:12px; margin-right:12px;padding-top:12px" action="{{ route('storepetition') }}"
                 method="post" enctype="multipart/form-data">
                 @csrf
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="inputEmail4">Prisoner ID</label>
+                        <input type="text" 
+                            class="form-control"  name="prisonerid" value="{{ date('Ymdhis')}}" id="inputEmail4" placeholder="Enter Name" readonly>
+                             
+                      
+                    </div>
+                  
+                </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Prisoner Name</label>
@@ -97,13 +108,13 @@
                     <div class="form-group col-md-6">
                         <label for="form-field-select-11">Physical Status</label>
                         <select class="form-control @error('physicalstatus') is-invalid @enderror"
-                            value="{{ old('physicalstatus') }}"
+                            value="{{ old('physicalstatus_id') }}"
                             class="ace-select text-dark-m1 bgc-default-l5 bgc-h-warning-l3 brc-default-m3 brc-h-warning-m1"
-                            name="physicalstatus" id="form-field-select-11">
-                            <option value='TB'>TB</option>
-                            <option value='Cancer'>Cancer</option>
-                            <option value='LungsCancer'>LungsCancer</option>
-                            <option value='Normall'>Normall</option>
+                            name="physicalstatus_id" id="form-field-select-11">
+                            @foreach ($physicalstatus as $physical)
+                                <option value='{{ $physical->id }}'>{{ $physical->PhysicalStatus }}</option>
+                            @endforeach
+                           
                         </select>
                         @error('physicalstatus')
                             <span class="invalid-feedback" role="alert">

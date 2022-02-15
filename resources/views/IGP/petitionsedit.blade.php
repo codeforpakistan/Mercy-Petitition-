@@ -45,10 +45,10 @@
                             id="form-field-select-11">
 
                             <option value="Pakistan"
-                                {{                                 $petitionsedit->nationality == 'Pakistan' ? 'selected' : '' }}>
+                                {{ $petitionsedit->nationality == 'Pakistan' ? 'selected' : '' }}>
                                 Pakistan</option>
                             <option value="Afghanistan"
-                                {{                                 $petitionsedit->nationality == 'Afghanistan' ? 'selected' : '' }}>
+                                {{ $petitionsedit->nationality == 'Afghanistan' ? 'selected' : '' }}>
                                 Afghanistan</option>
 
                         </select>
@@ -58,10 +58,14 @@
                         <label for="form-field-select-11">Physical Status</label>
                         <select
                             class="ace-select text-dark-m1 bgc-default-l5 bgc-h-warning-l3 brc-default-m3 brc-h-warning-m1"
-                            name="physicalstatus" id="form-field-select-11">
-                            <option value='WV'>West Virginia</option>
-                            <option value='WI'>Wisconsin</option>
-                            <option value='WY'>Wyoming</option>
+                            name="physicalstatus_id" id="form-field-select-11">
+                            @foreach ($physicalstatus as $physical)
+
+
+                                <option value="{{ $section->id }}"
+                                    {{ $petitionsedit->physicalstatus_id == $physical->id ? 'selected="selected"' : '' }}>
+                                    {{ $physical->PhysicalStatus }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
@@ -84,13 +88,7 @@
                     <div class="form-group col-md-6">
 
                         <label for="form-field-select-11">Confined In Jail</label>
-                        <select name="confined_in_jail"
-                            class="ace-select text-dark-m1 bgc-default-l5 bgc-h-warning-l3 brc-default-m3 brc-h-warning-m1"
-                            id="form-field-select-11">
-                            <option value='WV'>West Virginia</option>
-                            <option value='WI'>Wisconsin</option>
-                            <option value='WY'>Wyoming</option>
-                        </select>
+                        
                     </div>
                     <div class="form-group col-md-6">
                         <label for="inputState">DOB</label>
@@ -119,7 +117,7 @@
 
 
                                 <option value="{{ $section->id }}"
-                                    {{                                     $petitionsedit->select_id == $section->id ? 'selected="selected"' : '' }}>
+                                    {{ $petitionsedit->select_id == $section->id ? 'selected="selected"' : '' }}>
                                     {{ $section->undersection }}</option>
                             @endforeach
                         </select>

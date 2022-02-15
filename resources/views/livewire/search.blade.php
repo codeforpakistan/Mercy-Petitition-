@@ -20,6 +20,9 @@
 
             </div>
         </div>
+      
+     
+        @if (!$petitions->isEmpty())
         <table id="simple-table"
             class="mb-0 table table-borderless table-bordered-x brc-secondary-l3 text-dark-m2 radius-1 overflow-hidden">
             <thead class="text-dark-tp3 bgc-grey-l4 text-90 border-b-1 brc-transparent">
@@ -57,6 +60,7 @@
                     <th>Action</th>
                 </tr>
             </thead>
+           
             @foreach ($petitions as $petion)
                 <tbody class="mt-1">
                     <tr class="bgc-h-yellow-l4 d-style">
@@ -161,6 +165,11 @@
         </table>
 
         {{ $petitions->links() }}
+     
+            
+        @else
+        <h4 style="background-color:#800000; text-align:center;color:#fff"> Record Not Yet Added!</h4>
+        @endif
         <div class="modal fade modal-fs" id="modalFullscreen" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalLabel2" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable" role="document">

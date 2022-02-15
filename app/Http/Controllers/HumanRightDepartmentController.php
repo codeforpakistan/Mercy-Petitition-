@@ -23,7 +23,7 @@ class HumanRightDepartmentController extends Controller
     public function index()
     {
 
-        $HumanRightDepartments = Petition::Where('status', 'HumanRightDepartment')->Where('received_from_department', 'InteriorMinistryDepartment')->orderBy("id", "desc")->get();
+        $HumanRightDepartments = Petition::Where('file_in_department', 'HumanRightDepartment')->Where('received_from_department', 'InteriorMinistry')->orderBy("id", "desc")->get();
 
         return view('HumanRight.index', compact('HumanRightDepartments'));
 
@@ -59,7 +59,7 @@ class HumanRightDepartmentController extends Controller
         //    $forwardhomedepartment->remarks = strip_tags($request->get('remarks'));
 
         $humanrightdecision->received_from_department = "HumanRightDepartment";
-        $humanrightdecision->status = $request->get('status');
+        $humanrightdecision->file_in_department = $request->get('file_in_department');
         
         $humanrightdecision->save();
         $HumanRightDepartments = new HumanRightDepartment([
@@ -92,7 +92,7 @@ class HumanRightDepartmentController extends Controller
             }
             $logPetitions =  new LogPetition([
                 "user_id" => Auth::user()->id,
-                "department" => $request->get('status'),
+                "department" => $request->get('file_in_department'),
                 "petition_id" => $humanrightdecision->id,
             ]);
             $logPetitions->save();

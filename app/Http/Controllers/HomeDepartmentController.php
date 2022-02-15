@@ -22,8 +22,8 @@ class HomeDepartmentController extends Controller
     public function index()
     {
         $HomeDepartments = Petition::where([
-            ['status', '=', 'HomeDepartment'],
-            ['received_from_department', '=', 'IGP'],
+            ['file_in_department', '=', 'HomeDepartment'],
+            ['received_from_department', '=', 'Jail-Supt'],
         ])->orderBy("id", "desc")->get();
 
         return view('homedept.index', compact('HomeDepartments'));
@@ -36,7 +36,7 @@ class HomeDepartmentController extends Controller
         $petitions = Petition::where('status', 'HomeDepartment')->orWhere('confined_in_jail', $search)->
             orWhere('name', 'like', "%{$search}%")->orWhere('gender', 'like', "%{$search}%")->
             orWhere('nationality', 'like', "%{$search}%")->orWhere('f_name', 'like', "%{$search}%")->
-            orWhere('status', 'like', "%{$search}%")->get();
+            orWhere('file_in_department', 'like', "%{$search}%")->get();
 
         return view('homedept.petitionsearch', compact('petitions'));
     }
@@ -45,8 +45,8 @@ class HomeDepartmentController extends Controller
     {
 
         $HomeDepartments = Petition::where([
-            ['status', '=', 'HomeDepartment'],
-            ['received_from_department', '=', 'InteriorMinistryDepartment'],
+            ['file_in_department', '=', 'HomeDepartment'],
+            ['received_from_department', '=', 'InteriorMinistry'],
         ])->orderBy("id", "desc")->get();
 
         return view('homedept.remarksfrominterior', compact('HomeDepartments'));
@@ -79,12 +79,17 @@ class HomeDepartmentController extends Controller
     }
     public function forwardinteriorministrydepartment(Request $request, $id)
     {
-
+        
         $forwardhomedepartment = Petition::find($id);
         //    $forwardhomedepartment->remarks = strip_tags($request->get('remarks'));
         $forwardhomedepartment->received_from_department = "HomeDepartment";
 
-        $forwardhomedepartment->status = $request->get('status');
+        $forwardhomedepartment->file_in_department = $request->get('file_in_department');
+
+       
+
+
+
         $forwardhomedepartment->save();
         $HomeDepartments = new HomeDepartment([
             'remarks' => strip_tags($request->get('remarks')),
@@ -114,7 +119,7 @@ class HomeDepartmentController extends Controller
             }
             $logPetitions =  new LogPetition([
                 "user_id" => Auth::user()->id,
-                "department" => $request->get('status'),
+                "department" => $request->get('file_in_department'),
                 "petition_id" => $forwardhomedepartment->id,
             ]);
             $logPetitions->save();
@@ -149,7 +154,7 @@ class HomeDepartmentController extends Controller
         $petitionsedit = Petition::find($id);
 
         $petitionsedit->received_from_department = "HomeDepartment";
-        $petitionsedit->status = $request->get('status');
+        $petitionsedit->file_in_department = $request->get('file_in_department');
 
         $petitionsedit->save();
 
@@ -181,7 +186,7 @@ class HomeDepartmentController extends Controller
             }
             $logPetitions =  new LogPetition([
                 "user_id" => Auth::user()->id,
-                "department" => $request->get('status'),
+                "department" => $request->get('file_in_department'),
                 "petition_id" => $petitionsedit->id,
             ]);
             $logPetitions->save();

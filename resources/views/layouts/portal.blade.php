@@ -569,7 +569,7 @@
                                 // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
                                 $('#picss').append(
                                     "<a   style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                    val.file + "'>" + val.file + '</a>');
+                                    val.file + "'>" + "<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                             } else {
                                 // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
                                 $('#pic').append(
@@ -590,8 +590,7 @@
                         if (finalap['1'] == "pdf") {
                             $('#application_images').append(
                                 "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                data.petitions.application_image + "'>" + data.petitions
-                                .application_image + '</a>');
+                                data.petitions.application_image + "'>" + "<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                         } else {
                             // $('#application_image').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.application_image+"'>");
                             $('#application_image').html(
@@ -605,8 +604,7 @@
                         if (finalap['1'] == "pdf") {
                             $('#health_papers').append(
                                 "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                data.petitions.health_paper + "'>" + data.petitions
-                                .health_paper + '</a>');
+                                data.petitions.health_paper + "'>" + "<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                         } else {
                             $('#health_paper').html(
                                 "<a target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
@@ -621,8 +619,7 @@
                         if (finalap['1'] == "pdf") {
                             $('#warrent_files').append(
                                 "<a target='_blank'   href='{{ url('/assets/image/') }}/" +
-                                data.petitions.warrent_file + "'>" + data.petitions
-                                .warrent_file + '</a>');
+                                data.petitions.warrent_file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                         } else {
                             $('#warrent_file').html(
                                 "<a target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
@@ -658,7 +655,7 @@
                                 // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
                                 $('#homefilepdf').append(
                                     "<a  style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                    val.file + "'>" + val.file + '</a>');
+                                    val.file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                             } else {
                                 // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
                                 $('#homepic').append(
@@ -688,7 +685,7 @@
                                 // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
                                 $('#interiorfilepdf').append(
                                     "<a  style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                    val.file + "'>" + val.file + '</a>');
+                                    val.file + "'>" + "<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                             } else {
                                 // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
                                 $('#interiorpic').append(
@@ -768,7 +765,7 @@
                                 // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
                                 $('#picss').append(
                                     "<a   style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                    val.file + "'>" + val.file + '</a>');
+                                    val.file + "'>" + "<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                             } else {
                                 // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
                                 $('#pic').append(
@@ -786,8 +783,7 @@
                         if (finalap['1'] == "pdf") {
                             $('#application_images').append(
                                 "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                data.petitions.application_image + "'>" + data.petitions
-                                .application_image + '</a>');
+                                data.petitions.application_image + "'>" + "<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                         } else {
                             // $('#application_image').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.application_image+"'>");
                             $('#application_image').html(
@@ -801,8 +797,7 @@
                         if (finalap['1'] == "pdf") {
                             $('#health_papers').append(
                                 "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                data.petitions.health_paper + "'>" + data.petitions
-                                .health_paper + '</a>');
+                                data.petitions.health_paper + "'>" + "<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                         } else {
                             $('#health_paper').html(
                                 "<a target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
@@ -817,8 +812,7 @@
                         if (finalap['1'] == "pdf") {
                             $('#warrent_files').append(
                                 "<a target='_blank'   href='{{ url('/assets/image/') }}/" +
-                                data.petitions.warrent_file + "'>" + data.petitions
-                                .warrent_file + '</a>');
+                                data.petitions.warrent_file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                         } else {
                             $('#warrent_file').html(
                                 "<a target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
@@ -854,7 +848,7 @@
                                 // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
                                 $('#homefilepdf').append(
                                     "<a  style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                    val.file + "'>" + val.file + '</a>');
+                                    val.file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                             } else {
                                 // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
                                 $('#homepic').append(
@@ -884,7 +878,7 @@
                                 // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
                                 $('#interiorfilepdf').append(
                                     "<a  style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                    val.file + "'>" + val.file + '</a>');
+                                    val.file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                             } else {
                                 // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
                                 $('#interiorpic').append(
@@ -913,7 +907,7 @@
                                 // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
                                 $('#humanrightfilepdf').append(
                                     "<a  style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                    val.file + "'>" + val.file + '</a>');
+                                    val.file + "'>" + "<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                             } else {
                                 // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
                                 $('#humanrightpic').append(
@@ -996,7 +990,7 @@
                                 // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
                                 $('#picss').append(
                                     "<a   style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                    val.file + "'>" + val.file + '</a>');
+                                    val.file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                             } else {
                                 // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
                                 $('#pic').append(
@@ -1015,8 +1009,7 @@
                         if (finalap['1'] == "pdf") {
                             $('#application_images').append(
                                 "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                data.petitions.application_image + "'>" + data.petitions
-                                .application_image + '</a>');
+                                data.petitions.application_image + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                         } else {
                             // $('#application_image').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.application_image+"'>");
                             $('#application_image').html(
@@ -1030,8 +1023,7 @@
                         if (finalap['1'] == "pdf") {
                             $('#health_papers').append(
                                 "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                data.petitions.health_paper + "'>" + data.petitions
-                                .health_paper + '</a>');
+                                data.petitions.health_paper + "'>" + "<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                         } else {
                             $('#health_paper').html(
                                 "<a target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
@@ -1046,8 +1038,7 @@
                         if (finalap['1'] == "pdf") {
                             $('#warrent_files').append(
                                 "<a target='_blank'   href='{{ url('/assets/image/') }}/" +
-                                data.petitions.warrent_file + "'>" + data.petitions
-                                .warrent_file + '</a>');
+                                data.petitions.warrent_file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>"+ '</a>');
                         } else {
                             $('#warrent_file').html(
                                 "<a target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
@@ -1078,7 +1069,7 @@
                                 // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
                                 $('#homefilepdf').append(
                                     "<a  style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                    val.file + "'>" + val.file + '</a>');
+                                    val.file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                             } else {
                                 // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
                                 $('#homepic').append(
@@ -1106,7 +1097,7 @@
                                 // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
                                 $('#interiorfilepdf').append(
                                     "<a  style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                    val.file + "'>" + val.file + '</a>');
+                                    val.file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                             } else {
                                 // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
                                 $('#interiorpic').append(
@@ -1136,7 +1127,7 @@
                                 // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
                                 $('#humanrightfilepdf').append(
                                     "<a  style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                    val.file + "'>" + val.file + '</a>');
+                                    val.file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                             } else {
                                 // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
                                 $('#humanrightpic').append(
@@ -1200,6 +1191,7 @@
                         $('#Mercypetitiondate').text(data.mercypetitiondate);
                         $('#Section_id').text(data.sectionss.undersection);
                         $('#warrent_date').text(data.warrent_date);
+                        
                         $('#Remarks').text(data.remarks);
                         $('#sentence_in_court').text(data.sentence_in_court);
                         $('#date_of_sentence').text(data.date_of_sentence);
@@ -1218,29 +1210,30 @@
                                 // $("#picss").empty();
                                 // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
                                 $('#picss').append(
-                                    "<a  style='margin-right:15px;'  href='{{ url('/assets/image/') }}/" +
+                                    "<a  style='margin-right:15px;' target='_blank'  href='{{ url('/assets/image/') }}/" +
                                     val.file + "'>" + val.file + '</a>');
                             } else {
                                 // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
                                 $('#pic').append(
-                                    "<a  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
+                                    "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
                                     val.file + " '>" +
                                     "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
                                     val.file + "'>" + '</a>');
                             }
                         });
                         var ap = data.application_image;
-
+                  
                         var finalap = ap.split(".");
 
                         if (finalap['1'] == "pdf") {
                             $('#application_images').append(
-                                "<a   href='{{ url('/assets/image/') }}/" + data
-                                .application_image + "'>" + data.application_image + '</a>');
+                                "<a style='margin-right:15px;'' target='_blank'   href='{{ url('/assets/image/') }}/" + data
+                                .application_image + "'download>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>"+ '</a>');
+                               
                         } else {
                             // $('#application_image').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.application_image+"'>");
                             $('#application_image').html(
-                                "<a  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
+                                "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
                                 data.application_image + " '>" +
                                 "<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/') }}/" +
                                 data.application_image + "'>" + '</a>');
@@ -1249,11 +1242,11 @@
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
                             $('#health_papers').append(
-                                "<a   href='{{ url('/assets/image/') }}/" + data
-                                .health_paper + "'>" + data.health_paper + '</a>');
+                                "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data
+                                .health_paper + "'>" + "<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                         } else {
                             $('#health_paper').html(
-                                "<a  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
+                                "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
                                 data.health_paper + " '>" +
                                 "<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/" +
                                 data.health_paper + "'>" + '</a>');
@@ -1264,11 +1257,11 @@
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
                             $('#warrent_files').append(
-                                "<a   href='{{ url('/assets/image/') }}/" + data
-                                .warrent_file + "'>" + data.warrent_file + '</a>');
+                                "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data
+                                .warrent_file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                         } else {
                             $('#warrent_file').html(
-                                "<a  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
+                                "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
                                 data.warrent_file + " '>" +
                                 "<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/" +
                                 data.warrent_file + "'>" + '</a>');
@@ -1277,7 +1270,7 @@
                         }
                         //  $('#Prisonerimage').html("<img style='height:100px;width:100px;border-radius:50px;' src=' {{ url('/assets/image/') }}/"+data.prisoner_image+"'>");
                         $('#Prisonerimage').html(
-                            "<a  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
+                            "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
                             data.prisoner_image + " '>" +
                             "<img  class='example-image' alt='image-1'  style='height:100px;width:100px;border-radius:50px' src='{{ url('/assets/image/') }}/" +
                             data.prisoner_image + "'>" + '</a>');
@@ -1333,23 +1326,27 @@
                 });
         });
     </script>
-
-     <script>
+    <script>
         $(document).ready(function() {
-            $('#IGP').click(function() {
-               
+            $('#roles').change(function() {
+                var selected = $(this).val();
+                //   alert(selected);
 
-                 
-    if ($(this).is(":checked")) {
-        $("#status").hide();
-    } else {
-        $("#status").show();
-    }
+                if (selected == 'jail-supt') {
+                    $('#confined_in_jail').removeClass("d-lg-none");
 
-               
+                }else{
+                    $('#confined_in_jail').addClass("d-lg-none");
+                }
+                // else if(selected=='2'){
+                //     $('#Edema').hide();
+                //     $('#Fetalposition').hide();
+                //     $('#Fundal').hide();
             });
         });
-    </script> 
+    </script>
+
+    
 
     <script>
         document.getElementById("btnPrint").onclick = function() {
