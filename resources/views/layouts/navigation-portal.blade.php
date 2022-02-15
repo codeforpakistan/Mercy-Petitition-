@@ -377,4 +377,19 @@
 
         </li>
         @endcan
+
+        <li class="nav-item {{isset($menu) ? ($menu=='Report' ? 'active open' : '') : ''}}">
+
+            <a href="{{route('reportform')}}" class="nav-link {{isset($menu) ? ($menu=='Report' ? '' : 'collapsed') : 'collapsed'}}">
+            <i class="nav-icon fa fa-cube" style="color:#fff"></i>
+              <span class="nav-text fadeable">
+                      <span>Report form</span>
+              </span>
+
+
+            </a>
+
+            <b class="sub-arrow"></b>
+
+            </li>
 </nav>

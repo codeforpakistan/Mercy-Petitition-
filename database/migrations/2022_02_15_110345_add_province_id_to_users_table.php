@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddUserIdToPetitions extends Migration
+class AddProvinceIdToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class AddUserIdToPetitions extends Migration
      */
     public function up()
     {
-        Schema::table('petitions', function (Blueprint $table) {
-            $table->unsignedInteger('user_id')->nullable();
-            $table->foreign('user_id')
+        Schema::table('users', function (Blueprint $table) {
+            $table->unsignedInteger('province_id')->nullable();
+            $table->foreign('province_id')
             ->references('id')
-            ->on('users')
+            ->on('province')
             ->onDelete('cascade');
         });
     }
@@ -29,7 +29,7 @@ class AddUserIdToPetitions extends Migration
      */
     public function down()
     {
-        Schema::table('petitions', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             //
         });
     }

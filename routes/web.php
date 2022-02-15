@@ -42,7 +42,7 @@ Route::Post('/decision/{id}', 'InteriorMinstryController@decision')->name('petit
 Route::get('/humangrightback/{id}', 'HumanRightDepartmentController@backpetition')->name('humanright-back');
 Route::Post('/humanrighdecision/{id}', 'HumanRightDepartmentController@humanrightdecision')->name('petition-humanrighdecision');
 Route::get('/petitionedit/{id}', 'PetitionController@edit')->name('petition-edit');
-Route::get('/reportform', 'PetitionController@reportform')->name('reportform');
+Route::get('/reportform', 'HomeController@reportform')->name('reportform');
 Route::get('/petitionsearch', 'PetitionController@searchform')->name('petitionsearchform');
 Route::Post('/petitionupdate/{id}', 'PetitionController@petitionupdate')->name('petition-update');
 Route::Post('/petitionrmarksupdate/{id}', 'PetitionController@petitionremarksupdate')->name('petitionremarksupdate');

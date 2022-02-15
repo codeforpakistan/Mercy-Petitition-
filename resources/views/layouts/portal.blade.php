@@ -181,7 +181,7 @@
                             </div>
                         </div>
 
-                  
+
 
 
                         <div class="ml-auto mr-xl-3 navbar-menu collapse navbar-collapse navbar-backdrop"
@@ -1416,7 +1416,16 @@
             }
         });
     </script>
-
+<script>
+$(document).ready(function() {
+    $('#mytable').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+</script>
 
     <style>
         .myclass {

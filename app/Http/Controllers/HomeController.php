@@ -61,4 +61,18 @@ class HomeController extends Controller
 
         return view('IGP.rejected', compact('Rejected'));
     }
+
+    public function reportform()
+    {
+        // if (Auth::user()->confined_in_jail == "") {
+        //     $petitions = Petition::orderBy("id", "desc")->get();
+        // } else {
+        //     $petitions = Petition::Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('status', 'IGP')->Where('received_from_department', 'IGP')->orderBy("id", "desc")->get();
+        // }
+        $petitions = Petition::orderBy("id", "desc")->paginate(5);
+        return view('IGP.reportform', compact('petitions'));
+
+
+    }
+
 }
