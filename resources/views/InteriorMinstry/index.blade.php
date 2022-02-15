@@ -149,6 +149,9 @@
 
 
                                             <th>
+                                               Prisoner ID
+                                            </th>
+                                            <th>
                                                Prisoner Name
                                             </th>
 
@@ -186,6 +189,10 @@
                                             <tr class="bgc-h-yellow-l4 d-style">
 
 
+                                                <td>
+                                                    <a href='#'
+                                                        class='text-blue-d1 text-600 text-95'>{{ $petion->prisonerid }}</a>
+                                                </td>
                                                 <td>
                                                     <a href='#'
                                                         class='text-blue-d1 text-600 text-95'>{{ $petion->name }}</a>
