@@ -193,13 +193,8 @@
                                             </td>
                                             <td class='d-none d-sm-table-cell'>
                                                 {{ $petion->created_at}}
-<<<<<<< HEAD
 
                                                {{-- {{ $petion->created_at->timezone($visitor['timezone']) }} --}}
-=======
-                                                
-                                               
->>>>>>> 746634ffdc471c43bda652443444b7faafac8af9
 
                                             </td>
 

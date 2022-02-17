@@ -3,11 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\Petition;
 class PhysicalStatus extends Model
 {
-    public $timestamps = false;
-    protected $primaryKey='PSid';
+  
     protected $table = 'physical_status';
-    protected $fillable = ['PSid' , 'PhysicalStatus'];
+    protected $fillable = ['id' , 'PhysicalStatus'];
+
+    public function petitionphysicalstatus()
+    {
+        return $this->hasMany(Petition::class,"physicalstatus_id");
+    }
 }

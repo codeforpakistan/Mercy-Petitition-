@@ -15,11 +15,13 @@ class CreatePetitionsTable extends Migration
     {
         Schema::create('petitions', function (Blueprint $table) {
              $table->Increments('id');
+             $table->integer('prisonerid');
             $table->string('name');
             $table->string('nationality');
             $table->string('physicalstatus');
             $table->string('confirmed_in_jail');
-            $table->string('status');  //store department name
+            $table->string('status');
+            $table->string('file_in_department');
             $table->string('gender');
             $table->string('dob');
             $table->string('fir&date');

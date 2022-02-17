@@ -45,10 +45,10 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-3 col-form-label text-sm-right pr-0">
-                        <label for="Status">Forward to</label>
+                        <label for="Status">Forward TO</label>
                     </div>
                     <div class="col-sm-5 col-11 tag-input-style">
-                        <select id="Status" name="status" class="form-control col-sm-8 col-md-11"
+                        <select id="Status" name="file_in_department" class="form-control col-sm-8 col-md-11"
                             data-placeholder="Choose Role For User...">
 
                             <option value='HomeDepartment'>Home Department</option>

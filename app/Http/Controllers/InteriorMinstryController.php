@@ -24,7 +24,7 @@ class InteriorMinstryController extends Controller
     public function index()
     {
 
-        $InteriorMinistryDepartments = Petition::Where('status', 'InteriorMinistryDepartment')->Where('received_from_department', 'HomeDepartment')->orderBy("id", "desc")->get();
+        $InteriorMinistryDepartments = Petition::Where('file_in_department', 'InteriorMinistry')->Where('received_from_department', 'HomeDepartment')->orderBy("id", "desc")->get();
 
         return view('InteriorMinstry.index', compact('InteriorMinistryDepartments'));
 
@@ -32,7 +32,7 @@ class InteriorMinstryController extends Controller
     public function remarksfromhrd()
     {
 
-        $InteriorMinistryDepartments = Petition::Where('status', 'InteriorMinistryDepartment')->Where('received_from_department', 'HumanRightDepartment')->orderBy("id", "desc")->get();
+        $InteriorMinistryDepartments = Petition::Where('file_in_department', 'InteriorMinistry')->Where('received_from_department', 'HumanRightDepartment')->orderBy("id", "desc")->get();
 
         return view('InteriorMinstry.remarksfromhrd', compact('InteriorMinistryDepartments'));
     }
@@ -66,9 +66,9 @@ class InteriorMinstryController extends Controller
         $homepetition = HomeDepartment::with('homefileattachements')->where('petition_id', $id)->first();
 
         $interiorministrydecision = Petition::find($id);
-        $interiorministrydecision->received_from_department = "InteriorMinistryDepartment";
+        $interiorministrydecision->received_from_department = "InteriorMinistry";
         //    $forwardhomedepartment->remarks = strip_tags($request->get('remarks'));
-        $interiorministrydecision->status = $request->get('status');
+        $interiorministrydecision->file_in_department = $request->get('file_in_department');
         $interiorministrydecision->save();
         $Interiorministries = new InteriorMinistry([
             'remarks' => strip_tags($request->get('remarks')),
@@ -99,7 +99,7 @@ class InteriorMinstryController extends Controller
             }
             $logPetitions =  new LogPetition([
                 "user_id" => Auth::user()->id,
-                "department" => $request->get('status'),
+                "department" => $request->get('file_in_department'),
                 "petition_id" => $interiorministrydecision->id,
             ]);
             $logPetitions->save();

@@ -142,6 +142,9 @@
                                             Status
                                         </th>
                                         <th class='d-none d-sm-table-cell'>
+                                            File Location
+                                        </th>
+                                        <th class='d-none d-sm-table-cell'>
                                             Received From Department
                                         </th>
 
@@ -178,6 +181,9 @@
                                             </td>
                                             <td class='d-none d-sm-table-cell text-grey text-95'>
                                                 {{ $petion->status }}
+                                            </td>
+                                            <td class='d-none d-sm-table-cell text-grey text-95'>
+                                                {{ $petion->file_in_department }}
                                             </td>
                                             <td class='d-none d-sm-table-cell text-grey text-95'>
                                                 {{ $petion->received_from_department }}

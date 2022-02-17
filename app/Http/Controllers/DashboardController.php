@@ -18,16 +18,17 @@ class DashboardController extends Controller
         if (Auth::user()->confined_in_jail == "") {
             $totalpetitions = Petition::orderBy("id", "desc")->get()->count();
         } else {
-            $totalpetitions = Petition::Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('status', 'IGP')->orderBy("id", "desc")->get()->count();
+            $totalpetitions = Petition::Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('file_in_department', 'Jail-Supt')->orderBy("id", "desc")->get()->count();
 
         }
+        $Inprocess= Petition::orWhere('file_in_department', 'HomeDepartment')->orWhere('file_in_department', 'InteriorMinistry')->orWhere('file_in_department', 'HumanRightDepartment')->orderBy("id", "desc")->get()->count();
         $Accepted = Petition::Where('status', 'Accepted')->orderBy("id", "desc")->get()->count();
         $Rejected = Petition::Where('status', 'Rejected')->orderBy("id", "desc")->get()->count();
-        $HomeDepartment = Petition::Where('status', 'HomeDepartment')->orderBy("id", "desc")->get()->count();
-        $InteriorMinistryDepartment = Petition::Where('status', 'InteriorMinistryDepartment')->orderBy("id", "desc")->get()->count();
-        $HumanRightDepartment = Petition::Where('status', 'HumanRightDepartment')->orderBy("id", "desc")->get()->count();
+        $HomeDepartment = Petition::Where('file_in_department', 'HomeDepartment')->orderBy("id", "desc")->get()->count();
+        $InteriorMinistryDepartment = Petition::Where('file_in_department', 'InteriorMinistry')->orderBy("id", "desc")->get()->count();
+        $HumanRightDepartment = Petition::Where('file_in_department', 'HumanRightDepartment')->orderBy("id", "desc")->get()->count();
        
-        return view('welcome' , compact(['totalpetitions','Accepted','Rejected','HomeDepartment','InteriorMinistryDepartment','HumanRightDepartment']));
+        return view('welcome' , compact(['totalpetitions','Inprocess','Accepted','Rejected','HomeDepartment','InteriorMinistryDepartment','HumanRightDepartment']));
 
 
        }

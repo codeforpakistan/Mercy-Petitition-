@@ -6,6 +6,7 @@ use App\File;
 use App\Petition;
 use App\Section;
 use App\LogPetition;
+use App\PhysicalStatus;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -26,7 +27,7 @@ class PetitionController extends Controller
         if (Auth::user()->confined_in_jail == "") {
             $petitions = Petition::orderBy("id", "desc")->paginate(5);
         } else {
-            $petitions = Petition::Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('status', 'IGP')->orderBy("id", "desc")->paginate(5);
+            $petitions = Petition::Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('file_in_department', 'Jail-Supt')->orderBy("id", "desc")->paginate(5);
 
         }
 
@@ -41,11 +42,11 @@ class PetitionController extends Controller
             $petitions = Petition::where('confined_in_jail', $search)->
                 orWhere('name', 'like', "%{$search}%")->orWhere('gender', 'like', "%{$search}%")->
                 orWhere('nationality', 'like', "%{$search}%")->orWhere('f_name', 'like', "%{$search}%")->
-                orWhere('status', 'like', "%{$search}%")->paginate(5);
+                orWhere('file_in_department', 'like', "%{$search}%")->paginate(5);
         } else {
             //   $pet=Petition::where('status','IGP')->where('confined_in_jail', Auth::user()->confined_in_jail)->get();
 
-            $petitions = Petition::where('status', 'IGP')->where('confined_in_jail', Auth::user()->confined_in_jail)->orWhere('name', $search)->orWhere('gender', $search)->
+            $petitions = Petition::where('file_in_department', 'Jail-Supt')->where('confined_in_jail', Auth::user()->confined_in_jail)->orWhere('name', $search)->orWhere('gender', $search)->
 
                 orWhere('nationality', $search)->orWhere('f_name', $search)->paginate(5);
 
@@ -76,7 +77,7 @@ class PetitionController extends Controller
         if (Auth::user()->confined_in_jail == "") {
             $petitions = Petition::orderBy("id", "desc")->paginate(5);
         } else {
-            $petitions = Petition::Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('status', 'IGP')->Where('received_from_department', 'HomeDepartment')->orderBy("id", "desc")->paginate(5);
+            $petitions = Petition::Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('file_in_department', 'Jail-Supt')->Where('received_from_department', 'HomeDepartment')->orderBy("id", "desc")->paginate(5);
 
         }
 
@@ -89,17 +90,19 @@ class PetitionController extends Controller
     public function create()
     {
         $sections = Section::all();
+        $physicalstatus = PhysicalStatus::all();
 
-        return view('IGP.addpetition', compact('sections'));
+        return view('IGP.addpetition', compact('sections','physicalstatus'));
     }
     public function edit($id)
     {
 
         $sections = Section::all();
+        $physicalstatus = PhysicalStatus::all();
         $petitionsedit = Petition::find($id);
         $filepetition = File::where('petition_id', $id)->first();
 
-        return view('IGP.petitionsedit', compact('petitionsedit', 'sections', 'filepetition'));
+        return view('IGP.petitionsedit', compact('petitionsedit', 'sections','physicalstatus', 'filepetition'));
     }
     public function petitionremarksedit($id)
     {
@@ -132,6 +135,7 @@ class PetitionController extends Controller
 
         // file validation
 
+
         $this->validate($request, [
             'prisoner_image' => 'required|mimes:jpeg,png,jpg,gif,svg',
             'application_image' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
@@ -142,7 +146,7 @@ class PetitionController extends Controller
 
             'f_name' => 'required|regex:/^[a-zA-Z0-9 ]+$/|max:20',
             'nationality' => 'required|regex:/^[a-zA-Z0-9 ]+$/|max:20',
-            'physicalstatus' => 'required',
+            'physicalstatus_id' => 'required',
 
             'gender' => 'required|regex:/^[a-zA-Z0-9 ]+$/|max:20',
             'dob' => 'required',
@@ -196,10 +200,10 @@ class PetitionController extends Controller
 
         $Petition = new Petition([
             "name" => $request->get('name'),
-
+            "prisonerid" => $request->get('prisonerid'),
             "f_name" => $request->get('f_name'),
             "nationality" => $request->get('nationality'),
-            "physicalstatus" => $request->get('physicalstatus'),
+            "physicalstatus_id" => $request->get('physicalstatus_id'),
             "confined_in_jail" => Auth::user()->confined_in_jail,
             "gender" => $request->get('gender'),
             "dob" => $dob,
@@ -211,7 +215,8 @@ class PetitionController extends Controller
             "date_of_sentence" => $date_of_sentence,
             "sentence_in_court" => $request->get('sentence_in_court'),
             "warrent_information" => strip_tags($request->warrent_information),
-            "status" => "IGP",
+            "status" => "pending",
+            "file_in_department"=>"Jail-Supt",
 
             "prisoner_image" => $prisoner_image,
             "warrent_file" => $warrent_file,
@@ -328,9 +333,9 @@ class PetitionController extends Controller
         $petitionsedit = Petition::find($id);
 
         $petitionsedit->remarks = strip_tags($request->get('remarks'));
-        $petitionsedit->received_from_department = "IGP";
+        $petitionsedit->received_from_department = "Jail-Supt";
 
-        $petitionsedit->status = $request->get('status');
+        $petitionsedit->file_in_department = $request->get('file_in_department');
 
         $petitionsedit->save();
         // $fileupdate = File::where('petition_id',$id)->first();
@@ -355,7 +360,7 @@ class PetitionController extends Controller
             }
             $logPetitions =  new LogPetition([
                 "user_id" => Auth::user()->id,
-                "department" => $request->get('status'),
+                "department" => $request->get('file_in_department'),
                 "petition_id" => $petitionsedit->id,
             ]);
             $logPetitions->save();
@@ -376,8 +381,8 @@ class PetitionController extends Controller
 
         $forwardhomedepartment = Petition::find($id);
         $forwardhomedepartment->remarks = strip_tags($request->get('remarks'));
-        $forwardhomedepartment->status = $request->get('status');
-        $forwardhomedepartment->received_from_department = "IGP";
+        $forwardhomedepartment->file_in_department = $request->get('file_in_department');
+        $forwardhomedepartment->received_from_department = "Jail-Supt";
         $forwardhomedepartment->save();
         if ($request->file('otherdocument')) {
             $otherdocumentarry = [];
@@ -399,7 +404,7 @@ class PetitionController extends Controller
             }
             $logPetitions =  new LogPetition([
                 "user_id" => Auth::user()->id,
-                "department" => $request->get('status'),
+                "department" => $request->get('file_in_department'),
                 "petition_id" => $forwardhomedepartment->id,
             ]);
             $logPetitions->save();
