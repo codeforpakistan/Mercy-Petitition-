@@ -11,7 +11,7 @@
             <div class="card bcard">
                 <div class="card-body px-1 px-md-3">
                     <div class="d-flex justify-content-between flex-column flex-sm-row mb-3 px-2 px-sm-0">
-                        <form method="get" action="{{ request()->fullUrlWithQuery(['search' => '']) }}}}">
+                        <form method="get" action="{{ request()->fullUrlWithQuery(['search' => '']) }}">
                             <div class="pos-rel d-inline-block" style="width: calc(100% - 48px);">
                                 <i class="fa fa-search position-lc ml-25 text-primary-m1"></i>
                                 <input type="text" name="search" value="{{ $search }}"

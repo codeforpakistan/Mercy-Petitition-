@@ -68,7 +68,14 @@ class InteriorMinstryController extends Controller
         $interiorministrydecision = Petition::find($id);
         $interiorministrydecision->received_from_department = "InteriorMinistry";
         //    $forwardhomedepartment->remarks = strip_tags($request->get('remarks'));
-        $interiorministrydecision->file_in_department = $request->get('file_in_department');
+        if($request->get('file_in_department')=="Accepted"){
+            $interiorministrydecision->status = $request->get('file_in_department');  
+        }else if($request->get('file_in_department')=="Rejected"){
+            $interiorministrydecision->status = $request->get('file_in_department');   
+        }else{
+            $interiorministrydecision->file_in_department = $request->get('file_in_department');
+        }
+       
         $interiorministrydecision->save();
         $Interiorministries = new InteriorMinistry([
             'remarks' => strip_tags($request->get('remarks')),

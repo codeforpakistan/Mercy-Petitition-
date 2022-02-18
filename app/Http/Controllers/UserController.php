@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Rules\MatchOldPassword;
 use App\User;
+use App\Province;
+use App\Jail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
@@ -61,7 +63,9 @@ class UserController extends Controller
     public function create()
     {
         $roles = Role::all();
-        return view('portal.users.create', compact('roles'));
+        $provinces=Province::all();
+        $jails=Jail::all();
+        return view('portal.users.create', compact('roles','provinces','jails'));
     }
 
     /**
@@ -72,6 +76,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
@@ -86,8 +91,11 @@ class UserController extends Controller
 
         $user = User::create($input);
         $user->confined_in_jail = $request->get('confined_in_jail');
+        $user->province_id = $request->get('province_id');
+        $user->province_id = $request->get('province_id1');
 
         $user->assignRole($request->input('roles'));
+       
         $user->save();
 
         return redirect()->route('portal.users.index')
@@ -100,6 +108,16 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function jailview($id)
+    {
+
+        $pets = Jail::where('province_id', $id)->get();
+
+        
+
+        return response()->json($pets);
+
+    }
     public function show($id)
     {
         $user = User::find($id);

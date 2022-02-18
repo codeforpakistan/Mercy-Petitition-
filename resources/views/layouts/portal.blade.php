@@ -1326,26 +1326,86 @@
                 });
         });
     </script>
+
     <script>
         $(document).ready(function() {
             $('#roles').change(function() {
                 var selected = $(this).val();
-                //   alert(selected);
+
 
                 if (selected == 'jail-supt') {
-                    $('#confined_in_jail').removeClass("d-lg-none");
+                    $('#province').removeClass("d-lg-none");
+                    $('#provincehome').addClass("d-lg-none");
 
-                }else{
+                }else if(selected == 'Homedept'){
+                    $('#provincehome').removeClass("d-lg-none");
                     $('#confined_in_jail').addClass("d-lg-none");
+
+
+                }else if(selected == 'Admin'){
+                    $('#provincehome').removeClass("d-lg-none");
+                    $('#confined_in_jail').addClass("d-lg-none");
+
+                }
+                else{
+                    $('#province').addClass("d-lg-none");
+                    $('#confined_in_jail').addClass("d-lg-none");
+                    $('#provincehome').addClass("d-lg-none");
                 }
                 // else if(selected=='2'){
                 //     $('#Edema').hide();
                 //     $('#Fetalposition').hide();
                 //     $('#Fundal').hide();
             });
+
+
         });
     </script>
+     <script>
+        $(document).ready(function() {
+ $('#provincejail').change(function() {
+    var selected = $(this).val();
 
+alert(selected);
+    if (selected) {
+        $('#confined_in_jail').removeClass("d-lg-none");
+
+    }
+    $.ajax({ //create an ajax request to display.php
+
+type: "GET",
+url: "{{ url('jailview') }}/" + selected,
+datatype: 'json',
+
+success: function(data) {
+
+
+
+
+
+
+
+
+
+        $('#jailname').empty();
+                    $('#jailname').append('<option disabled value="" selected hidden>Select jail</option>');
+                    $.each(data, function(key, val) {
+
+                        $('#jailname').append('<option value="'+ val.id +'">'+val.jail_name+'</option>');
+                        // $('#police_station_id_fk option[value='+value.police_station_id+']').attr('selected','selected');
+
+    });
+
+
+
+
+
+    }
+
+});
+});
+});
+</script>
 
 
     <script>

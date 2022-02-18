@@ -173,7 +173,7 @@
 
 
                                             <td>
-                                                <a href='#' class='text-blue-d1 text-600 text-95'>{{ $petion->prionerid }}</a>
+                                                <a href='#' class='text-blue-d1 text-600 text-95'>{{ $petion->prisonerid }}</a>
                                             </td>
                                             <td>
                                                 <a href='#' class='text-blue-d1 text-600 text-95'>{{ $petion->name }}</a>

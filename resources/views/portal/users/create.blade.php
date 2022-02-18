@@ -94,20 +94,54 @@
                         </select>
                     </div>
                 </div>
-                <div id="confined_in_jail" class="form-group row d-lg-none">
+                <div id="provincehome" class="form-group row d-lg-none">
                     <div class="col-sm-3 col-form-label text-sm-right pr-0">
-                        <label for="roles"> Jail</label>
+                        <label for="roles"> Province</label>
                     </div>
                     <div class="col-sm-5 col-12 tag-input-style">
 
 
-                        <select name="confined_in_jail"
+                        <select name="province_id1" 
                             class="ace-select text-dark-m1 bgc-default-l5 bgc-h-warning-l3 brc-default-m3 brc-h-warning-m1">
+                            <option value='0'>Select province</option>
+                            @foreach ($provinces as $provin)
+                            
+                            <option value='{{$provin->id}}'>{{$provin->province_name}}</option>
+                            @endforeach
 
-                            <option value='CP-peshawar'>CP-peshawar</option>
-                            <option value='Mardan'>Mardan</option>
-                            <option value='Bannu'>Bannu</option>
-                            <option value='haripur'>haripur</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="province" class="form-group row d-lg-none">
+                    <div class="col-sm-3 col-form-label text-sm-right pr-0">
+                        <label for="roles"> Province</label>
+                    </div>
+                    <div class="col-sm-5 col-12 tag-input-style">
+
+
+                        <select name="province_id" id="provincejail"
+                            class="ace-select text-dark-m1 bgc-default-l5 bgc-h-warning-l3 brc-default-m3 brc-h-warning-m1">
+                            <option value='0'>Select province</option>
+                            @foreach ($provinces as $provin)
+                            
+                            <option value='{{$provin->id}}'>{{$provin->province_name}}</option>
+                            @endforeach
+
+                        </select>
+                    </div>
+                </div>
+                <div id="confined_in_jail" class="form-group row d-lg-none">
+                    <div class="col-sm-3 col-form-label text-sm-right pr-0">
+                        <label for="roles"> Jails</label>
+                    </div>
+                    <div class="col-sm-5 col-12 tag-input-style">
+
+
+                        <select name="confined_in_jail" id="jailname"
+                            class="ace-select text-dark-m1 bgc-default-l5 bgc-h-warning-l3 brc-default-m3 brc-h-warning-m1">
+                         
+                            <option value=''></option>
+                          
 
                         </select>
                     </div>

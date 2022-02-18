@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddPhysicalstatusIdToPetitionsTable extends Migration
+class AddProvinceIdToPetitionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,10 +14,10 @@ class AddPhysicalstatusIdToPetitionsTable extends Migration
     public function up()
     {
         Schema::table('petitions', function (Blueprint $table) {
-            $table->unsignedInteger('physicalstatus_id')->nullable();
-            $table->foreign('physicalstatus_id')
+            $table->unsignedInteger('province_id')->nullable();
+            $table->foreign('province_id')
             ->references('id')
-            ->on('physical_status')
+            ->on('province')
             ->onDelete('cascade');
         });
     }
