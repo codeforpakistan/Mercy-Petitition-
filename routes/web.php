@@ -43,6 +43,8 @@ Route::get('/humangrightback/{id}', 'HumanRightDepartmentController@backpetition
 Route::Post('/humanrighdecision/{id}', 'HumanRightDepartmentController@humanrightdecision')->name('petition-humanrighdecision');
 Route::get('/petitionedit/{id}', 'PetitionController@edit')->name('petition-edit');
 Route::get('/reportform', 'HomeController@reportform')->name('reportform');
+Route::get('/reportform/search', 'HomeController@searchreport')->name('reportform.search');
+Route::get('/reportsearch', 'HomeController@searchreportform')->name('reportformtt.search');
 Route::get('/petitionsearch', 'PetitionController@searchform')->name('petitionsearchform');
 Route::Post('/petitionupdate/{id}', 'PetitionController@petitionupdate')->name('petition-update');
 Route::Post('/petitionrmarksupdate/{id}', 'PetitionController@petitionremarksupdate')->name('petitionremarksupdate');

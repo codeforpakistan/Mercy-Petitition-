@@ -10,6 +10,8 @@ use App\Province;
 use App\Section;
 use App\Jail;
 use App\PhysicalStatus;
+use Illuminate\Support\Carbon;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -83,5 +85,31 @@ class HomeController extends Controller
 
 
     }
+    public function searchreport(Request $request){
 
+        $provinces = Province::all();
+        $section = Section::all();
+        $jail = Jail::all();
+        $physicalstatus = PhysicalStatus::all();
+        $fromdate = Carbon::parse($request->get('fromdate'))->format('Y-m-d');
+        $todate = Carbon::parse($request->get('todate'))->format('Y-m-d');
+
+        $search = trim($request->input('search'));
+        $gender = trim($request->input('gender'));
+        $province = trim($request->input('province'));
+        $status = trim($request->input('status'));
+        $physicalstatuses = trim($request->input('physicalstatus'));
+        $confinedinjail = trim($request->input('confinedinjail'));
+        $undersection = trim($request->input('undersection'));
+
+
+
+            $searchs = Petition::orWhere('confined_in_jail', $confinedinjail)->
+                orWhere('file_in_department', 'like', "%{$status}%")->orWhere('gender', 'like', "%{$gender}%")->
+                orWhere('nationality', 'like', "%{$search}%")->orWhere('status', 'like', "%{$status}%")->
+                orWhere('province_id', 'like', "%{$province}%")->orWhere('section_id', 'like', "%{$undersection}%")
+                ->orWhere('physicalstatus_id', 'like', "%{$physicalstatuses}%")->get();
+                // ->orwherebetween('created_at',[$fromdate,$todate])
+                return view('IGP.searchreportform', compact('searchs' , 'section' , 'provinces' , 'jail' , 'physicalstatus'));
+}
 }

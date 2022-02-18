@@ -1191,7 +1191,7 @@
                         $('#Mercypetitiondate').text(data.mercypetitiondate);
                         $('#Section_id').text(data.sectionss.undersection);
                         $('#warrent_date').text(data.warrent_date);
-                        
+
                         $('#Remarks').text(data.remarks);
                         $('#sentence_in_court').text(data.sentence_in_court);
                         $('#date_of_sentence').text(data.date_of_sentence);
@@ -1222,14 +1222,14 @@
                             }
                         });
                         var ap = data.application_image;
-                  
+
                         var finalap = ap.split(".");
 
                         if (finalap['1'] == "pdf") {
                             $('#application_images').append(
                                 "<a style='margin-right:15px;'' target='_blank'   href='{{ url('/assets/image/') }}/" + data
                                 .application_image + "'download>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>"+ '</a>');
-                               
+
                         } else {
                             // $('#application_image').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.application_image+"'>");
                             $('#application_image').html(
@@ -1346,7 +1346,7 @@
         });
     </script>
 
-    
+
 
     <script>
         document.getElementById("btnPrint").onclick = function() {
@@ -1378,6 +1378,38 @@
             window.print();
         }
     </script>
+    <script>
+$(document).ready(function() {
+
+    var daterange_container = document.querySelector('#id-daterange-container')
+        // Inject DateRangePicker into our container
+        DateRangePicker.DateRangePicker(daterange_container, {
+            mode: 'dp-modal'
+          })
+          .on('statechange', function(_, rp) {
+            // Update the inputs when the state changes
+            var range = rp.state
+            $('#id-daterange-from').val(range.start ? range.start.toDateString() : '')
+            $('#id-daterange-to').val(range.end ? range.end.toDateString() : '')
+          })
+
+        $('#id-daterange-from, #id-daterange-to').on('focus', function() {
+          daterange_container.classList.add('visible')
+        })
+
+        var daterange_wrapper = document.querySelector('#id-daterange-wrapper')
+        var previousTimeout = null;
+        $(daterange_wrapper).on('focusout', function() {
+          if (previousTimeout) clearTimeout(previousTimeout)
+          previousTimeout = setTimeout(function() {
+            if (!daterange_wrapper.contains(document.activeElement)) {
+              daterange_container.classList.remove('visible')
+            }
+          }, 10)
+        });
+
+});
+        </script>
 
 <script>
     $(document).ready(function() {
