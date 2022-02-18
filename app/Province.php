@@ -16,4 +16,8 @@ class Province extends Model
         return $this->hasMany(Jail::class,"province_id");
 
     }
+    public function provincepetitions()
+    {
+        return $this->hasMany(Petition::class,"province_id");
+    }
 }

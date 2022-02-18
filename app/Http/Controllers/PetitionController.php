@@ -25,9 +25,9 @@ class PetitionController extends Controller
     {
 
         if (Auth::user()->confined_in_jail == "") {
-            $petitions = Petition::orderBy("id", "desc")->paginate(5);
+            $petitions = Petition::Where('province_id', Auth::user()->province_id)->orderBy("id", "desc")->paginate(5);
         } else {
-            $petitions = Petition::Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('file_in_department', 'Jail-Supt')->orderBy("id", "desc")->paginate(5);
+            $petitions = Petition::Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('province_id', Auth::user()->province_id)->Where('file_in_department', 'Jail-Supt')->orderBy("id", "desc")->paginate(5);
 
         }
 
@@ -69,15 +69,15 @@ class PetitionController extends Controller
 
         $logpetitions = LogPetition::with('petitions', 'users')->get();
         return view('IGP.logpetition', compact('logpetitions'));
-
+     
 
     }
     public function remarksfromhome()
     {
         if (Auth::user()->confined_in_jail == "") {
-            $petitions = Petition::orderBy("id", "desc")->paginate(5);
+            $petitions = Petition::Where('province_id', Auth::user()->province_id)->orderBy("id", "desc")->paginate(5);
         } else {
-            $petitions = Petition::Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('file_in_department', 'Jail-Supt')->Where('received_from_department', 'HomeDepartment')->orderBy("id", "desc")->paginate(5);
+            $petitions = Petition::Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('province_id', Auth::user()->province_id)->Where('file_in_department', 'Jail-Supt')->Where('received_from_department', 'HomeDepartment')->orderBy("id", "desc")->paginate(5);
 
         }
 
@@ -134,7 +134,7 @@ class PetitionController extends Controller
         // Validate the inputs
 
         // file validation
-
+        
 
         $this->validate($request, [
             'prisoner_image' => 'required|mimes:jpeg,png,jpg,gif,svg',
@@ -205,6 +205,7 @@ class PetitionController extends Controller
             "nationality" => $request->get('nationality'),
             "physicalstatus_id" => $request->get('physicalstatus_id'),
             "confined_in_jail" => Auth::user()->confined_in_jail,
+            "province_id" => Auth::user()->province_id,
             "gender" => $request->get('gender'),
             "dob" => $dob,
             "user_id" => Auth::user()->id,
@@ -232,7 +233,7 @@ class PetitionController extends Controller
         //  "file" => json_encode($otherdocumentarry),
         // ]);
         // $file->save();
-
+       
         return redirect()->route('Petition.index')->with('message', 'Petion Successfully save');
     }
 
@@ -297,7 +298,7 @@ class PetitionController extends Controller
 
         $petitionsedit->f_name = $request->get('f_name');
         $petitionsedit->nationality = $request->get('nationality');
-        $petitionsedit->physicalstatus = $request->get('physicalstatus');
+        $petitionsedit->physicalstatus_id = $request->get('physicalstatus_id');
         $petitionsedit->dob = $request->get('dob');
 
         $petitionsedit->user_id = Auth::user()->id;
@@ -418,5 +419,15 @@ class PetitionController extends Controller
         return redirect()->route('Petition.index')->with('message', 'Petion Forward Successfully ');
     }
 
+    // public function reportform()
+    // {
+    //     if (Auth::user()->confined_in_jail == "") {
+    //         $petitions = Petition::orderBy("id", "desc")->get();
+    //     } else {
+    //         $petitions = Petition::Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('status', 'IGP')->Where('received_from_department', 'IGP')->orderBy("id", "desc")->get();
+    //     }
+
+    //     return view('IGP.reportform', compact('petitions'));
+    // }
 
 }
