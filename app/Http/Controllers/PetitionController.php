@@ -69,7 +69,7 @@ class PetitionController extends Controller
 
         $logpetitions = LogPetition::with('petitions', 'users')->get();
         return view('IGP.logpetition', compact('logpetitions'));
-     
+
 
     }
     public function remarksfromhome()
@@ -134,7 +134,7 @@ class PetitionController extends Controller
         // Validate the inputs
 
         // file validation
-        
+
 
         $this->validate($request, [
             'prisoner_image' => 'required|mimes:jpeg,png,jpg,gif,svg',
@@ -232,7 +232,7 @@ class PetitionController extends Controller
         //  "file" => json_encode($otherdocumentarry),
         // ]);
         // $file->save();
-       
+
         return redirect()->route('Petition.index')->with('message', 'Petion Successfully save');
     }
 
@@ -418,15 +418,5 @@ class PetitionController extends Controller
         return redirect()->route('Petition.index')->with('message', 'Petion Forward Successfully ');
     }
 
-    // public function reportform()
-    // {
-    //     if (Auth::user()->confined_in_jail == "") {
-    //         $petitions = Petition::orderBy("id", "desc")->get();
-    //     } else {
-    //         $petitions = Petition::Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('status', 'IGP')->Where('received_from_department', 'IGP')->orderBy("id", "desc")->get();
-    //     }
-
-    //     return view('IGP.reportform', compact('petitions'));
-    // }
 
 }

@@ -1439,6 +1439,33 @@ success: function(data) {
         }
     </script>
 
+<script>
+    $(document).ready(function() {
+      $('.del-prov').on('click', function(e){
+        e.preventDefault();
+        if($(this).attr('id') > 0)
+        {
+          var del_route = "<?php echo 'province/destroy/';?>"+$(this).attr('id');
+          Swal.fire({
+          //html: true,
+          title: 'Are you sure?',
+          html: "You want to delete?",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.value) {
+              window.location = del_route;
+            }
+          })
+          return false;
+        }
+      });
+    });
+  </script>
+
     <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
     <script>

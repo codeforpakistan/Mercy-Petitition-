@@ -157,6 +157,20 @@
             </span>
     </a>
 </li>
+<li class="nav-item {{isset($sub_menu) ? ($sub_menu=='province' ? 'active' : '') : ''}}">
+    <a href="{{route('province.index')}}" class="nav-link">
+            <span class="nav-text">
+                    <span>Province</span>
+            </span>
+    </a>
+</li>
+<li class="nav-item {{isset($sub_menu) ? ($sub_menu=='jail' ? 'active' : '') : ''}}">
+    <a href="{{route('jail.index')}}" class="nav-link">
+            <span class="nav-text">
+                    <span>Jail</span>
+            </span>
+    </a>
+</li>
 <li class="nav-item {{isset($sub_menu) ? ($sub_menu=='LogPetition' ? 'active' : '') : ''}}">
     <a href="{{route('logpetition')}}" class="nav-link">
             <span class="nav-text">

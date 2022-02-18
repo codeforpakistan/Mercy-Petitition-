@@ -60,19 +60,20 @@
                 <label class="col-md-2">Gender</label>
                 <div class="col-md-4">
                 <select class="form-control"  name="DeptID" id="DeptID">
-                    {{-- <option value="">Please select</option>
-                    @foreach($Depts as $Dept)
-                        <option value="{{$Dept->DeptID}}" {{( $Dept->DeptID == old('DeptID') ) ? 'selected' : '' }}>{{$Dept->DeptName}}</option>
-                    @endforeach --}}
+                    <option value="">Please select</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+
                 </select>
                 </div>
-              <label class="col-md-2">Physical Status</label>
+              <label class="col-md-2">province</label>
               <div class="col-md-4">
-              <select class="form-control"  name="DeptID" id="DeptID">
-                  {{-- <option value="">Please select</option>
-                  @foreach($Depts as $Dept)
-                      <option value="{{$Dept->DeptID}}" {{( $Dept->DeptID == old('DeptID') ) ? 'selected' : '' }}>{{$Dept->DeptName}}</option>
-                  @endforeach --}}
+              <select class="form-control"  name="province_id" id="province_id">
+                  <option value="">Please select</option>
+                  @foreach($provinces as $province)
+                      <option value="{{$province->province_name}}">{{$province->province_name}}</option>
+                  @endforeach
               </select>
               </div>
             </div>
@@ -81,20 +82,20 @@
 
               <label class="col-md-2">Confined In Jail</label>
               <div class="col-md-4">
-              <select class="form-control"  name="DeptID" id="DeptID">
-                  {{-- <option value="">Please select</option>
-                  @foreach($Depts as $Dept)
-                      <option value="{{$Dept->DeptID}}" {{( $Dept->DeptID == old('DeptID') ) ? 'selected' : '' }}>{{$Dept->DeptName}}</option>
-                  @endforeach --}}
+              <select class="form-control"  name="confined_in_jail" id="DeptID">
+                  <option value="">Please select</option>
+                  @foreach($jail as $jails)
+                      <option value="{{$jails->jail_name}}">{{$jails->jail_name}}</option>
+                  @endforeach
               </select>
               </div>
                 <label class="col-md-2">Under Section</label>
                 <div class="col-md-4">
-                <select class="form-control"  name="DeptID" id="DeptID">
-                    {{-- <option value="">Please select</option>
-                    @foreach($Depts as $Dept)
-                        <option value="{{$Dept->DeptID}}" {{( $Dept->DeptID == old('DeptID') ) ? 'selected' : '' }}>{{$Dept->DeptName}}</option>
-                    @endforeach --}}
+                <select class="form-control"  name="undersection" id="undersection">
+                    <option value="">Please select</option>
+                    @foreach($section as $sections)
+                        <option value="{{$sections->undersection}}">{{$sections->undersection}}</option>
+                    @endforeach
                 </select>
                 </div>
             </div>
@@ -103,21 +104,33 @@
               <label class="col-md-2">Prison Status</label>
               <div class="col-md-4">
               <select class="form-control"  name="DeptID" id="DeptID">
-                  {{-- <option value="">Please select</option>
-                  @foreach($Depts as $Dept)
-                      <option value="{{$Dept->DeptID}}" {{( $Dept->DeptID == old('DeptID') ) ? 'selected' : '' }}>{{$Dept->DeptName}}</option>
-                  @endforeach --}}
+                  <option value="">Please select</option>
+                  <option value="Accepted">Accepted</option>
+                  <option value="Rejected">Rejected</option>
+                  <option value="Jail-Supt">Jail-Supt</option>
+                  <option value="Homedept">Homedept</option>
+                  <option value="InteriorMinstry">InteriorMinstry</option>
+                  <option value="HumanrRightDepartment">HumanrRightDepartment</option>
+
               </select>
               </div>
-                <label class="col-md-2">Multiple Date</label>
+                <label class="col-md-2">Phyical Status</label>
                 <div class="col-md-4">
                 <select class="form-control"  name="DeptID" id="DeptID">
-                    {{-- <option value="">Please select</option>
-                    @foreach($Depts as $Dept)
-                        <option value="{{$Dept->DeptID}}" {{( $Dept->DeptID == old('DeptID') ) ? 'selected' : '' }}>{{$Dept->DeptName}}</option>
-                    @endforeach --}}
+                    <option value="">Please select</option>
+                    @foreach($physicalstatus as $physicalstatuses)
+                        <option value="{{$physicalstatuses->PhysicalStatus}}">{{$physicalstatuses->PhysicalStatus}}</option>
+                    @endforeach
                 </select>
                 </div>
+            </div>
+            <div class="form-group form-row" style="margin-bottom: 6px;">
+
+              <label class="col-md-2">Multiple Date</label>
+              <div class="col-md-4">
+
+              </div>
+
             </div>
             <br>
               <div class="col-md-12" style="text-align: right;">
@@ -128,7 +141,7 @@
             </form>
 
   <tr>
-    <table id="mytable" class="table table-bordered table-striped table-vcenter js-dataTable-buttons table_id">
+    <table class="table table-bordered table-striped table-vcenter js-dataTable-buttons table_id">
   <thead>
   <tr>
     <th class="p-3 mb-2 bg-success text-white" style="width: 80px;">ID</th>

@@ -73,3 +73,17 @@ Route::post('physicalstatus/store', 'PhysicalStatusController@store')->name('phy
 Route::get('physicalstatus/edit/{id}', 'PhysicalStatusController@edit')->name('physicalstatus.edit');
 Route::post('physicalstatus/update/{id}', 'PhysicalStatusController@update')->name('physicalstatus.update');
 Route::get('physicalstatus/destroy/{id}', 'PhysicalStatusController@destroy')->name('physicalstatus.destroy');
+
+Route::get('province', 'ProvinceController@index')->name('province.index');
+Route::get('province/add', 'ProvinceController@create')->name('province.add');
+Route::post('province/store', 'ProvinceController@store')->name('province.store');
+Route::get('province/edit/{id}', 'ProvinceController@edit')->name('province.edit');
+Route::post('province/update/{id}', 'ProvinceController@update')->name('province.update');
+Route::get('province/destroy/{id}', 'ProvinceController@destroy')->name('province.destroy');
+
+Route::get('jail', 'JailController@index')->name('jail.index');
+Route::get('jail/add', 'JailController@create')->name('jail.add');
+Route::post('jail/store', 'JailController@store')->name('jail.store');
+Route::get('jail/edit/{id}', 'JailController@edit')->name('jail.edit');
+Route::post('jail/update/{id}', 'JailController@update')->name('jail.update');
+Route::get('jail/destroy/{id}', 'JailController@destroy')->name('jail.destroy');

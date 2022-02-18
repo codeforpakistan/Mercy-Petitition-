@@ -6,6 +6,10 @@ use App\HomeDepartment;
 use App\HumanRightDepartment;
 use App\InteriorMinistry;
 use App\Petition;
+use App\Province;
+use App\Section;
+use App\Jail;
+use App\PhysicalStatus;
 
 class HomeController extends Controller
 {
@@ -69,8 +73,13 @@ class HomeController extends Controller
         // } else {
         //     $petitions = Petition::Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('status', 'IGP')->Where('received_from_department', 'IGP')->orderBy("id", "desc")->get();
         // }
+        $provinces = Province::all();
+        $section = Section::all();
+        $jail = Jail::all();
+        $physicalstatus = PhysicalStatus::all();
         $petitions = Petition::orderBy("id", "desc")->paginate(5);
-        return view('IGP.reportform', compact('petitions'));
+        // dd($provinces);
+        return view('IGP.reportform', compact('petitions' ,'section' , 'provinces' , 'jail' , 'physicalstatus'));
 
 
     }
