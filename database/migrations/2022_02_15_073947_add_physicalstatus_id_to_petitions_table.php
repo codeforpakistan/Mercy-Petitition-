@@ -17,7 +17,7 @@ class AddPhysicalstatusIdToPetitionsTable extends Migration
             $table->unsignedInteger('physicalstatus_id')->nullable();
             $table->foreign('physicalstatus_id')
             ->references('id')
-            ->on('Physical_Status')
+            ->on('physical_status')
             ->onDelete('cascade');
         });
     }

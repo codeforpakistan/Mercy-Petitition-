@@ -62,7 +62,7 @@
                             @foreach ($physicalstatus as $physical)
 
 
-                                <option value="{{ $section->id }}"
+                                <option value="{{ $physical->id }}"
                                     {{ $petitionsedit->physicalstatus_id == $physical->id ? 'selected="selected"' : '' }}>
                                     {{ $physical->PhysicalStatus }}</option>
                             @endforeach
@@ -116,7 +116,7 @@
                             @foreach ($sections as $section)
 
 
-                                <option value="{{ $section->id }}"
+                                <option value="{{$section->id}}"
                                     {{ $petitionsedit->select_id == $section->id ? 'selected="selected"' : '' }}>
                                     {{ $section->undersection }}</option>
                             @endforeach

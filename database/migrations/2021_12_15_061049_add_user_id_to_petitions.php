@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateJailsTable extends Migration
+class AddUserIdToPetitions extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,12 @@ class CreateJailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('jails', function (Blueprint $table) {
-            $table->Increments('id');
-            $table->string('jail_name');
-            $table->unsignedInteger('province_id')->nullable();
-            $table->foreign('province_id')
+        Schema::table('petitions', function (Blueprint $table) {
+            $table->unsignedInteger('user_id')->nullable();
+            $table->foreign('user_id')
             ->references('id')
-            ->on('province')
+            ->on('users')
             ->onDelete('cascade');
-            $table->timestamps();
         });
     }
 
@@ -32,6 +29,8 @@ class CreateJailsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jails');
+        Schema::table('petitions', function (Blueprint $table) {
+            //
+        });
     }
 }

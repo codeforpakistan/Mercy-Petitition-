@@ -53,6 +53,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', 'dashboardController@dashboard')->name('portal.dashboard');
     Route::get('/petitionforward/{id}', 'PetitionController@forwardpetition')->name('petition-forward');
     Route::Post('/storepetition', 'PetitionController@storepetition')->name('storepetition');
+    Route::get('/jailview/{id}', 'UserController@jailview')->name('jailview');
     Route::get('/view/{id}', 'PetitionController@view')->name('viewpetition');
     Route::get('/Interiorview/{id}', 'InteriorMinstryController@view')->name('InteriorMinstryviewpetition');
     Route::get('/remarksfromhrd', 'InteriorMinstryController@remarksfromhrd')->name('InteriorMinstry.hrd');

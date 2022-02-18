@@ -167,9 +167,7 @@
         {{ $petitions->links() }}
      
             
-        @else
-        <h4 style="background-color:#800000; text-align:center;color:#fff"> Record Not Yet Added!</h4>
-        @endif
+       
         <div class="modal fade modal-fs" id="modalFullscreen" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalLabel2" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable" role="document">
@@ -771,7 +769,9 @@
                                                 <!-- activity tab -->
 
 
-
+                                                @else
+                                                <h4 style="background-color:#800000; text-align:center;color:#fff"> No Record Found!</h4>
+                                            @endif
 
 
 

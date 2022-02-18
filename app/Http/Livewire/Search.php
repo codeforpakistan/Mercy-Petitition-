@@ -30,7 +30,7 @@ class Search extends Component
                 orWhere('nationality', 'like', "%{$search}%")->orWhere('f_name', 'like', "%{$search}%")->orderBy("id", "desc")->paginate(5);
 
         }
-
+    
         return view('livewire.search', compact('petitions'));
     }
 }
