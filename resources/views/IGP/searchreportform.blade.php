@@ -155,8 +155,8 @@
             </form>
 
   <tr>
-    <a href="{{ route('pdfview',['download'=>'pdf']) }}">Download PDF</a>
-    <table class="table table-bordered table-striped table-vcenter js-dataTable-buttons table_id">
+    <input type="button" id="btnExport" value="Export" onclick="Export()" />
+    <table id="tblCustomers" class="table table-bordered table-striped table-vcenter js-dataTable-buttons table_id">
   <thead>
   <tr>
     <th class="p-3 mb-2 bg-success text-white" style="width: 80px;">ID</th>
