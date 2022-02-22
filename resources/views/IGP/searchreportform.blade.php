@@ -4,55 +4,26 @@
 ])
 @section('module','Report ')
 @section('element','Form')
+
 <style>
-
-
-
-    .center {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    @media screen {
-        #printSection {
-            display: none;
-        }
-    }
-
-
-
-
-    @media print {
-        body * {
-            visibility: hidden;
-        }
-
-        #printSection,
-        #printSection * {
-            visibility: visible;
-        }
-
-        #printSection {
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-    }
-</style>
-
+  body{
+    overflow-x: scroll;
+  }
+  </style>
 @section('content')
 
-<br>
-<div class="block">
 
 
-    <div class="block-content block-content-full">
+
+
+<div role="main" class="page-content container">
         @if ($message = Session::get('success'))
             <div class="alert alert-success">
                 <p>{{ $message }}</p>
             </div>
         @endif
-         <div role="main" class="page-content container container-plus">
+        
+        
 
         <form action="{{route('reportform.search')}}" method="GET" role="search" id="search">
             <div class="form-group form-row" style="margin-bottom: 6px;">
@@ -143,59 +114,47 @@
                   <div id="id-daterange-container" class="dp-daterange-picker dp-daterange-above"></div>
                 </div>
               </div>
-            </div>
-
-            </div>
+           
             <br>
               <div class="col-md-12" style="text-align: right;">
                 <button type="submit" id="searchbtn" class="btn btn-info">Search</button>
                 <button type="button" id="resetbtn" class="btn btn-success" onclick="document.getElementById('EmployeeID').value = null; document.getElementById('searchbtn').click(); return false;">Reset</button>
               </div>
-            </div>
+            
             </form>
 
   <tr>
-    <a href="{{ route('pdfview',['download'=>'pdf']) }}">Download PDF</a>
-    <table class="table table-bordered table-striped table-vcenter js-dataTable-buttons table_id">
+    <input type="button" id="btnExport" value="Export" onclick="Export()" />
+    <table id="tblCustomers" class="table table-bordered table-striped table-vcenter js-dataTable-buttons table_id">
   <thead>
-  <tr>
-    <th class="p-3 mb-2 bg-success text-white" style="width: 80px;">ID</th>
-    <th class="p-3 mb-2 bg-success text-white">Name</th>
-    <th class="p-3 mb-2 bg-success text-white">Father Name</th>
+    <tr>
+      {{-- <td class="text-center font-size-sm">{{$key+1}}</td> --}}
+      <th class="p-3 mb-2 bg-success text-white" style="width: 80px;">ID</th>
+      {{-- <th class="p-3 mb-2 bg-success text-white">id</th> --}}
+      <th class="p-3 mb-2 bg-success text-white">Name</th>
+      <th class="p-3 mb-2 bg-success text-white">Father Name</th>
+      <th class="p-3 mb-2 bg-success text-white">Nationality</th>
+      <th class="p-3 mb-2 bg-success text-white">Confined in jail</th>
+      <th class="p-3 mb-2 bg-success text-white">gender</th>
+      <th class="p-3 mb-2 bg-success text-white">section</th>
+      <th class="p-3 mb-2 bg-success text-white">province</th>
+      <th class="p-3 mb-2 bg-success text-white">file in department</th>
+      <th class="p-3 mb-2 bg-success text-white">physical status</th>
+      <th class="p-3 mb-2 bg-success text-white">status</th>
+      <th class="p-3 mb-2 bg-success text-white">sentence in court </th>
+      <th class="p-3 mb-2 bg-success text-white">User</th>
+      <th class="p-3 mb-2 bg-success text-white">Image</th>
 
-
-    <th class="p-3 mb-2 bg-success text-white">Nationality</th>
-    <th class="p-3 mb-2 bg-success text-white">Confined in jail</th>
-    <th class="p-3 mb-2 bg-success text-white">Status</th>
-
-  </tr>
+    </tr>
   </thead>
   <tbody>
 
-  @foreach ($searchs as $petition)
-    <tr>
-        {{-- <td class="text-center font-size-sm">{{$key+1}}</td> --}}
-        <th class="p-3 mb-2 bg-success text-white" style="width: 80px;">ID</th>
-        {{-- <th class="p-3 mb-2 bg-success text-white">id</th> --}}
-        <th class="p-3 mb-2 bg-success text-white">Name</th>
-        <th class="p-3 mb-2 bg-success text-white">Father Name</th>
-        <th class="p-3 mb-2 bg-success text-white">Nationality</th>
-        <th class="p-3 mb-2 bg-success text-white">Confined in jail</th>
-        <th class="p-3 mb-2 bg-success text-white">gender</th>
-        <th class="p-3 mb-2 bg-success text-white">section</th>
-        <th class="p-3 mb-2 bg-success text-white">province</th>
-        <th class="p-3 mb-2 bg-success text-white">file in department</th>
-        <th class="p-3 mb-2 bg-success text-white">physical status</th>
-        <th class="p-3 mb-2 bg-success text-white">status</th>
-        <th class="p-3 mb-2 bg-success text-white">sentence in court </th>
-        <th class="p-3 mb-2 bg-success text-white">User</th>
-        <th class="p-3 mb-2 bg-success text-white">Image</th>
-
-      </tr>
+ 
+    
       </thead>
       <tbody>
 
-      @foreach ($petitions as $petition)
+        @foreach ($searchs as $petition)
         <tr>
             {{-- <td class="text-center font-size-sm">{{$key+1}}</td> --}}
             <td>{{ $petition->prisonerid }}</td>
@@ -220,7 +179,7 @@
             </td>
 
 
-        {{-- <td class="text-600 text-orange-d2"><img src="{{url('/myfiles/'.$employe->PicturePath)}}" class="user-image" alt="User Image" width = "60px" ></td> --}}
+     
 
 
 
@@ -229,7 +188,7 @@
   </tbody>
 </table>
 </div>
-</div>
-
-
 @endsection
+
+
+

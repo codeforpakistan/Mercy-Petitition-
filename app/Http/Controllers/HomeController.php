@@ -140,17 +140,24 @@ class HomeController extends Controller
 }
 
 public function pdfview(Request $request)
+
 {
-    $petitions = DB::table("petitions")->get();
-    view()->share('petitions',$petitions);
+    $provinces = Province::all();
+        $section = Section::all();
+        $jail = Jail::all();
+        $physicalstatus = PhysicalStatus::all();
+    $searchs = DB::table("petitions")->get();
+    view()->share('searchs',$searchs,'provinces',$provinces,'section',$section,'jail',$jail,'physicalstatus',$physicalstatus);
 
-
+    $data = compact('searchs','provinces','section','jail','physicalstatus');
     if($request->has('download')){
-        $pdf = PDF::loadView('IGP.reportformpdf');
+       
+        $pdf = PDF::loadView('IGP.searchreportform',$data);
+       
         return $pdf->download('IGP.reportformpdf.pdf');
     }
 
 
-    return view('reportformpdf');
+    return view('IGP.searchreportform');
 }
 }
