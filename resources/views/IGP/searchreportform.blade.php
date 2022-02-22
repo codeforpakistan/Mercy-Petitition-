@@ -155,6 +155,7 @@
             </form>
 
   <tr>
+    <a href="{{ route('pdfview',['download'=>'pdf']) }}">Download PDF</a>
     <table class="table table-bordered table-striped table-vcenter js-dataTable-buttons table_id">
   <thead>
   <tr>

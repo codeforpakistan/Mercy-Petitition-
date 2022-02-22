@@ -12,6 +12,8 @@ use App\Jail;
 use App\PhysicalStatus;
 use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -111,5 +113,20 @@ class HomeController extends Controller
                 ->orWhere('physicalstatus_id', 'like', "%{$physicalstatuses}%")->get();
                 // ->orwherebetween('created_at',[$fromdate,$todate])
                 return view('IGP.searchreportform', compact('searchs' , 'section' , 'provinces' , 'jail' , 'physicalstatus'));
+}
+
+public function pdfview(Request $request)
+{
+    $petitions = DB::table("petitions")->get();
+    view()->share('petitions',$petitions);
+
+
+    if($request->has('download')){
+        $pdf = PDF::loadView('IGP.reportformpdf');
+        return $pdf->download('IGP.reportformpdf.pdf');
+    }
+
+
+    return view('reportformpdf');
 }
 }

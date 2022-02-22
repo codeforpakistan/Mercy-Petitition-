@@ -177,7 +177,9 @@ return [
         App\Providers\RouteServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Mews\Captcha\CaptchaServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
     ],
+
 
     /*
     |--------------------------------------------------------------------------
@@ -234,6 +236,7 @@ return [
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Captcha' => Mews\Captcha\Facades\Captcha::class,
         'RateLimiter' => Illuminate\Support\Facades\RateLimiter::class,
+        'PDF' => \Barryvdh\DomPDF\Facade\Pdf::class,
 
     ],
 
