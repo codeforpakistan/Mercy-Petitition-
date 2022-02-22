@@ -61,8 +61,8 @@
                 <div class="col-md-4">
                 <select class="form-control"  name="gender" id="DeptID">
                     <option value="">Please select</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
                     <option value="Other">Other</option>
 
                 </select>

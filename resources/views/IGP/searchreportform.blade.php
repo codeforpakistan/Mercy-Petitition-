@@ -59,20 +59,20 @@
 
                 <label class="col-md-2">Gender</label>
                 <div class="col-md-4">
-                <select class="form-control"  name="DeptID" id="DeptID">
+                <select class="form-control"  name="gender" id="DeptID">
                     <option value="">Please select</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
                     <option value="Other">Other</option>
 
                 </select>
                 </div>
               <label class="col-md-2">province</label>
               <div class="col-md-4">
-              <select class="form-control"  name="province_id" id="province_id">
+              <select class="form-control"  name="province" id="province_id">
                   <option value="">Please select</option>
                   @foreach($provinces as $province)
-                      <option value="{{$province->province_name}}">{{$province->province_name}}</option>
+                      <option value="{{$province->id}}">{{$province->province_name}}</option>
                   @endforeach
               </select>
               </div>
@@ -82,7 +82,7 @@
 
               <label class="col-md-2">Confined In Jail</label>
               <div class="col-md-4">
-              <select class="form-control"  name="confined_in_jail" id="DeptID">
+              <select class="form-control"  name="confinedinjail" id="DeptID">
                   <option value="">Please select</option>
                   @foreach($jail as $jails)
                       <option value="{{$jails->jail_name}}">{{$jails->jail_name}}</option>
@@ -94,7 +94,7 @@
                 <select class="form-control"  name="undersection" id="undersection">
                     <option value="">Please select</option>
                     @foreach($section as $sections)
-                        <option value="{{$sections->undersection}}">{{$sections->undersection}}</option>
+                        <option value="{{$sections->id}}">{{$sections->undersection}}</option>
                     @endforeach
                 </select>
                 </div>
@@ -103,7 +103,7 @@
 
               <label class="col-md-2">Prison Status</label>
               <div class="col-md-4">
-              <select class="form-control"  name="DeptID" id="DeptID">
+              <select class="form-control"  name="status" id="DeptID">
                   <option value="">Please select</option>
                   <option value="Accepted">Accepted</option>
                   <option value="Rejected">Rejected</option>
@@ -114,9 +114,9 @@
 
               </select>
               </div>
-                <label class="col-md-2">Phyical Status</label>
+                <label class="col-md-2">Physical Status</label>
                 <div class="col-md-4">
-                <select class="form-control"  name="DeptID" id="DeptID">
+                <select class="form-control"  name="physicalstatus" id="DeptID">
                     <option value="">Please select</option>
                     @foreach($physicalstatus as $physicalstatuses)
                         <option value="{{$physicalstatuses->PhysicalStatus}}">{{$physicalstatuses->PhysicalStatus}}</option>
@@ -171,9 +171,9 @@
   </thead>
   <tbody>
 
-  @foreach ($searchs as $key=>$petition)
+  @foreach ($searchs as $petition)
     <tr>
-        <td class="text-center font-size-sm">{{$key+1}}</td>
+        {{-- <td class="text-center font-size-sm">{{$key+1}}</td> --}}
         <td>{{ $petition->name }}</td>
         <td>{{ $petition->f_name }}</td>
         <td>{{ $petition->nationality }}</td>
