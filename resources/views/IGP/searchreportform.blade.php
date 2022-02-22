@@ -175,11 +175,50 @@
   @foreach ($searchs as $petition)
     <tr>
         {{-- <td class="text-center font-size-sm">{{$key+1}}</td> --}}
-        <td>{{ $petition->name }}</td>
-        <td>{{ $petition->f_name }}</td>
-        <td>{{ $petition->nationality }}</td>
-        <td>{{ $petition->confined_in_jail }}</td>
-        <td>{{ $petition->status }}</td>
+        <th class="p-3 mb-2 bg-success text-white" style="width: 80px;">ID</th>
+        {{-- <th class="p-3 mb-2 bg-success text-white">id</th> --}}
+        <th class="p-3 mb-2 bg-success text-white">Name</th>
+        <th class="p-3 mb-2 bg-success text-white">Father Name</th>
+        <th class="p-3 mb-2 bg-success text-white">Nationality</th>
+        <th class="p-3 mb-2 bg-success text-white">Confined in jail</th>
+        <th class="p-3 mb-2 bg-success text-white">gender</th>
+        <th class="p-3 mb-2 bg-success text-white">section</th>
+        <th class="p-3 mb-2 bg-success text-white">province</th>
+        <th class="p-3 mb-2 bg-success text-white">file in department</th>
+        <th class="p-3 mb-2 bg-success text-white">physical status</th>
+        <th class="p-3 mb-2 bg-success text-white">status</th>
+        <th class="p-3 mb-2 bg-success text-white">sentence in court </th>
+        <th class="p-3 mb-2 bg-success text-white">User</th>
+        <th class="p-3 mb-2 bg-success text-white">Image</th>
+
+      </tr>
+      </thead>
+      <tbody>
+
+      @foreach ($petitions as $petition)
+        <tr>
+            {{-- <td class="text-center font-size-sm">{{$key+1}}</td> --}}
+            <td>{{ $petition->prisonerid }}</td>
+            <td>{{ $petition->name }}</td>
+            <td>{{ $petition->f_name }}</td>
+            <td>{{ $petition->nationality }}</td>
+            <td>{{ $petition->confined_in_jail }}</td>
+            <td>{{ $petition->gender }}</td>
+            <td>{{ $petition->section_id }}</td>
+            <td>{{ $petition->province_id }}</td>
+            <td>{{ $petition->file_in_department }}</td>
+            <td>{{ $petition->physicalstatus_id }}</td>
+            <td>{{ $petition->status }}</td>
+            <td>{{ $petition->sentence_in_court }}</td>
+            <td>{{ $petition->user_id }}</td>
+
+            <td class='d-none d-sm-table-cell'>
+                <span class='badge badge-sm bgc-warning-d1 text-white pb-1 px-25'><img
+                        src="{{ asset('/assets/image/' . $petition->prisoner_image) }}"
+                        width="50" height="50" alt="pic" /></span>
+
+            </td>
+
 
         {{-- <td class="text-600 text-orange-d2"><img src="{{url('/myfiles/'.$employe->PicturePath)}}" class="user-image" alt="User Image" width = "60px" ></td> --}}
 
