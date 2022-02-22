@@ -17,10 +17,10 @@
         <div class="card-body px-3 pb-1">
             {{-- <form class="mt-lg-3" autocomplete="off" action="{{route('physicalstatus.update', $queryData->PSid)}}" method="post"> --}}
             {{-- <input type="hidden" name="_method" value="PATCH" /> --}}
-            <form action="{{ route('physicalstatus.update', ['id' => $queryData->PSid]) }}" id="appointmentForm"
+            <form action="{{ route('physicalstatus.update', ['id' => $queryData->id]) }}" id="appointmentForm"
                 class="js-validation" method="POST" novalidate="novalidate">
                 <input type="hidden" id="csrf_token" name="_token" value={{ csrf_token() }}>
-                <input type="hidden" id="PSid" name="PSid" value={{ $queryData->PSid }}>
+                <input type="hidden" id="id" name="PSid" value={{ $queryData->id }}>
                 @csrf
                 @if (count($errors) > 0)
                     <div class="alert bgc-red-l4 border-none border-l-4 brc-red-tp1 radius-0 text-dark-tp2" role="alert">

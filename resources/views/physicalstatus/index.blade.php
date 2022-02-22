@@ -30,9 +30,17 @@
             {!! $data->appends(['search' => $search])->render() !!}
           </div> --}}
 
-                        <div class="mb-2 mb-sm-0">
+                        {{-- <div class="mb-2 mb-sm-0">
                             <a class="btn btn-outline-success" href="{{ route('physicalstatus.add') }}"><i
                                     class="fa fa-fw fa-plus mr-1"></i> Add Physical Status</a>
+                        </div> --}}
+
+                        <div class="mb-2 mb-sm-0">
+                            <a style="float: right;" href="{{ route('physicalstatus.add') }}"
+                                class="btn btn-blue px-3 d-block w-100 text-95 radius-round border-2 brc-black-tp10 text-right">
+                                <i class="fa fa-plus mr-1"></i>
+                                Add <span class="d-sm-none d-md-inline">New</span> Physical status
+                            </a>
                         </div>
                     </div>
 
@@ -50,18 +58,18 @@
                         <tbody class="mt-1">
                             @foreach ($physicalstatus as $key => $physicalstatuses)
                                 <tr class="bgc-h-yellow-l4 d-style">
-                                    <td>{{ $physicalstatuses->PSid }}</td>
+                                    <td>{{ $physicalstatuses->id }}</td>
                                     <td>{{ $physicalstatuses->PhysicalStatus }}</td>
 
 
                                     <td>
                                         <div class="d-lg-flex">
 
-                                            <a href="{{ route('physicalstatus.edit', $physicalstatuses->PSid) }}"
+                                            <a href="{{ route('physicalstatus.edit', $physicalstatuses->id) }}"
                                                 class="mx-3px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success">
                                                 <i class="fa fa-pencil-alt"></i>
                                             </a>
-                                            <a id="{{ $physicalstatuses->PSid }}" href="#"
+                                            <a id="{{ $physicalstatuses->id }}" href="#"
                                                 class="btn btn-sm btn-danger del-PS" data-toggle="tooltip"
                                                 title="Delete Item">
                                                 <i class="far fa-trash-alt"></i>

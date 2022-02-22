@@ -29,10 +29,17 @@
                         {{-- <div class="btn-group ml-sm-auto mt-3 mt-sm-0">
             {!! $data->appends(['search' => $search])->render() !!}
           </div> --}}
-
+{{--
                         <div class="mb-2 mb-sm-0">
                             <a class="btn btn-outline-success" href="{{ route('province.add') }}"><i
                                     class="fa fa-fw fa-plus mr-1"></i> Add province</a>
+                        </div> --}}
+                        <div class="mb-2 mb-sm-0">
+                            <a style="float: right;" href="{{ route('province.add') }}"
+                                class="btn btn-blue px-3 d-block w-100 text-95 radius-round border-2 brc-black-tp10 text-right">
+                                <i class="fa fa-plus mr-1"></i>
+                                Add <span class="d-sm-none d-md-inline">New</span> province
+                            </a>
                         </div>
                     </div>
 

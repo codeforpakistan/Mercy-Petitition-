@@ -38,7 +38,7 @@ class PhysicalStatusController extends Controller
     public function edit($id)
     {
         $queryData = DB::table('physical_status')
-            ->where('PSid', '=', $id)
+            ->where('id', '=', $id)
             ->first();
 
         return view('physicalstatus.edit', ['queryData' => $queryData]);
@@ -54,13 +54,13 @@ class PhysicalStatusController extends Controller
         $physicalstatus_data = [
             'PhysicalStatus' => $request->PhysicalStatus,
         ];
-        DB::table('physical_status')->where('PSid', $id)->update($physicalstatus_data);
+        DB::table('physical_status')->where('id', $id)->update($physicalstatus_data);
         return redirect()->route('physicalstatus.index')->with('success', 'physicalstatus updated successfully.');
     }
 
     public function destroy($id)
     {
-        DB::table('physical_status')->where('PSid', $id)->delete();
+        DB::table('physical_status')->where('id', $id)->delete();
         return redirect()->route('physicalstatus.index')
             ->with('success', 'physicalstatus deleted successfully');
     }
