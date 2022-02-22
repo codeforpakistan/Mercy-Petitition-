@@ -88,7 +88,7 @@ class HomeController extends Controller
 
     }
     public function searchreport(Request $request){
-
+       
         $provinces = Province::all();
         $section = Section::all();
         $jail = Jail::all();
@@ -96,22 +96,46 @@ class HomeController extends Controller
         $fromdate = Carbon::parse($request->get('fromdate'))->format('Y-m-d');
         $todate = Carbon::parse($request->get('todate'))->format('Y-m-d');
 
-        $search = trim($request->input('search'));
+      
         $gender = trim($request->input('gender'));
         $province = trim($request->input('province'));
         $status = trim($request->input('status'));
         $physicalstatuses = trim($request->input('physicalstatus'));
-        $confinedinjail = trim($request->input('confinedinjail'));
+        $confinedinjail    = trim($request->input('confinedinjail'));
         $undersection = trim($request->input('undersection'));
+        $report = Petition::query();
 
-
-
-            $searchs = Petition::orWhere('confined_in_jail', $confinedinjail)->
-                orWhere('file_in_department', 'like', "%{$status}%")->orWhere('gender', 'like', "%{$gender}%")->
-                orWhere('nationality', 'like', "%{$search}%")->orWhere('status', 'like', "%{$status}%")->
-                orWhere('province_id', 'like', "%{$province}%")->orWhere('section_id', 'like', "%{$undersection}%")
-                ->orWhere('physicalstatus_id', 'like', "%{$physicalstatuses}%")->get();
-                // ->orwherebetween('created_at',[$fromdate,$todate])
+        
+        $searchs=[];
+          if(!empty($confinedinjail))
+          {
+            $report->where('confined_in_jail', $confinedinjail)->get();
+           //dd($searchs);
+          }
+          if(!empty($gender)){
+            $report->where('gender', $gender);
+          }
+          if(!empty($status)){
+            $report->where('status', $status);
+          }
+          if(!empty($status)){
+            $report->where('file_in_department', $status)->get();
+          }
+          if(!empty($physicalstatuses)){
+            $report->where('physicalstatus_id', $physicalstatuses)->get();
+          }
+          if(!empty($province))
+          {
+            $report->where('province_id', $province)->get();
+          }
+          if(!empty($undersection)){
+            $report->where('section_id', $undersection)->get();
+          }
+          if(!empty($fromdate)){
+            $report->orwherebetween('created_at',[$fromdate,$todate])->get();
+          }
+          $searchs = $report->get();
+           
                 return view('IGP.searchreportform', compact('searchs' , 'section' , 'provinces' , 'jail' , 'physicalstatus'));
 }
 
