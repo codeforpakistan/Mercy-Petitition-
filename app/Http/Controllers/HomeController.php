@@ -88,7 +88,7 @@ class HomeController extends Controller
 
     }
     public function searchreport(Request $request){
-       
+
         $provinces = Province::all();
         $section = Section::all();
         $jail = Jail::all();
@@ -96,7 +96,7 @@ class HomeController extends Controller
         $fromdate = Carbon::parse($request->get('fromdate'))->format('Y-m-d');
         $todate = Carbon::parse($request->get('todate'))->format('Y-m-d');
 
-      
+
         $gender = trim($request->input('gender'));
         $province = trim($request->input('province'));
         $status = trim($request->input('status'));
@@ -105,7 +105,7 @@ class HomeController extends Controller
         $undersection = trim($request->input('undersection'));
         $report = Petition::query();
 
-        
+
         $searchs=[];
           if(!empty($confinedinjail))
           {
@@ -135,7 +135,7 @@ class HomeController extends Controller
             $report->orwherebetween('created_at',[$fromdate,$todate])->get();
           }
           $searchs = $report->get();
-           
+
                 return view('IGP.searchreportform', compact('searchs' , 'section' , 'provinces' , 'jail' , 'physicalstatus'));
 }
 
