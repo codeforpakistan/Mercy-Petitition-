@@ -4,55 +4,25 @@
 ])
 @section('module','Report ')
 @section('element','Form')
-<style>
-
-
-
-    .center {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    @media screen {
-        #printSection {
-            display: none;
-        }
-    }
-
-
-
-
-    @media print {
-        body * {
-            visibility: hidden;
-        }
-
-        #printSection,
-        #printSection * {
-            visibility: visible;
-        }
-
-        #printSection {
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-    }
-</style>
+ 
 
 @section('content')
 
-<br>
-<div class="block">
+<style>
+  body{
+    overflow-x: scroll;
+  }
+  </style>
 
 
-    <div class="block-content block-content-full">
+
+<div role="main" class="page-content container">
         @if ($message = Session::get('success'))
             <div class="alert alert-success">
                 <p>{{ $message }}</p>
             </div>
         @endif
-         <div role="main" class="page-content container container-plus">
+        
 
         <form action="{{route('reportform.search')}}" method="GET" role="search" id="search">
             <div class="form-group form-row" style="margin-bottom: 6px;">
@@ -143,19 +113,17 @@
                   <div id="id-daterange-container" class="dp-daterange-picker dp-daterange-above"></div>
                 </div>
               </div>
-            </div>
-
-            </div>
+            
             <br>
               <div class="col-md-12" style="text-align: right;">
                 <button type="submit" id="searchbtn" class="btn btn-info">Search</button>
                 <button type="button" id="resetbtn" class="btn btn-success" onclick="document.getElementById('EmployeeID').value = null; document.getElementById('searchbtn').click(); return false;">Reset</button>
               </div>
-            </div>
+            
             </form>
 
   <tr>
-    <table class="table table-bordered table-striped table-vcenter js-dataTable-buttons table_id">
+    <table class="table table-bordered table-striped table-vcenter js-dataTable-buttons table_id ">
   <thead>
   <tr>
     <th class="p-3 mb-2 bg-success text-white" style="width: 80px;">ID</th>
@@ -207,7 +175,7 @@
   </tbody>
 </table>
 </div>
-</div>
+
 
 
 @endsection

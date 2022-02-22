@@ -18,7 +18,7 @@ class CreatePetitionsTable extends Migration
              $table->integer('prisonerid');
             $table->string('name');
             $table->string('nationality');
-            $table->string('physicalstatus');
+           
             $table->string('confirmed_in_jail');
             $table->string('status');
             $table->string('file_in_department');
