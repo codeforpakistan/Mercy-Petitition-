@@ -81,8 +81,8 @@ class HomeController extends Controller
         $section = Section::all();
         $jail = Jail::all();
         $physicalstatus = PhysicalStatus::all();
-        $petitions = Petition::orderBy("id", "desc")->paginate(5);
-        // dd($provinces);
+        $petitions = Petition::with('provinces', 'sectionss')->orderBy("id", "desc")->get();
+       
         return view('IGP.reportform', compact('petitions' ,'section' , 'provinces' , 'jail' , 'physicalstatus'));
 
 
@@ -103,6 +103,7 @@ class HomeController extends Controller
         $physicalstatuses = trim($request->input('physicalstatus'));
         $confinedinjail    = trim($request->input('confinedinjail'));
         $undersection = trim($request->input('undersection'));
+       
         $report = Petition::query();
 
 
@@ -116,11 +117,16 @@ class HomeController extends Controller
             $report->where('gender', $gender);
           }
           if(!empty($status)){
-            $report->where('status', $status);
+              if($status=='Accepted'){
+                $report->where('status', $status);   
+              }elseif($status=='Rejected'){
+                $report->where('status', $status);   
+              }else{
+                $report->where('file_in_department', $status)->get(); 
+              }
+            
           }
-          if(!empty($status)){
-            $report->where('file_in_department', $status)->get();
-          }
+       
           if(!empty($physicalstatuses)){
             $report->where('physicalstatus_id', $physicalstatuses)->get();
           }
@@ -134,30 +140,10 @@ class HomeController extends Controller
           if(!empty($fromdate)){
             $report->orwherebetween('created_at',[$fromdate,$todate])->get();
           }
-          $searchs = $report->get();
+          $searchs = $report->with('provinces', 'sectionss')->get();
 
                 return view('IGP.searchreportform', compact('searchs' , 'section' , 'provinces' , 'jail' , 'physicalstatus'));
 }
 
-public function pdfview(Request $request)
 
-{
-    $provinces = Province::all();
-        $section = Section::all();
-        $jail = Jail::all();
-        $physicalstatus = PhysicalStatus::all();
-    $searchs = DB::table("petitions")->get();
-    view()->share('searchs',$searchs,'provinces',$provinces,'section',$section,'jail',$jail,'physicalstatus',$physicalstatus);
-
-    $data = compact('searchs','provinces','section','jail','physicalstatus');
-    if($request->has('download')){
-       
-        $pdf = PDF::loadView('IGP.searchreportform',$data);
-       
-        return $pdf->download('IGP.reportformpdf.pdf');
-    }
-
-
-    return view('IGP.searchreportform');
-}
 }

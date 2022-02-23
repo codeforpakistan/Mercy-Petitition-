@@ -4,25 +4,20 @@
 ])
 @section('module','Report ')
 @section('element','Form')
+ 
 
-<style>
-  body{
-    overflow-x: scroll;
-  }
-  </style>
 @section('content')
 
 
 
 
 
-<div role="main" class="page-content container">
+<div role="main" class="page-content container-fluid">
         @if ($message = Session::get('success'))
             <div class="alert alert-success">
                 <p>{{ $message }}</p>
             </div>
         @endif
-        
         
 
         <form action="{{route('reportform.search')}}" method="GET" role="search" id="search">
@@ -114,7 +109,7 @@
                   <div id="id-daterange-container" class="dp-daterange-picker dp-daterange-above"></div>
                 </div>
               </div>
-           
+            
             <br>
               <div class="col-md-12" style="text-align: right;">
                 <button type="submit" id="searchbtn" class="btn btn-info">Search</button>
@@ -124,71 +119,65 @@
             </form>
 
   <tr>
-    <input type="button" id="btnExport" value="Export" onclick="Export()" />
-    <table id="tblCustomers" class="table table-bordered table-striped table-vcenter js-dataTable-buttons table_id">
-  <thead>
-    <tr>
-      {{-- <td class="text-center font-size-sm">{{$key+1}}</td> --}}
-      <th class="p-3 mb-2 bg-success text-white" style="width: 80px;">ID</th>
-      {{-- <th class="p-3 mb-2 bg-success text-white">id</th> --}}
-      <th class="p-3 mb-2 bg-success text-white">Name</th>
-      <th class="p-3 mb-2 bg-success text-white">Father Name</th>
-      <th class="p-3 mb-2 bg-success text-white">Nationality</th>
-      <th class="p-3 mb-2 bg-success text-white">Confined in jail</th>
-      <th class="p-3 mb-2 bg-success text-white">gender</th>
-      <th class="p-3 mb-2 bg-success text-white">section</th>
-      <th class="p-3 mb-2 bg-success text-white">province</th>
-      <th class="p-3 mb-2 bg-success text-white">file in department</th>
-      <th class="p-3 mb-2 bg-success text-white">physical status</th>
-      <th class="p-3 mb-2 bg-success text-white">status</th>
-      <th class="p-3 mb-2 bg-success text-white">sentence in court </th>
-      <th class="p-3 mb-2 bg-success text-white">User</th>
-      <th class="p-3 mb-2 bg-success text-white">Image</th>
+    <table id="simple-table"
+    class="table-responsive; overflow: hidden; ">
+    <thead class="text-dark-tp3 bgc-grey-l4 text-90 border-b-1 brc-transparent">
+  <tr>
+    <th class="p-3 mb-2 bg-success text-white" style="width: 80px;">ID</th>
+    {{-- <th class="p-3 mb-2 bg-success text-white">id</th> --}}
+    <th class="p-3 mb-2 bg-success text-white">Name</th>
+    <th class="p-3 mb-2 bg-success text-white">Father Name</th>
+    <th class="p-3 mb-2 bg-success text-white">Nationality</th>
+    <th class="p-3 mb-2 bg-success text-white">Confined in jail</th>
+    <th class="p-3 mb-2 bg-success text-white">gender</th>
+    <th class="p-3 mb-2 bg-success text-white">section</th>
+    <th class="p-3 mb-2 bg-success text-white">province</th>
+    <th class="p-3 mb-2 bg-success text-white">file in department</th>
+    <th class="p-3 mb-2 bg-success text-white">physical status</th>
+    <th class="p-3 mb-2 bg-success text-white">status</th>
+    <th class="p-3 mb-2 bg-success text-white">sentence in court </th>
+    <th class="p-3 mb-2 bg-success text-white">User</th>
+    <th class="p-3 mb-2 bg-success text-white">Image</th>
 
-    </tr>
+  </tr>
   </thead>
   <tbody>
 
- 
-    
-      </thead>
-      <tbody>
+  @foreach ($searchs as $petition)
+    <tr>
+        {{-- <td class="text-center font-size-sm">{{$key+1}}</td> --}}
+        <td>{{ $petition->prisonerid }}</td>
+        <td>{{ $petition->name }}</td>
+        <td>{{ $petition->f_name }}</td>
+        <td>{{ $petition->nationality }}</td>
+        <td>{{ $petition->confined_in_jail }}</td>
+        <td>{{ $petition->gender }}</td>
+        <td>{{ $petition->sectionss->undersection }}</td>
+      
+        @if($petition->provinces)
+        <td>{{ $petition->provinces->province_name }}</td>
+        @else
+        <td></td>
+        @endif
+        <td>{{ $petition->file_in_department }}</td>
+        <td>{{ $petition->physicalstatus_id }}</td>
+        <td>{{ $petition->status }}</td>
+        <td>{{ $petition->sentence_in_court }}</td>
+        <td>{{ $petition->user_id }}</td>
 
-        @foreach ($searchs as $petition)
-        <tr>
-            {{-- <td class="text-center font-size-sm">{{$key+1}}</td> --}}
-            <td>{{ $petition->prisonerid }}</td>
-            <td>{{ $petition->name }}</td>
-            <td>{{ $petition->f_name }}</td>
-            <td>{{ $petition->nationality }}</td>
-            <td>{{ $petition->confined_in_jail }}</td>
-            <td>{{ $petition->gender }}</td>
-            <td>{{ $petition->section_id }}</td>
-            <td>{{ $petition->province_id }}</td>
-            <td>{{ $petition->file_in_department }}</td>
-            <td>{{ $petition->physicalstatus_id }}</td>
-            <td>{{ $petition->status }}</td>
-            <td>{{ $petition->sentence_in_court }}</td>
-            <td>{{ $petition->user_id }}</td>
+        <td class='d-none d-sm-table-cell'>
+            <span class='badge badge-sm bgc-warning-d1 text-white pb-1 px-25'><img
+                    src="{{ asset('/assets/image/' . $petition->prisoner_image) }}"
+                    width="50" height="50" alt="pic" /></span>
 
-            <td class='d-none d-sm-table-cell'>
-                <span class='badge badge-sm bgc-warning-d1 text-white pb-1 px-25'><img
-                        src="{{ asset('/assets/image/' . $petition->prisoner_image) }}"
-                        width="50" height="50" alt="pic" /></span>
-
-            </td>
-
-
-     
-
-
+        </td>
 
     </tr>
   @endforeach
   </tbody>
 </table>
 </div>
+
+
+
 @endsection
-
-
-

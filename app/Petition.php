@@ -29,7 +29,7 @@ class Petition extends Model
     }
     public function provinces()
     {
-        return $this->hasMany(Province::class,"province_id");
+        return $this->belongsTo(Province::class,"province_id");
     }
 
     public function sectionss()

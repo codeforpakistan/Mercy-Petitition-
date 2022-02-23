@@ -10,13 +10,13 @@
 
 <style>
   body{
-    overflow-x: scroll;
+   
   }
   </style>
 
 
 
-<div role="main" class="page-content container">
+<div role="main" class="page-content container-fluid">
         @if ($message = Session::get('success'))
             <div class="alert alert-success">
                 <p>{{ $message }}</p>
@@ -123,8 +123,9 @@
             </form>
 
   <tr>
-    <table class="table table-bordered table-striped table-vcenter js-dataTable-buttons table_id ">
-  <thead>
+    <table id="simple-table"
+    class="table-responsive; overflow: hidden; ">
+    <thead class="text-dark-tp3 bgc-grey-l4 text-90 border-b-1 brc-transparent">
   <tr>
     <th class="p-3 mb-2 bg-success text-white" style="width: 80px;">ID</th>
     {{-- <th class="p-3 mb-2 bg-success text-white">id</th> --}}
@@ -155,8 +156,14 @@
         <td>{{ $petition->nationality }}</td>
         <td>{{ $petition->confined_in_jail }}</td>
         <td>{{ $petition->gender }}</td>
-        <td>{{ $petition->section_id }}</td>
-        <td>{{ $petition->province_id }}</td>
+      
+        <td>{{ $petition->sectionss->undersection }}</td>
+      
+        @if($petition->provinces)
+        <td>{{ $petition->provinces->province_name }}</td>
+        @else
+        <td></td>
+        @endif
         <td>{{ $petition->file_in_department }}</td>
         <td>{{ $petition->physicalstatus_id }}</td>
         <td>{{ $petition->status }}</td>
