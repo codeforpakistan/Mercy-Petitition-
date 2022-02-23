@@ -35,8 +35,8 @@
                                     class="fa fa-fw fa-plus mr-1"></i> Add Physical Status</a>
                         </div> --}}
 
-                        <div class="mb-2 mb-sm-0">
-                            <a style="float: right;" href="{{ route('physicalstatus.add') }}"
+                        <div class="mb-2 mb-sm-0" style="margin-left: 80%;">
+                            <a href="{{ route('physicalstatus.add') }}"
                                 class="btn btn-blue px-3 d-block w-100 text-95 radius-round border-2 brc-black-tp10 text-right">
                                 <i class="fa fa-plus mr-1"></i>
                                 Add <span class="d-sm-none d-md-inline">New</span> Physical status

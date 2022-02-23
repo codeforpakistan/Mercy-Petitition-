@@ -22,8 +22,8 @@
                 <p>{{ $message }}</p>
             </div>
         @endif
-        
-        
+
+
 
         <form action="{{route('reportform.search')}}" method="GET" role="search" id="search">
             <div class="form-group form-row" style="margin-bottom: 6px;">
@@ -114,13 +114,13 @@
                   <div id="id-daterange-container" class="dp-daterange-picker dp-daterange-above"></div>
                 </div>
               </div>
-           
+
             <br>
               <div class="col-md-12" style="text-align: right;">
                 <button type="submit" id="searchbtn" class="btn btn-info">Search</button>
                 <button type="button" id="resetbtn" class="btn btn-success" onclick="document.getElementById('EmployeeID').value = null; document.getElementById('searchbtn').click(); return false;">Reset</button>
               </div>
-            
+
             </form>
 
   <tr>
@@ -129,7 +129,7 @@
   <thead>
     <tr>
       {{-- <td class="text-center font-size-sm">{{$key+1}}</td> --}}
-      <th class="p-3 mb-2 bg-success text-white" style="width: 80px;">ID</th>
+      <th class="p-3 mb-2 bg-success text-white">ID</th>
       {{-- <th class="p-3 mb-2 bg-success text-white">id</th> --}}
       <th class="p-3 mb-2 bg-success text-white">Name</th>
       <th class="p-3 mb-2 bg-success text-white">Father Name</th>
@@ -149,8 +149,8 @@
   </thead>
   <tbody>
 
- 
-    
+
+
       </thead>
       <tbody>
 
@@ -179,7 +179,7 @@
             </td>
 
 
-     
+
 
 
 

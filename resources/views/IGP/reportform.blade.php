@@ -4,7 +4,7 @@
 ])
 @section('module','Report ')
 @section('element','Form')
- 
+
 
 @section('content')
 
@@ -17,12 +17,8 @@
 
 
 <div role="main" class="page-content container">
-        @if ($message = Session::get('success'))
-            <div class="alert alert-success">
-                <p>{{ $message }}</p>
-            </div>
-        @endif
-        
+
+
 
         <form action="{{route('reportform.search')}}" method="GET" role="search" id="search">
             <div class="form-group form-row" style="margin-bottom: 6px;">
@@ -98,7 +94,9 @@
 
               <label class="col-md-2">Multiple Date</label>
               <div class="col-md-4">
+                <div id="id-daterange-wrapper" class="pos-rel">
                 <div class="form-row">
+
                     <div class="col">
                       <input id="id-daterange-from" name = "fromdate" class="form-control ex-inputs-start" placeholder="From date">
                     </div>
@@ -112,21 +110,22 @@
 
                   <div id="id-daterange-container" class="dp-daterange-picker dp-daterange-above"></div>
                 </div>
+            </div>
               </div>
-            
+
             <br>
               <div class="col-md-12" style="text-align: right;">
                 <button type="submit" id="searchbtn" class="btn btn-info">Search</button>
                 <button type="button" id="resetbtn" class="btn btn-success" onclick="document.getElementById('EmployeeID').value = null; document.getElementById('searchbtn').click(); return false;">Reset</button>
               </div>
-            
+
             </form>
 
   <tr>
     <table class="table table-bordered table-striped table-vcenter js-dataTable-buttons table_id ">
   <thead>
   <tr>
-    <th class="p-3 mb-2 bg-success text-white" style="width: 80px;">ID</th>
+    <th class="p-3 mb-2 bg-success text-white">ID</th>
     {{-- <th class="p-3 mb-2 bg-success text-white">id</th> --}}
     <th class="p-3 mb-2 bg-success text-white">Name</th>
     <th class="p-3 mb-2 bg-success text-white">Father Name</th>
