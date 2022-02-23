@@ -1374,7 +1374,7 @@
                             width: 500
                         }]
                     };
-                    pdfMake.createPdf(docDefinition).download("Table.pdf");
+                    pdfMake.createPdf(docDefinition).download("Mercy Petition.pdf");
                 }
             });
         }
@@ -1484,7 +1484,7 @@ $(document).ready(function() {
               daterange_container.classList.remove('visible')
             }
           }, 10)
-        });
+        })
 
 });
         </script>
