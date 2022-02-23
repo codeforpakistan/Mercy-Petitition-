@@ -2,6 +2,7 @@
 
 namespace App;
 use App\Jail;
+use App\Petition;
 use Illuminate\Database\Eloquent\Model;
 
 class Province extends Model
