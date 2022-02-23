@@ -4,7 +4,7 @@
 ])
 @section('module','Report ')
 @section('element','Form')
- 
+
 
 @section('content')
 
@@ -18,7 +18,7 @@
                 <p>{{ $message }}</p>
             </div>
         @endif
-        
+
 
         <form action="{{route('reportform.search')}}" method="GET" role="search" id="search">
             <div class="form-group form-row" style="margin-bottom: 6px;">
@@ -109,7 +109,7 @@
                   <div id="id-daterange-container" class="dp-daterange-picker dp-daterange-above"></div>
                 </div>
               </div>
-            
+
             <br>
             <div class="row">
               <div class="col-md-6" style="text-align: center;">
@@ -160,7 +160,7 @@
         <td>{{ $petition->confined_in_jail }}</td>
         <td>{{ $petition->gender }}</td>
         <td>{{ $petition->sectionss->undersection }}</td>
-      
+
         @if($petition->provinces)
         <td>{{ $petition->provinces->province_name }}</td>
         @else

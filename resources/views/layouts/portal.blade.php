@@ -1459,6 +1459,15 @@ success: function(data) {
     <script>
 $(document).ready(function() {
 
+
+
+
+        //////////////////////////////////
+        // the small time picker inside popover
+
+
+
+
     var daterange_container = document.querySelector('#id-daterange-container')
         // Inject DateRangePicker into our container
         DateRangePicker.DateRangePicker(daterange_container, {
@@ -1484,7 +1493,41 @@ $(document).ready(function() {
               daterange_container.classList.remove('visible')
             }
           }, 10)
-        })
+        });
+        $('#id-popover-timepicker')
+          .popover({
+            title: 'Choose Time',
+            sanitize: false,
+            content: function() {
+              return $('#id-popover-timepicker-html').html()
+            },
+            html: true,
+            placement: 'auto',
+            trigger: 'manual',
+            container: 'body',
+
+            template: '<div class="popover popover-timepicker brc-primary-m3 border-1 radius-1 shadow-sm" role="tooltip"><div class="arrow brc-primary"></div><h3 class="popover-header bgc-primary-l3 brc-primary-l1 text-dark-tp4 text-600 text-center pb-25"></h3><div class="popover-body text-grey-d2 p-4"></div></div>'
+          })
+          .on('click', function() {
+            // show popover when button is clicked
+            $(this).popover('toggle')
+            $(this).toggleClass('active')
+
+            // get a reference to it
+            var popover = $(document.body).find('.popover-timepicker').last()
+
+            // hide popover if clicked outside of it
+            if (popover.length > 0 && popover.hasClass('show')) {
+              var This = this
+              $(document).on('click.popover-time', function(ev) {
+                if (popover.get(0).contains(ev.target) || ev.target == document.getElementById('id-popover-timepicker')) return
+                $(This).popover('hide')
+                $(This).removeClass('active')
+
+                $(document).off('.popover-time')
+              })
+            }
+          });
 
 });
         </script>
