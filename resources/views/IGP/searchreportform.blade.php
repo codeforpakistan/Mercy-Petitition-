@@ -12,7 +12,7 @@
 
 
 
-<div role="main" class="page-content container-fluid" style="margin-top:10%;margin-right:10%">
+<div role="main" class="page-content container-fluid" style="margin-top:5%;margin-right:10%">
         @if ($message = Session::get('success'))
             <div class="alert alert-success">
                 <p>{{ $message }}</p>
@@ -94,6 +94,7 @@
 
               <label class="col-md-2">Multiple Date</label>
               <div class="col-md-4">
+                <div id="id-daterange-wrapper" class="pos-rel">
                 <div class="form-row">
                     <div class="col">
                       <input id="id-daterange-from" name = "fromdate" class="form-control ex-inputs-start" placeholder="From date">
@@ -109,6 +110,7 @@
                   <div id="id-daterange-container" class="dp-daterange-picker dp-daterange-above"></div>
                 </div>
               </div>
+            </div>
 
             <br>
             <div class="row">

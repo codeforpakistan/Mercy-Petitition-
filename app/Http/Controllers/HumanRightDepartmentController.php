@@ -32,7 +32,7 @@ class HumanRightDepartmentController extends Controller
     {
         $homepititions = HomeDepartment::with('homefileattachements')->where('petition_id', $id)->first();
         $interiorpititions = InteriorMinistry::with('interiorfileattachements')->where('petition_id', $id)->first();
-        $pets = Petition::with('fileattachements', 'sectionss')->get();
+        $pets = Petition::with('fileattachements', 'sectionss','provinces')->get();
 
         $petitions = $pets->find($id);
         $response = [

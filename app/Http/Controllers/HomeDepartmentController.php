@@ -24,6 +24,7 @@ class HomeDepartmentController extends Controller
         $HomeDepartments = Petition::where([
             ['file_in_department', '=', 'HomeDepartment'],
             ['received_from_department', '=', 'Jail-Supt'],
+            ['province_id', '=', Auth::user()->province_id],
         ])->orderBy("id", "desc")->get();
 
         return view('homedept.index', compact('HomeDepartments'));
@@ -33,7 +34,7 @@ class HomeDepartmentController extends Controller
     {
         $search = trim($request->input('search'));
 
-        $petitions = Petition::where('status', 'HomeDepartment')->orWhere('confined_in_jail', $search)->
+        $petitions = Petition::where('status', 'HomeDepartment')->Where('province_id', Auth::user()->province_id)->orWhere('confined_in_jail', $search)->
             orWhere('name', 'like', "%{$search}%")->orWhere('gender', 'like', "%{$search}%")->
             orWhere('nationality', 'like', "%{$search}%")->orWhere('f_name', 'like', "%{$search}%")->
             orWhere('file_in_department', 'like', "%{$search}%")->get();
@@ -47,6 +48,7 @@ class HomeDepartmentController extends Controller
         $HomeDepartments = Petition::where([
             ['file_in_department', '=', 'HomeDepartment'],
             ['received_from_department', '=', 'InteriorMinistry'],
+            ['province_id', '=', Auth::user()->province_id],
         ])->orderBy("id", "desc")->get();
 
         return view('homedept.remarksfrominterior', compact('HomeDepartments'));
@@ -58,7 +60,7 @@ class HomeDepartmentController extends Controller
         $interiorpititions = InteriorMinistry::with('interiorfileattachements')->where('petition_id', $id)->first();
         $humanrightpittions = HumanRightDepartment::with('humanrightfileattachements')->where('petition_id', $id)->first();
 
-        $pets = Petition::with('fileattachements', 'sectionss')->get();
+        $pets = Petition::with('fileattachements', 'sectionss','provinces')->get();
 
         $petitions = $pets->find($id);
         $response = [

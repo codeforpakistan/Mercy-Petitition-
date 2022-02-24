@@ -548,6 +548,7 @@
                         $('#firdate').text(data.petitions.firdate);
                         $('#Mercypetitiondate').text(data.petitions.mercypetitiondate);
                         $('#Section_id').text(data.petitions.sectionss.undersection);
+                        $('#Province').text(data.petitions.provinces.province_name);
                         $('#warrent_date').text(data.petitions.warrent_date);
                         $('#Remarks').text(data.petitions.remarks);
                         $('#sentence_in_court').text(data.petitions.sentence_in_court);
@@ -744,6 +745,7 @@
                         $('#firdate').text(data.petitions.firdate);
                         $('#Mercypetitiondate').text(data.petitions.mercypetitiondate);
                         $('#Section_id').text(data.petitions.sectionss.undersection);
+                        $('#Province').text(data.petitions.provinces.province_name);
                         $('#warrent_date').text(data.petitions.warrent_date);
                         $('#Remarks').text(data.petitions.remarks);
                         $('#sentence_in_court').text(data.petitions.sentence_in_court);
@@ -968,6 +970,7 @@
                         $('#firdate').text(data.petitions.firdate);
                         $('#Mercypetitiondate').text(data.petitions.mercypetitiondate);
                         $('#Section_id').text(data.petitions.sectionss.undersection);
+                        $('#Province').text(data.petitions.provinces.province_name);
                         $('#warrent_date').text(data.petitions.warrent_date);
                         $('#Remarks').text(data.petitions.remarks);
                         $('#sentence_in_court').text(data.petitions.sentence_in_court);
@@ -1190,6 +1193,7 @@
                         $('#firdate').text(data.firdate);
                         $('#Mercypetitiondate').text(data.mercypetitiondate);
                         $('#Section_id').text(data.sectionss.undersection);
+                        $('#Province').text(data.provinces.province_name);
                         $('#warrent_date').text(data.warrent_date);
 
                         $('#Remarks').text(data.remarks);
@@ -1384,7 +1388,7 @@
  $('#provincejail').change(function() {
     var selected = $(this).val();
 
-alert(selected);
+
     if (selected) {
         $('#confined_in_jail').removeClass("d-lg-none");
 
