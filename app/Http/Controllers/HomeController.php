@@ -42,7 +42,7 @@ class HomeController extends Controller
         $interiorpititions = InteriorMinistry::with('interiorfileattachements')->where('petition_id', $id)->first();
         $humanrightpittions = HumanRightDepartment::with('humanrightfileattachements')->where('petition_id', $id)->first();
 
-        $pets = Petition::with('fileattachements', 'sectionss')->get();
+        $pets = Petition::with('fileattachements', 'sectionss','provinces','physicalstatus')->get();
 
         $petitions = $pets->find($id);
         $response = [
@@ -57,7 +57,7 @@ class HomeController extends Controller
     }
     public function accepted()
     {
-
+        
         $Accepted = Petition::Where('status', 'Accepted')->orderBy("id", "desc")->paginate(5);
 
         return view('IGP.accepted', compact('Accepted'));
@@ -81,8 +81,8 @@ class HomeController extends Controller
         $section = Section::all();
         $jail = Jail::all();
         $physicalstatus = PhysicalStatus::all();
-        $petitions = Petition::with('provinces', 'sectionss')->orderBy("id", "desc")->get();
-       
+        $petitions = Petition::with('provinces', 'users','sectionss','physicalstatus')->orderBy("id", "desc")->get();
+      
         return view('IGP.reportform', compact('petitions' ,'section' , 'provinces' , 'jail' , 'physicalstatus'));
 
 
@@ -140,7 +140,7 @@ class HomeController extends Controller
           if(!empty($fromdate)){
             $report->orwherebetween('created_at',[$fromdate,$todate])->get();
           }
-          $searchs = $report->with('provinces', 'sectionss')->get();
+          $searchs = $report->with('provinces','users', 'sectionss','physicalstatus')->get();
 
                 return view('IGP.searchreportform', compact('searchs' , 'section' , 'provinces' , 'jail' , 'physicalstatus'));
 }

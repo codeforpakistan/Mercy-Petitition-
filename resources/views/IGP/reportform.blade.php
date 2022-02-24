@@ -168,10 +168,10 @@
         <td></td>
         @endif
         <td>{{ $petition->file_in_department }}</td>
-        <td>{{ $petition->physicalstatus_id }}</td>
+        <td>{{ $petition->physicalstatus->PhysicalStatus }}</td>
         <td>{{ $petition->status }}</td>
         <td>{{ $petition->sentence_in_court }}</td>
-        <td>{{ $petition->user_id }}</td>
+        <td>{{ $petition->users->name }}</td>
 
         <td class='d-none d-sm-table-cell'>
             <span class='badge badge-sm bgc-warning-d1 text-white pb-1 px-25'><img

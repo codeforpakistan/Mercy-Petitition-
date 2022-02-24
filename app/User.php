@@ -41,7 +41,7 @@ class User extends Authenticatable
 
     public function petitions()
     {
-        return $this->hasMany(Petition::class,'petition_id');
+        return $this->hasMany(Petition::class,'user_id');
     }
     public function logpetitions()
     {

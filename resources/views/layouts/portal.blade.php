@@ -541,7 +541,7 @@
                         $('#firstname').text(data.petitions.name);
                         $('#Fathername').text(data.petitions.f_name);
                         $('#Nationality').text(data.petitions.nationality);
-                        $('#Physicalstatus').text(data.petitions.physicalstatus);
+                        $('#Physicalstatus').text(data.petitions.physicalstatus.PhysicalStatus);
                         $('#Confined_in_jail').text(data.petitions.confined_in_jail);
                         $('#Gender').text(data.petitions.gender);
                         $('#Dob').text(data.petitions.dob);
@@ -584,8 +584,9 @@
 
 
 
-
-
+                        $("#application_images").empty();
+                        $("#application_image").empty();
+                      
                         var ap = data.petitions.application_image;
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
@@ -600,6 +601,8 @@
                                 "<img  class='example-image' alt='image-1'  style='height:100px;width:100px' src='{{ url('/assets/image/') }}/" +
                                 data.petitions.application_image + "'>" + '</a>');
                         }
+                        $("#health_papers").empty();
+                        $("#health_paper").empty();
                         var ap = data.petitions.health_paper;
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
@@ -615,6 +618,9 @@
 
                             // $('#health_paper').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.health_paper+"'>");
                         }
+                        
+                        $("#warrent_files").empty();
+                        $("#warrent_file").empty();
                         var ap = data.petitions.warrent_file;
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
@@ -631,6 +637,8 @@
                             // $('#warrent_file').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.warrent_file+"'>");
                         }
                         //  $('#Prisonerimage').html("<img style='height:100px;width:100px;border-radius:50px;' src=' {{ url('/assets/image/') }}/"+data.prisoner_image+"'>");
+                      
+                        $("#Prisonerimage").empty();
                         $('#Prisonerimage').html(
                             "<a target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
                             data.petitions.prisoner_image + " '>" +
@@ -738,15 +746,15 @@
                         $('#firstname').text(data.petitions.name);
                         $('#Fathername').text(data.petitions.f_name);
                         $('#Nationality').text(data.petitions.nationality);
-                        $('#Physicalstatus').text(data.petitions.physicalstatus);
+                        $('#Physicalstatus').text(data.petitions.physicalstatus.PhysicalStatus);
                         $('#Confined_in_jail').text(data.petitions.confined_in_jail);
                         $('#Gender').text(data.petitions.gender);
                         $('#Dob').text(data.petitions.dob);
                         $('#firdate').text(data.petitions.firdate);
                         $('#Mercypetitiondate').text(data.petitions.mercypetitiondate);
                         $('#Section_id').text(data.petitions.sectionss.undersection);
-                        $('#Province').text(data.petitions.provinces.province_name);
                         $('#warrent_date').text(data.petitions.warrent_date);
+                        $('#Province').text(data.petitions.provinces.province_name);
                         $('#Remarks').text(data.petitions.remarks);
                         $('#sentence_in_court').text(data.petitions.sentence_in_court);
                         $('#date_of_sentence').text(data.petitions.date_of_sentence);
@@ -778,7 +786,8 @@
                             }
                         });
 
-
+                        $("#application_images").empty();
+                        $("#application_image").empty();
 
                         var ap = data.petitions.application_image;
                         var finalap = ap.split(".");
@@ -794,6 +803,8 @@
                                 "<img  class='example-image' alt='image-1'  style='height:100px;width:100px' src='{{ url('/assets/image/') }}/" +
                                 data.petitions.application_image + "'>" + '</a>');
                         }
+                        $("#health_papers").empty();
+                        $("#health_paper").empty();
                         var ap = data.petitions.health_paper;
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
@@ -809,6 +820,8 @@
 
                             // $('#health_paper').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.health_paper+"'>");
                         }
+                        $("#warrent_files").empty();
+                        $("#warrent_file").empty();
                         var ap = data.petitions.warrent_file;
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
@@ -825,6 +838,8 @@
                             // $('#warrent_file').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.warrent_file+"'>");
                         }
                         //  $('#Prisonerimage').html("<img style='height:100px;width:100px;border-radius:50px;' src=' {{ url('/assets/image/') }}/"+data.prisoner_image+"'>");
+                       
+                        $("#Prisonerimage").empty();
                         $('#Prisonerimage').html(
                             "<a target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
                             data.petitions.prisoner_image + " '>" +
@@ -963,7 +978,7 @@
                         $('#firstname').text(data.petitions.name);
                         $('#Fathername').text(data.petitions.f_name);
                         $('#Nationality').text(data.petitions.nationality);
-                        $('#Physicalstatus').text(data.petitions.physicalstatus);
+                        $('#Physicalstatus').text(data.petitions.physicalstatus.PhysicalStatus);
                         $('#Confined_in_jail').text(data.petitions.confined_in_jail);
                         $('#Gender').text(data.petitions.gender);
                         $('#Dob').text(data.petitions.dob);
@@ -1004,7 +1019,8 @@
                             }
                         });
 
-
+                        $("#application_images").empty();
+                        $("#application_image").empty();
 
                         var ap = data.petitions.application_image;
 
@@ -1021,6 +1037,8 @@
                                 "<img  class='example-image' alt='image-1'  style='height:100px;width:100px' src='{{ url('/assets/image/') }}/" +
                                 data.petitions.application_image + "'>" + '</a>');
                         }
+                        $("#health_papers").empty();
+                        $("#health_paper").empty();
                         var ap = data.petitions.health_paper;
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
@@ -1036,6 +1054,8 @@
 
                             // $('#health_paper').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.health_paper+"'>");
                         }
+                        $("#warrent_files").empty();
+                        $("#warrent_file").empty();
                         var ap = data.petitions.warrent_file;
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
@@ -1052,11 +1072,14 @@
                             // $('#warrent_file').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.warrent_file+"'>");
                         }
                         //  $('#Prisonerimage').html("<img style='height:100px;width:100px;border-radius:50px;' src=' {{ url('/assets/image/') }}/"+data.prisoner_image+"'>");
+                        $("#Prisonerimage").empty();
                         $('#Prisonerimage').html(
                             "<a target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
                             data.petitions.prisoner_image + " '>" +
                             "<img  class='example-image' alt='image-1'  style='height:100px;width:100px;border-radius:50px' src='{{ url('/assets/image/') }}/" +
                             data.petitions.prisoner_image + "'>" + '</a>');
+                      
+                      
                         $("#homefilepdf").empty();
                         $("#homepic").empty();
                         $.each(data.homepititions.homefileattachements, function(key, val) {
@@ -1082,7 +1105,7 @@
                                     val.file + "'>" + '</a>');
                             }
                         });
-                        // home department file
+                        // interior file
 
                         $('#interiorremarks').text(data.interiorpititions.remarks);
                         $("#interiorfilepdf").empty();
@@ -1186,7 +1209,8 @@
                         $('#firstname').text(data.name);
                         $('#Fathername').text(data.f_name);
                         $('#Nationality').text(data.nationality);
-                        $('#Physicalstatus').text(data.physicalstatus);
+                       
+                        $('#Physicalstatus').text(data.physicalstatus.PhysicalStatus);
                         $('#Confined_in_jail').text(data.confined_in_jail);
                         $('#Gender').text(data.gender);
                         $('#Dob').text(data.dob);
@@ -1225,16 +1249,21 @@
                                     val.file + "'>" + '</a>');
                             }
                         });
+                        $("#application_images").empty();
+                        $("#application_image").empty();
                         var ap = data.application_image;
 
                         var finalap = ap.split(".");
 
                         if (finalap['1'] == "pdf") {
+                          
+                        
                             $('#application_images').append(
                                 "<a style='margin-right:15px;'' target='_blank'   href='{{ url('/assets/image/') }}/" + data
                                 .application_image + "'download>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>"+ '</a>');
 
                         } else {
+                           
                             // $('#application_image').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.application_image+"'>");
                             $('#application_image').html(
                                 "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
@@ -1242,13 +1271,17 @@
                                 "<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/') }}/" +
                                 data.application_image + "'>" + '</a>');
                         }
+                        $("#health_papers").empty();
+                        $("#health_paper").empty();
                         var ap = data.health_paper;
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
+                           
                             $('#health_papers').append(
                                 "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data
                                 .health_paper + "'>" + "<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                         } else {
+                           
                             $('#health_paper').html(
                                 "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
                                 data.health_paper + " '>" +
@@ -1257,13 +1290,17 @@
 
                             // $('#health_paper').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.health_paper+"'>");
                         }
+                        $("#warrent_files").empty();
+                        $("#warrent_file").empty();
                         var ap = data.warrent_file;
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
+                            
                             $('#warrent_files').append(
                                 "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data
                                 .warrent_file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                         } else {
+                            
                             $('#warrent_file').html(
                                 "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
                                 data.warrent_file + " '>" +
@@ -1273,7 +1310,9 @@
                             // $('#warrent_file').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.warrent_file+"'>");
                         }
                         //  $('#Prisonerimage').html("<img style='height:100px;width:100px;border-radius:50px;' src=' {{ url('/assets/image/') }}/"+data.prisoner_image+"'>");
+                        $("#Prisonerimage").empty();
                         $('#Prisonerimage').html(
+                          
                             "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
                             data.prisoner_image + " '>" +
                             "<img  class='example-image' alt='image-1'  style='height:100px;width:100px;border-radius:50px' src='{{ url('/assets/image/') }}/" +
