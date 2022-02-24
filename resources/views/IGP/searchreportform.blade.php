@@ -115,8 +115,9 @@
             <br>
 
               <div class="row">
-                <div class="col-md-6" style="text-align: center;">
+                <div class="col-md-6" style="text-align: left;">
                   <button type="button" id="btnExport" onclick="Export()" class="btn btn-info">Export</button>
+                  {{-- <i class="fa-solid fa-download" type="button" id="btnExport" onclick="Export()"></i> --}}
 
                 </div>
                 <div class="col-md-6" style="text-align: right;">
@@ -126,9 +127,10 @@
 
               </div>
 
-            </div>
+
 
             </form>
+            <br>
 
   <tr>
     <table id="tblCustomers"
