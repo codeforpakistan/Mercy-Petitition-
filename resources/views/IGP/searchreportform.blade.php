@@ -111,9 +111,21 @@
               </div>
 
             <br>
-              <div class="col-md-12" style="text-align: right;">
+              {{-- <div class="col-md-12" style="text-align: right;">
                 <button type="submit" id="searchbtn" class="btn btn-info">Search</button>
                 <button type="button" id="resetbtn" class="btn btn-success" onclick="document.getElementById('EmployeeID').value = null; document.getElementById('searchbtn').click(); return false;">Reset</button>
+              </div> --}}
+
+              <div class="row">
+                <div class="col-md-6" style="text-align: center;">
+                  <button type="button" id="btnExport" onclick="Export()" class="btn btn-info">Export</button>
+
+                </div>
+                <div class="col-md-6" style="text-align: right;">
+                  <button type="submit" id="searchbtn" class="btn btn-info">Search</button>
+                  <button type="button" id="resetbtn" class="btn btn-success" onclick="document.getElementById('EmployeeID').value = null; document.getElementById('searchbtn').click(); return false;">Reset</button>
+                </div>
+
               </div>
 
             </form>
