@@ -42,7 +42,7 @@ class InteriorMinstryController extends Controller
         $interiorpititions = InteriorMinistry::with('interiorfileattachements')->where('petition_id', $id)->first();
         $humanrightpittions = HumanRightDepartment::with('humanrightfileattachements')->where('petition_id', $id)->first();
 
-        $pets = Petition::with('fileattachements', 'sectionss')->get();
+        $pets = Petition::with('fileattachements', 'sectionss','provinces')->get();
 
         $petitions = $pets->find($id);
         $response = [

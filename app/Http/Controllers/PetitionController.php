@@ -57,7 +57,7 @@ class PetitionController extends Controller
     public function view($id)
     {
 
-        $pets = Petition::with('fileattachements', 'sectionss')->get();
+        $pets = Petition::with('fileattachements', 'sectionss','provinces')->get();
 
         $petitions = $pets->find($id);
 

@@ -12,7 +12,7 @@
 
 
 
-<div role="main" class="page-content container-fluid">
+<div role="main" class="page-content container-fluid" style="margin-top:5%;margin-right:10%">
         @if ($message = Session::get('success'))
             <div class="alert alert-success">
                 <p>{{ $message }}</p>
@@ -94,6 +94,7 @@
 
               <label class="col-md-2">Multiple Date</label>
               <div class="col-md-4">
+                <div id="id-daterange-wrapper" class="pos-rel">
                 <div class="form-row">
                     <div class="col">
                       <input id="id-daterange-from" name = "fromdate" class="form-control ex-inputs-start" placeholder="From date">
@@ -109,12 +110,9 @@
                   <div id="id-daterange-container" class="dp-daterange-picker dp-daterange-above"></div>
                 </div>
               </div>
+            </div>
 
             <br>
-              {{-- <div class="col-md-12" style="text-align: right;">
-                <button type="submit" id="searchbtn" class="btn btn-info">Search</button>
-                <button type="button" id="resetbtn" class="btn btn-success" onclick="document.getElementById('EmployeeID').value = null; document.getElementById('searchbtn').click(); return false;">Reset</button>
-              </div> --}}
 
               <div class="row">
                 <div class="col-md-6" style="text-align: center;">
@@ -128,10 +126,12 @@
 
               </div>
 
+            </div>
+
             </form>
 
   <tr>
-    <table id="simple-table"
+    <table id="tblCustomers"
     class="table-responsive; overflow: hidden; ">
     <thead class="text-dark-tp3 bgc-grey-l4 text-90 border-b-1 brc-transparent">
   <tr>
