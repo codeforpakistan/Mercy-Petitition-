@@ -574,10 +574,10 @@
 
                                                                                             <td
                                                                                                 class="text-95 text-600 text-secondary-d2">
-                                                                                                Remarks
+                                                                                                Province
                                                                                             </td>
 
-                                                                                            <td id="Remarks"
+                                                                                            <td id="Province"
                                                                                                 class="text-dark-m3">
 
                                                                                             </td>
@@ -621,6 +621,29 @@
                                                                             </div>
 
                                                                             {{-- </div><!-- /.row --> --}}
+                                                                            <div class="col-12 px-4 mt-3"
+                                                                            style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
+
+                                                                            <h4 class="mt-2 text-dark-m3 text-130">
+                                                                                <i
+                                                                                    class="fa fa-pen-alt text-85 text-purple-d1 w-3"></i>
+                                                                           Jail-Supt Remarks
+                                                                            </h4>
+
+                                                                            <div
+                                                                                class="d-flex flex-column flex-sm-row align-items-center align-items-sm-start mt-3 mb-2 text-95 pl-3">
+
+
+                                                                                <div
+                                                                                    class="mt-2 mt-sm-0 flex-grow-1 text-dark-m2">
+                                                                                    <p id="Remarks"
+                                                                                        class="mb-1">
+
+                                                                                    </p>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
 
 
 

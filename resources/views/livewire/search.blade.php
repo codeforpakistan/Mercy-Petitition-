@@ -165,7 +165,9 @@
         </table>
 
         {{ $petitions->links() }}
-     
+        @else
+        <h4 style="background-color:#800000; text-align:center;color:#fff"> No Record Found!</h4>
+    @endif
             
        
         <div class="modal fade modal-fs" id="modalFullscreen" tabindex="-1" role="dialog"
@@ -455,10 +457,10 @@
 
                                                                             <td
                                                                                 class="text-95 text-600 text-secondary-d2">
-                                                                                Remarks
+                                                                                Province
                                                                             </td>
 
-                                                                            <td id="Remarks" class="text-dark-m3">
+                                                                            <td id="Province" class="text-dark-m3">
 
                                                                             </td>
                                                                         </tr>
@@ -502,7 +504,28 @@
 
                                                             {{-- </div><!-- /.row --> --}}
 
+                                                            <div class="col-12 px-4 mt-3"
+                                                            style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
 
+                                                            <h4 class="mt-2 text-dark-m3 text-130">
+                                                                <i
+                                                                    class="fa fa-pen-alt text-85 text-purple-d1 w-3"></i>
+                                                               Jail-Supt Remarks
+                                                            </h4>
+
+                                                            <div
+                                                                class="d-flex flex-column flex-sm-row align-items-center align-items-sm-start mt-3 mb-2 text-95 pl-3">
+
+
+                                                                <div class="mt-2 mt-sm-0 flex-grow-1 text-dark-m2">
+                                                                    <p id="Remarks"
+                                                                        class="mb-1">
+
+                                                                    </p>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
 
                                                             <div class="col-12 px-4 mt-3"
                                                                 style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
@@ -743,23 +766,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div id="btnhide1" class="col-12 px-8 mt-5">
-                                                        <div class="form-row text-center">
-                                                            <div class="form-group col-md-6">
-                                                                <a href="{{ route('petitionremarksedit', [$petion->id]) }}"
-                                                                    class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
-                                                                    Forward <i class="fa fa-forward"></i>
-                                                                </a>
-                                                            </div>
-                                                            <div class="form-group col-md-6">
-                                                                <a href="{{ route('remarksfromhome') }}"
-                                                                    class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-primary text-white">
-                                                                    Back <i class="fa fa-arrow-left"></i>
-                                                                </a>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
+                                                   
                                                 </div>
 
 
@@ -769,9 +776,7 @@
                                                 <!-- activity tab -->
 
 
-                                                @else
-                                                <h4 style="background-color:#800000; text-align:center;color:#fff"> No Record Found!</h4>
-                                            @endif
+                                              
 
 
 
@@ -791,3 +796,4 @@
             </div>
         </div>
     </div>
+</div>
