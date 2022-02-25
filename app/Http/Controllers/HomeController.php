@@ -58,14 +58,14 @@ class HomeController extends Controller
     public function accepted()
     {
         
-        $Accepted = Petition::Where('status', 'Accepted')->orderBy("id", "desc")->paginate(5);
+        $Accepted = Petition::Where('province_id', Auth::user()->province_id)->Where('status', 'Accepted')->orderBy("id", "desc")->paginate(5);
 
         return view('IGP.accepted', compact('Accepted'));
     }
     public function rejected()
     {
 
-        $Rejected = Petition::Where('status', 'Rejected')->orderBy("id", "desc")->paginate(5);
+        $Rejected = Petition::Where('province_id', Auth::user()->province_id)->Where('status', 'Rejected')->orderBy("id", "desc")->paginate(5);
 
         return view('IGP.rejected', compact('Rejected'));
     }

@@ -617,11 +617,11 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-12 px-4 mt-3"
+                                                            <div class="col-12 px-4 mt-3 homeDoc"
                                                                 style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
                                                                 <div class=" form-group row">
 
-                                                                    <div class="form-group col-md-12">
+                                                                    <div class="form-group col-md-12 homefile">
                                                                         {{-- <hr class="rounded"> --}}
                                                                         <h4 class="text-dark-m3 text-140">
                                                                             <i
@@ -648,7 +648,7 @@
                                                                             </figure>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="form-group col-md-12">
+                                                                    <div class="form-group col-md-12 homeremarks">
                                                                         {{-- <hr class="rounded"> --}}
                                                                         <h4 class="text-dark-m3 text-140">
                                                                             <i
@@ -666,11 +666,11 @@
 
                                                                 </div>
                                                             </div>
-                                                            <div class="col-12 px-4 mt-3"
+                                                            <div class="col-12 px-4 mt-3 interiorDoc"
                                                                 style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
                                                                 <div class=" form-group row">
 
-                                                                    <div class="form-group col-md-12">
+                                                                    <div class="form-group col-md-12 interiorfile">
                                                                         {{-- <hr class="rounded"> --}}
                                                                         <h4 class="text-dark-m3 text-140">
                                                                             <i
@@ -697,7 +697,7 @@
                                                                             </figure>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="form-group col-md-12">
+                                                                    <div class="form-group col-md-12 interiorremarks">
                                                                         {{-- <hr class="rounded"> --}}
                                                                         <h4 class="text-dark-m3 text-140">
                                                                             <i
@@ -715,11 +715,11 @@
 
                                                                 </div>
                                                             </div>
-                                                            <div class="col-12 px-4 mt-3"
+                                                            <div class="col-12 px-4 mt-3 humanDoc"
                                                                 style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
                                                                 <div class=" form-group row">
 
-                                                                    <div class="form-group col-md-12">
+                                                                    <div class="form-group col-md-12 humanfile">
                                                                         {{-- <hr class="rounded"> --}}
                                                                         <h4 class="text-dark-m3 text-140">
                                                                             <i
@@ -746,7 +746,7 @@
                                                                             </figure>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="form-group col-md-12">
+                                                                    <div class="form-group col-md-12 humanremarks">
                                                                         {{-- <hr class="rounded"> --}}
                                                                         <h4 class="text-dark-m3 text-140">
                                                                             <i

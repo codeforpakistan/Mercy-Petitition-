@@ -228,30 +228,22 @@
                                                 <!-- show a dropdown in mobile -->
                                                 <div
                                                     class='dropdown d-inline-block d-lg-none dd-backdrop dd-backdrop-none-lg'>
-                                                    <a href='#'
-                                                        class='btn btn-default btn-xs py-15 radius-round dropdown-toggle'
-                                                        data-toggle="dropdown">
-                                                        <i class="fa fa-cog"></i>
-                                                    </a>
+                                                   
 
                                                     <div class="dropdown-menu dd-slide-up dd-slide-none-lg">
                                                         <div class="dropdown-inner">
-                                                            <div
-                                                                class="dropdown-header text-100 text-secondary-d1 border-b-1 brc-secondary-l2 text-600 mb-2">
-                                                                ace.com
-                                                            </div>
-                                                            <a href="#}" class="dropdown-item">
-                                                                <i class="fa fa-pencil-alt text-blue mr-1 p-2 w-4"></i>
-                                                                Edit
-                                                            </a>
-                                                            <a href="#" class="dropdown-item">
-                                                                <i class="fa fa-trash-alt text-danger-m1 mr-1 p-2 w-4"></i>
-                                                                Delete
-                                                            </a>
-                                                            <a href="#" class="dropdown-item">
-                                                                <i class="far fa-flag text-orange-d1 mr-1 p-2 w-4"></i>
-                                                                Flag
-                                                            </a>
+                                                           
+                                                           
+                                                            <a href="javascript:void(0)" data-toggle="modal"
+                                                            data-target="#modalFullscreen"
+                                                            class=" dropdown-item d-style btn btn-outline-info text-90 text-600 border-0 px-2 collapsed"
+                                                            data-id="{{ $petion->id }}" id="interiorshow-user"
+                                                            title="Show Details">
+                                                            <span class="d-none d-md-inline mr-1">
+                                                                Details
+                                                            </span>
+                                                            <i class="fa fa-angle-down toggle-icon opacity-1 text-90"></i>
+                                                        </a>
                                                         </div>
                                             </td>
                                         </tr>
@@ -721,7 +713,7 @@
 
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="col-12 px-4 mt-3"
+                                                                            <div class="col-12 px-4 mt-3 homeDoc"
                                                                                 style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
                                                                                 <div class=" form-group row">
                                                                                     <div class="form-group col-md-12">
@@ -745,17 +737,17 @@
                                                                                         <figure class="figure">
 
                                                                                             <div id="picss"></div>
-                                                                                            &nbsp;&nbsp;
+                                                                                           
 
                                                                                         </figure>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="col-12 px-4 mt-3"
+                                                                            <div class="col-12 px-4 mt-3 homefile"
                                                                                 style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
                                                                                 <div class=" form-group row">
 
-                                                                                    <div class="form-group col-md-12">
+                                                                                    <div class="form-group col-md-12 homefile">
                                                                                         {{-- <hr class="rounded"> --}}
                                                                                         <h4 class="text-dark-m3 text-140">
                                                                                             <i
@@ -783,7 +775,7 @@
                                                                                             </figure>
                                                                                         </div>
                                                                                     </div>
-                                                                                    <div class="form-group col-md-12">
+                                                                                    <div class="form-group col-md-12 homeremarks">
                                                                                         {{-- <hr class="rounded"> --}}
                                                                                         <h4 class="text-dark-m3 text-140">
                                                                                             <i
@@ -802,11 +794,11 @@
                                                                                 </div>
                                                                             </div>
                                                                             {{-- InteriorMinitries --}}
-                                                                            <div class="col-12 px-4 mt-3"
+                                                                            <div class="col-12 px-4 mt-3 interiorDoc"
                                                                                 style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
                                                                                 <div class=" form-group row">
 
-                                                                                    <div class="form-group col-md-12">
+                                                                                    <div class="form-group col-md-12 interiorfile">
                                                                                         {{-- <hr class="rounded"> --}}
                                                                                         <h4 class="text-dark-m3 text-140">
                                                                                             <i
@@ -835,7 +827,7 @@
                                                                                             </figure>
                                                                                         </div>
                                                                                     </div>
-                                                                                    <div class="form-group col-md-12">
+                                                                                    <div class="form-group col-md-12 interiorremarks">
                                                                                         {{-- <hr class="rounded"> --}}
                                                                                         <h4 class="text-dark-m3 text-140">
                                                                                             <i
@@ -854,11 +846,11 @@
                                                                                 </div>
                                                                             </div>
                                                                             {{-- humanright --}}
-                                                                            <div class="col-12 px-4 mt-3"
+                                                                            <div class="col-12 px-4 mt-3 humanDoc"
                                                                                 style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
                                                                                 <div class=" form-group row">
 
-                                                                                    <div class="form-group col-md-12">
+                                                                                    <div class="form-group col-md-12 humanfile">
                                                                                         {{-- <hr class="rounded"> --}}
                                                                                         <h4 class="text-dark-m3 text-140">
                                                                                             <i
@@ -877,7 +869,7 @@
 
 
                                                                                     <div class=" form-group row">
-                                                                                        <div class="form-group col-md-12">
+                                                                                        <div class="form-group col-md-12 ">
                                                                                             <figure class="figure">
 
                                                                                                 <div id="humanrightfilepdf">
@@ -887,7 +879,7 @@
                                                                                             </figure>
                                                                                         </div>
                                                                                     </div>
-                                                                                    <div class="form-group col-md-12">
+                                                                                    <div class="form-group col-md-12 humanremarks">
                                                                                         {{-- <hr class="rounded"> --}}
                                                                                         <h4 class="text-dark-m3 text-140">
                                                                                             <i

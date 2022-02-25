@@ -738,11 +738,8 @@
                     url: "{{ url('Interiorview') }}/" + id,
                     datatype: 'json',
 
-                    success: function(data) {
-
-
-
-
+                    success: function(data) 
+                    {
                         $('#firstname').text(data.petitions.name);
                         $('#Fathername').text(data.petitions.f_name);
                         $('#Nationality').text(data.petitions.nationality);
@@ -766,7 +763,7 @@
                         $.each(data.petitions.fileattachements, function(key, val) {
                             var fil = val.file
 
-
+                            
                             //  alert(val.file);
                             if (val.type == 'pdf') {
 
@@ -850,16 +847,26 @@
                         // home department file
                         $("#homefilepdf").empty();
                         $("#homepic").empty();
-
-                        //HomeDepartment
-                        $('#homeremarks').text(data.homepititions.remarks);
+                       if( data.homepititions == null){
+                        $(".homeDoc").addClass('d-none');
+                       }else{
+                        $(".homeDoc").removeClass('d-none');
+                         $('#homeremarks').text(data.homepititions.remarks);
+                       
+                       
                         $.each(data.homepititions.homefileattachements, function(key, val) {
                             var fil = val.file
+                          
+                            if( val.file == 'undefined' || val.file != null){
+                                $(".homeDepDoc").addClass('d-none');  
+                            }else{
+                                $(".homeDepDoc").removeClass('d-none');  
+                               
 
 
-                            //  alert(val.file);
+
                             if (val.type == 'pdf') {
-
+                       
                                 // alert(val.type=='pdf');
                                 // $("#picss").empty();
                                 // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
@@ -874,12 +881,115 @@
                                     "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
                                     val.file + "'>" + '</a>');
                             }
+                               }
                         });
+                       }
+                       if( data.homepititions.remarks == ""){
+                        $(".homeremarks").addClass('d-none');
+                       }else{
+                        $(".homeremarks").removeClass('d-none');
+                         $('#homeremarks').text(data.homepititions.remarks);
+                       }
+                       if( data.homepititions.homefileattachements == ""){
+                        $(".homefile").addClass('d-none');
+                       }else
+                       {
+                        $(".homefile").removeClass('d-none');
+                       $.each(data.homepititions.homefileattachements, function(key, val) {
+                            var fil = val.file
+                          
+                            if( val.file == 'undefined' || val.file != null){
+                                $(".homeDepDoc").addClass('d-none');  
+                            }else{
+                                $(".homeDepDoc").removeClass('d-none');  
+                               
+
+
+
+                            if (val.type == 'pdf') {
+                       
+                                // alert(val.type=='pdf');
+                                // $("#picss").empty();
+                                // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
+                                $('#homefilepdf').append(
+                                    "<a  style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
+                                    val.file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
+                            } else {
+                                // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
+                                $('#homepic').append(
+                                    "<a  target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
+                                    val.file + " '>" +
+                                    "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
+                                    val.file + "'>" + '</a>');
+                            }
+                               }
+                        });
+                    }
+                        // $("#homefilepdf").empty();
+                        // $("#homepic").empty();
+
+                        // //HomeDepartment
+                        // $('#homeremarks').text(data.homepititions.remarks);
+                        // $.each(data.homepititions.homefileattachements, function(key, val) {
+                        //     var fil = val.file
+
+
+                        //     //  alert(val.file);
+                        //     if (val.type == 'pdf') {
+
+                        //         // alert(val.type=='pdf');
+                        //         // $("#picss").empty();
+                        //         // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
+                        //         $('#homefilepdf').append(
+                        //             "<a  style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
+                        //             val.file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
+                        //     } else {
+                        //         // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
+                        //         $('#homepic').append(
+                        //             "<a  target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
+                        //             val.file + " '>" +
+                        //             "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
+                        //             val.file + "'>" + '</a>');
+                        //     }
+                        // });
 
 
 
                         //interior mintry
-                        $('#interiorremarks').text(data.interiorpititions.remarks);
+                        // $('#interiorremarks').text(data.interiorpititions.remarks);
+                        // $("#interiorfilepdf").empty();
+                        // $("#interiorpic").empty();
+                        // $.each(data.interiorpititions.interiorfileattachements, function(key,
+                        //     val) {
+                        //     var fil = val.file
+
+
+                        //     //  alert(val.file);
+                        //     if (val.type == 'pdf') {
+
+                        //         // alert(val.type=='pdf');
+                        //         // $("#picss").empty();
+                        //         // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
+                        //         $('#interiorfilepdf').append(
+                        //             "<a  style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
+                        //             val.file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
+                        //     } else {
+                        //         // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
+                        //         $('#interiorpic').append(
+                        //             "<a  target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
+                        //             val.file + " '>" +
+                        //             "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
+                        //             val.file + "'>" + '</a>');
+                        //     }
+
+
+                        // });
+                        if( data.interiorpititions == null){
+                                $(".interiorDoc").addClass('d-none');
+                        }else{
+                            $(".interiorDoc").removeClass('d-none');
+                            
+                            $('#interiorremarks').text(data.interiorpititions.remarks);
                         $("#interiorfilepdf").empty();
                         $("#interiorpic").empty();
                         $.each(data.interiorpititions.interiorfileattachements, function(key,
@@ -907,7 +1017,78 @@
 
 
                         });
+                        }  
+                      
+                        if( data.interiorpititions.remarks == ""){
+                            $(".interiorremarks").addClass('d-none');
+                        }else{
+                            $(".interiorremarks").removeClass('d-none');
+                            $('#interiorremarks').text(data.interiorpititions.remarks); 
+                        }
+                         if( data.interiorpititions.interiorfileattachements == ""){
+                            $(".interiorfile").addClass('d-none');
+                        }else{
+                            $(".interiorfile").removeClass('d-none');
+                            $.each(data.interiorpititions.interiorfileattachements, function(key,
+                            val) {
+                            var fil = val.file
+
+
+                            //  alert(val.file);
+                            if (val.type == 'pdf') {
+
+                                // alert(val.type=='pdf');
+                                // $("#picss").empty();
+                                // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
+                                $('#interiorfilepdf').append(
+                                    "<a  style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
+                                    val.file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
+                            } else {
+                                // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
+                                $('#interiorpic').append(
+                                    "<a  target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
+                                    val.file + " '>" +
+                                    "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
+                                    val.file + "'>" + '</a>');
+                            }
+
+
+                        });
+                        }
                         //Human right department
+                        // $('#humanrightremarks').text(data.humanrightpittions.remarks);
+                        // $("#humanrightfilepdf").empty();
+                        // $("#humanrightpic").empty();
+                        // $.each(data.humanrightpittions.humanrightfileattachements, function(key,
+                        //     val) {
+                        //     var fil = val.file
+
+
+                        //     //  alert(val.file);
+                        //     if (val.type == 'pdf') {
+
+                        //         // alert(val.type=='pdf');
+                        //         // $("#picss").empty();
+                        //         // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
+                        //         $('#humanrightfilepdf').append(
+                        //             "<a  style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
+                        //             val.file + "'>" + "<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
+                        //     } else {
+                        //         // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
+                        //         $('#humanrightpic').append(
+                        //             "<a  target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
+                        //             val.file + " '>" +
+                        //             "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
+                        //             val.file + "'>" + '</a>');
+                        //     }
+
+
+                        // });
+                        if( data.humanrightpittions == null){
+                                $(".humanDoc").addClass('d-none');  
+                            }else{
+                                $(".humanDoc").removeClass('d-none');
+                               
                         $('#humanrightremarks').text(data.humanrightpittions.remarks);
                         $("#humanrightfilepdf").empty();
                         $("#humanrightpic").empty();
@@ -924,7 +1105,7 @@
                                 // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
                                 $('#humanrightfilepdf').append(
                                     "<a  style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                    val.file + "'>" + "<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
+                                    val.file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                             } else {
                                 // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
                                 $('#humanrightpic').append(
@@ -936,6 +1117,45 @@
 
 
                         });
+                            }
+                      
+                            if( data.humanrightpittions.remarks == ""){
+                            $(".humanremarks").addClass('d-none');
+                        }else{
+                            $(".humanremarks").removeClass('d-none');
+                            $('#humanrightremarks').text(data.humanrightpittions.remarks);
+                        }
+                        if(data.humanrightpittions.humanrightfileattachements==""){
+                            $(".humanfile").addClass('d-none'); 
+                        }else{
+                            $(".humanfile").removeClass('d-none'); 
+                            $.each(data.humanrightpittions.humanrightfileattachements, function(key,
+                            val) {
+                            var fil = val.file
+
+
+                            //  alert(val.file);
+                            if (val.type == 'pdf') {
+
+                                // alert(val.type=='pdf');
+                                // $("#picss").empty();
+                                // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
+                                $('#humanrightfilepdf').append(
+                                    "<a  style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
+                                    val.file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
+                            } else {
+                                // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
+                                $('#humanrightpic').append(
+                                    "<a  target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
+                                    val.file + " '>" +
+                                    "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
+                                    val.file + "'>" + '</a>');
+                            }
+
+
+                        });
+
+                        }
 
 
 
@@ -991,32 +1211,37 @@
                         $('#sentence_in_court').text(data.petitions.sentence_in_court);
                         $('#date_of_sentence').text(data.petitions.date_of_sentence);
                         $('#warrent_information').text(data.petitions.warrent_information);
-                        $('#homeremarks').text(data.homepititions.remarks);
-
-
+                       
                         $("#pic").empty();
                         $("#picss").empty();
                         $.each(data.petitions.fileattachements, function(key, val) {
                             var fil = val.file
+                           
+                            if(empty(val.file)){
+                                $(".homeDepDoc").addClass('d-none');  
+                            }else{
+                                $(".homeDepDoc").removeClass('d-none');  
+                                if (val.type == 'pdf') {
 
+// alert(val.type=='pdf');
+// $("#picss").empty();
+// $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
+                        $('#picss').append(
+                            "<a   style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
+                            val.file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
+                        } else {
+                        // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
+                        $('#pic').append(
+                            "<a target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
+                            val.file + " '>" +
+                            "<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/') }}/" +
+                            val.file + "'>" + '</a>');
+}
+
+                            }
 
                             //  alert(val.file);
-                            if (val.type == 'pdf') {
-
-                                // alert(val.type=='pdf');
-                                // $("#picss").empty();
-                                // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
-                                $('#picss').append(
-                                    "<a   style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                    val.file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
-                            } else {
-                                // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
-                                $('#pic').append(
-                                    "<a target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
-                                    val.file + " '>" +
-                                    "<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/') }}/" +
-                                    val.file + "'>" + '</a>');
-                            }
+                            
                         });
 
                         $("#application_images").empty();
@@ -1078,18 +1303,29 @@
                             data.petitions.prisoner_image + " '>" +
                             "<img  class='example-image' alt='image-1'  style='height:100px;width:100px;border-radius:50px' src='{{ url('/assets/image/') }}/" +
                             data.petitions.prisoner_image + "'>" + '</a>');
-                      
-                      
-                        $("#homefilepdf").empty();
+
+                            $("#homefilepdf").empty();
                         $("#homepic").empty();
+                       if( data.homepititions == null){
+                        $(".homeDoc").addClass('d-none');
+                       }else{
+                        $(".homeDoc").removeClass('d-none');
+                         $('#homeremarks').text(data.homepititions.remarks);
+                       
+                       
                         $.each(data.homepititions.homefileattachements, function(key, val) {
                             var fil = val.file
-
+                          
+                            if( val.file == 'undefined' || val.file != null){
+                                $(".homeDepDoc").addClass('d-none');  
+                            }else{
+                                $(".homeDepDoc").removeClass('d-none');  
+                               
 
 
 
                             if (val.type == 'pdf') {
-
+                       
                                 // alert(val.type=='pdf');
                                 // $("#picss").empty();
                                 // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
@@ -1104,12 +1340,60 @@
                                     "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
                                     val.file + "'>" + '</a>');
                             }
+                               }
                         });
-                        // interior file
+                       }
+                       if( data.homepititions.remarks == ""){
+                        $(".homeremarks").addClass('d-none');
+                       }else{
+                        $(".homeremarks").removeClass('d-none');
+                         $('#homeremarks').text(data.homepititions.remarks);
+                       }
+                       if( data.homepititions.homefileattachements == ""){
+                        $(".homefile").addClass('d-none');
+                       }else
+                       {
+                        $(".homefile").removeClass('d-none');
+                       $.each(data.homepititions.homefileattachements, function(key, val) {
+                            var fil = val.file
+                          
+                            if( val.file == 'undefined' || val.file != null){
+                                $(".homeDepDoc").addClass('d-none');  
+                            }else{
+                                $(".homeDepDoc").removeClass('d-none');  
+                               
 
-                        $('#interiorremarks').text(data.interiorpititions.remarks);
+
+
+                            if (val.type == 'pdf') {
+                       
+                                // alert(val.type=='pdf');
+                                // $("#picss").empty();
+                                // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
+                                $('#homefilepdf').append(
+                                    "<a  style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
+                                    val.file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
+                            } else {
+                                // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
+                                $('#homepic').append(
+                                    "<a  target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
+                                    val.file + " '>" +
+                                    "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
+                                    val.file + "'>" + '</a>');
+                            }
+                               }
+                        });
+                    }
+                        // interior file
                         $("#interiorfilepdf").empty();
                         $("#interiorpic").empty();
+                        if( data.interiorpititions == null){
+                                $(".interiorDoc").addClass('d-none');
+                        }else{
+                            $(".interiorDoc").removeClass('d-none');
+                            
+                            $('#interiorremarks').text(data.interiorpititions.remarks);
+                       
                         $.each(data.interiorpititions.interiorfileattachements, function(key,
                             val) {
                             var fil = val.file
@@ -1135,11 +1419,54 @@
 
 
                         });
+                        }  
+                      
+                        if( data.interiorpititions.remarks == ""){
+                            $(".interiorremarks").addClass('d-none');
+                        }else{
+                            $(".interiorremarks").removeClass('d-none');
+                            $('#interiorremarks').text(data.interiorpititions.remarks); 
+                        }
+                         if( data.interiorpititions.interiorfileattachements == ""){
+                            $(".interiorfile").addClass('d-none');
+                        }else{
+                            $(".interiorfile").removeClass('d-none');
+                            $.each(data.interiorpititions.interiorfileattachements, function(key,
+                            val) {
+                            var fil = val.file
 
-                        $('#humanrightremarks').text(data.humanrightpittions.remarks);
-                        //HomeDepartment
+
+                            //  alert(val.file);
+                            if (val.type == 'pdf') {
+
+                                // alert(val.type=='pdf');
+                                // $("#picss").empty();
+                                // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
+                                $('#interiorfilepdf').append(
+                                    "<a  style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
+                                    val.file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
+                            } else {
+                                // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
+                                $('#interiorpic').append(
+                                    "<a  target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
+                                    val.file + " '>" +
+                                    "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
+                                    val.file + "'>" + '</a>');
+                            }
+
+
+                        });
+                        }
                         $("#humanrightfilepdf").empty();
                         $("#humanrightpic").empty();
+                       
+                        if( data.humanrightpittions == null){
+                                $(".humanDoc").addClass('d-none');  
+                            }else{
+                                $(".humanDoc").removeClass('d-none');
+                               
+                        $('#humanrightremarks').text(data.humanrightpittions.remarks);
+                       
                         $.each(data.humanrightpittions.humanrightfileattachements, function(key,
                             val) {
                             var fil = val.file
@@ -1165,10 +1492,46 @@
 
 
                         });
-                        //interior mintry
+                            }
+                      
+                            if( data.humanrightpittions.remarks == ""){
+                            $(".humanremarks").addClass('d-none');
+                        }else{
+                            $(".humanremarks").removeClass('d-none');
+                            $('#humanrightremarks').text(data.humanrightpittions.remarks);
+                        }
+                        if(data.humanrightpittions.humanrightfileattachements==""){
+                            $(".humanfile").addClass('d-none'); 
+                        }else{
+                            $(".humanfile").removeClass('d-none'); 
+                            $.each(data.humanrightpittions.humanrightfileattachements, function(key,
+                            val) {
+                            var fil = val.file
 
 
+                            //  alert(val.file);
+                            if (val.type == 'pdf') {
 
+                                // alert(val.type=='pdf');
+                                // $("#picss").empty();
+                                // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
+                                $('#humanrightfilepdf').append(
+                                    "<a  style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
+                                    val.file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
+                            } else {
+                                // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
+                                $('#humanrightpic').append(
+                                    "<a  target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
+                                    val.file + " '>" +
+                                    "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
+                                    val.file + "'>" + '</a>');
+                            }
+
+
+                        });
+
+                        }
+                       
 
 
 
