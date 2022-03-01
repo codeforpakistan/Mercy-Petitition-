@@ -60,11 +60,11 @@
                             </div>
 
                             <div class="mb-2 mb-sm-0">
-                                <a href="{{ route('Petition.create') }}"
+                                {{-- <a href="{{ route('Petition.create') }}"
                                     class="btn btn-blue px-3 d-block w-100 text-95 radius-round border-2 brc-black-tp10">
                                     <i class="fa fa-plus mr-1"></i>
                                     Add <span class="d-sm-none d-md-inline">New</span> Petition
-                                </a>
+                                </a> --}}
                             </div>
                         </div>
 
@@ -85,7 +85,7 @@
                         @if (Session::has('message'))
                             <p class="alert alert-info">{{ Session::get('message') }}</p>
                         @endif
-
+                        @if (!$petitions->isEmpty())
                         <table id="simple-table"
                             class="mb-0 table table-borderless table-bordered-x brc-secondary-l3 text-dark-m2 radius-1 overflow-hidden">
                             <thead class="text-dark-tp3 bgc-grey-l4 text-90 border-b-1 brc-transparent">
@@ -106,6 +106,15 @@
 
                                     <th class='d-none d-sm-table-cell'>
                                         Confined IN Jail
+                                    </th>
+                                    <th class='d-none d-sm-table-cell'>
+                                        Status
+                                    </th>
+                                    <th class='d-none d-sm-table-cell'>
+                                        File Location
+                                    </th>
+                                    <th class='d-none d-sm-table-cell'>
+                                        Received From Department
                                     </th>
 
                                     <th class="d-none d-sm-table-cell">
@@ -136,6 +145,18 @@
                                         <td class='d-none d-sm-table-cell text-grey text-95'>
                                             {{ $petion->confined_in_jail }}
                                         </td>
+                                        <td class='d-none d-sm-table-cell text-grey text-95'>
+
+                                            {{ $petion->status }}
+
+
+                                        </td>
+                                        <td class='d-none d-sm-table-cell text-grey text-95'>
+                                            {{ $petion->file_in_department }}
+                                        </td>
+                                        <td class='d-none d-sm-table-cell text-grey text-95'>
+                                            {{ $petion->received_from_department }}
+                                        </td>
 
                                         <td class='d-none d-sm-table-cell'>
                                             <span class='badge badge-sm bgc-warning-d1 text-white pb-1 px-25'><img
@@ -161,14 +182,14 @@
                                         <td>
                                             <!-- action buttons -->
                                             <div class='d-none d-lg-flex'>
-                                                <a href="{{ route('petition-edit', [$petion->id]) }}"
+                                                {{-- <a href="{{ route('petition-edit', [$petion->id]) }}"
                                                     class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success">
                                                     <i class="fa fa-pencil-alt"></i>
-                                                </a>
+                                                </a> --}}
 
-                                                <a href="{{ route('petition-forward', [$petion->id]) }}"
-                                                    class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success">
-                                                    <i class="fa fa-plus"></i>
+                                                <a href="{{ route('home-forward', [$petion->id]) }}"
+                                                    class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
+                                                    Forward <i class="fa fa-forward"></i>
                                                 </a>
 
                                             </div>
@@ -183,22 +204,10 @@
 
                                                 <div class="dropdown-menu dd-slide-up dd-slide-none-lg">
                                                     <div class="dropdown-inner">
-                                                        <div
-                                                            class="dropdown-header text-100 text-secondary-d1 border-b-1 brc-secondary-l2 text-600 mb-2">
-                                                            ace.com
-                                                        </div>
-                                                        <a href="{{ route('petition-edit', [$petion->id]) }}"
-                                                            class="dropdown-item">
-                                                            <i class="fa fa-pencil-alt text-blue mr-1 p-2 w-4"></i>
-                                                            Edit
-                                                        </a>
-                                                        <a href="#" class="dropdown-item">
-                                                            <i class="fa fa-trash-alt text-danger-m1 mr-1 p-2 w-4"></i>
-                                                            Delete
-                                                        </a>
-                                                        <a href="#" class="dropdown-item">
-                                                            <i class="far fa-flag text-orange-d1 mr-1 p-2 w-4"></i>
-                                                            Flag
+                                                        
+                                                        <a href="{{ route('home-forward', [$petion->id]) }}"
+                                                            class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
+                                                            Forward <i class="fa fa-forward"></i>
                                                         </a>
                                                     </div>
                                         </td>
@@ -210,7 +219,10 @@
                             </tbody>
 
                         </table>
-
+                        @else
+                        <h4 style="background-color:#800000; text-align:center;color:#fff;margin-left: 23%;
+                        margin-right: 33%;"> Record Not Found!</h4>
+                   @endif
                     </div>
 
 

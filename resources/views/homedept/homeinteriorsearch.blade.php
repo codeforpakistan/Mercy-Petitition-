@@ -1,59 +1,38 @@
 @extends('layouts.portal', [
-'menu' => 'Accepted',
-
-
+'menu' => 'HomeDepartments',
+'sub_menu' => 'remarksfrominterior'
 ])
-@section('module', 'Accepted')
-@section('element', ' Accepted Petition')
+@section('module', 'HomeDepartment Management')
+@section('element', 'remarksfrominterior')
 
 @section('content')
-    @if (!$Accepted->isEmpty())
+
+    @if (Session::has('message'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{ Session::get('message') }}!</strong> .
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
+    @if (!$HomeDepartments->isEmpty())
+
 
 
         <style>
-            /* .b-container1 {
-            background-image: linear-gradient(#b33232, #304d86);
-            background-attachment: fixed;
-            opacity: 16px;
+            .b-container1 {
+                background-image: linear-gradient(#b33232, #304d86);
+                background-attachment: fixed;
+                opacity: 16px;
 
-            background-repeat: no-repeat;
+                background-repeat: no-repeat;
 
+            }
 
-        } */
-            /* hr.rounded {
-            border-top: 8px solid #bbb;
-            border-radius: 5px;
-        } */
             .center {
                 margin-left: auto;
                 margin-right: auto;
             }
-
-            @media screen {
-            #printSection {
-                display: none;
-            }
-        }
-
-
-
-
-        @media print {
-            body * {
-                visibility: hidden;
-            }
-
-            #printSection,
-            #printSection * {
-                visibility: visible;
-            }
-
-            #printSection {
-                position: absolute;
-                left: 0;
-                top: 0;
-            }
-        }
 
         </style>
         <div role="main" class="page-content container container-plus">
@@ -71,7 +50,11 @@
 
                             <div class="d-flex justify-content-between flex-column flex-sm-row mb-3 px-2 px-sm-0">
                                 <h3 class="text-130 pl-1 mb-3 mb-sm-0">
-
+                                    <a href="{{ route('remarksfrominterior') }}"
+                                        class="btn btn-blue px-3 d-block w-100 text-95 radius-round border-2 brc-black-tp10">
+                                        <i class="fa fa-arrow-left mr-1"></i>
+                                        <span class="d-sm-none d-md-inline">Back</span>
+                                    </a>
                                 </h3>
 
 
@@ -91,7 +74,7 @@
                                     <div class="pos-rel d-inline-block" style="width: calc(100% - 48px);">
                                         <i class="fa fa-search position-lc ml-25 text-primary-m1"></i>
 
-                                        <form action="{{ route('homesearch') }}" method="get">
+                                        <form action="{{ route('homeinteriorsearch') }}" method="get">
                                             @csrf
                                             <input type="text" name="search" class="form-control w-100 pl-45 brc-primary-m4"
                                                 placeholder="Search ...">
@@ -133,10 +116,7 @@
 
 
                                         <th>
-                                            Prisoner ID
-                                        </th>
-                                        <th>
-                                            Prisoner Name
+                                            Name
                                         </th>
 
                                         <th>
@@ -146,37 +126,33 @@
                                         <th class="d-none d-sm-table-cell">
                                             Nationality
                                         </th>
-                                        @if(empty(Auth::user()->province_id))
-                                        <th class='d-none d-sm-table-cell'>
-                                            province
-                                         </th>
-                                         @endif
 
                                         <th class='d-none d-sm-table-cell'>
-                                            Confined IN Jail
+                                            Confined iN jail
                                         </th>
-                                        
-                                        <th class="d-none d-sm-table-cell">
-                                            Status
+                                        <th class='d-none d-sm-table-cell'>
+                                            status
+                                        </th>
+                                        <th class='d-none d-sm-table-cell'>
+                                            File Location
+                                        </th>
+                                        <th class='d-none d-sm-table-cell'>
+                                            Received From Department
                                         </th>
 
                                         <th class="d-none d-sm-table-cell">
                                             Prisoner image
                                         </th>
 
-
                                         <th>Show</th>
-
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
-                                @foreach ($Accepted as $petion)
+                                @foreach ($HomeDepartments as $petion)
                                     <tbody class="mt-1">
                                         <tr class="bgc-h-yellow-l4 d-style">
 
 
-                                            <td>
-                                                <a href='#' class='text-blue-d1 text-600 text-95'>{{ $petion->prisonerid }}</a>
-                                            </td>
                                             <td>
                                                 <a href='#' class='text-blue-d1 text-600 text-95'>{{ $petion->name }}</a>
                                             </td>
@@ -188,23 +164,19 @@
                                             <td class='d-none d-sm-table-cell text-grey-d1'>
                                                 {{ $petion->nationality }}
                                             </td>
-                                            @if(empty(Auth::user()->province_id))
-                                            <td class='d-none d-sm-table-cell text-grey text-95'>
-                                                {{ $petion->provinces->province_name }}
-                                            </td>
-                                            @endif
 
                                             <td class='d-none d-sm-table-cell text-grey text-95'>
                                                 {{ $petion->confined_in_jail }}
                                             </td>
-                                            <td class='d-none d-sm-table-cell'>
-
-                                                <span class="badge badge-success mr-1">
-                                                    {{ $petion->status }}
-                                                </span>
-
+                                            <td class='d-none d-sm-table-cell text-grey text-95'>
+                                                {{ $petion->status }}
                                             </td>
-
+                                            <td class='d-none d-sm-table-cell text-grey text-95'>
+                                                {{ $petion->file_in_department }}
+                                            </td>
+                                            <td class='d-none d-sm-table-cell text-grey text-95'>
+                                                {{ $petion->received_from_department }}
+                                            </td>
                                             <td class='d-none d-sm-table-cell'>
                                                 <span class='badge badge-sm bgc-warning-d1 text-white pb-1 px-25'><img
                                                         src="{{ asset('/assets/image/' . $petion->prisoner_image) }}"
@@ -212,13 +184,12 @@
 
                                             </td>
 
-
                                             <td class='text-center pr-0'>
                                                 <div>
                                                     <a href="javascript:void(0)" data-toggle="modal"
                                                         data-target="#modalFullscreen"
                                                         class="d-style btn btn-outline-info text-90 text-600 border-0 px-2 collapsed"
-                                                        data-id="{{ $petion->id }}" id="interiorshow-user"
+                                                        data-id="{{ $petion->id }}" id="remarksview"
                                                         title="Show Details">
                                                         <span class="d-none d-md-inline mr-1">
                                                             Details
@@ -234,27 +205,38 @@
 
                                             <td>
                                                 <!-- action buttons -->
+                                                <div class='d-none d-lg-flex'>
+                                                    <!-- <a href="{{ route('petition-edit', [$petion->id]) }}"
+                                                class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success">
+                                                <i class="fa fa-pencil-alt"></i>
+                                            </a> -->
 
+                                                    <a href="{{ route('homeremarksedit', [$petion->id]) }}"
+                                                        class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
+                                                        Forward <i class="fa fa-forward"></i>
+                                                    </a>
+
+                                                </div>
 
                                                 <!-- show a dropdown in mobile -->
                                                 <div
                                                     class='dropdown d-inline-block d-lg-none dd-backdrop dd-backdrop-none-lg'>
-                                                   
+                                                    <a href='#'
+                                                        class='btn btn-default btn-xs py-15 radius-round dropdown-toggle'
+                                                        data-toggle="dropdown">
+                                                        <i class="fa fa-cog"></i>
+                                                    </a>
 
                                                     <div class="dropdown-menu dd-slide-up dd-slide-none-lg">
                                                         <div class="dropdown-inner">
-                                                           
-                                                           
-                                                            <a href="javascript:void(0)" data-toggle="modal"
-                                                            data-target="#modalFullscreen"
-                                                            class=" dropdown-item d-style btn btn-outline-info text-90 text-600 border-0 px-2 collapsed"
-                                                            data-id="{{ $petion->id }}" id="interiorshow-user"
-                                                            title="Show Details">
-                                                            <span class="d-none d-md-inline mr-1">
-                                                                Details
-                                                            </span>
-                                                            <i class="fa fa-angle-down toggle-icon opacity-1 text-90"></i>
-                                                        </a>
+                                                            <div
+                                                                class="dropdown-header text-100 text-secondary-d1 border-b-1 brc-secondary-l2 text-600 mb-2">
+                                                                Remarks from InteriorMinistryDepartment
+                                                            </div>
+                                                            <a href="{{ route('homeremarksedit', [$petion->id]) }}"
+                                                                class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
+                                                                Forward <i class="fa fa-forward"></i>
+                                                            </a>
                                                         </div>
                                             </td>
                                         </tr>
@@ -265,8 +247,9 @@
                                     </tbody>
                                 @endforeach
                             </table>
-                            {{ $Accepted->links() }}
                         </div>
+
+                    </div>
 
                         </div><!-- /.card-body -->
                         <div class="modal fade modal-fs" id="modalFullscreen" tabindex="-1" role="dialog"
@@ -288,7 +271,7 @@
                                     <div class="modal-body">
 
 
-                                        <div role="main" id="printThis" class="page-content container container-plus">
+                                        <div role="main" class="page-content container container-plus">
                                             <div class="row mt-2 mt-md-4">
 
                                                 <!-- the left side profile picture and other info -->
@@ -304,7 +287,7 @@
                                                                     class="mr-1 fa fa-print text-primary text-120 w-2"></i>
 
 
-                                                        </div>
+                                                            </div>
                                                             <span class="d-none position-tl mt-2 pt-3px">
                                                                 <span
                                                                     class="text-white bgc-blue-d1 ml-2 radius-b-1 py-2 px-2">
@@ -606,22 +589,7 @@
                                                                                             </td>
 
                                                                                         </tr>
-                                                                                        {{-- <tr>
-                                                                    <td>
-                                                                        <i
-                                                                            class="fas fa-check-square text-secondary"></i>
-                                                                    </td>
 
-                                                                    <td
-                                                                        class="text-95 text-600 text-secondary-d2">
-                                                                        Home Department Remarks
-                                                                    </td>
-
-                                                                    <td id="homeremarks"
-                                                                        class="text-dark-m3">
-
-                                                                    </td>
-                                                                </tr> --}}
 
                                                                                     </table>
                                                                                 </div>
@@ -697,6 +665,7 @@
                                                                                     <div class="form-group col-md-3">
                                                                                         <figure class="figure">
                                                                                             <div id="warrent_file"></div>
+                                                                                            <div id="warrent_files"></div>
 
                                                                                             <figcaption
                                                                                                 class="figure-caption text-right">
@@ -706,6 +675,7 @@
                                                                                     <div class="form-group col-md-3">
                                                                                         <figure class="figure">
                                                                                             <div id="health_paper"></div>
+                                                                                            <div id="health_papers"></div>
                                                                                             <figcaption
                                                                                                 class="figure-caption text-right">
                                                                                                 Health Paper</figcaption>
@@ -714,6 +684,8 @@
                                                                                     <div class="form-group col-md-3">
                                                                                         <figure class="figure">
                                                                                             <div id="application_image">
+                                                                                            </div>
+                                                                                            <div id="application_images">
                                                                                             </div>
                                                                                             <figcaption
                                                                                                 class="figure-caption text-right">
@@ -724,7 +696,7 @@
 
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="col-12 px-4 mt-3 homeDoc"
+                                                                            <div class="col-12 px-4 mt-3"
                                                                                 style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
                                                                                 <div class=" form-group row">
                                                                                     <div class="form-group col-md-12">
@@ -748,13 +720,14 @@
                                                                                         <figure class="figure">
 
                                                                                             <div id="picss"></div>
-                                                                                           
+                                                                                          
 
                                                                                         </figure>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="col-12 px-4 mt-3 homefile"
+                                                                          
+                                                                            <div class="col-12 px-4 mt-3 homeDoc"
                                                                                 style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
                                                                                 <div class=" form-group row">
 
@@ -768,7 +741,7 @@
 
                                                                                         <figure class="figure">
                                                                                             <div id="homepic"></div>
-                                                                                            &nbsp;&nbsp;
+                                                                                          
 
 
                                                                                             <!-- <figcaption class="figure-caption text-right">Other documents</figcaption> -->
@@ -781,7 +754,7 @@
                                                                                             <figure class="figure">
 
                                                                                                 <div id="homefilepdf"></div>
-                                                                                                &nbsp;&nbsp;
+                                                                                               
 
                                                                                             </figure>
                                                                                         </div>
@@ -913,9 +886,16 @@
                                                                     </div>
                                                                     <div id="btnhide1" class="col-12 px-8 mt-5">
                                                                         <div class="form-row text-center">
-
                                                                             <div class="form-group col-md-6">
-                                                                                <a href="{{ route('accepted') }}"
+                                                                                {{-- @foreach ($HomeDepartments as $petion) --}}
+                                                                                <a href="{{ route('home-forward', [$petion->id]) }}"
+                                                                                    class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
+                                                                                    Forward <i class="fa fa-forward"></i>
+                                                                                </a>
+                                                                                {{-- @endforeach --}}
+                                                                            </div>
+                                                                            <div class="form-group col-md-6">
+                                                                                <a href="{{ route('homedept.index') }}"
                                                                                     class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-primary text-white">
                                                                                     Back <i class="fa fa-arrow-left"></i>
                                                                                 </a>
@@ -954,13 +934,13 @@
                                     </div>
 
                                 </div>
-
-                            </div>
-                        </div><!-- /.card -->
-                    </div><!-- /.col -->
+                            </div><!-- /.card -->
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
                 </div><!-- /.row -->
-            </div><!-- /.row -->
-        @else
-            <h4 style="background-color:#800000; text-align:center;color:#fff">No Record Found</h4>
+            @else
+                <h4 style="background-color:#800000; text-align:center;color:#fff"> Record Not Yet Added!</h4>
+
+
     @endif
 @endsection

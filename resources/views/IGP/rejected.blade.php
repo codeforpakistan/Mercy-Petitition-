@@ -146,7 +146,11 @@
                                         <th class="d-none d-sm-table-cell">
                                             Nationality
                                         </th>
-
+                                        @if(empty(Auth::user()->province_id))
+                                        <th class='d-none d-sm-table-cell'>
+                                           province
+                                        </th>
+                                        @endif
                                         <th class='d-none d-sm-table-cell'>
                                             Confined In Jail
                                         </th>
@@ -181,6 +185,11 @@
                                             <td class='d-none d-sm-table-cell text-grey-d1'>
                                                 {{ $petion->nationality }}
                                             </td>
+                                            @if(empty(Auth::user()->province_id))
+                                            <td class='d-none d-sm-table-cell text-grey text-95'>
+                                                {{ $petion->provinces->province_name }}
+                                            </td>
+                                            @endif
 
                                             <td class='d-none d-sm-table-cell text-grey text-95'>
                                                 {{ $petion->confined_in_jail }}

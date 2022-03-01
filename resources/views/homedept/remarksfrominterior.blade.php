@@ -50,7 +50,11 @@
 
                             <div class="d-flex justify-content-between flex-column flex-sm-row mb-3 px-2 px-sm-0">
                                 <h3 class="text-130 pl-1 mb-3 mb-sm-0">
-
+                                    <a href="{{ route('homedept.index') }}"
+                                        class="btn btn-blue px-3 d-block w-100 text-95 radius-round border-2 brc-black-tp10">
+                                        <i class="fa fa-arrow-left mr-1"></i>
+                                        <span class="d-sm-none d-md-inline">Back</span>
+                                    </a>
                                 </h3>
 
 
@@ -70,7 +74,7 @@
                                     <div class="pos-rel d-inline-block" style="width: calc(100% - 48px);">
                                         <i class="fa fa-search position-lc ml-25 text-primary-m1"></i>
 
-                                        <form action="{{ route('homesearch') }}" method="get">
+                                        <form action="{{ route('homeinteriorsearch') }}" method="get">
                                             @csrf
                                             <input type="text" name="search" class="form-control w-100 pl-45 brc-primary-m4"
                                                 placeholder="Search ...">

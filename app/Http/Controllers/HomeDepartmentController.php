@@ -34,11 +34,44 @@ class HomeDepartmentController extends Controller
     {
         $search = trim($request->input('search'));
 
-        $petitions = Petition::where('status', 'HomeDepartment')->Where('province_id', Auth::user()->province_id)->orWhere('confined_in_jail', $search)->
-            orWhere('name', 'like', "%{$search}%")->orWhere('gender', 'like', "%{$search}%")->
-            orWhere('nationality', 'like', "%{$search}%")->orWhere('f_name', 'like', "%{$search}%")->
-            orWhere('file_in_department', 'like', "%{$search}%")->get();
+          $petitions = Petition::where('file_in_department', 'HomeDepartment')->where('received_from_department', 'Jail-Supt')->where('province_id', Auth::user()->province_id)
+       
+       
+->where(function($query) use ($search){
+        $query->where('name', 'LIKE', '%'.$search.'%')
+              ->orWhere('gender', 'LIKE', '%'.$search.'%')
+              ->orWhere('confined_in_jail', 'LIKE', '%'.$search.'%')
+              ->orWhere('nationality', 'LIKE', '%'.$search.'%')
+              ->orWhere('f_name', 'LIKE', '%'.$search.'%')
+              ->orWhere('status', 'LIKE', '%'.$search.'%');
+    })->get();
+   
+    
+    
+            
+   
+        return view('homedept.petitionsearch', compact('petitions'));
+    }
+    public function homeinteriorsearch(Request $request)
+    {
+        $search = trim($request->input('search'));
 
+          $petitions = Petition::where('file_in_department', 'HomeDepartment')->where('received_from_department', 'InteriorMinistry')->where('province_id', Auth::user()->province_id)
+       
+       
+->where(function($query) use ($search){
+        $query->where('name', 'LIKE', '%'.$search.'%')
+              ->orWhere('gender', 'LIKE', '%'.$search.'%')
+              ->orWhere('confined_in_jail', 'LIKE', '%'.$search.'%')
+              ->orWhere('nationality', 'LIKE', '%'.$search.'%')
+              ->orWhere('f_name', 'LIKE', '%'.$search.'%')
+              ->orWhere('status', 'LIKE', '%'.$search.'%');
+    })->get();
+   
+    
+    
+            
+   
         return view('homedept.petitionsearch', compact('petitions'));
     }
 
