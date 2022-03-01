@@ -46,18 +46,18 @@
                
                 <div class="form-group row">
                     <div class="col-sm-3 col-form-label text-sm-right pr-0">
-                        <label for="Status">File Back</label>
+                        <label for="Status"></label>
                     </div>
                     <div class="col-sm-5 col-11 tag-input-style">
-                    <input id="Jail-Supt"  value="Jail-Supt"  name="file_in_department" type="radio"><label for='Jail-Supt'>Jail-Supt</label><br/> 
+                    <input id="Jail-Supt"  value="Jail-Supt"  name="file_in_department" type="radio"><label for='Jail-Supt'>File Back to Jail-Supt</label><br/> 
                 </div>
             </div> 
             <div class="form-group row">
                 <div class="col-sm-3 col-form-label text-sm-right pr-0">
-                    <label for="Status">Forward To</label>
+                    <label for="Status"></label>
                 </div>
                 <div class="col-sm-5 col-11 tag-input-style">
-                <input id="InteriorMinistry"  value="InteriorMinistry"  name="file_in_department" type="radio" checked="checked"><label for='InteriorMinistry'>InteriorMinistry</label><br/> 
+                <input id="InteriorMinistry"  value="InteriorMinistry"  name="file_in_department" type="radio" checked="checked"><label for='InteriorMinistry'> Forward To InteriorMinistry</label><br/> 
             </div>
         </div> 
                 {{-- <div class="form-group row " id="statuss">

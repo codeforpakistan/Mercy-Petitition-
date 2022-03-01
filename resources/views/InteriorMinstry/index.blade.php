@@ -802,11 +802,11 @@
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="col-12 px-4 mt-3"
+                                                                                <div class="col-12 px-4 mt-3 homeDoc"
                                                                                     style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
                                                                                     <div class=" form-group row">
 
-                                                                                        <div class="form-group col-md-12">
+                                                                                        <div class="form-group col-md-12 homefile">
                                                                                             {{-- <hr class="rounded"> --}}
                                                                                             <h4
                                                                                                 class="text-dark-m3 text-140">
@@ -817,7 +817,7 @@
 
                                                                                             <figure class="figure">
                                                                                                 <div id="homepic"></div>
-                                                                                                &nbsp;&nbsp;
+                                                                                               
 
 
                                                                                                 <!-- <figcaption class="figure-caption text-right">Other documents</figcaption> -->
@@ -833,12 +833,12 @@
 
                                                                                                     <div id="homefilepdf">
                                                                                                     </div>
-                                                                                                    &nbsp;&nbsp;
+                                                                                                   
 
                                                                                                 </figure>
                                                                                             </div>
                                                                                         </div>
-                                                                                        <div class="form-group col-md-12">
+                                                                                        <div class="form-group col-md-12 homeremarks">
                                                                                             {{-- <hr class="rounded"> --}}
                                                                                             <h4
                                                                                                 class="text-dark-m3 text-140">
@@ -858,7 +858,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 {{-- InteriorMinitries --}}
-                                                                                <div class="col-12 px-4 mt-3"
+                                                                                <div class="col-12 px-4 mt-3 interiorDoc"
                                                                                     style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
                                                                                     <div class=" form-group row">
 
@@ -883,7 +883,7 @@
 
                                                                                         <div class=" form-group row">
                                                                                             <div
-                                                                                                class="form-group col-md-12">
+                                                                                                class="form-group col-md-12 interiorfile">
                                                                                                 <figure
                                                                                                     class="figure">
 
@@ -895,7 +895,7 @@
                                                                                                 </figure>
                                                                                             </div>
                                                                                         </div>
-                                                                                        <div class="form-group col-md-12">
+                                                                                        <div class="form-group col-md-12 interiorremarks">
                                                                                             {{-- <hr class="rounded"> --}}
                                                                                             <h4
                                                                                                 class="text-dark-m3 text-140">
@@ -916,11 +916,11 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 {{-- humanright --}}
-                                                                                <div class="col-12 px-4 mt-3"
+                                                                                <div class="col-12 px-4 mt-3 humanDoc"
                                                                                     style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
                                                                                     <div class=" form-group row">
 
-                                                                                        <div class="form-group col-md-12">
+                                                                                        <div class="form-group col-md-12 humanfile">
                                                                                             {{-- <hr class="rounded"> --}}
                                                                                             <h4
                                                                                                 class="text-dark-m3 text-140">
@@ -954,7 +954,7 @@
                                                                                                 </figure>
                                                                                             </div>
                                                                                         </div>
-                                                                                        <div class="form-group col-md-12">
+                                                                                        <div class="form-group col-md-12 humanremarks">
                                                                                             {{-- <hr class="rounded"> --}}
                                                                                             <h4
                                                                                                 class="text-dark-m3 text-140">

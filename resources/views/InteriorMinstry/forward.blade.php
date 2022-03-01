@@ -45,11 +45,11 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-3 col-form-label text-sm-right pr-0">
-                        <label for="Status">File Back</label>
+                        <label for="Status"></label>
                     </div>
                     <div class="col-sm-5 col-11 tag-input-style">
                    
-                    <input id="Jail-Supt"  value="HomeDepartment" name="file_in_department" type="radio"><label for='HomeDepartment'>HomeDepartment</label><br/> 
+                    <input id="Jail-Supt"  value="HomeDepartment" name="file_in_department" type="radio"><label for='HomeDepartment'>File Back to HomeDepartment</label><br/> 
 
                 </div>
             </div> 
@@ -65,10 +65,10 @@
         </div> 
                 <div class="form-group row" id="Status">
                     <div class="col-sm-3 col-form-label text-sm-right pr-0">
-                        <label for="Status">Forward To</label>
+                        <label for="Status"></label>
                     </div>
                     <div class="col-sm-5 col-11 tag-input-style">
-                        <input id="Jail-Supt"  value="HumanRightDepartment" name="file_in_department" type="radio" checked="checked"><label for='HumanRightDepartment'>HumanRightDepartment</label><br/> 
+                        <input id="Jail-Supt"  value="HumanRightDepartment" name="file_in_department" type="radio" checked="checked"><label for='HumanRightDepartment'>Forward To HumanRightDepartment</label><br/> 
 
                     </div>
                 </div>

@@ -16,7 +16,7 @@
 
 
 
-<div role="main" class="page-content container-fluid">
+<div role="main" class="page-content container-fluid" style="margin-top:5%;margin-left:-29px;box-shadow: rgba(253, 253, 253, 0.05) 0px 6px 24px 0px, rgba(255, 255, 255, 0.08) 0px 0px 0px 1px;background-color: white">
         @if ($message = Session::get('success'))
             <div class="alert alert-success">
                 <p>{{ $message }}</p>

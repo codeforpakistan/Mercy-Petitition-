@@ -6,6 +6,7 @@ use App\HomeDepartment;
 use App\HumanRightDepartment;
 use App\InteriorMinistry;
 use App\Petition;
+use Illuminate\Support\Facades\Auth;
 use App\Province;
 use App\Section;
 use App\Jail;
@@ -57,16 +58,24 @@ class HomeController extends Controller
     }
     public function accepted()
     {
+        if(!empty(Auth::user()->province_id)){
+          $Accepted = Petition::Where('province_id', Auth::user()->province_id)->Where('status', 'Accepted')->orderBy("id", "desc")->paginate(5);
+        }
+        else{
+          $Accepted = Petition::Where('status', 'Accepted')->orderBy("id", "desc")->paginate(5);
+        }
         
-        $Accepted = Petition::Where('status', 'Accepted')->orderBy("id", "desc")->paginate(5);
-
+        
         return view('IGP.accepted', compact('Accepted'));
     }
     public function rejected()
     {
-
-        $Rejected = Petition::Where('status', 'Rejected')->orderBy("id", "desc")->paginate(5);
-
+      if(!empty(Auth::user()->province_id)){
+        $Rejected = Petition::Where('province_id', Auth::user()->province_id)->Where('status', 'Rejected')->orderBy("id", "desc")->paginate(5);
+       }
+        else{
+          $Rejected = Petition::Where('status', 'Rejected')->orderBy("id", "desc")->paginate(5);
+        }
         return view('IGP.rejected', compact('Rejected'));
     }
 
