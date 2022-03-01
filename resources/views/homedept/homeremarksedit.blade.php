@@ -64,7 +64,7 @@
                         <label for="email" class="mb-0">Otherdocuments</label>
                     </div>
                     <div class="col-sm-4">
-                        @foreach ($homepititions->homefileattachements as $petitionfile)
+                        {{-- @foreach ($homepititions->homefileattachements as $petitionfile)
                             @if ($petitionfile->type == 'pdf')
                                 <a style='height:100px;width:100px;margin-right:15px;' target='_blank'
                                     data-lightbox='example-1' href="{{ asset('/assets/image/' . $petitionfile->file) }}"> <img
@@ -83,7 +83,7 @@
 
 
 
-                        @endforeach
+                        @endforeach --}}
                         <input type="file" class="ace-file-input" name="otherdocument[]" id="ace-file-input2" multiple=""
                             accept=".pdf,.png,.jpeg,.jpg">
 
