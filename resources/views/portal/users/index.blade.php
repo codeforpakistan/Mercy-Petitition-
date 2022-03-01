@@ -9,6 +9,14 @@
     <div class="row">
         <div class="col-12">
             <div class="card bcard">
+                @if (Session::has('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>{{ Session::get('success') }}!</strong> .
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
                 <div class="card-body px-1 px-md-3">
                     <div class="d-flex justify-content-between flex-column flex-sm-row mb-3 px-2 px-sm-0">
                         <form method="get" action="{{ request()->fullUrlWithQuery(['search' => '']) }}">
