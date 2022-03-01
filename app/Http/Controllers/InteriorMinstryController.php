@@ -29,6 +29,26 @@ class InteriorMinstryController extends Controller
         return view('InteriorMinstry.index', compact('InteriorMinistryDepartments'));
 
     }
+
+
+    public function interiorsearch(Request $request)
+    {
+        $search = trim($request->input('search'));
+
+        $InteriorMinistry = Petition::where('file_in_department', 'InteriorMinstry')->where('received_from_department', 'HomeDepartment')
+
+
+->where(function($query) use ($search){
+        $query->where('name', 'LIKE', '%'.$search.'%')
+              ->orWhere('gender', 'LIKE', '%'.$search.'%')
+              ->orWhere('confined_in_jail', 'LIKE', '%'.$search.'%')
+              ->orWhere('nationality', 'LIKE', '%'.$search.'%')
+              ->orWhere('f_name', 'LIKE', '%'.$search.'%');
+    })->get();
+
+        return view('interiorminstry.interiorsearch', compact('InteriorMinistry'));
+    }
+
     public function remarksfromhrd()
     {
 
@@ -69,13 +89,13 @@ class InteriorMinstryController extends Controller
         $interiorministrydecision->received_from_department = "InteriorMinistry";
         //    $forwardhomedepartment->remarks = strip_tags($request->get('remarks'));
         if($request->get('file_in_department')=="Accepted"){
-            $interiorministrydecision->status = $request->get('file_in_department');  
+            $interiorministrydecision->status = $request->get('file_in_department');
         }else if($request->get('file_in_department')=="Rejected"){
-            $interiorministrydecision->status = $request->get('file_in_department');   
+            $interiorministrydecision->status = $request->get('file_in_department');
         }else{
             $interiorministrydecision->file_in_department = $request->get('file_in_department');
         }
-       
+
         $interiorministrydecision->save();
         $Interiorministries = new InteriorMinistry([
             'remarks' => strip_tags($request->get('remarks')),

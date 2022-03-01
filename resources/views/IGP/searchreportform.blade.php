@@ -12,7 +12,7 @@
 
 
 
-<div role="main" class="page-content container-fluid" style="margin-top:5%;margin-right:10%">
+<div role="main" class="page-content container-fluid" style="margin-top:5%;margin-right:15px">
         @if ($message = Session::get('success'))
             <div class="alert alert-success">
                 <p>{{ $message }}</p>

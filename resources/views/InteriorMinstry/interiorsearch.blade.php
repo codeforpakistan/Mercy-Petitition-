@@ -7,7 +7,7 @@
 @section('element', 'InteriorMinstry')
 
 @section('content')
-    @if (!$InteriorMinistryDepartments->isEmpty())
+    @if (!$InteriorMinistry->isEmpty())
 
 
         <style>
@@ -80,6 +80,11 @@
 
                                 <div class="d-flex justify-content-between flex-column flex-sm-row mb-3 px-2 px-sm-0">
                                     <h3 class="text-130 pl-1 mb-3 mb-sm-0">
+                                        <a href="{{ route('InteriorMinstry.index') }}"
+                                        class="btn btn-blue px-3 d-block w-100 text-95 radius-round border-2 brc-black-tp10">
+                                        <i class="fa fa-arrow-left mr-1"></i>
+                                        <span class="d-sm-none d-md-inline">Back</span>
+                                    </a>
 
                                     </h3>
 
@@ -102,7 +107,7 @@
 
                                             <form action="{{ route('interiorsearch') }}" method="get">
                                                 @csrf
-                                                <input type="text" name="search"
+                                                <input type="text" name="search"  value={{ request()->input('search') }}
                                                     class="form-control w-100 pl-45 brc-primary-m4"
                                                     placeholder="Search ...">
                                         </div>
@@ -184,7 +189,7 @@
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    @foreach ($InteriorMinistryDepartments as $petion)
+                                    @foreach ($InteriorMinistry as $petion)
                                         <tbody class="mt-1">
                                             <tr class="bgc-h-yellow-l4 d-style">
 
@@ -986,6 +991,7 @@
                                                                                     </a>
                                                                                 </div>
                                                                                 <div class="form-group col-md-6">
+
                                                                                     <a href="{{ route('InteriorMinstry.index') }}"
                                                                                         class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-primary text-white">
                                                                                         Back <i
