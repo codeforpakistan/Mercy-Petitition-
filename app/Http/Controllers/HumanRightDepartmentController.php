@@ -28,6 +28,18 @@ class HumanRightDepartmentController extends Controller
         return view('HumanRight.index', compact('HumanRightDepartments'));
 
     }
+
+    public function hrsearch(Request $request)
+    {
+        $search = trim($request->input('search'));
+
+        $hr = Petition::where('file_in_department', 'HumanRight')->orWhere('confined_in_jail', $search)->
+            orWhere('name', 'like', "%{$search}%")->orWhere('gender', 'like', "%{$search}%")->
+            orWhere('nationality', 'like', "%{$search}%")->orWhere('f_name', 'like', "%{$search}%")->
+            orWhere('file_in_department', 'like', "%{$search}%")->get();
+
+        return view('HumanRight.hrsearch', compact('hr'));
+    }
     public function view($id)
     {
         $homepititions = HomeDepartment::with('homefileattachements')->where('petition_id', $id)->first();
@@ -60,7 +72,7 @@ class HumanRightDepartmentController extends Controller
 
         $humanrightdecision->received_from_department = "HumanRightDepartment";
         $humanrightdecision->file_in_department = $request->get('file_in_department');
-        
+
         $humanrightdecision->save();
         $HumanRightDepartments = new HumanRightDepartment([
             'remarks' => strip_tags($request->get('remarks')),

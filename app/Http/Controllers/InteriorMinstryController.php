@@ -51,6 +51,28 @@ class InteriorMinstryController extends Controller
    
         return view('InteriorMinstry.interiorsearch', compact('InteriorMinistryDepartments'));
     }
+    public function humaninteriorsearch(Request $request)
+    {
+        $search = trim($request->input('search'));
+
+          $InteriorMinistryDepartments = Petition::where('file_in_department', 'InteriorMinistry')->where('received_from_department', 'HumanRightDepartment')
+       
+       
+        ->where(function($query) use ($search){
+                $query->where('name', 'LIKE', '%'.$search.'%')
+                    ->orWhere('gender', 'LIKE', '%'.$search.'%')
+                    ->orWhere('confined_in_jail', 'LIKE', '%'.$search.'%')
+                    ->orWhere('nationality', 'LIKE', '%'.$search.'%')
+                    ->orWhere('f_name', 'LIKE', '%'.$search.'%')
+                    ->orWhere('status', 'LIKE', '%'.$search.'%');
+            })->get();
+   
+    
+    
+            
+   
+        return view('InteriorMinstry.humaninteriorsearch', compact('InteriorMinistryDepartments'));
+    }
     public function remarksfromhrd()
     {
 
@@ -91,13 +113,13 @@ class InteriorMinstryController extends Controller
         $interiorministrydecision->received_from_department = "InteriorMinistry";
         //    $forwardhomedepartment->remarks = strip_tags($request->get('remarks'));
         if($request->get('file_in_department')=="Accepted"){
-            $interiorministrydecision->status = $request->get('file_in_department');  
+            $interiorministrydecision->status = $request->get('file_in_department');
         }else if($request->get('file_in_department')=="Rejected"){
-            $interiorministrydecision->status = $request->get('file_in_department');   
+            $interiorministrydecision->status = $request->get('file_in_department');
         }else{
             $interiorministrydecision->file_in_department = $request->get('file_in_department');
         }
-       
+
         $interiorministrydecision->save();
         $Interiorministries = new InteriorMinistry([
             'remarks' => strip_tags($request->get('remarks')),

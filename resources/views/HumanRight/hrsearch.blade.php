@@ -35,7 +35,7 @@
         }
 
     </style>
-    @if (!$HumanRightDepartments->isEmpty())
+    @if (!$hr->isEmpty())
 
         @if (Session::has('message'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -61,7 +61,11 @@
 
                             <div class="d-flex justify-content-between flex-column flex-sm-row mb-3 px-2 px-sm-0">
                                 <h3 class="text-130 pl-1 mb-3 mb-sm-0">
-
+                                    <a href="{{ route('HumanRight.index') }}"
+                                    class="btn btn-blue px-3 d-block w-100 text-95 radius-round border-2 brc-black-tp10">
+                                    <i class="fa fa-arrow-left mr-1"></i>
+                                    <span class="d-sm-none d-md-inline">Back</span>
+                                </a>
                                 </h3>
 
 
@@ -83,7 +87,7 @@
 
                                         <form action="{{ route('hrsearch') }}" method="get">
                                             @csrf
-                                            <input type="text" name="search" class="form-control w-100 pl-45 brc-primary-m4"
+                                            <input type="text" name="search" value={{ request()->input('search') }} class="form-control w-100 pl-45 brc-primary-m4"
                                                 placeholder="Search ...">
                                     </div>
                                     <button type="submit"
@@ -156,7 +160,7 @@
                                         <th>Action</th>
                                     </tr>
                                 </thead>
-                                @foreach ($HumanRightDepartments as $petion)
+                                @foreach ($hr as $petion)
                                     <tbody class="mt-1">
                                         <tr class="bgc-h-yellow-l4 d-style">
 
@@ -1109,7 +1113,7 @@
                                                                 </div>
                                                                 <div id="btnhide1" class="form-row text-center">
                                                                     <div class="form-group col-md-6">
-                                                                        @foreach ($HumanRightDepartments as $petion)
+                                                                        @foreach ($hr as $petion)
                                                                             <a href="{{ route('humanright-back', [$petion->id]) }}"
                                                                                 class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
                                                                                 Forward <i class="fa fa-forward"></i>
@@ -1117,7 +1121,7 @@
                                                                         @endforeach
                                                                     </div>
                                                                     <div class="form-group col-md-6">
-                                                                        <a href="{{ route('InteriorMinstry.index') }}"
+                                                                        <a href="{{ route('HumanRight.index') }}"
                                                                             class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-primary text-white">
                                                                             Back <i class="fa fa-arrow-left"></i>
                                                                         </a>
@@ -1142,7 +1146,7 @@
 
 
 
-
+                                                    </div>
 
                                                         </div><!-- /.row -->
 
@@ -1154,7 +1158,6 @@
                                         </div>
                                     </div>
                                 </div>
-                        </div>
 
                             </div>
                         </div><!-- /.card -->

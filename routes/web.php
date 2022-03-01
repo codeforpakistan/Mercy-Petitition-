@@ -30,7 +30,10 @@ Route::get('/Rejected', 'HomeController@rejected')->name('rejected');
 Route::get('remarks/{id}', 'HomeController@view')->name('remarksview');
 Route::get('/homeremarks', 'HomeDepartmentController@remarksfrominterior')->name('remarksfrominterior');
 Route::get('/homesearch', 'HomeDepartmentController@homesearch')->name('homesearch');
-Route::get('/homeinteriorsearch', 'HomeDepartmentController@homeinteriorsearch')->name('homeinteriorsearch');
+Route::get('/interiorsearch', 'InteriorMinstryController@interiorsearch')->name('interiorsearch');
+Route::get('/humaninteriorsearc', 'InteriorMinstryController@humaninteriorsearc')->name('humaninteriorsearc');
+
+Route::get('/hrsearch', 'HumanRightDepartmentController@hrsearch')->name('hrsearch');
 Route::get('pdfview',array('as'=>'pdfview','uses'=>'HomeController@pdfview'));
 Route::get('/search', 'PetitionController@search')->name('petitionsearch');
 Route::get('/logpetition', 'PetitionController@logpetition')->name('logpetition');

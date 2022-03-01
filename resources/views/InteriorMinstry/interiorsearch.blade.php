@@ -9,7 +9,6 @@
 @section('content')
 
 
-
         <style>
             /* .b-container1 {
             background-image: linear-gradient(#b33232, #304d86);
@@ -86,7 +85,7 @@
                                             <span class="d-sm-none d-md-inline">Back</span>
                                         </a>
                                     </h3>
-                                    @if (!$InteriorMinistryDepartments->isEmpty())
+                                   
                                    
                                     <div class="pos-rel ml-sm-auto mr-sm-2 order-last order-sm-0">
                                         <i class="fa fa-search position-lc ml-25 text-primary-m1"></i>
@@ -104,7 +103,7 @@
                                         <div class="pos-rel d-inline-block" style="width: calc(100% - 48px);">
                                             <i class="fa fa-search position-lc ml-25 text-primary-m1"></i>
 
-                                            <form action="{{ route('homesearch') }}" method="get">
+                                            <form action="{{ route('interiorsearch') }}" method="get">
                                                 @csrf
                                                 <input type="text" name="search"
                                                     class="form-control w-100 pl-45 brc-primary-m4"
@@ -145,7 +144,7 @@
                                         </button>
                                     </div>
                                 @endif
-                               
+                                @if (!$InteriorMinistryDepartments->isEmpty())
                                 <table id="simple-table"
                                     class="mb-0 table table-borderless table-bordered-x brc-secondary-l3 text-dark-m2 radius-1 overflow-hidden">
                                     <thead class="text-dark-tp3 bgc-grey-l4 text-90 border-b-1 brc-transparent">
@@ -303,6 +302,10 @@
                                     </tbody>
 
                                 </table>
+                                @else
+                                <h4 style="background-color:#800000; text-align:center;color:#fff;margin-left: 23%;
+                                margin-right: 33%;"> Record Not Found!</h4>
+                            @endif
                               
                             </div>
 
@@ -983,11 +986,13 @@
                                                                         <div id="btnhide1" class="col-12 px-8 mt-5">
                                                                             <div class="form-row text-center">
                                                                                 <div class="form-group col-md-6">
+                                                                                    @if (!$InteriorMinistryDepartments->isEmpty())
                                                                                     <a href="{{ route('interior-forward', [$petion->id]) }}"
                                                                                         class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
                                                                                         Forward <i
                                                                                             class="fa fa-forward"></i>
                                                                                     </a>
+                                                                                    @endif
                                                                                 </div>
                                                                                 <div class="form-group col-md-6">
                                                                                     <a href="{{ route('InteriorMinstry.index') }}"
@@ -1049,8 +1054,5 @@
             </div><!-- /.col -->
             </div><!-- /.row -->
             </div><!-- /.row -->
-            @else
-            <h4 style="background-color:#800000; text-align:center;color:#fff;margin-left: 23%;
-            margin-right: 33%;"> Record Not Found!</h4>
-        @endif
+           
     @endsection

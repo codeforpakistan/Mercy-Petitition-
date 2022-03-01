@@ -22,7 +22,7 @@
                 <p>{{ $message }}</p>
             </div>
         @endif
- 
+
 
         <form action="{{route('reportform.search')}}" method="GET" role="search" id="search">
             <div class="form-group form-row" style="margin-bottom: 6px;">
@@ -30,30 +30,30 @@
                 <label class="col-md-2">Gender</label>
                 <div class="col-md-4">
                 <select class="form-control"  value={{ request()->input('gender') }} name="gender" id="DeptID">
-                   
+
                   <option value="">Please select</option>
                     <option @if( old('gender', request()->input('gender')) == 'male') selected @endif value="male" >Male</option>
-                
+
                     <option  @if( old('gender', request()->input('gender')) == 'female') selected @endif value="female" >Female</option>
-                  
+
                     <option  @if( old('gender', request()->input('gender')) == 'Other') selected @endif value="Other" >Other</option>
-                    
-                    
-                   
+
+
+
 
                 </select>
                 </div>
-             
+
               <label class="col-md-2">province</label>
               <div class="col-md-4">
               <select class="form-control" name="province" id="province_id">
                   <option value="">Please select</option>
-                
+
                   @foreach($provinces as $province)
 
-              
+
                       <option @if((int) old('province', request()->input('province')) === $province->id) selected @endif  value="{{$province->id}}" >{{$province->province_name}}</option>
-                     
+
                   @endforeach
               </select>
               </div>
