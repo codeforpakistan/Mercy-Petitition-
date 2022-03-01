@@ -35,7 +35,7 @@
         }
 
     </style>
-    @if (!$hr->isEmpty())
+  
 
         @if (Session::has('message'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -115,7 +115,7 @@
                                 </div><br />
                             @endif
 
-
+                            @if (!$hr->isEmpty())
 
 
                             <table id="simple-table"
@@ -266,7 +266,10 @@
                                 @endforeach
                             </table>
 
-
+                            @else
+                            <h4 style="background-color:#800000; text-align:center;color:#fff;margin-left: 23%;
+                            margin-right: 33%;"> Record Not Found!</h4>
+                       @endif
 
 
                         </div><!-- /.card-body -->
@@ -1061,20 +1064,22 @@
                                                                                 </div>
                                                                                 <div id="btnhide1"
                                                                                     class="form-row text-center">
+                                                                                   
                                                                                     <div class="form-group col-md-6">
-                                                                                        <a href="#"
+                                                                                        @if (!$hr->isEmpty())
+                                                                                        <a href="{{ route('humanright-back', [$petion->id]) }}"
                                                                                             class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
-                                                                                            Forward <i
-                                                                                                class="fa fa-forward"></i>
+                                                                                            Forward <i class="fa fa-forward"></i>
                                                                                         </a>
-                                                                                    </div>
-                                                                                    <div class="form-group col-md-6">
-                                                                                        <a href="{{ route('InteriorMinstry.index') }}"
-                                                                                            class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-primary text-white">
-                                                                                            Back <i
-                                                                                                class="fa fa-arrow-left"></i>
-                                                                                        </a>
-                                                                                    </div>
+                                                                                        @endif
+                                                                                  
+                                                                                </div>
+                                                                                <div class="form-group col-md-6">
+                                                                                    <a href="{{ route('InteriorMinstry.index') }}"
+                                                                                        class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-primary text-white">
+                                                                                        Back <i class="fa fa-arrow-left"></i>
+                                                                                    </a>
+                                                                                </div>
 
 
                                                                                     <div class=" form-group row">
@@ -1164,7 +1169,5 @@
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.row -->
-        @else
-            <h4 style="background-color:#800000; text-align:center;color:#fff"> Record Not Yet Added!</h4>
-    @endif
+      
 @endsection

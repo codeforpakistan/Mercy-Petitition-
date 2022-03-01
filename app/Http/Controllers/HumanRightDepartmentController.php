@@ -33,10 +33,18 @@ class HumanRightDepartmentController extends Controller
     {
         $search = trim($request->input('search'));
 
-        $hr = Petition::where('file_in_department', 'HumanRight')->orWhere('confined_in_jail', $search)->
-            orWhere('name', 'like', "%{$search}%")->orWhere('gender', 'like', "%{$search}%")->
-            orWhere('nationality', 'like', "%{$search}%")->orWhere('f_name', 'like', "%{$search}%")->
-            orWhere('file_in_department', 'like', "%{$search}%")->get();
+        
+        $hr = Petition::where('file_in_department', 'HumanRightDepartment')->where('received_from_department', 'InteriorMinistry')
+       
+       
+->where(function($query) use ($search){
+        $query->where('name', 'LIKE', '%'.$search.'%')
+              ->orWhere('gender', 'LIKE', '%'.$search.'%')
+              ->orWhere('confined_in_jail', 'LIKE', '%'.$search.'%')
+              ->orWhere('nationality', 'LIKE', '%'.$search.'%')
+              ->orWhere('f_name', 'LIKE', '%'.$search.'%')
+              ->orWhere('status', 'LIKE', '%'.$search.'%');
+    })->get();
 
         return view('HumanRight.hrsearch', compact('hr'));
     }
