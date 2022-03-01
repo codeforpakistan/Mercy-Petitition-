@@ -857,10 +857,7 @@
                         $.each(data.homepititions.homefileattachements, function(key, val) {
                             var fil = val.file
                           
-                            if( val.file == 'undefined' || val.file != null){
-                                $(".homeDepDoc").addClass('d-none');  
-                            }else{
-                                $(".homeDepDoc").removeClass('d-none');  
+                            
                                
 
 
@@ -881,7 +878,7 @@
                                     "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
                                     val.file + "'>" + '</a>');
                             }
-                               }
+                               
                         });
                        }
                        if( data.homepititions.remarks == ""){
@@ -898,10 +895,7 @@
                        $.each(data.homepititions.homefileattachements, function(key, val) {
                             var fil = val.file
                           
-                            if( val.file == 'undefined' || val.file != null){
-                                $(".homeDepDoc").addClass('d-none');  
-                            }else{
-                                $(".homeDepDoc").removeClass('d-none');  
+                         
                                
 
 
@@ -922,7 +916,7 @@
                                     "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
                                     val.file + "'>" + '</a>');
                             }
-                               }
+                               
                         });
                     }
                         // $("#homefilepdf").empty();
@@ -1316,10 +1310,7 @@
                         $.each(data.homepititions.homefileattachements, function(key, val) {
                             var fil = val.file
                           
-                            if( val.file == 'undefined' || val.file != null){
-                                $(".homeDepDoc").addClass('d-none');  
-                            }else{
-                                $(".homeDepDoc").removeClass('d-none');  
+                          
                                
 
 
@@ -1340,7 +1331,7 @@
                                     "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
                                     val.file + "'>" + '</a>');
                             }
-                               }
+                               
                         });
                        }
                        if( data.homepititions.remarks == ""){
@@ -1357,10 +1348,7 @@
                        $.each(data.homepititions.homefileattachements, function(key, val) {
                             var fil = val.file
                           
-                            if( val.file == 'undefined' || val.file != null){
-                                $(".homeDepDoc").addClass('d-none');  
-                            }else{
-                                $(".homeDepDoc").removeClass('d-none');  
+                             
                                
 
 
@@ -1381,7 +1369,7 @@
                                     "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
                                     val.file + "'>" + '</a>');
                             }
-                               }
+                               
                         });
                     }
                         // interior file

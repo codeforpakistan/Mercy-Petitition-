@@ -76,6 +76,47 @@ class PetitionController extends Controller
 
         return view('IGP.petitionsearch', compact('petitions'));
     }
+
+    public function homepetitionsearch(Request $request)
+    {
+        $search = trim($request->input('search'));
+
+        if (Auth::user()->confined_in_jail == "") {
+
+            $petitions =   Petition::Where('province_id', Auth::user()->province_id)
+       
+       
+            ->where(function($query) use ($search){
+                    $query->where('name', 'LIKE', '%'.$search.'%')
+                          ->orWhere('gender', 'LIKE', '%'.$search.'%')
+                          ->orWhere('file_in_department', 'LIKE', '%'.$search.'%')
+                          ->orWhere('confined_in_jail', 'LIKE', '%'.$search.'%')
+                          ->orWhere('nationality', 'LIKE', '%'.$search.'%')
+                          ->orWhere('f_name', 'LIKE', '%'.$search.'%')
+                          ->orWhere('status', 'LIKE', '%'.$search.'%')
+                          ->orWhere('prisonerid', 'LIKE', '%'.$search.'%');
+                })->paginate(6);
+        } else {
+            
+            $petitions =   Petition::where('file_in_department', 'Jail-Supt')->where('received_from_department', 'HomeDepartment')->where('confined_in_jail', Auth::user()->confined_in_jail)->Where('province_id', Auth::user()->province_id)
+       
+       
+            ->where(function($query) use ($search){
+                    $query->where('name', 'LIKE', '%'.$search.'%')
+                          ->orWhere('gender', 'LIKE', '%'.$search.'%')
+                          
+                          ->orWhere('nationality', 'LIKE', '%'.$search.'%')
+                          ->orWhere('f_name', 'LIKE', '%'.$search.'%')
+                          ->orWhere('status', 'LIKE', '%'.$search.'%')
+                          ->orWhere('prisonerid', 'LIKE', '%'.$search.'%');
+                })->paginate(6);
+
+               
+            }
+        
+
+        return view('IGP.homepetitionsearch', compact('petitions'));
+    }
     public function view($id)
     {
 
@@ -156,7 +197,7 @@ class PetitionController extends Controller
         // Validate the inputs
 
         // file validation
-        
+       
 
         $this->validate($request, [
             'prisoner_image' => 'required|mimes:jpeg,png,jpg,gif,svg',

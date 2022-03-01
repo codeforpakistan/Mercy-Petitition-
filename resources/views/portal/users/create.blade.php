@@ -45,7 +45,7 @@
                         <label for="email" class="mb-0">Email</label>
                     </div>
                     <div class="col-sm-5 col-12 tag-input-styler d-inline-flex align-items-center">
-                        <input type="text" class="form-control form-control-lg pr-5" id="email" name="email"
+                        <input type="text" class="form-control form-control-lg pr-5"  id="email" name="email"
                             placeholder="Enter User Email">
                     </div>
                 </div>
