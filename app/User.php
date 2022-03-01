@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
   use App\Petition;
+  use App\Province;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -47,4 +48,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(LogPetition::class,'user_id');
     }
+    public function provinces()
+    {
+        return $this->belongsTo(Province::class,"province_id");
+    }
+
+   
 }

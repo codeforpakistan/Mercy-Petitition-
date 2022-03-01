@@ -7,7 +7,7 @@
 @section('element', 'InteriorMinstry')
 
 @section('content')
-    @if (!$InteriorMinistryDepartments->isEmpty())
+
 
 
         <style>
@@ -80,10 +80,14 @@
 
                                 <div class="d-flex justify-content-between flex-column flex-sm-row mb-3 px-2 px-sm-0">
                                     <h3 class="text-130 pl-1 mb-3 mb-sm-0">
-
+                                        <a href="{{ route('InteriorMinstry.index') }}"
+                                            class="btn btn-blue px-3 d-block w-100 text-95 radius-round border-2 brc-black-tp10">
+                                            <i class="fa fa-arrow-left mr-1"></i>
+                                            <span class="d-sm-none d-md-inline">Back</span>
+                                        </a>
                                     </h3>
-
-
+                                    @if (!$InteriorMinistryDepartments->isEmpty())
+                                   
                                     <div class="pos-rel ml-sm-auto mr-sm-2 order-last order-sm-0">
                                         <i class="fa fa-search position-lc ml-25 text-primary-m1"></i>
                                         <!-- <form  method="get"  action="{{ route('petitionsearch') }}">
@@ -100,7 +104,7 @@
                                         <div class="pos-rel d-inline-block" style="width: calc(100% - 48px);">
                                             <i class="fa fa-search position-lc ml-25 text-primary-m1"></i>
 
-                                            <form action="{{ route('interiorsearch') }}" method="get">
+                                            <form action="{{ route('homesearch') }}" method="get">
                                                 @csrf
                                                 <input type="text" name="search"
                                                     class="form-control w-100 pl-45 brc-primary-m4"
@@ -141,7 +145,7 @@
                                         </button>
                                     </div>
                                 @endif
-
+                               
                                 <table id="simple-table"
                                     class="mb-0 table table-borderless table-bordered-x brc-secondary-l3 text-dark-m2 radius-1 overflow-hidden">
                                     <thead class="text-dark-tp3 bgc-grey-l4 text-90 border-b-1 brc-transparent">
@@ -299,7 +303,7 @@
                                     </tbody>
 
                                 </table>
-
+                              
                             </div>
 
 
@@ -1038,14 +1042,15 @@
 
 
                         </div>
-
+                        
 
                     </div><!-- /.card-body -->
                 </div><!-- /.card -->
             </div><!-- /.col -->
             </div><!-- /.row -->
             </div><!-- /.row -->
-        @else
-            <h4 style="background-color:#800000; text-align:center;color:#fff"> Record Not Yet Added!</h4>
+            @else
+            <h4 style="background-color:#800000; text-align:center;color:#fff;margin-left: 23%;
+            margin-right: 33%;"> Record Not Found!</h4>
         @endif
     @endsection

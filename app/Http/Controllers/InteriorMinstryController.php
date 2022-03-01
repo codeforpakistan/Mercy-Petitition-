@@ -29,6 +29,28 @@ class InteriorMinstryController extends Controller
         return view('InteriorMinstry.index', compact('InteriorMinistryDepartments'));
 
     }
+    public function interiorsearch(Request $request)
+    {
+        $search = trim($request->input('search'));
+
+          $InteriorMinistryDepartments = Petition::where('file_in_department', 'InteriorMinistry')->where('received_from_department', 'HomeDepartment')
+       
+       
+        ->where(function($query) use ($search){
+                $query->where('name', 'LIKE', '%'.$search.'%')
+                    ->orWhere('gender', 'LIKE', '%'.$search.'%')
+                    ->orWhere('confined_in_jail', 'LIKE', '%'.$search.'%')
+                    ->orWhere('nationality', 'LIKE', '%'.$search.'%')
+                    ->orWhere('f_name', 'LIKE', '%'.$search.'%')
+                    ->orWhere('status', 'LIKE', '%'.$search.'%');
+            })->get();
+   
+    
+    
+            
+   
+        return view('InteriorMinstry.interiorsearch', compact('InteriorMinistryDepartments'));
+    }
     public function remarksfromhrd()
     {
 

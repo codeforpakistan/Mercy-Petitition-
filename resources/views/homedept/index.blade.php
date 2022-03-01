@@ -254,10 +254,10 @@
 
                                                     <div class="dropdown-menu dd-slide-up dd-slide-none-lg">
                                                         <div class="dropdown-inner">
-                                                            <div
+                                                            {{-- <div
                                                                 class="dropdown-header text-100 text-secondary-d1 border-b-1 brc-secondary-l2 text-600 mb-2">
                                                                 ace.com
-                                                            </div>
+                                                            </div> --}}
                                                             {{-- <a href="{{route('petition-edit', [$petion->id])}}"
                                                     class="dropdown-item">
                                                     <i class="fa fa-pencil-alt text-blue mr-1 p-2 w-4"></i>

@@ -56,7 +56,7 @@ class HomeDepartmentController extends Controller
     {
         $search = trim($request->input('search'));
 
-          $petitions = Petition::where('file_in_department', 'HomeDepartment')->where('received_from_department', 'InteriorMinistry')->where('province_id', Auth::user()->province_id)
+          $HomeDepartments = Petition::where('file_in_department', 'HomeDepartment')->where('received_from_department', 'InteriorMinistry')->where('province_id', Auth::user()->province_id)
        
        
 ->where(function($query) use ($search){
@@ -72,7 +72,7 @@ class HomeDepartmentController extends Controller
     
             
    
-        return view('homedept.petitionsearch', compact('petitions'));
+        return view('homedept.homeinteriorsearch', compact('HomeDepartments'));
     }
 
     public function remarksfrominterior()

@@ -30,6 +30,7 @@ Route::get('/Rejected', 'HomeController@rejected')->name('rejected');
 Route::get('remarks/{id}', 'HomeController@view')->name('remarksview');
 Route::get('/homeremarks', 'HomeDepartmentController@remarksfrominterior')->name('remarksfrominterior');
 Route::get('/homesearch', 'HomeDepartmentController@homesearch')->name('homesearch');
+Route::get('/homeinteriorsearch', 'HomeDepartmentController@homeinteriorsearch')->name('homeinteriorsearch');
 Route::get('pdfview',array('as'=>'pdfview','uses'=>'HomeController@pdfview'));
 Route::get('/search', 'PetitionController@search')->name('petitionsearch');
 Route::get('/logpetition', 'PetitionController@logpetition')->name('logpetition');
@@ -40,6 +41,7 @@ Route::get('/petitionforward/{id}', 'PetitionController@forwardpetition')->name(
 Route::get('/remarksfromhome', 'PetitionController@remarksfromhome')->name('remarksfromhome');
 Route::get('/interiorforward/{id}', 'InteriorMinstryController@forwardpetition')->name('interior-forward');
 Route::Post('/decision/{id}', 'InteriorMinstryController@decision')->name('petition-decision');
+Route::get('interiorsearch', 'InteriorMinstryController@interiorsearch')->name('interiorsearch');
 Route::get('/humangrightback/{id}', 'HumanRightDepartmentController@backpetition')->name('humanright-back');
 Route::Post('/humanrighdecision/{id}', 'HumanRightDepartmentController@humanrightdecision')->name('petition-humanrighdecision');
 Route::get('/petitionedit/{id}', 'PetitionController@edit')->name('petition-edit');

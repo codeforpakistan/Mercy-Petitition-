@@ -1815,7 +1815,7 @@ success: function(data) {
                     $('#jailname').append('<option disabled value="" selected hidden>Select jail</option>');
                     $.each(data, function(key, val) {
 
-                        $('#jailname').append('<option value="'+ val.id +'">'+val.jail_name+'</option>');
+                        $('#jailname').append('<option value="'+ val.jail_name +'">'+val.jail_name+'</option>');
                         // $('#police_station_id_fk option[value='+value.police_station_id+']').attr('selected','selected');
 
     });
