@@ -34,7 +34,7 @@
                         </div>
 
                         <div class="mb-2 mb-sm-0">
-                            
+
                                      <a href="{{ route('portal.users.create') }}">
                                         <button type="button" " class="
                                             btn btn-blue px-3 d-block w-100 text-95 radius-round border-2 brc-black-tp10">
@@ -53,6 +53,7 @@
                                 <th>User Name</th>
                                 <th class="d-none d-sm-table-cell">Email</th>
                                 <th class="d-none d-sm-table-cell">Roles</th>
+                                <th class="d-none d-sm-table-cell">Province</th>
                                 <th width="164px"></th>
                             </tr>
                         </thead>
@@ -71,6 +72,7 @@
                                             @endforeach
                                         @endif
                                     </td>
+
                                     <td>
                                         <div class="d-lg-flex">
                                             <a href="{{ route('portal.users.show', $user->id) }}"

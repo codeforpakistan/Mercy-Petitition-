@@ -36,7 +36,7 @@
                         <label for="name" class="mb-0">Name</label>
                     </div>
                     <div class="col-sm-5 col-12 tag-input-styler d-inline-flex align-items-center">
-                        <input type="text" class="form-control form-control-lg pr-5" name="name" id="name"
+                        <input type="text" value="{{ old('name') }}" class="form-control form-control-lg pr-5" name="name" id="name"
                             placeholder="Enter User Name">
                     </div>
                 </div>
@@ -45,7 +45,7 @@
                         <label for="email" class="mb-0">Email</label>
                     </div>
                     <div class="col-sm-5 col-12 tag-input-styler d-inline-flex align-items-center">
-                        <input type="text" class="form-control form-control-lg pr-5"  id="email" name="email"
+                        <input type="text" value="{{ old('email') }}" class="form-control form-control-lg pr-5" id="email" name="email"
                             placeholder="Enter User Email">
                     </div>
                 </div>
@@ -101,11 +101,11 @@
                     <div class="col-sm-5 col-12 tag-input-style">
 
 
-                        <select name="province_id1" 
+                        <select name="province_id1"
                             class="ace-select text-dark-m1 bgc-default-l5 bgc-h-warning-l3 brc-default-m3 brc-h-warning-m1">
                             <option value=''>Select province</option>
                             @foreach ($provinces as $provin)
-                            
+
                             <option value='{{$provin->id}}'>{{$provin->province_name}}</option>
                             @endforeach
 
@@ -123,7 +123,7 @@
                             class="ace-select text-dark-m1 bgc-default-l5 bgc-h-warning-l3 brc-default-m3 brc-h-warning-m1">
                             <option value=''>Select province</option>
                             @foreach ($provinces as $provin)
-                            
+
                             <option value='{{$provin->id}}'>{{$provin->province_name}}</option>
                             @endforeach
 
@@ -139,9 +139,9 @@
 
                         <select name="confined_in_jail" id="jailname"
                             class="ace-select text-dark-m1 bgc-default-l5 bgc-h-warning-l3 brc-default-m3 brc-h-warning-m1">
-                         
+
                             <option value=''></option>
-                          
+
 
                         </select>
                     </div>
