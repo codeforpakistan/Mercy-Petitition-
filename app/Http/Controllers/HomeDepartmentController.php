@@ -25,6 +25,7 @@ class HomeDepartmentController extends Controller
             ['file_in_department', '=', 'HomeDepartment'],
             ['received_from_department', '=', 'Jail-Supt'],
             ['province_id', '=', Auth::user()->province_id],
+           
         ])->orderBy("id", "desc")->get();
 
         return view('homedept.index', compact('HomeDepartments'));

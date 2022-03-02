@@ -140,7 +140,7 @@
     <th class="p-3 mb-2 bg-success text-white">section</th>
     <th class="p-3 mb-2 bg-success text-white">province</th>
     <th class="p-3 mb-2 bg-success text-white">file in department</th>
-    <th class="p-3 mb-2 bg-success text-white">physical status</th>
+    {{-- <th class="p-3 mb-2 bg-success text-white">physical status</th> --}}
     <th class="p-3 mb-2 bg-success text-white">status</th>
     <th class="p-3 mb-2 bg-success text-white">sentence in court </th>
     <th class="p-3 mb-2 bg-success text-white">User</th>
@@ -168,7 +168,12 @@
         <td></td>
         @endif
         <td>{{ $petition->file_in_department }}</td>
+        @if($petition->physicalstatus)
         <td>{{ $petition->physicalstatus->PhysicalStatus }}</td>
+        @else
+       
+        <td></td>
+        @endif
         <td>{{ $petition->status }}</td>
         <td>{{ $petition->sentence_in_court }}</td>
         <td>{{ $petition->users->name }}</td>

@@ -52,7 +52,7 @@
                   @foreach($provinces as $province)
 
 
-                      <option @if((int) old('province', request()->input('province')) === $province->id) selected @endif  value="{{$province->id}}" >{{$province->province_name}}</option>
+                      <option @if((int)old('province', request()->input('province')) === $province->id) selected @endif  value="{{$province->id}}" >{{$province->province_name}}</option>
 
                   @endforeach
               </select>
@@ -189,7 +189,11 @@
         <td></td>
         @endif
         <td>{{ $petition->file_in_department }}</td>
+        @if($petition->physicalstatus)
         <td>{{ $petition->physicalstatus->PhysicalStatus }}</td>
+        @else
+        <td></td>
+        @endif
         <td>{{ $petition->status }}</td>
         <td>{{ $petition->sentence_in_court }}</td>
         <td>{{ $petition->users->name }}</td>
