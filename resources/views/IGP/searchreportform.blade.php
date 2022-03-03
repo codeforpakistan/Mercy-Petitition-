@@ -29,7 +29,7 @@
 
                 <label class="col-md-2">Gender</label>
                 <div class="col-md-4">
-                <select class="form-control"  value={{ request()->input('gender') }} name="gender" id="DeptID">
+                <select class="form-control"   name="gender" id="DeptID">
 
                   <option value="">Please select</option>
                     <option @if( old('gender', request()->input('gender')) == 'male') selected @endif value="male" >Male</option>
@@ -52,7 +52,7 @@
                   @foreach($provinces as $province)
 
 
-                      <option @if((int) old('province', request()->input('province')) === $province->id) selected @endif  value="{{$province->id}}" >{{$province->province_name}}</option>
+                      <option @if((int)old('province', request()->input('province')) === $province->id) selected @endif  value="{{$province->id}}" >{{$province->province_name}}</option>
 
                   @endforeach
               </select>
@@ -63,7 +63,7 @@
 
               <label class="col-md-2">Confined In Jail</label>
               <div class="col-md-4">
-              <select class="form-control" value={{ request()->input('confinedinjail') }} name="confinedinjail" id="DeptID">
+              <select class="form-control"  name="confinedinjail" id="DeptID">
                   <option value="">Please select</option>
                   @foreach($jail as $jails)
                       <option  @if( old('confinedinjail', request()->input('confinedinjail')) == $jails->jail_name) selected @endif value="{{$jails->jail_name}}">{{$jails->jail_name}}</option>
@@ -72,7 +72,7 @@
               </div>
                 <label class="col-md-2">Under Section</label>
                 <div class="col-md-4">
-                <select class="form-control" value={{ request()->input('undersection') }}  name="undersection" id="undersection">
+                <select class="form-control"  name="undersection" id="undersection">
                     <option value="">Please select</option>
                     @foreach($section as $sections)
                         <option @if((int) old('undersection', request()->input('undersection')) === $sections->id) selected @endif value="{{$sections->id}}">{{$sections->undersection}}</option>
@@ -84,7 +84,7 @@
 
               <label class="col-md-2">Prison Status</label>
               <div class="col-md-4">
-              <select class="form-control"  value={{ request()->input('status') }}  name="status" id="DeptID">
+              <select class="form-control"    name="status" id="DeptID">
                   <option value="">Please select</option>
                   <option  @if( old('status', request()->input('status')) == 'Accepted') selected @endif value="Accepted">Accepted</option>
                   <option  @if( old('status', request()->input('status')) == 'Rejected') selected @endif value="Rejected">Rejected</option>
@@ -97,7 +97,7 @@
               </div>
                 <label class="col-md-2">Physical Status</label>
                 <div class="col-md-4">
-                <select class="form-control" value={{ request()->input('physicalstatus') }}  name="physicalstatus" id="DeptID">
+                <select class="form-control"  name="physicalstatus" id="DeptID">
                     <option value="">Please select</option>
                     @foreach($physicalstatus as $physicalstatuses)
                         <option  @if((int) old('undersection', request()->input('physicalstatus')) === $physicalstatuses->id) selected  @endif value="{{$physicalstatuses->id}}">{{$physicalstatuses->PhysicalStatus}}</option>
@@ -189,7 +189,11 @@
         <td></td>
         @endif
         <td>{{ $petition->file_in_department }}</td>
+        @if($petition->physicalstatus)
         <td>{{ $petition->physicalstatus->PhysicalStatus }}</td>
+        @else
+        <td></td>
+        @endif
         <td>{{ $petition->status }}</td>
         <td>{{ $petition->sentence_in_court }}</td>
         <td>{{ $petition->users->name }}</td>

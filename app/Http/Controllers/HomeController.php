@@ -58,24 +58,38 @@ class HomeController extends Controller
     }
     public function accepted()
     {
-        if(!empty(Auth::user()->province_id)){
-          $Accepted = Petition::Where('province_id', Auth::user()->province_id)->Where('status', 'Accepted')->orderBy("id", "desc")->paginate(5);
-        }
-        else{
-          $Accepted = Petition::Where('status', 'Accepted')->orderBy("id", "desc")->paginate(5);
-        }
+      if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id)) {
+  
+        $Accepted = Petition::where('confined_in_jail', '=', Auth::user()->confined_in_jail)->where('province_id', '=', Auth::user()->province_id)->Where('status', 'Accepted')->orderBy("id", "desc")->paginate(5);
+       
+    } elseif(!empty(Auth::user()->province_id)) {
+     
+        $Accepted = Petition::where('province_id', '=', Auth::user()->province_id)->Where('status', 'Accepted')->orderBy("id", "desc")->paginate(5);
+      
+    }else{
+      
+        $Accepted = Petition::Where('status', 'Accepted')->orderBy("id", "desc")->paginate(5);
+
+    }
+   
         
         
         return view('IGP.accepted', compact('Accepted'));
     }
     public function rejected()
     {
-      if(!empty(Auth::user()->province_id)){
-        $Rejected = Petition::Where('province_id', Auth::user()->province_id)->Where('status', 'Rejected')->orderBy("id", "desc")->paginate(5);
-       }
-        else{
-          $Rejected = Petition::Where('status', 'Rejected')->orderBy("id", "desc")->paginate(5);
-        }
+      if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id)) {
+        $Rejected = Petition::where('confined_in_jail', '=', Auth::user()->confined_in_jail)->where('province_id', '=', Auth::user()->province_id)->Where('status', 'Rejected')->orderBy("id", "desc")->paginate(5);
+       
+    } elseif(!empty(Auth::user()->province_id)) {
+  
+      $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Where('status', 'Rejected')->orderBy("id", "desc")->paginate(5);
+
+    }else{
+     
+        $Rejected = Petition::Where('status', 'Rejected')->orderBy("id", "desc")->paginate(5);
+
+    }
         return view('IGP.rejected', compact('Rejected'));
     }
 
@@ -97,7 +111,7 @@ class HomeController extends Controller
 
     }
     public function searchreport(Request $request){
-
+     
         $provinces = Province::all();
         $section = Section::all();
         $jail = Jail::all();

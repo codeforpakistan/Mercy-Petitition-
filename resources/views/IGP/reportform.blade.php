@@ -168,7 +168,12 @@
         <td></td>
         @endif
         <td>{{ $petition->file_in_department }}</td>
-        {{-- <td>{{ $petition->physicalstatus }}</td> --}}
+        @if($petition->physicalstatus)
+        <td>{{ $petition->physicalstatus->PhysicalStatus }}</td>
+        @else
+
+        <td></td>
+        @endif
         <td>{{ $petition->status }}</td>
         <td>{{ $petition->sentence_in_court }}</td>
         <td>{{ $petition->users->name }}</td>

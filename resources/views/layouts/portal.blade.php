@@ -857,10 +857,7 @@
                         $.each(data.homepititions.homefileattachements, function(key, val) {
                             var fil = val.file
 
-                            if( val.file == 'undefined' || val.file != null){
-                                $(".homeDepDoc").addClass('d-none');
-                            }else{
-                                $(".homeDepDoc").removeClass('d-none');
+
 
 
 
@@ -881,7 +878,7 @@
                                     "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
                                     val.file + "'>" + '</a>');
                             }
-                               }
+
                         });
                        }
                        if( data.homepititions.remarks == ""){
@@ -898,10 +895,7 @@
                        $.each(data.homepititions.homefileattachements, function(key, val) {
                             var fil = val.file
 
-                            if( val.file == 'undefined' || val.file != null){
-                                $(".homeDepDoc").addClass('d-none');
-                            }else{
-                                $(".homeDepDoc").removeClass('d-none');
+
 
 
 
@@ -922,7 +916,7 @@
                                     "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
                                     val.file + "'>" + '</a>');
                             }
-                               }
+
                         });
                     }
                         // $("#homefilepdf").empty();
@@ -1217,10 +1211,7 @@
                         $.each(data.petitions.fileattachements, function(key, val) {
                             var fil = val.file
 
-                            if(empty(val.file)){
-                                $(".homeDoc").addClass('d-none');
-                            }else{
-                                $(".homeDoc").removeClass('d-none');
+
                                 if (val.type == 'pdf') {
 
 // alert(val.type=='pdf');
@@ -1238,7 +1229,7 @@
                             val.file + "'>" + '</a>');
 }
 
-                            }
+
 
                             //  alert(val.file);
 
@@ -1339,8 +1330,7 @@
                             }
 
                         });
-                       }
-                       if( data.homepititions.remarks == ""){
+                        if( data.homepititions.remarks == ""){
                         $(".homeremarks").addClass('d-none');
                        }else{
                         $(".homeremarks").removeClass('d-none');
@@ -1354,10 +1344,7 @@
                        $.each(data.homepititions.homefileattachements, function(key, val) {
                             var fil = val.file
 
-                            if( val.file == 'undefined' || val.file != null){
-                                $(".homeDepDoc").addClass('d-none');
-                            }else{
-                                $(".homeDepDoc").removeClass('d-none');
+
 
 
 
@@ -1378,14 +1365,18 @@
                                     "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
                                     val.file + "'>" + '</a>');
                             }
-                               }
+
                         });
                     }
+                       }
+
+
                         // interior file
                         $("#interiorfilepdf").empty();
                         $("#interiorpic").empty();
+
                         if( data.interiorpititions == null){
-                                $(".interiorDoc").addClass('d-none');
+                         $(".interiorDoc").addClass('d-none');
                         }else{
                             $(".interiorDoc").removeClass('d-none');
 
@@ -1416,14 +1407,13 @@
 
 
                         });
-                        }
-
                         if( data.interiorpititions.remarks == ""){
                             $(".interiorremarks").addClass('d-none');
                         }else{
                             $(".interiorremarks").removeClass('d-none');
                             $('#interiorremarks').text(data.interiorpititions.remarks);
                         }
+
                          if( data.interiorpititions.interiorfileattachements == ""){
                             $(".interiorfile").addClass('d-none');
                         }else{
@@ -1454,6 +1444,9 @@
 
                         });
                         }
+                        }
+
+
                         $("#humanrightfilepdf").empty();
                         $("#humanrightpic").empty();
 
@@ -1489,9 +1482,7 @@
 
 
                         });
-                            }
-
-                            if( data.humanrightpittions.remarks == ""){
+                        if( data.humanrightpittions.remarks == ""){
                             $(".humanremarks").addClass('d-none');
                         }else{
                             $(".humanremarks").removeClass('d-none');
@@ -1528,6 +1519,9 @@
                         });
 
                         }
+                            }
+
+
 
 
 

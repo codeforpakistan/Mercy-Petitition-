@@ -52,7 +52,11 @@
 
                                 <div class="d-flex justify-content-between flex-column flex-sm-row mb-3 px-2 px-sm-0">
                                     <h3 class="text-130 pl-1 mb-3 mb-sm-0">
-
+                                        <a href="{{ route('remarksfromhome') }}"
+                                            class="btn btn-blue px-3 d-block w-100 text-95 radius-round border-2 brc-black-tp10">
+                                            <i class="fa fa-arrow-left mr-1"></i>
+                                            <span class="d-sm-none d-md-inline">Back</span>
+                                        </a>
                                     </h3>
 
 
@@ -808,7 +812,7 @@
 
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="col-12 px-4 mt-3 interiorDoc"
+                                                                                <div class="col-12 px-4 mt-3interiorDoc"
                                                                                     style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
                                                                                     <div class=" form-group row">
 
