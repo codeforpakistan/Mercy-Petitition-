@@ -35,12 +35,12 @@ class Petition extends Model
     public function sectionss()
     {
         return $this->belongsTo(Section::class,"section_id");
-     
+
     }
     public function physicalstatus()
     {
         return $this->belongsTo(PhysicalStatus::class,"physicalstatus_id");
-     
+
     }
 public function homedepartmentss()
     {

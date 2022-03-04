@@ -18,7 +18,7 @@
                 </div>
             @endif
                 <div class="card-body px-1 px-md-3">
-                    <div class="d-flex justify-content-between flex-column flex-sm-row mb-3 px-2 px-sm-0">
+                    <div class="d-flex justify-content-between flex-column flex-sm-row mb-3 px-2 px-sm-0" style = "margin-left: 70%;">
                         <form method="get" action="{{ request()->fullUrlWithQuery(['search' => '']) }}">
                             <div class="pos-rel d-inline-block" style="width: calc(100% - 48px);">
                                 <i class="fa fa-search position-lc ml-25 text-primary-m1"></i>
@@ -29,9 +29,9 @@
                                 style="margin-left: -6px !important;height: 38px;margin-top: -4px;border-left: 0;padding-right: 15px;"><i
                                     class="fa fa-arrow-right ml-2 f-n-hover"></i></button>
                         </form>
-                        <div class="btn-group ml-sm-auto mt-3 mt-sm-0">
+                        {{-- <div class="btn-group ml-sm-auto mt-3 mt-sm-0">
                             {!! $data->appends(['search' => $search])->render() !!}
-                        </div>
+                        </div> --}}
 
                         <div class="mb-2 mb-sm-0">
 
@@ -54,6 +54,8 @@
                                 <th class="d-none d-sm-table-cell">Email</th>
                                 <th class="d-none d-sm-table-cell">Roles</th>
                                 <th class="d-none d-sm-table-cell">Province</th>
+                                <th class="d-none d-sm-table-cell">jail</th>
+                                <th class="d-none d-sm-table-cell">Action</th>
                                 <th width="164px"></th>
                             </tr>
                         </thead>
@@ -72,6 +74,9 @@
                                             @endforeach
                                         @endif
                                     </td>
+                                    <td>{{ $user->provinces->province_name }}</td>
+                                    <td>{{ $user->confined_in_jail }}</td>
+
 
                                     <td>
                                         <div class="d-lg-flex">

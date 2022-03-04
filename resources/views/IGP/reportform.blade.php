@@ -171,7 +171,7 @@
         @if($petition->physicalstatus)
         <td>{{ $petition->physicalstatus->PhysicalStatus }}</td>
         @else
-       
+
         <td></td>
         @endif
         <td>{{ $petition->status }}</td>

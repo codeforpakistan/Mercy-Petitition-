@@ -586,7 +586,7 @@
 
                         $("#application_images").empty();
                         $("#application_image").empty();
-                      
+
                         var ap = data.petitions.application_image;
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
@@ -618,7 +618,7 @@
 
                             // $('#health_paper').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.health_paper+"'>");
                         }
-                        
+
                         $("#warrent_files").empty();
                         $("#warrent_file").empty();
                         var ap = data.petitions.warrent_file;
@@ -637,7 +637,7 @@
                             // $('#warrent_file').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.warrent_file+"'>");
                         }
                         //  $('#Prisonerimage').html("<img style='height:100px;width:100px;border-radius:50px;' src=' {{ url('/assets/image/') }}/"+data.prisoner_image+"'>");
-                      
+
                         $("#Prisonerimage").empty();
                         $('#Prisonerimage').html(
                             "<a target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
@@ -738,7 +738,7 @@
                     url: "{{ url('Interiorview') }}/" + id,
                     datatype: 'json',
 
-                    success: function(data) 
+                    success: function(data)
                     {
                         $('#firstname').text(data.petitions.name);
                         $('#Fathername').text(data.petitions.f_name);
@@ -763,7 +763,7 @@
                         $.each(data.petitions.fileattachements, function(key, val) {
                             var fil = val.file
 
-                            
+
                             //  alert(val.file);
                             if (val.type == 'pdf') {
 
@@ -835,7 +835,7 @@
                             // $('#warrent_file').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.warrent_file+"'>");
                         }
                         //  $('#Prisonerimage').html("<img style='height:100px;width:100px;border-radius:50px;' src=' {{ url('/assets/image/') }}/"+data.prisoner_image+"'>");
-                       
+
                         $("#Prisonerimage").empty();
                         $('#Prisonerimage').html(
                             "<a target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
@@ -852,18 +852,18 @@
                        }else{
                         $(".homeDoc").removeClass('d-none');
                          $('#homeremarks').text(data.homepititions.remarks);
-                       
-                       
+
+
                         $.each(data.homepititions.homefileattachements, function(key, val) {
                             var fil = val.file
-                          
-                            
-                               
+
+
+
 
 
 
                             if (val.type == 'pdf') {
-                       
+
                                 // alert(val.type=='pdf');
                                 // $("#picss").empty();
                                 // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
@@ -878,7 +878,7 @@
                                     "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
                                     val.file + "'>" + '</a>');
                             }
-                               
+
                         });
                        }
                        if( data.homepititions.remarks == ""){
@@ -894,14 +894,14 @@
                         $(".homefile").removeClass('d-none');
                        $.each(data.homepititions.homefileattachements, function(key, val) {
                             var fil = val.file
-                          
-                         
-                               
+
+
+
 
 
 
                             if (val.type == 'pdf') {
-                       
+
                                 // alert(val.type=='pdf');
                                 // $("#picss").empty();
                                 // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
@@ -916,7 +916,7 @@
                                     "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
                                     val.file + "'>" + '</a>');
                             }
-                               
+
                         });
                     }
                         // $("#homefilepdf").empty();
@@ -982,7 +982,7 @@
                                 $(".interiorDoc").addClass('d-none');
                         }else{
                             $(".interiorDoc").removeClass('d-none');
-                            
+
                             $('#interiorremarks').text(data.interiorpititions.remarks);
                         $("#interiorfilepdf").empty();
                         $("#interiorpic").empty();
@@ -1011,13 +1011,13 @@
 
 
                         });
-                        }  
-                      
+                        }
+
                         if( data.interiorpititions.remarks == ""){
                             $(".interiorremarks").addClass('d-none');
                         }else{
                             $(".interiorremarks").removeClass('d-none');
-                            $('#interiorremarks').text(data.interiorpititions.remarks); 
+                            $('#interiorremarks').text(data.interiorpititions.remarks);
                         }
                          if( data.interiorpititions.interiorfileattachements == ""){
                             $(".interiorfile").addClass('d-none');
@@ -1079,10 +1079,10 @@
 
                         // });
                         if( data.humanrightpittions == null){
-                                $(".humanDoc").addClass('d-none');  
+                                $(".humanDoc").addClass('d-none');
                             }else{
                                 $(".humanDoc").removeClass('d-none');
-                               
+
                         $('#humanrightremarks').text(data.humanrightpittions.remarks);
                         $("#humanrightfilepdf").empty();
                         $("#humanrightpic").empty();
@@ -1112,7 +1112,7 @@
 
                         });
                             }
-                      
+
                             if( data.humanrightpittions.remarks == ""){
                             $(".humanremarks").addClass('d-none');
                         }else{
@@ -1120,9 +1120,9 @@
                             $('#humanrightremarks').text(data.humanrightpittions.remarks);
                         }
                         if(data.humanrightpittions.humanrightfileattachements==""){
-                            $(".humanfile").addClass('d-none'); 
+                            $(".humanfile").addClass('d-none');
                         }else{
-                            $(".humanfile").removeClass('d-none'); 
+                            $(".humanfile").removeClass('d-none');
                             $.each(data.humanrightpittions.humanrightfileattachements, function(key,
                             val) {
                             var fil = val.file
@@ -1205,13 +1205,13 @@
                         $('#sentence_in_court').text(data.petitions.sentence_in_court);
                         $('#date_of_sentence').text(data.petitions.date_of_sentence);
                         $('#warrent_information').text(data.petitions.warrent_information);
-                       
+
                         $("#pic").empty();
                         $("#picss").empty();
                         $.each(data.petitions.fileattachements, function(key, val) {
                             var fil = val.file
-                           
-                            
+
+
                                 if (val.type == 'pdf') {
 
 // alert(val.type=='pdf');
@@ -1229,10 +1229,10 @@
                             val.file + "'>" + '</a>');
 }
 
-                            
+
 
                             //  alert(val.file);
-                            
+
                         });
 
                         $("#application_images").empty();
@@ -1302,18 +1302,18 @@
                        }else{
                         $(".homeDoc").removeClass('d-none');
                          $('#homeremarks').text(data.homepititions.remarks);
-                       
-                       
+
+
                         $.each(data.homepititions.homefileattachements, function(key, val) {
                             var fil = val.file
-                          
-                          
-                               
+
+
+
 
 
 
                             if (val.type == 'pdf') {
-                       
+
                                 // alert(val.type=='pdf');
                                 // $("#picss").empty();
                                 // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
@@ -1328,7 +1328,7 @@
                                     "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
                                     val.file + "'>" + '</a>');
                             }
-                               
+
                         });
                         if( data.homepititions.remarks == ""){
                         $(".homeremarks").addClass('d-none');
@@ -1343,14 +1343,14 @@
                         $(".homefile").removeClass('d-none');
                        $.each(data.homepititions.homefileattachements, function(key, val) {
                             var fil = val.file
-                          
-                             
-                               
+
+
+
 
 
 
                             if (val.type == 'pdf') {
-                       
+
                                 // alert(val.type=='pdf');
                                 // $("#picss").empty();
                                 // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
@@ -1365,23 +1365,23 @@
                                     "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
                                     val.file + "'>" + '</a>');
                             }
-                               
+
                         });
                     }
                        }
-                      
-                     
+
+
                         // interior file
                         $("#interiorfilepdf").empty();
                         $("#interiorpic").empty();
-                        
+
                         if( data.interiorpititions == null){
                          $(".interiorDoc").addClass('d-none');
                         }else{
                             $(".interiorDoc").removeClass('d-none');
-                            
+
                             $('#interiorremarks').text(data.interiorpititions.remarks);
-                       
+
                         $.each(data.interiorpititions.interiorfileattachements, function(key,
                             val) {
                             var fil = val.file
@@ -1411,9 +1411,9 @@
                             $(".interiorremarks").addClass('d-none');
                         }else{
                             $(".interiorremarks").removeClass('d-none');
-                            $('#interiorremarks').text(data.interiorpititions.remarks); 
+                            $('#interiorremarks').text(data.interiorpititions.remarks);
                         }
-                      
+
                          if( data.interiorpititions.interiorfileattachements == ""){
                             $(".interiorfile").addClass('d-none');
                         }else{
@@ -1444,19 +1444,19 @@
 
                         });
                         }
-                        }  
-                    
-                        
+                        }
+
+
                         $("#humanrightfilepdf").empty();
                         $("#humanrightpic").empty();
-                      
+
                         if( data.humanrightpittions == null){
-                                $(".humanDoc").addClass('d-none');  
+                                $(".humanDoc").addClass('d-none');
                             }else{
                                 $(".humanDoc").removeClass('d-none');
-                               
+
                         $('#humanrightremarks').text(data.humanrightpittions.remarks);
-                       
+
                         $.each(data.humanrightpittions.humanrightfileattachements, function(key,
                             val) {
                             var fil = val.file
@@ -1489,9 +1489,9 @@
                             $('#humanrightremarks').text(data.humanrightpittions.remarks);
                         }
                         if(data.humanrightpittions.humanrightfileattachements==""){
-                            $(".humanfile").addClass('d-none'); 
+                            $(".humanfile").addClass('d-none');
                         }else{
-                            $(".humanfile").removeClass('d-none'); 
+                            $(".humanfile").removeClass('d-none');
                             $.each(data.humanrightpittions.humanrightfileattachements, function(key,
                             val) {
                             var fil = val.file
@@ -1520,9 +1520,9 @@
 
                         }
                             }
-                      
-                         
-                       
+
+
+
 
 
 
@@ -1563,7 +1563,7 @@
                         $('#firstname').text(data.name);
                         $('#Fathername').text(data.f_name);
                         $('#Nationality').text(data.nationality);
-                       
+
                         $('#Physicalstatus').text(data.physicalstatus.PhysicalStatus);
                         $('#Confined_in_jail').text(data.confined_in_jail);
                         $('#Gender').text(data.gender);
@@ -1610,14 +1610,14 @@
                         var finalap = ap.split(".");
 
                         if (finalap['1'] == "pdf") {
-                          
-                        
+
+
                             $('#application_images').append(
                                 "<a style='margin-right:15px;'' target='_blank'   href='{{ url('/assets/image/') }}/" + data
                                 .application_image + "'download>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>"+ '</a>');
 
                         } else {
-                           
+
                             // $('#application_image').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.application_image+"'>");
                             $('#application_image').html(
                                 "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
@@ -1630,12 +1630,12 @@
                         var ap = data.health_paper;
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
-                           
+
                             $('#health_papers').append(
                                 "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data
                                 .health_paper + "'>" + "<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                         } else {
-                           
+
                             $('#health_paper').html(
                                 "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
                                 data.health_paper + " '>" +
@@ -1649,12 +1649,12 @@
                         var ap = data.warrent_file;
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
-                            
+
                             $('#warrent_files').append(
                                 "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data
                                 .warrent_file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                         } else {
-                            
+
                             $('#warrent_file').html(
                                 "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
                                 data.warrent_file + " '>" +
@@ -1666,7 +1666,7 @@
                         //  $('#Prisonerimage').html("<img style='height:100px;width:100px;border-radius:50px;' src=' {{ url('/assets/image/') }}/"+data.prisoner_image+"'>");
                         $("#Prisonerimage").empty();
                         $('#Prisonerimage').html(
-                          
+
                             "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
                             data.prisoner_image + " '>" +
                             "<img  class='example-image' alt='image-1'  style='height:100px;width:100px;border-radius:50px' src='{{ url('/assets/image/') }}/" +
