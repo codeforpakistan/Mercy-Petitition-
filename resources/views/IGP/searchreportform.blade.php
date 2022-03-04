@@ -112,13 +112,13 @@
                 <div id="id-daterange-wrapper" class="pos-rel">
                 <div class="form-row">
                     <div class="col">
-                      <input id="id-daterange-from"  value={{ request()->input('fromdate') }} name = "fromdate" class="form-control ex-inputs-start" placeholder="From date">
+                      <input id="id-daterange-from"   name = "fromdate" class="form-control ex-inputs-start" placeholder="From date">
                     </div>
 
                     <div class="text-grey-l2">_</div>
 
                     <div class="col">
-                      <input id="id-daterange-to" value={{ request()->input('todate') }}  name = "todate" class="form-control ex-inputs-end" placeholder="To date">
+                      <input id="id-daterange-to"   name = "todate" class="form-control ex-inputs-end" placeholder="To date">
                     </div>
                   </div>
 

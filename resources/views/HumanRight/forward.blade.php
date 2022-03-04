@@ -48,7 +48,7 @@
                     <select  id="Status" name="file_in_department" class="form-control col-sm-8 col-md-11" data-placeholder="Choose Role For User...">
                   
 
-                    <option value='InteriorMinistryDepartment'>InteriorMinistryDepartment</option>
+                    <option value='InteriorMinistry'>InteriorMinistry</option>
 
 
                     </select>

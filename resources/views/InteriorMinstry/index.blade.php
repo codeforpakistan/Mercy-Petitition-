@@ -88,12 +88,12 @@
                                         <i class="fa fa-search position-lc ml-25 text-primary-m1"></i>
                                         <!-- <form  method="get"  action="{{ route('petitionsearch') }}">
 
-                              <input type="text" class="form-control w-100 pl-45 radius-1 brc-primary-m4"  name="search" placeholder="Search ...">
-                              <button  class="btn btn-info btn-bold px-4" type="submit">
-                              <i class="fa fa-search position-lc ml-25 text-primary-m1"></i>
+                                        <input type="text" class="form-control w-100 pl-45 radius-1 brc-primary-m4"  name="search" placeholder="Search ...">
+                                        <button  class="btn btn-info btn-bold px-4" type="submit">
+                                        <i class="fa fa-search position-lc ml-25 text-primary-m1"></i>
 
-                            </button>
-                            </form> -->
+                                        </button>
+                                        </form> -->
 
 
 
@@ -113,9 +113,9 @@
                                         </form>
                                     </div>
 
-                                    <div class="mb-2 mb-sm-0">
+                                    {{-- <div class="mb-2 mb-sm-0">
 
-                                    </div>
+                                    </div> --}}
                                 </div>
 
                                 @if ($errors->any())
@@ -262,8 +262,7 @@
                                                     </div>
 
                                                     <!-- show a dropdown in mobile -->
-                                                    <div
-                                                        class='dropdown d-inline-block d-lg-none dd-backdrop dd-backdrop-none-lg'>
+                                                    <div class='dropdown d-inline-block d-lg-none dd-backdrop dd-backdrop-none-lg'>
                                                         <a href='#'
                                                             class='btn btn-default btn-xs py-15 radius-round dropdown-toggle'
                                                             data-toggle="dropdown">
@@ -272,24 +271,16 @@
 
                                                         <div class="dropdown-menu dd-slide-up dd-slide-none-lg">
                                                             <div class="dropdown-inner">
-                                                                <div
-                                                                    class="dropdown-header text-100 text-secondary-d1 border-b-1 brc-secondary-l2 text-600 mb-2">
-                                                                    ace.com
-                                                                </div>
-                                                                <a href="#}" class="dropdown-item">
-                                                                    <i class="fa fa-pencil-alt text-blue mr-1 p-2 w-4"></i>
-                                                                    Edit
-                                                                </a>
-                                                                <a href="#" class="dropdown-item">
-                                                                    <i
-                                                                        class="fa fa-trash-alt text-danger-m1 mr-1 p-2 w-4"></i>
-                                                                    Delete
-                                                                </a>
-                                                                <a href="#" class="dropdown-item">
-                                                                    <i class="far fa-flag text-orange-d1 mr-1 p-2 w-4"></i>
-                                                                    Flag
-                                                                </a>
+                                                                
+                                                               
+                                                                <a href="{{ route('interior-forward', [$petion->id]) }}"
+                                                                    class="dropdown-item mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
+                                                                    Decision/forward <i class="fa fa-forward"></i>
+                                                                </a>lag
+                                                            
                                                             </div>
+                                                        </div>
+                                                    </div>
                                                 </td>
                                             </tr>
 
@@ -414,8 +405,7 @@
                                                                 </div><!-- /.sticky-nav-md -->
 
 
-                                                                <div
-                                                                    class="tab-content px-0 tab-sliding flex-grow-1 border-0">
+                                                                <div   class="tab-content px-0 tab-sliding flex-grow-1 border-0">
 
                                                                     <!-- overview tab -->
                                                                     <div class="tab-pane active show px-1 px-md-2 px-lg-4"

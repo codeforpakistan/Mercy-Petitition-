@@ -58,14 +58,7 @@
 
                                     <div class="pos-rel ml-sm-auto mr-sm-2 order-last order-sm-0">
                                         <i class="fa fa-search position-lc ml-25 text-primary-m1"></i>
-                                        <!-- <form  method="get"  action="{{ route('petitionsearch') }}">
-
-                              <input type="text" class="form-control w-100 pl-45 radius-1 brc-primary-m4"  name="search" placeholder="Search ...">
-                              <button  class="btn btn-info btn-bold px-4" type="submit">
-                              <i class="fa fa-search position-lc ml-25 text-primary-m1"></i>
-
-                            </button>
-                            </form> -->
+                                     
 
 
 
@@ -256,6 +249,7 @@
                                                                     Forward <i class="fa fa-forward"></i>
                                                                 </a>
                                                             </div>
+                                                        </div>
                                                 </td>
                                             </tr>
 
@@ -266,11 +260,8 @@
                                     @endforeach
                                 </table>
                                 {{ $petitions->links() }}
-
-
-
-                            </div><!-- /.card-body -->
-                            <div class="modal fade modal-fs" id="modalFullscreen" tabindex="-1" role="dialog"
+                            </div>
+                                <div class="modal fade modal-fs" id="modalFullscreen" tabindex="-1" role="dialog"
                                 aria-labelledby="exampleModalLabel2" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-scrollable" role="document">
                                     <div class="modal-content">
@@ -965,12 +956,15 @@
 
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
+                                            </div><!-- /.model body -->
+                                        </div><!-- /.model content -->
 
                                     </div>
 
                                 </div>
+
+                            </div><!-- /.card-body -->
+                        
                             </div><!-- /.card -->
                         </div><!-- /.col -->
                     </div><!-- /.row -->
