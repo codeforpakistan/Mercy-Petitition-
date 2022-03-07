@@ -697,7 +697,7 @@
                                                                                     <div class="form-group col-md-3">
                                                                                         <figure class="figure">
                                                                                             <div id="warrent_file"></div>
-
+                                                                                            <div id="warrent_files"></div>
                                                                                             <figcaption
                                                                                                 class="figure-caption text-right">
                                                                                                 Warrant File</figcaption>
@@ -706,6 +706,7 @@
                                                                                     <div class="form-group col-md-3">
                                                                                         <figure class="figure">
                                                                                             <div id="health_paper"></div>
+                                                                                            <div id="health_papers"></div>
                                                                                             <figcaption
                                                                                                 class="figure-caption text-right">
                                                                                                 Health Paper</figcaption>
@@ -714,6 +715,8 @@
                                                                                     <div class="form-group col-md-3">
                                                                                         <figure class="figure">
                                                                                             <div id="application_image">
+                                                                                            </div>
+                                                                                            <div id="application_images">
                                                                                             </div>
                                                                                             <figcaption
                                                                                                 class="figure-caption text-right">

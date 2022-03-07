@@ -132,15 +132,7 @@
                                 @endif
 
 
-                                @if (Session::has('message'))
-                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                        <strong>{{ Session::get('message') }}!</strong> .
-                                        <button type="button" class="close" data-dismiss="alert"
-                                            aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                @endif
+                              
 
                                 <table id="simple-table"
                                     class="mb-0 table table-borderless table-bordered-x brc-secondary-l3 text-dark-m2 radius-1 overflow-hidden">
@@ -276,7 +268,7 @@
                                                                 <a href="{{ route('interior-forward', [$petion->id]) }}"
                                                                     class="dropdown-item mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
                                                                     Decision/forward <i class="fa fa-forward"></i>
-                                                                </a>lag
+                                                                </a>
                                                             
                                                             </div>
                                                         </div>
@@ -969,11 +961,12 @@
                                                                         <div id="btnhide1" class="col-12 px-8 mt-5">
                                                                             <div class="form-row text-center">
                                                                                 <div class="form-group col-md-6">
-                                                                                    <a href="{{ route('interior-forward', [$petion->id]) }}"
+                                                                                    <span id="interiorforward"></span>
+                                                                                    {{-- <a href="{{ route('interior-forward', [$petion->id]) }}"
                                                                                         class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
                                                                                         Forward <i
                                                                                             class="fa fa-forward"></i>
-                                                                                    </a>
+                                                                                    </a> --}}
                                                                                 </div>
                                                                                 <div class="form-group col-md-6">
                                                                                     <a href="{{ route('InteriorMinstry.index') }}"

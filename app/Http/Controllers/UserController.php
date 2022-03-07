@@ -50,7 +50,8 @@ class UserController extends Controller
         if ($request->input('search')) {
             $data = User::where('name', 'LIKE', '%' . $search . '%')->orderBy('id', 'DESC')->paginate(20)->onEachSide(2);
         } else {
-            $data = User::where('status', '1')->orderBy('id', 'DESC')->paginate(20)->onEachSide(2);
+            $data = User::with('provinces')->where('status', '1')->orderBy('id', 'DESC')->paginate(20)->onEachSide(2);
+           
         }
         return view('portal.users.index', compact('data', 'search'));
     }
