@@ -203,10 +203,10 @@
 
                     <div class="tab-content tab-sliding border-0 p-0" data-swipe="right">
 
-                      <div class="tab-pane active show mh-100 px-3 px-lg-0 pb-3" id="id-tab-login">
+                      <div class="tab-pane active show mh-100 px-3 px-lg-0 pb-3" id="id-tab-login" style="margin-top: 66px;">
                         <!-- show this in desktop -->
                         <div class="d-none d-lg-block col-md-6 offset-md-3 mt-lg-4 px-0">
-                          <h4 class="text-dark-tp4 border-b-1 brc-secondary-l2 pb-1 text-130">
+                          <h4 class="text-dark-tp4 border-b-1 brc-secondary-l2 pb-1 text-130" style=" text-align: center;">
                             {{-- <i class="fa fa-coffee text-orange-m1 mr-1"></i> --}}
                             Welcome
                           </h4>
@@ -214,12 +214,12 @@
 
                         <!-- show this in mobile device -->
                         <div class="d-lg-none text-secondary-m1 my-4 text-center">
-                          <a href="html/dashboard.html">
+                          {{-- <a href="html/dashboard.html">
                             <i class="fa fa-leaf text-success-m2 text-200 mb-4"></i>
-                          </a>
+                          </a> --}}
                           <h1 class="text-170">
                             <span class="text-blue-d1">
-                                Access Control System <span class="text-80 text-dark-tp3">Application</span>
+                                Mercy <span class="text-80 text-dark-tp3">Petition System</span>
                             </span>
                           </h1>
 
@@ -232,7 +232,8 @@
                                     </span>
                                 @enderror
 
-                        <form method="POST" action="{{ route('login') }}" autocomplete="off" class="form-row mt-4">
+                        <form method="POST" action="{{ route('login') }}" autocomplete="off" class="form-row mt-4" style="    margin-right: -166px;
+                        margin-left: -183px;">
                             @csrf
                           <div class="form-group col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
                                                         @if ($errors->any())
@@ -370,7 +371,7 @@
                         <div class="d-lg-none text-secondary-m1 my-4 text-center">
                           <i class="fa fa-leaf text-success-m2 text-200 mb-4"></i>
                           <h1 class="text-170">
-                            <span class="text-blue-d1">Ace <span class="text-80 text-dark-tp4">Application</span></span>
+                            <span class="text-blue-d1">Mercy <span class="text-80 text-dark-tp4">petition System</span></span>
                           </h1>
 
                           Create an Account

@@ -189,7 +189,7 @@
 
                             <div class="navbar-nav">
                                 <ul class="nav has-active-border">
-                                    <li class="nav-item dropdown dropdown-mega">
+                                    {{-- <li class="nav-item dropdown dropdown-mega">
                                         <a class="nav-link dropdown-toggle mr-1px text-white" data-toggle="dropdown"
                                             href="#" role="button" aria-haspopup="true" aria-expanded="false">
                                             <i class="fa fa-list-alt mr-2 d-lg-none"></i>
@@ -237,7 +237,53 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </li>
+                                    </li> --}}
+                                    <li class="nav-item dropdown order-first order-lg-last">
+                                        <a class="nav-link dropdown-toggle mr-1px text-white" data-toggle="dropdown"
+                                        href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-list-alt mr-2 d-lg-none"></i>
+                                        @auth
+                                            <img class="mr-2 radius-round border-2 brc-primary-tp3 p-1px"
+                                                src="{{ Auth::user()->picture ?? asset('..\assets\image\avatar\avatar4.png') }}"
+                                                width="36" alt="Natalie's Photo">
+                                            {{ Auth::user()->name }}
+                                        @endauth
+                                        <i class="caret fa fa-angle-down d-none d-lg-block"></i>
+                                        <i class="caret fa fa-angle-left d-block d-lg-none"></i>
+                                    </a>
+
+                                        <div class="dropdown-menu dropdown-caret dropdown-menu-right dropdown-animated brc-secondary-l1 py-1">
+
+
+                                          <a href="{{ route('portal.users.profile', [Auth::user()->id]) }}" class="mt-1 dropdown-item btn btn-outline-grey btn-h-lighter-primary btn-h-bold btn-a-light-primary">
+                                            <i class="far fa-user text-primary-m1 text-105 mr-1 w-2"></i>
+                                            Profile
+                                          </a>
+
+                                          <a href="{{ route('portal.users.password') }}" class="dropdown-item btn btn-outline-grey btn-h-lighter-success btn-h-bold btn-a-light-success"  >
+                                            <i class="fa fa-sliders-h text-success-m1 text-105 mr-1 w-2"></i>
+                                            Password
+                                          </a>
+
+                                          <div class="dropdown-divider brc-secondary-l2"></div>
+
+                                          <a href="{{ route('logout') }}" class="dropdown-item btn btn-outline-grey btn-h-lighter-orange btn-h-bold btn-a-light-orange" >
+                                            <i class="fa fa-power-off text-orange text-105 mr-1 w-2"></i>
+                                            Logout
+                                          </a>
+{{--
+                                          <form id="logout-form" action="{{ route('logout') }}"
+                                          method="POST" class="d-inline-block">
+                                          @csrf
+                                          <button type="submit"
+                                              class="mx-2px btn btn-sm btn-app btn-dark radius-1">
+                                              <i
+                                                  class="fa fa-sign-out-alt text-100 d-block mb-2 h-4"></i>
+                                              Logout
+                                          </button>
+                                      </form> --}}
+                                        </div>
+                                      </li>
                                 </ul>
                             </div>
                         </div>

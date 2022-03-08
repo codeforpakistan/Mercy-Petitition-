@@ -36,7 +36,7 @@
                         <label for="name" class="mb-0">Name</label>
                     </div>
                     <div class="col-sm-5 col-12 tag-input-styler d-inline-flex align-items-center">
-                        <input type="text" value="{{ old('name') }}" class="form-control form-control-lg pr-5" name="name" id="name"
+                        <input type="text" onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');" maxlength="20" value="{{ old('name') }}" class="form-control form-control-lg pr-5" name="name" id="name"
                             placeholder="Enter User Name">
                     </div>
                 </div>
