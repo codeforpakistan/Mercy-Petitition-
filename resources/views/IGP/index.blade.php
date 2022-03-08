@@ -272,9 +272,36 @@
                                 </td>
                             </tr>
 
-                        </tbody>
-                        @endforeach
-                    </table>
+                                                            <a href="{{ route('petition-forward', [$petion->id]) }}" data
+                                                                class=" dropdown-item mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
+                                                                Forward <i class="fa fa-forward"></i>
+                                                            </a>
+                                                        </div>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                @endforeach
+                            </table>
+
+                            {{ $petitions->links() }}
+
+
+                        </div><!-- /.card-body -->
+                        <div class="modal fade modal-fs" id="modalFullscreen" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel2" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel2">
+                                            Petition View
+                                        </h5>
+
+                                        <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
 
                     {{ $petitions->links() }}
 
@@ -730,11 +757,35 @@
                                                                             <figure class="figure">
                                                                                 <div id="pic"></div>
 
+                                                                                            <figcaption
+                                                                                                class="figure-caption text-right">
+                                                                                                Other documents</figcaption>
+                                                                                        </figure>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-12 px-8 mt-5">
+                                                                                <div id="btnhide1"
+                                                                                    class="form-row text-center">
+                                                                                    <div class="form-group col-md-6">
 
-                                                                                <figcaption
-                                                                                    class="figure-caption text-right">
-                                                                                    Other documents</figcaption>
-                                                                            </figure>
+                                                                                     <span id="forward"></span>
+                                                                                        {{-- <a href="{{ url('petition-forward', [$petion->id]) }}"
+                                                                                            class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
+                                                                                            Forward <i
+                                                                                                class="fa fa-forward"></i>
+                                                                                        </a> --}}
+
+                                                                                    </div>
+                                                                                    <div class="form-group col-md-6">
+                                                                                        <a href="{{ route('Petition.index') }}"
+                                                                                            class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-primary text-white">
+                                                                                            Back <i
+                                                                                                class="fa fa-arrow-left"></i>
+                                                                                        </a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>

@@ -786,7 +786,7 @@
 
                                                                                         <figure class="figure">
                                                                                             <div id="interiorpic"></div>
-                                                                                            &nbsp;&nbsp;
+                                                                                           
 
 
                                                                                             <!-- <figcaption class="figure-caption text-right">Other documents</figcaption> -->
@@ -838,7 +838,7 @@
 
                                                                                         <figure class="figure">
                                                                                             <div id="humanrightpic"></div>
-                                                                                            &nbsp;&nbsp;
+                                                                                           
 
 
                                                                                             <!-- <figcaption class="figure-caption text-right">Other documents</figcaption> -->
@@ -852,7 +852,7 @@
 
                                                                                                 <div id="humanrightfilepdf">
                                                                                                 </div>
-                                                                                                &nbsp;&nbsp;
+                                                                                              
 
                                                                                             </figure>
                                                                                         </div>
@@ -882,10 +882,11 @@
                                                                         <div class="form-row text-center">
                                                                             <div class="form-group col-md-6">
                                                                                 {{-- @foreach ($HomeDepartments as $petion) --}}
-                                                                                <a href="{{ route('home-forward', [$petion->id]) }}"
+                                                                                <span id="homeremarksedit"></span>
+                                                                                {{-- <a href="{{ route('homeremarksedit', [$petion->id]) }}"
                                                                                     class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
                                                                                     Forward <i class="fa fa-forward"></i>
-                                                                                </a>
+                                                                                </a> --}}
                                                                                 {{-- @endforeach --}}
                                                                             </div>
                                                                             <div class="form-group col-md-6">

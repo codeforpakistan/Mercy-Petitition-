@@ -15,27 +15,39 @@ class Search extends Component
     public function render()
     {
         $search = '%' . $this->searchText . '%';
-
-        if (Auth::user()->confined_in_jail == "") {
-
-            $petitions = Petition::Where('province_id', Auth::user()->province_id)->orWhere('confined_in_jail', $search)->
-                orWhere('name', 'like', "%{$search}%")->orWhere('gender', 'like', "%{$search}%")->
-                orWhere('nationality', 'like', "%{$search}%")->orWhere('f_name', 'like', "%{$search}%")->
-                orWhere('file_in_department', 'like', "%{$search}%")-> orWhere('status', 'like', "%{$search}%")->paginate(5);
-        } else {
-            //   $pet=Petition::where('status','IGP')->where('confined_in_jail', Auth::user()->confined_in_jail)->get();
-
-            $petitions = Petition::where([
-                ['file_in_department', '=', 'Jail-Supt'],
-                ['confined_in_jail', '=', Auth::user()->confined_in_jail],
-                ['province_id', '=', Auth::user()->province_id],
-            ])  ->orWhere('name', $search)->orWhere('gender', $search)->orWhere('nationality', $search)->orWhere('f_name', $search)->paginate(5);
-         
+             if(!empty(Auth::user()->province_id)){
+        $petitions = Petition::where('province_id', Auth::user()->province_id)
+       
+       
+        ->where(function($query) use ($search){
+                $query->where('name', 'LIKE', '%'.$search.'%')
+                      ->orWhere('gender', 'LIKE', '%'.$search.'%')
+                      ->orWhere('confined_in_jail', 'LIKE', '%'.$search.'%')
+                      ->orWhere('nationality', 'LIKE', '%'.$search.'%')
+                      ->orWhere('f_name', 'LIKE', '%'.$search.'%')
+                      ->orWhere('status', 'LIKE', '%'.$search.'%')
+                      ->orWhere('prisonerid', 'LIKE', '%'.$search.'%');
+            })->paginate(6);
+        
+        }
+        else{
+            $petitions = Petition::where('name', 'LIKE', '%'.$search.'%')
+            ->orWhere('gender', 'LIKE', '%'.$search.'%')
+            ->orWhere('confined_in_jail', 'LIKE', '%'.$search.'%')
+            ->orWhere('nationality', 'LIKE', '%'.$search.'%')
+            ->orWhere('f_name', 'LIKE', '%'.$search.'%')
+            ->orWhere('status', 'LIKE', '%'.$search.'%')
+            ->orWhere('prisonerid', 'LIKE', '%'.$search.'%')
+  ->paginate(6); 
+       
+                
+                   
+        }   
 
                
 
-        }
     
+       
         return view('livewire.search', compact('petitions'));
     }
 }

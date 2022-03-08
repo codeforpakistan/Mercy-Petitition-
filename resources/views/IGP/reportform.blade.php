@@ -143,8 +143,6 @@
     <th class="p-3 mb-2 bg-success text-white">physical status</th>
     <th class="p-3 mb-2 bg-success text-white">status</th>
     <th class="p-3 mb-2 bg-success text-white">sentence in court </th>
-    <th class="p-3 mb-2 bg-success text-white">User</th>
-    {{-- <th class="p-3 mb-2 bg-success text-white">Image</th> --}}
 
   </tr>
   </thead>
@@ -176,14 +174,7 @@
         @endif
         <td>{{ $petition->status }}</td>
         <td>{{ $petition->sentence_in_court }}</td>
-        <td>{{ $petition->users->name }}</td>
 
-        {{-- <td class='d-none d-sm-table-cell'>
-            <span class='badge badge-sm bgc-warning-d1 text-white pb-1 px-25'><img
-                    src="{{ asset('/assets/image/' . $petition->prisoner_image) }}"
-                    width="50" height="50" alt="pic" /></span>
-
-        </td>  --}}
 
     </tr>
   @endforeach

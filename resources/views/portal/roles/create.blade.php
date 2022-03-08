@@ -37,7 +37,7 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                
+                <input id="selectAll" type="checkbox"><label for='selectAll'>Select All</label><br />
                 <strong>Permission:</strong>
                 <br />
 
@@ -46,7 +46,7 @@
                         {{ $value->name }}</label>
                     <br />
                 @endforeach
-                <input id="selectAll" type="checkbox"><label for='selectAll'>Select All</label><br />
+               
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">

@@ -45,10 +45,10 @@
                             id="form-field-select-11">
 
                             <option value="Pakistan"
-                                {{ $petitionsedit->nationality == 'Pakistan' ? 'selected' : '' }}>
+                                {{ $petitionsedit->nationality == 'Pakistani' ? 'selected' : '' }}>
                                 Pakistan</option>
                             <option value="Afghanistan"
-                                {{ $petitionsedit->nationality == 'Afghanistan' ? 'selected' : '' }}>
+                                {{ $petitionsedit->nationality == 'Afghani' ? 'selected' : '' }}>
                                 Afghanistan</option>
 
                         </select>
@@ -62,8 +62,8 @@
                             @foreach ($physicalstatus as $physical)
 
 
-                                <option value="{{ $physical->id }}"
-                                    {{ $petitionsedit->physicalstatus_id == $physical->id ? 'selected="selected"' : '' }}>
+                                <option {{ $petitionsedit->physicalstatus_id == $physical->id ? 'selected="selected"' : '' }} value="{{ $physical->id }}"
+                                    >
                                     {{ $physical->PhysicalStatus }}</option>
                             @endforeach
                         </select>
@@ -86,19 +86,6 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-
-                        <label for="form-field-select-11">Confined In Jail</label>
-                        
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="inputState">DOB</label>
-
-                        <input type="date" value="{{ $petitionsedit->dob }}" name="dob" class="form-control">
-                    </div>
-
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
                         <label for="form-field-select-11">Gender</label>
                         <select name="gender"
                             class="ace-select text-dark-m1 bgc-default-l5 bgc-h-warning-l3 brc-default-m3 brc-h-warning-m1"
@@ -116,14 +103,33 @@
                             @foreach ($sections as $section)
 
 
-                                <option value="{{$section->id}}"
-                                    {{ $petitionsedit->select_id == $section->id ? 'selected="selected"' : '' }}>
+                                <option {{ $petitionsedit->select_id == $section->id ? 'selected="selected"' : '' }} value="{{$section->id}}"
+                                    >
                                     {{ $section->undersection }}</option>
                             @endforeach
                         </select>
                     </div>
 
                 </div>
+                <div class="form-row">
+                   
+                    <div class="form-group col-md-6">
+                        <label for="inputState">DOB</label>
+
+                        <input type="date" value="{{ $petitionsedit->dob }}" name="dob" class="form-control">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputState">Warrent Date (Jail entry Date)</label>
+
+                        <input type="Date" class="form-control" value="{{ $petitionsedit->warrent_date }}"
+                            name="warrent_date" placeholder=" Pick Warrent Date (Jail entry Date)">
+
+
+
+                    </div>
+
+                </div>
+                
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputState">Mercy petition Date</label>
@@ -138,23 +144,7 @@
                     </div>
 
                 </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="inputState">Warrent Information</label>
-                        <input onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');" type="text"
-                            name="warrent_information" value="{{ $petitionsedit->warrent_information }}"
-                            placeholder="Enter Warrent Information" class="form-control" id="inputCity">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="inputState">Warrent Date (Jail entry Date)</label>
-
-                        <input type="Date" class="form-control" value="{{ $petitionsedit->warrent_date }}"
-                            name="warrent_date" placeholder=" Pick Warrent Date (Jail entry Date)">
-
-
-
-                    </div>
-                </div>
+               
 
                 <div class="form-row">
 
@@ -267,13 +257,13 @@
                     <div class=" col-md-12 text-nowrap">
                         <button style="float:right;" class="btn btn-info btn-bold px-4" type="submit">
                             <i class="fa fa-check mr-1"></i>
-                            Submit
+                            Update
                         </button>
 
-                        <button style="float:right;" class="btn btn-outline-lightgrey btn-bold ml-2 px-4" type="reset">
+                        <a style="float:right;" class="btn btn-outline-lightgrey btn-bold ml-2 px-4" href="{{route('Petition.index')">
                             <i class="fa fa-undo mr-1"></i>
                             Reset
-                        </button>
+                        </a>
                     </div>
                 </div>
         </div>
