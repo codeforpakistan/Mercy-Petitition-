@@ -15,6 +15,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
+use Spatie\Permission\Models\Role;
 
 class HomeController extends Controller
 {
@@ -33,10 +34,33 @@ class HomeController extends Controller
     {
         return view('home');
     }
-    public function reloadCaptcha()
+    public function inprocess()
     {
-        return response()->json(['captcha' => captcha_img()]);
+      $dd=Auth::user()->getRoleNames()['0'];
+    $role = Role::where('name',$dd)->first();
+ 
+
+  
+   if($role->name == 'Admin'){
+   
+    $Inprocess = Petition::where('province_id', '=', Auth::user()->province_id)->orWhere('status', 'pending')->orderBy("id", "desc")->paginate(5);
+   }
+  elseif($role->name == 'jail-supt'){
+
+        $Inprocess = Petition::where('user_id', '=', Auth::user()->id)->where('province_id', '=', Auth::user()->province_id)->Where('file_in_department', 'HomeDepartment')->orderBy("id", "desc")->paginate(5);
+   }
+   
+  elseif($role->name =='Homedept'){
+    
+    $Inprocess = Petition::where('user_id', '=', Auth::user()->id)->where('province_id', '=', Auth::user()->province_id)->Where('file_in_department', 'InteriorMinistry')->orderBy("id", "desc")->paginate(5);
+   }
+   else{
+ 
+    $Inprocess = Petition::where('user_id', '=', Auth::user()->id)->Where('file_in_department', 'HumanRightDeparment')->orderBy("id", "desc")->paginate(5);
+   }
+   return view('IGP.inprocess', compact('Inprocess'));
     }
+    
     public function view($id)
     {
         $homepititions = HomeDepartment::with('homefileattachements')->where('petition_id', $id)->first();
