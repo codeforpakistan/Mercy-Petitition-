@@ -272,7 +272,7 @@
                                 </td>
                             </tr>
 
-                                                 
+
 
                                     </tbody>
                                 @endforeach
@@ -844,5 +844,6 @@
     </div><!-- /.row -->
 </div><!-- /.row -->
 </div><!-- /.row -->
+</div>
 
 @endsection

@@ -11,7 +11,7 @@
             <div class="col-12 col-sm-6 col-lg-6 px-2 mb-2 mb-lg-0">
                 <div class="bcard h-100 d-flex align-items-center p-3">
                     <div>
-                        <span class="d-inline-block bgc-danger p-3 radius-round text-center border-4 brc-primary-l2">
+                        <span class="d-inline-block bgc-default p-3 radius-round text-center border-4 brc-primary-l2">
                             <i class="fas fa-cog text-white text-170 w-4 h-4"></i>
                         </span>
                     </div>
@@ -38,7 +38,7 @@
             <div class="col-12 col-sm-6 col-lg-6 px-2 mb-2 mb-lg-0">
                 <div class="bcard h-100 d-flex align-items-center p-3">
                     <div>
-                        <span class="d-inline-block bgc-danger p-3 radius-round text-center border-4 brc-primary-l2">
+                        <span class="d-inline-block bgc-default p-3 radius-round text-center border-4 brc-primary-l2">
                             <i class="fas fa-cog text-white text-170 w-4 h-4"></i>
                         </span>
                     </div>
@@ -68,7 +68,7 @@
         <div class="col-12 col-sm-6 col-lg-6 px-2 mb-2 mb-lg-0">
             <div class="bcard h-100 d-flex align-items-center p-3">
                 <div>
-                    <span class="d-inline-block bgc-danger p-3 radius-round text-center border-4 brc-primary-l2">
+                    <span class="d-inline-block bgc-default p-3 radius-round text-center border-4 brc-primary-l2">
                         <i class="fas fa-cog text-white text-170 w-4 h-4"></i>
                     </span>
                 </div>
@@ -89,15 +89,15 @@
                 </div>
             </div>
         </div>
-       
+
     @endcan
-        
+
           @can('HumanRightDepartment-list')
             <div class="col-12 col-sm-6 col-lg-6 px-2 mb-2 mb-lg-0">
                 <div class="bcard h-100 d-flex align-items-center p-3">
 
                     <div>
-                        <span class="d-inline-block bgc-danger p-3 radius-round text-center border-4 brc-primary-l2">
+                        <span class="d-inline-block bgc-default p-3 radius-round text-center border-4 brc-primary-l2">
                             <i class="fas fa-cog text-white text-170 w-4 h-4"></i>
                         </span>
                     </div>
@@ -124,9 +124,9 @@
             </div>
         @endcan
     </div>
-    
+
     <div class="row px-2 mt-3">
-        
+
 <div class="col-12 col-sm-6 col-lg-4 px-2 mb-2 mb-lg-0">
         <div class="bcard h-100 d-flex align-items-center p-3">
 
@@ -158,10 +158,10 @@
     </div>
 
 
-   
+
 
     <!-- here is start 3rd row -->
-   
+
         <div class="col-12 col-sm-6 col-lg-4 px-2 mb-2 mb-lg-0">
             <div class="bcard h-100 d-flex align-items-center p-3">
                 <div>
