@@ -537,6 +537,10 @@
                     url: "{{ url('humanrightview') }}/" + id,
                     datatype: 'json',
                     success: function(data) {
+
+
+
+
                         $('#firstname').text(data.petitions.name);
                         $('#Fathername').text(data.petitions.f_name);
                         $('#Nationality').text(data.petitions.nationality);
