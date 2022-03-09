@@ -140,7 +140,7 @@
     <th class="p-3 mb-2 bg-success text-white">section</th>
     <th class="p-3 mb-2 bg-success text-white">province</th>
     <th class="p-3 mb-2 bg-success text-white">file in department</th>
-    {{-- <th class="p-3 mb-2 bg-success text-white">physical status</th> --}}
+    <th class="p-3 mb-2 bg-success text-white">physical status</th>
     <th class="p-3 mb-2 bg-success text-white">status</th>
     <th class="p-3 mb-2 bg-success text-white">sentence in court </th>
   
