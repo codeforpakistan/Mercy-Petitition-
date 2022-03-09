@@ -257,26 +257,18 @@
                     <div class=" col-md-12 text-nowrap">
                         <button style="float:right;" class="btn btn-info btn-bold px-4" type="submit">
                             <i class="fa fa-check mr-1"></i>
-                            Submit
+                            Update
                         </button>
 
-                        <button style="float:right;" class="btn btn-outline-lightgrey btn-bold ml-2 px-4" type="reset">
+                        <a style="float:right;" class="btn btn-outline-lightgrey btn-bold ml-2 px-4" href="{{route('Petition.index')">
                             <i class="fa fa-undo mr-1"></i>
                             Reset
-                        </button>
+                        </a>
                     </div>
                 </div>
         </div>
-
-
-
-
     </div>
-
-
     </form>
-
     </div><!-- /.card -->
     </div>
-
 @endsection

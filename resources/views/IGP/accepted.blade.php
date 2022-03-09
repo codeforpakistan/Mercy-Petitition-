@@ -1,7 +1,5 @@
 @extends('layouts.portal', [
 'menu' => 'Accepted',
-
-
 ])
 @section('module', 'Accepted')
 @section('element', ' Accepted Petition')
@@ -15,10 +13,7 @@
             background-image: linear-gradient(#b33232, #304d86);
             background-attachment: fixed;
             opacity: 16px;
-
             background-repeat: no-repeat;
-
-
         } */
             /* hr.rounded {
             border-top: 8px solid #bbb;
@@ -28,33 +23,25 @@
                 margin-left: auto;
                 margin-right: auto;
             }
-
             @media screen {
             #printSection {
                 display: none;
             }
         }
-
-
-
-
         @media print {
             body * {
                 visibility: hidden;
             }
-
             #printSection,
             #printSection * {
                 visibility: visible;
             }
-
             #printSection {
                 position: absolute;
                 left: 0;
                 top: 0;
             }
         }
-
         </style>
         <div role="main" class="page-content container container-plus">
             <div class="page-header border-0">
@@ -78,11 +65,9 @@
                                 <div class="pos-rel ml-sm-auto mr-sm-2 order-last order-sm-0">
                                     <i class="fa fa-search position-lc ml-25 text-primary-m1"></i>
                                     <!-- <form  method="get"  action="{{ route('petitionsearch') }}">
-
                               <input type="text" class="form-control w-100 pl-45 radius-1 brc-primary-m4"  name="search" placeholder="Search ...">
                               <button  class="btn btn-info btn-bold px-4" type="submit">
                               <i class="fa fa-search position-lc ml-25 text-primary-m1"></i>
-
                             </button>
                             </form> -->
 
@@ -611,15 +596,12 @@
                                                                         <i
                                                                             class="fas fa-check-square text-secondary"></i>
                                                                     </td>
-
                                                                     <td
                                                                         class="text-95 text-600 text-secondary-d2">
                                                                         Home Department Remarks
                                                                     </td>
-
                                                                     <td id="homeremarks"
                                                                         class="text-dark-m3">
-
                                                                     </td>
                                                                 </tr> --}}
 
@@ -697,7 +679,7 @@
                                                                                     <div class="form-group col-md-3">
                                                                                         <figure class="figure">
                                                                                             <div id="warrent_file"></div>
-
+                                                                                            <div id="warrent_files"></div>
                                                                                             <figcaption
                                                                                                 class="figure-caption text-right">
                                                                                                 Warrant File</figcaption>
@@ -706,6 +688,7 @@
                                                                                     <div class="form-group col-md-3">
                                                                                         <figure class="figure">
                                                                                             <div id="health_paper"></div>
+                                                                                            <div id="health_papers"></div>
                                                                                             <figcaption
                                                                                                 class="figure-caption text-right">
                                                                                                 Health Paper</figcaption>
@@ -714,6 +697,8 @@
                                                                                     <div class="form-group col-md-3">
                                                                                         <figure class="figure">
                                                                                             <div id="application_image">
+                                                                                            </div>
+                                                                                            <div id="application_images">
                                                                                             </div>
                                                                                             <figcaption
                                                                                                 class="figure-caption text-right">

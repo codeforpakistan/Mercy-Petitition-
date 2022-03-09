@@ -16,16 +16,12 @@
             background-image: linear-gradient(#b33232, #304d86);
             background-attachment: fixed;
             opacity: 16px;
-
             background-repeat: no-repeat;
-
         }
-
         .center {
             margin-left: auto;
             margin-right: auto;
         }
-
     </style>
    
         @if (!$petitions->isEmpty())
@@ -814,7 +810,7 @@
 
                                                                                             <figure class="figure">
                                                                                                 <div id="interiorpic"></div>
-                                                                                                &nbsp;&nbsp;
+                                                                                               
 
 
                                                                                                 <!-- <figcaption class="figure-caption text-right">Other documents</figcaption> -->
@@ -919,11 +915,12 @@
                                                                         <div id="btnhide1" class="col-12 px-8 mt-5">
                                                                             <div class="form-row text-center">
                                                                                 <div class="form-group col-md-6">
-                                                                                    <a href="{{ route('petitionremarksedit', [$petion->id]) }}"
+                                                                                    <span id="petitionrmarksedit"></span>
+                                                                                    {{-- <a href="{{ route('petitionremarksedit', [$petion->id]) }}"
                                                                                         class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
                                                                                         Forward <i
                                                                                             class="fa fa-forward"></i>
-                                                                                    </a>
+                                                                                    </a> --}}
                                                                                 </div>
                                                                                 <div class="form-group col-md-6">
                                                                                     <a href="{{ route('remarksfromhome') }}"

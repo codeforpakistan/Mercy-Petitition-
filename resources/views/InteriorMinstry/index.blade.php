@@ -1,7 +1,6 @@
 @extends('layouts.portal', [
 'menu' => 'InteriorMinitries',
 'sub_menu' => 'InteriorMinstry',
-
 ])
 @section('module', 'InteriorMinitry Management')
 @section('element', 'InteriorMinstry')
@@ -15,10 +14,7 @@
             background-image: linear-gradient(#b33232, #304d86);
             background-attachment: fixed;
             opacity: 16px;
-
             background-repeat: no-repeat;
-
-
         } */
             /* hr.rounded {
             border-top: 8px solid #bbb;
@@ -28,33 +24,25 @@
                 margin-left: auto;
                 margin-right: auto;
             }
-
             @media screen {
                 #printSection {
                     display: none;
                 }
             }
-
-
-
-
             @media print {
                 body * {
                     visibility: hidden;
                 }
-
                 #printSection,
                 #printSection * {
                     visibility: visible;
                 }
-
                 #printSection {
                     position: absolute;
                     left: 0;
                     top: 0;
                 }
             }
-
         </style>
 
             @if (Session::has('message'))
@@ -87,11 +75,9 @@
                                     <div class="pos-rel ml-sm-auto mr-sm-2 order-last order-sm-0">
                                         <i class="fa fa-search position-lc ml-25 text-primary-m1"></i>
                                         <!-- <form  method="get"  action="{{ route('petitionsearch') }}">
-
                                         <input type="text" class="form-control w-100 pl-45 radius-1 brc-primary-m4"  name="search" placeholder="Search ...">
                                         <button  class="btn btn-info btn-bold px-4" type="submit">
                                         <i class="fa fa-search position-lc ml-25 text-primary-m1"></i>
-
                                         </button>
                                         </form> -->
 
@@ -114,7 +100,6 @@
                                     </div>
 
                                     {{-- <div class="mb-2 mb-sm-0">
-
                                     </div> --}}
                                 </div>
 
@@ -132,15 +117,7 @@
                                 @endif
 
 
-                                @if (Session::has('message'))
-                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                        <strong>{{ Session::get('message') }}!</strong> .
-                                        <button type="button" class="close" data-dismiss="alert"
-                                            aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                @endif
+                              
 
                                 <table id="simple-table"
                                     class="mb-0 table table-borderless table-bordered-x brc-secondary-l3 text-dark-m2 radius-1 overflow-hidden">
@@ -276,7 +253,7 @@
                                                                 <a href="{{ route('interior-forward', [$petion->id]) }}"
                                                                     class="dropdown-item mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
                                                                     Decision/forward <i class="fa fa-forward"></i>
-                                                                </a>lag
+                                                                </a>
                                                             
                                                             </div>
                                                         </div>
@@ -636,15 +613,12 @@
                                                                                         <i
                                                                                             class="fas fa-check-square text-secondary"></i>
                                                                                     </td>
-
                                                                                     <td
                                                                                         class="text-95 text-600 text-secondary-d2">
                                                                                         Home Department Remarks
                                                                                     </td>
-
                                                                                     <td id="homeremarks"
                                                                                         class="text-dark-m3">
-
                                                                                     </td>
                                                                                 </tr> --}}
 
@@ -969,11 +943,12 @@
                                                                         <div id="btnhide1" class="col-12 px-8 mt-5">
                                                                             <div class="form-row text-center">
                                                                                 <div class="form-group col-md-6">
-                                                                                    <a href="{{ route('interior-forward', [$petion->id]) }}"
+                                                                                    <span id="interiorforward"></span>
+                                                                                    {{-- <a href="{{ route('interior-forward', [$petion->id]) }}"
                                                                                         class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
                                                                                         Forward <i
                                                                                             class="fa fa-forward"></i>
-                                                                                    </a>
+                                                                                    </a> --}}
                                                                                 </div>
                                                                                 <div class="form-group col-md-6">
                                                                                     <a href="{{ route('InteriorMinstry.index') }}"

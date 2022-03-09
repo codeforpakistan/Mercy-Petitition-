@@ -24,11 +24,30 @@
 
         </h3>
         <div class="row">
-            <div class="col-12">
+            <div class="pos-rel ml-sm-auto mr-sm-2 order-last order-sm-0">
+                <i class="fa fa-search position-lc ml-25 text-primary-m1"></i>
+                <!-- <form  method="get"  action="{{ route('petitionsearch') }}">
+          <input type="text" class="form-control w-100 pl-45 radius-1 brc-primary-m4"  name="search" placeholder="Search ...">
+          <button  class="btn btn-info btn-bold px-4" type="submit">
+          <i class="fa fa-search position-lc ml-25 text-primary-m1"></i>
+        </button>
+        </form> -->
 
-                <input type="text" class="form-control" placeholder="Search" wire:model="searchText" />
 
 
+                <div class="pos-rel d-inline-block" style="width: calc(100% - 48px);">
+                    <i class="fa fa-search position-lc ml-25 text-primary-m1"></i>
+
+                    <form action="{{ route('petitionsearch') }}" method="get">
+                        @csrf
+                        <input type="text" name="search" class="form-control w-100 pl-45 brc-primary-m4"
+                            placeholder="Search ...">
+                </div>
+                <button type="submit"
+                    class="ml-2 btn btn-sm btn-outline-primary btn-h-outline-info btn-a-outline-info"
+                    style="margin-left: -6px !important;height: 38px;margin-top: -4px;border-left: 0;padding-right: 15px;"><i
+                        class="fa fa-arrow-right ml-2 f-n-hover"></i></button>
+                </form>
             </div>
         </div>
       

@@ -44,7 +44,6 @@
                                     </a>
                         </div>
                     </div>
-
                     <table id="simple-table"
                         class="mb-0 table table-borderless table-bordered-x brc-secondary-l3 text-dark-m2 radius-1 overflow-hidden">
                         <thead class="text-dark-tp3 bgc-grey-l4 text-90 border-b-1 brc-transparent">
@@ -59,7 +58,6 @@
                                 <th width="164px"></th>
                             </tr>
                         </thead>
-
                         <tbody class="mt-1">
                             @foreach ($data as $key => $user)
                                 <tr class="bgc-h-yellow-l4 d-style">
@@ -74,10 +72,12 @@
                                             @endforeach
                                         @endif
                                     </td>
+                                    @if($user->provinces)
                                     <td>{{ $user->provinces->province_name }}</td>
+                                    @else
+                                    <td></td>
+                                    @endif
                                     <td>{{ $user->confined_in_jail }}</td>
-
-
                                     <td>
                                         <div class="d-lg-flex">
                                             <a href="{{ route('portal.users.show', $user->id) }}"
@@ -108,7 +108,6 @@
                             @endforeach
                         </tbody>
                     </table>
-
                     <div class="d-flex pl-4 pr-3 pt-35 border-t-1 brc-secondary-l2 flex-column flex-sm-row mt-n1px">
                         <!-- <form method="get" action="{{ request()->fullUrlWithQuery(['search' => '']) }}}}">
                 <div class="pos-rel d-inline-block" style="width: calc(100% - 48px);">
@@ -125,5 +124,4 @@
             </div>
         </div>
     </div>
-
 @endsection
