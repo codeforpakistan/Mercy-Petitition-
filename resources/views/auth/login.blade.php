@@ -206,9 +206,13 @@
                       <div class="tab-pane active show mh-100 px-3 px-lg-0 pb-3" id="id-tab-login" style="margin-top: 66px;">
                         <!-- show this in desktop -->
                         <div class="d-none d-lg-block col-md-6 offset-md-3 mt-lg-4 px-0">
-                          <h4 class="text-dark-tp4 border-b-1 brc-secondary-l2 pb-1 text-130" style=" text-align: center;">
+                          <h4 class="text-blue-tp4 border-b-1 brc-secondary-l2 pb-1 text-130" style=" text-align: center;">
                             {{-- <i class="fa fa-coffee text-orange-m1 mr-1"></i> --}}
-                            Welcome
+                             Mercy petition system
+                          </h4>
+                          <h4 class="text-dark-tp4 border-b-1 brc-secondary-l2 pb-1 text-130" style=" text-align: center;">
+                            <i class="fa fa-key text-blue-m1 mr-1"></i>
+                             Login
                           </h4>
                         </div>
 
@@ -311,7 +315,7 @@
                               Remember me
                             </label> --}}
 
-                            <button type="Submit" class="btn btn-primary btn-block px-4 btn-bold mt-2 mb-4">
+                            <button type="Submit" class="btn btn-danger btn-block px-4 btn-bold mt-2 mb-4">
                               Login
                             </button>
                           </div>
