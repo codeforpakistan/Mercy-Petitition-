@@ -271,14 +271,8 @@
                                             </div>
                                 </td>
                             </tr>
-{{--
-                                                            <a href="{{ route('petition-forward', [$petion->id]) }}" data
-                                                                class=" dropdown-item mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
-                                                                Forward <i class="fa fa-forward"></i>
-                                                            </a>
-                                                        </div>
-                                            </td>
-                                        </tr> --}}
+
+
 
                                     </tbody>
                                 @endforeach

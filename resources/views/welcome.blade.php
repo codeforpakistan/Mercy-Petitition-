@@ -124,7 +124,9 @@
             </div>
         @endcan
     </div>
+
     <div class="row px-2 mt-3">
+
 <div class="col-12 col-sm-6 col-lg-4 px-2 mb-2 mb-lg-0">
         <div class="bcard h-100 d-flex align-items-center p-3">
 
@@ -133,7 +135,7 @@
                     <i class="fas fa-cog text-white text-170 w-4 h-4"></i>
                 </span>
             </div>
-
+            <a href="{{route('inprocess')}}">
             <div class="ml-3 flex-grow-1">
                 <div>
                     <span class="text-dark-tp3 text-180">{{$Inprocess}}</span>
@@ -146,7 +148,7 @@
             <div class="mr-auto">
                 <canvas id="infobox-chart1" style="width: 70px;"></canvas>
             </div>
-
+        </a>
             <div class="position-tr m-1">
                 <!-- the dropdown used in some boxes (cards) -->
 

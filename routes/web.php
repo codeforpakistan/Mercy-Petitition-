@@ -28,6 +28,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/Accepted', 'HomeController@accepted')->name('accepted');
 Route::get('/Rejected', 'HomeController@rejected')->name('rejected');
 Route::get('remarks/{id}', 'HomeController@view')->name('remarksview');
+Route::get('inprocess', 'HomeController@inprocess')->name('inprocess');
 Route::get('/homeremarks', 'HomeDepartmentController@remarksfrominterior')->name('remarksfrominterior');
 Route::get('/homesearch', 'HomeDepartmentController@homesearch')->name('homesearch');
 Route::get('/homeinteriorsearch', 'HomeDepartmentController@homeinteriorsearch')->name('homeinteriorsearch');
