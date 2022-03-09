@@ -74,11 +74,7 @@
                                             @endforeach
                                         @endif
                                     </td>
-                                    @if($user->provinces)
                                     <td>{{ $user->provinces->province_name }}</td>
-                                    @else
-                                    <td></td>
-                                    @endif
                                     <td>{{ $user->confined_in_jail }}</td>
 
 

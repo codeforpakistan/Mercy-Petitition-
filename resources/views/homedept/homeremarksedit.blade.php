@@ -64,7 +64,26 @@
                         <label for="email" class="mb-0">Otherdocuments</label>
                     </div>
                     <div class="col-sm-4">
-                     
+                        {{-- @foreach ($homepititions->homefileattachements as $petitionfile)
+                            @if ($petitionfile->type == 'pdf')
+                                <a style='height:100px;width:100px;margin-right:15px;' target='_blank'
+                                    data-lightbox='example-1' href="{{ asset('/assets/image/' . $petitionfile->file) }}"> <img
+                                        class='example-image' alt='image-1'
+                                        style='height:100px;width:100px;margin-right:15px;'
+                                        src="{{ asset('/assets/image/pdf.png') }}" width="50" height="50" margin-righ="5%"
+                                        alt="pic" /> </a>
+                            @else
+                                <a target='_blank' data-lightbox='example-1'
+                                    href="{{ asset('/assets/image/' . $petitionfile->file) }}"> <img class='example-image'
+                                        alt='image-1' style='height:100px;width:100px;margin-right:15px;'
+                                        src="{{ asset('/assets/image/' . $petitionfile->file) }}" width="50" height="50"
+                                        margin-righ="5%" alt="pic" /> </a>
+                            @endif
+
+
+
+
+                        @endforeach --}}
                         <input type="file" class="ace-file-input" name="otherdocument[]" id="ace-file-input2" multiple=""
                             accept=".pdf,.png,.jpeg,.jpg">
 
