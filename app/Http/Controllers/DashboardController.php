@@ -49,26 +49,26 @@ class DashboardController extends Controller
 
     }
     $dd=Auth::user()->getRoleNames()['0'];
-    $role = Role::where('name',$dd)->first();
+    $role=Role::where('name',$dd)->first();
  
 
   
    if($role->name == 'Admin'){
-   
+    
     $Inprocess = Petition::where('province_id', '=', Auth::user()->province_id)->orWhere('status', 'pending')->orderBy("id", "desc")->count();
    }
-  elseif($role->name == 'jail-supt'){
-
+  elseif($role->name == 'Jail-Supt'){
+  
         $Inprocess = Petition::where('user_id', '=', Auth::user()->id)->where('province_id', '=', Auth::user()->province_id)->Where('file_in_department', 'HomeDepartment')->orderBy("id", "desc")->count();
    }
    
-  elseif($role->name =='Homedept'){
+  elseif($role->name =='Homedpt'){
     
     $Inprocess = Petition::where('user_id', '=', Auth::user()->id)->where('province_id', '=', Auth::user()->province_id)->Where('file_in_department', 'InteriorMinistry')->orderBy("id", "desc")->count();
    }
    else{
- 
-    $Inprocess = Petition::where('user_id', '=', Auth::user()->id)->Where('file_in_department', 'HumanRightDeparment')->orderBy("id", "desc")->count();
+    
+    $Inprocess = Petition::where('user_id', '=', Auth::user()->id)->where('province_id', '=', Auth::user()->province_id)->Where('file_in_department', 'HumanRightDeparment')->orderBy("id", "desc")->count();
    }
         $HomeDepartment = Petition::where('province_id', '=', Auth::user()->province_id)->Where('file_in_department', 'HomeDepartment')->orderBy("id", "desc")->get()->count();
         $InteriorMinistryDepartment = Petition::Where('file_in_department', 'InteriorMinistry')->orderBy("id", "desc")->get()->count();

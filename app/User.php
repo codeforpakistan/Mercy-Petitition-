@@ -52,7 +52,6 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Province::class,"province_id");
     }
-    
 
    
 }

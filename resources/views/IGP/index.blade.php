@@ -273,6 +273,16 @@
                             </tr>
 
 
+<<<<<<< HEAD
+=======
+                                                            <a href="{{ route('petition-forward', [$petion->id]) }}"
+                                                                class=" dropdown-item mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
+                                                                Forward <i class="fa fa-forward"></i>
+                                                            </a>
+                                                        </div>
+                                            </td>
+                                        </tr>
+>>>>>>> parent of 9518a71... final changes
 
                                     </tbody>
                                 @endforeach
@@ -763,12 +773,20 @@
                                                                                     class="form-row text-center">
                                                                                     <div class="form-group col-md-6">
 
+<<<<<<< HEAD
                                                                                      <span id="forward"></span>
                                                                                         {{-- <a href="{{ url('petition-forward', [$petion->id]) }}"
                                                                                             class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
                                                                                             Forward <i
                                                                                                 class="fa fa-forward"></i>
                                                                                         </a> --}}
+=======
+                                                                                        <a href="{{ route('petition-forward', [$petion->id]) }}"
+                                                                                            class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
+                                                                                            Forward <i
+                                                                                                class="fa fa-forward"></i>
+                                                                                        </a>
+>>>>>>> parent of 9518a71... final changes
 
                                                                                     </div>
                                                                                     <div class="form-group col-md-6">
