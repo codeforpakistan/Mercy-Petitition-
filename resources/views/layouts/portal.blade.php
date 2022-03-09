@@ -50,26 +50,19 @@
     .b-container {
         background-image: linear-gradient(#10073d, #10073d);
         background-attachment: fixed;
-
-
         background-repeat: no-repeat;
     }
-
     .b-containers {
         background-image: linear-gradient(#800000, #db1717);
         background-attachment: fixed;
         opacity: 16px;
-
         background-repeat: no-repeat;
-
     }
-
     .right-column {
         padding: 10px;
         padding-left: 50px;
         background: white;
     }
-
 </style>
 
 <body>
@@ -189,7 +182,7 @@
 
                             <div class="navbar-nav">
                                 <ul class="nav has-active-border">
-                                    {{-- <li class="nav-item dropdown dropdown-mega">
+                                    <li class="nav-item dropdown dropdown-mega">
                                         <a class="nav-link dropdown-toggle mr-1px text-white" data-toggle="dropdown"
                                             href="#" role="button" aria-haspopup="true" aria-expanded="false">
                                             <i class="fa fa-list-alt mr-2 d-lg-none"></i>
@@ -237,53 +230,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </li> --}}
-                                    <li class="nav-item dropdown order-first order-lg-last">
-                                        <a class="nav-link dropdown-toggle mr-1px text-white" data-toggle="dropdown"
-                                        href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fa fa-list-alt mr-2 d-lg-none"></i>
-                                        @auth
-                                            <img class="mr-2 radius-round border-2 brc-primary-tp3 p-1px"
-                                                src="{{ Auth::user()->picture ?? asset('..\assets\image\avatar\avatar4.png') }}"
-                                                width="36" alt="Natalie's Photo">
-                                            {{ Auth::user()->name }}
-                                        @endauth
-                                        <i class="caret fa fa-angle-down d-none d-lg-block"></i>
-                                        <i class="caret fa fa-angle-left d-block d-lg-none"></i>
-                                    </a>
-
-                                        <div class="dropdown-menu dropdown-caret dropdown-menu-right dropdown-animated brc-secondary-l1 py-1">
-
-
-                                          <a href="{{ route('portal.users.profile', [Auth::user()->id]) }}" class="mt-1 dropdown-item btn btn-outline-grey btn-h-lighter-primary btn-h-bold btn-a-light-primary">
-                                            <i class="far fa-user text-primary-m1 text-105 mr-1 w-2"></i>
-                                            Profile
-                                          </a>
-
-                                          <a href="{{ route('portal.users.password') }}" class="dropdown-item btn btn-outline-grey btn-h-lighter-success btn-h-bold btn-a-light-success"  >
-                                            <i class="fa fa-sliders-h text-success-m1 text-105 mr-1 w-2"></i>
-                                            Password
-                                          </a>
-
-                                          <div class="dropdown-divider brc-secondary-l2"></div>
-
-                                          <a href="{{ route('logout') }}" class="dropdown-item btn btn-outline-grey btn-h-lighter-orange btn-h-bold btn-a-light-orange" >
-                                            <i class="fa fa-power-off text-orange text-105 mr-1 w-2"></i>
-                                            Logout
-                                          </a>
-{{--
-                                          <form id="logout-form" action="{{ route('logout') }}"
-                                          method="POST" class="d-inline-block">
-                                          @csrf
-                                          <button type="submit"
-                                              class="mx-2px btn btn-sm btn-app btn-dark radius-1">
-                                              <i
-                                                  class="fa fa-sign-out-alt text-100 d-block mb-2 h-4"></i>
-                                              Logout
-                                          </button>
-                                      </form> --}}
-                                        </div>
-                                      </li>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -363,28 +310,22 @@
     <script src="{{ asset('assets\npm\bootstrap-wysiwyg@2.0.1\js\bootstrap-wysiwyg.min.js') }}"></script>
     <script>
         $('#ace-file-input1').aceFileInput({
-
             // btnChooseClass: 'bgc-grey-l2 pt-15 px-2 my-1px mr-1px',
             // btnChooseText: 'SELEC',
             placeholderText: 'Application Attachment',
             // placeholderIcon: '<i class="fa fa-file bgc-warning-m1 text-white w-4 py-2 text-center"></i>'
-
         })
         $('#ace-file-input22').aceFileInput({
-
             // btnChooseClass: 'bgc-grey-l2 pt-15 px-2 my-1px mr-1px',
             // btnChooseText: 'SELECT FILE',
             placeholderText: 'Health Report Attachment',
             // placeholderIcon: '<i class="fa fa-file bgc-warning-m1 text-white w-4 py-2 text-center"></i>'
-
         })
         $('#ace-file-input12').aceFileInput({
-
             // btnChooseClass: 'bgc-grey-l2 pt-15 px-2 my-1px mr-1px',
             // btnChooseText: 'SELECT FILE',
             placeholderText: 'Prisoner Image',
             // placeholderIcon: '<i class="fa fa-file bgc-warning-m1 text-white w-4 py-2 text-center"></i>'
-
         })
         $('#ace-file-input13').aceFileInput({
             placeholderText: 'Warrent File Attachment',
@@ -407,28 +348,21 @@
         $('#ace-file-input2').aceFileInput({
                 style: 'drop',
                 droppable: true,
-
                 container: 'border-1 border-dashed brc-grey-l1 brc-h-info-m2 shadow-sm',
-
                 placeholderClass: 'text-125 text-600 text-grey-l1 my-2',
                 placeholderText: 'Drop multiple file',
                 placeholderIcon: '<i class="fa fa-cloud-upload-alt fa-3x text-info-m2 my-2"></i>',
-
                 //previewSize: 64,
                 thumbnail: 'large',
-
                 allowExt: 'gif|jpg|jpeg|png|webp|svg|pdf',
                 //allowMime: 'image/png|image/jpeg|pdf',
                 //  allowMime: 'image/pdf/*',
-
                 //maxSize: 100000,
             })
             .on('change', function() {
                 // get dropped/selected files
-
                 // console.log( $(this).data('ace_input_files') )
                 // console.log( $(this).data('ace_input_method') )
-
                 // or
                 // console.log( $(this).aceFileInput('files') )
                 // console.log( $(this).aceFileInput('method') )
@@ -443,16 +377,12 @@
             .on('reset.ace.file', function(e) {
                 // e.preventDefault()
             })
-
         // some available methods
-
         // $('#ace-file-input2').aceFileInput('disable')
         // $('#ace-file-input2').aceFileInput('startLoading')
-
         // $('#ace-file-input2').aceFileInput('showFileList', [{name: 'avatar3.jpg', type: 'image', path: 'assets/image/avatar/avatar3.jpg'} , {name: 'avatar2.jpg', type: 'image', path: 'assets/image/avatar/avatar2.jpg'}])
         // $('#ace-file-input1').aceFileInput('showFileList', [{name: '2.txt', type: 'document'}])
         // $('#ace-file-input1').aceFileInput('resetInput');
-
         $.extend($.summernote.options.icons, {
             'align': 'fa fa-align',
             'alignCenter': 'fa fa-align-center',
@@ -492,9 +422,7 @@
             'unorderedlist': 'fa fa-list-ul text-blue',
             'video': 'far fa-file-video text-pink-m1'
         })
-
         $('#summernote').summernote({
-
             height: 250,
             minHeight: 150,
             maxHeight: 400
@@ -507,17 +435,13 @@
                     mode: 'dp-below',
                 })
                 .on('statechange', function(ev) {
-
                 })
-
             // modal one
             TinyDatePicker('#id-date-2', {
                 mode: 'dp-modal',
             }).on('statechange', function(ev) {
                 // console.log(ev);
             })
-
-
             // third one
             // on mobile devices show native datepicker
             if ('ontouchstart' in window && window.matchMedia('(max-width: 600px)')) {
@@ -527,7 +451,6 @@
                     mode: 'dp-modal',
                 })
             }
-
             //////
             // date range picker example
             var daterange_container = document.querySelector('#id-daterange-container')
@@ -541,11 +464,9 @@
                     $('#id-daterange-from').val(range.start ? range.start.toDateString() : '')
                     $('#id-daterange-to').val(range.end ? range.end.toDateString() : '')
                 })
-
             $('#id-daterange-from, #id-daterange-to').on('focus', function() {
                 daterange_container.classList.add('visible')
             })
-
             var daterange_wrapper = document.querySelector('#id-daterange-wrapper')
             var previousTimeout = null;
             $(daterange_wrapper).on('focusout', function() {
@@ -556,34 +477,26 @@
                     }
                 }, 10)
             })
-
-
         })
     </script>
     <script type=text/javascript>
         $(document).ready(function() {
-
             $('body').on('click', '#humanrightview-user', function(event) {
                 event.preventDefault();
-
-
                 //  $("#getData").click(function() {
-
                 //     var get = $(this).val();
                 //     alert(get);
                 var id = $(this).data('id');
-
                 $.ajax({ //create an ajax request to display.php
-
                     type: "GET",
                     url: "{{ url('humanrightview') }}/" + id,
                     datatype: 'json',
-
                     success: function(data) {
-
-
-
-
+                        $("#forward").empty();
+                        $('#forward').append(
+                                    "<a class='mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white' style='margin-right:15px;'    href='{{ url('interior-forward/') }}/" +
+                                    id + "'>" + ' Forward <i class="fa fa-forward"></i>'+
+                                                                 '</a>');
                         $('#firstname').text(data.petitions.name);
                         $('#Fathername').text(data.petitions.f_name);
                         $('#Nationality').text(data.petitions.nationality);
@@ -600,17 +513,12 @@
                         $('#sentence_in_court').text(data.petitions.sentence_in_court);
                         $('#date_of_sentence').text(data.petitions.date_of_sentence);
                         $('#warrent_information').text(data.petitions.warrent_information);
-
-
                         $("#pic").empty();
                         $("#picss").empty();
                         $.each(data.petitions.fileattachements, function(key, val) {
                             var fil = val.file
-
-
                             //  alert(val.file);
                             if (val.type == 'pdf') {
-
                                 // alert(val.type=='pdf');
                                 // $("#picss").empty();
                                 // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
@@ -626,13 +534,8 @@
                                     val.file + "'>" + '</a>');
                             }
                         });
-
-
-
-
                         $("#application_images").empty();
                         $("#application_image").empty();
-
                         var ap = data.petitions.application_image;
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
@@ -661,10 +564,8 @@
                                 data.petitions.health_paper + " '>" +
                                 "<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/" +
                                 data.petitions.health_paper + "'>" + '</a>');
-
                             // $('#health_paper').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.health_paper+"'>");
                         }
-
                         $("#warrent_files").empty();
                         $("#warrent_file").empty();
                         var ap = data.petitions.warrent_file;
@@ -679,32 +580,23 @@
                                 data.petitions.warrent_file + " '>" +
                                 "<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/" +
                                 data.petitions.warrent_file + "'>" + '</a>');
-
                             // $('#warrent_file').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.warrent_file+"'>");
                         }
                         //  $('#Prisonerimage').html("<img style='height:100px;width:100px;border-radius:50px;' src=' {{ url('/assets/image/') }}/"+data.prisoner_image+"'>");
-
                         $("#Prisonerimage").empty();
                         $('#Prisonerimage').html(
                             "<a target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
                             data.petitions.prisoner_image + " '>" +
                             "<img  class='example-image' alt='image-1'  style='height:100px;width:100px;border-radius:50px' src='{{ url('/assets/image/') }}/" +
                             data.petitions.prisoner_image + "'>" + '</a>');
-
-
                         // home department file
                         $('#homeremarks').text(data.homepititions.remarks);
-
                         $("#homefilepdf").empty();
                         $("#homepic").empty();
-
                         $.each(data.homepititions.homefileattachements, function(key, val) {
                             var fil = val.file
-
-
                             //  alert(val.file);
                             if (val.type == 'pdf') {
-
                                 // alert(val.type=='pdf');
                                 // $("#picss").empty();
                                 // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
@@ -719,10 +611,7 @@
                                     "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
                                     val.file + "'>" + '</a>');
                             }
-
-
                         });
-
                         // interior ministry data show
                         $('#interiorremarks').text(data.interiorpititions.remarks);
                         $("#interiorfilepdf").empty();
@@ -730,11 +619,8 @@
                         $.each(data.interiorpititions.interiorfileattachements, function(key,
                             val) {
                             var fil = val.file
-
-
                             //  alert(val.file);
                             if (val.type == 'pdf') {
-
                                 // alert(val.type=='pdf');
                                 // $("#picss").empty();
                                 // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
@@ -749,43 +635,38 @@
                                     "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
                                     val.file + "'>" + '</a>');
                             }
-
-
                         });
-
-
-
                     }
-
-
-
-
                 });
-
             });
         });
     </script>
 
     <script type=text/javascript>
         $(document).ready(function() {
-
             $('body').on('click', '#interiorshow-user', function(event) {
                 event.preventDefault();
-
                 //  alert( $(this).data('id'));
                 //  $("#getData").click(function() {
-
                 //     var get = $(this).val();
                 //     alert(get);
                 var id = $(this).data('id');
                 $.ajax({ //create an ajax request to display.php
-
                     type: "GET",
                     url: "{{ url('Interiorview') }}/" + id,
                     datatype: 'json',
-
                     success: function(data)
                     {
+                        $("#interiorforward").empty();
+                        $('#interiorforward').append(
+                                    "<a class='mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white' style='margin-right:15px;'    href='{{ url('interiorforward/') }}/" +
+                                    id + "'>" + ' Decision/forward <i class="fa fa-forward"></i>'+
+                                                                 '</a>');
+                                 $("#humangrightback").empty();
+                                 $('#humangrightback').append(
+                                    "<a class='mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white' style='margin-right:15px;'    href='{{ url('humangrightback/') }}/" +
+                                    id + "'>" + ' Decision/forward <i class="fa fa-forward"></i>'+
+                                                                 '</a>');
                         $('#firstname').text(data.petitions.name);
                         $('#Fathername').text(data.petitions.f_name);
                         $('#Nationality').text(data.petitions.nationality);
@@ -802,17 +683,12 @@
                         $('#sentence_in_court').text(data.petitions.sentence_in_court);
                         $('#date_of_sentence').text(data.petitions.date_of_sentence);
                         $('#warrent_information').text(data.petitions.warrent_information);
-
-
                         $("#pic").empty();
                         $("#picss").empty();
                         $.each(data.petitions.fileattachements, function(key, val) {
                             var fil = val.file
-
-
                             //  alert(val.file);
                             if (val.type == 'pdf') {
-
                                 // alert(val.type=='pdf');
                                 // $("#picss").empty();
                                 // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
@@ -828,10 +704,8 @@
                                     val.file + "'>" + '</a>');
                             }
                         });
-
                         $("#application_images").empty();
                         $("#application_image").empty();
-
                         var ap = data.petitions.application_image;
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
@@ -860,7 +734,6 @@
                                 data.petitions.health_paper + " '>" +
                                 "<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/" +
                                 data.petitions.health_paper + "'>" + '</a>');
-
                             // $('#health_paper').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.health_paper+"'>");
                         }
                         $("#warrent_files").empty();
@@ -877,19 +750,15 @@
                                 data.petitions.warrent_file + " '>" +
                                 "<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/" +
                                 data.petitions.warrent_file + "'>" + '</a>');
-
                             // $('#warrent_file').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.warrent_file+"'>");
                         }
                         //  $('#Prisonerimage').html("<img style='height:100px;width:100px;border-radius:50px;' src=' {{ url('/assets/image/') }}/"+data.prisoner_image+"'>");
-
                         $("#Prisonerimage").empty();
                         $('#Prisonerimage').html(
                             "<a target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
                             data.petitions.prisoner_image + " '>" +
                             "<img  class='example-image' alt='image-1'  style='height:100px;width:100px;border-radius:50px' src='{{ url('/assets/image/') }}/" +
                             data.petitions.prisoner_image + "'>" + '</a>');
-
-
                         // home department file
                         $("#homefilepdf").empty();
                         $("#homepic").empty();
@@ -898,18 +767,9 @@
                        }else{
                         $(".homeDoc").removeClass('d-none');
                          $('#homeremarks').text(data.homepititions.remarks);
-
-
                         $.each(data.homepititions.homefileattachements, function(key, val) {
                             var fil = val.file
-
-
-
-
-
-
                             if (val.type == 'pdf') {
-
                                 // alert(val.type=='pdf');
                                 // $("#picss").empty();
                                 // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
@@ -924,59 +784,46 @@
                                     "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
                                     val.file + "'>" + '</a>');
                             }
-
                         });
                        }
                        if( data.homepititions.remarks == ""){
                         $(".homeremarks").addClass('d-none');
                        }else{
                         $(".homeremarks").removeClass('d-none');
-                         $('#homeremarks').text(data.homepititions.remarks);
+                        //  $('#homeremarks').text(data.homepititions.remarks);
                        }
                        if( data.homepititions.homefileattachements == ""){
                         $(".homefile").addClass('d-none');
                        }else
                        {
                         $(".homefile").removeClass('d-none');
-                       $.each(data.homepititions.homefileattachements, function(key, val) {
-                            var fil = val.file
-
-
-
-
-
-
-                            if (val.type == 'pdf') {
-
-                                // alert(val.type=='pdf');
-                                // $("#picss").empty();
-                                // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
-                                $('#homefilepdf').append(
-                                    "<a  style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                    val.file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
-                            } else {
-                                // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
-                                $('#homepic').append(
-                                    "<a  target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
-                                    val.file + " '>" +
-                                    "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
-                                    val.file + "'>" + '</a>');
-                            }
-
-                        });
+                    //    $.each(data.homepititions.homefileattachements, function(key, val) {
+                    //         var fil = val.file
+                    //         if (val.type == 'pdf') {
+                    //             // alert(val.type=='pdf');
+                    //             // $("#picss").empty();
+                    //             // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
+                    //             $('#homefilepdf').append(
+                    //                 "<a  style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
+                    //                 val.file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
+                    //         } else {
+                    //             // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
+                    //             $('#homepic').append(
+                    //                 "<a  target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
+                    //                 val.file + " '>" +
+                    //                 "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
+                    //                 val.file + "'>" + '</a>');
+                    //         }
+                    //     });
                     }
                         // $("#homefilepdf").empty();
                         // $("#homepic").empty();
-
                         // //HomeDepartment
                         // $('#homeremarks').text(data.homepititions.remarks);
                         // $.each(data.homepititions.homefileattachements, function(key, val) {
                         //     var fil = val.file
-
-
                         //     //  alert(val.file);
                         //     if (val.type == 'pdf') {
-
                         //         // alert(val.type=='pdf');
                         //         // $("#picss").empty();
                         //         // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
@@ -992,9 +839,6 @@
                         //             val.file + "'>" + '</a>');
                         //     }
                         // });
-
-
-
                         //interior mintry
                         // $('#interiorremarks').text(data.interiorpititions.remarks);
                         // $("#interiorfilepdf").empty();
@@ -1002,11 +846,8 @@
                         // $.each(data.interiorpititions.interiorfileattachements, function(key,
                         //     val) {
                         //     var fil = val.file
-
-
                         //     //  alert(val.file);
                         //     if (val.type == 'pdf') {
-
                         //         // alert(val.type=='pdf');
                         //         // $("#picss").empty();
                         //         // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
@@ -1021,25 +862,19 @@
                         //             "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
                         //             val.file + "'>" + '</a>');
                         //     }
-
-
                         // });
                         if( data.interiorpititions == null){
                                 $(".interiorDoc").addClass('d-none');
                         }else{
                             $(".interiorDoc").removeClass('d-none');
-
                             $('#interiorremarks').text(data.interiorpititions.remarks);
                         $("#interiorfilepdf").empty();
                         $("#interiorpic").empty();
                         $.each(data.interiorpititions.interiorfileattachements, function(key,
                             val) {
                             var fil = val.file
-
-
                             //  alert(val.file);
                             if (val.type == 'pdf') {
-
                                 // alert(val.type=='pdf');
                                 // $("#picss").empty();
                                 // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
@@ -1054,46 +889,38 @@
                                     "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
                                     val.file + "'>" + '</a>');
                             }
-
-
                         });
                         }
-
                         if( data.interiorpititions.remarks == ""){
                             $(".interiorremarks").addClass('d-none');
                         }else{
                             $(".interiorremarks").removeClass('d-none');
-                            $('#interiorremarks').text(data.interiorpititions.remarks);
+                            // $('#interiorremarks').text(data.interiorpititions.remarks);
                         }
                          if( data.interiorpititions.interiorfileattachements == ""){
                             $(".interiorfile").addClass('d-none');
                         }else{
                             $(".interiorfile").removeClass('d-none');
-                            $.each(data.interiorpititions.interiorfileattachements, function(key,
-                            val) {
-                            var fil = val.file
-
-
-                            //  alert(val.file);
-                            if (val.type == 'pdf') {
-
-                                // alert(val.type=='pdf');
-                                // $("#picss").empty();
-                                // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
-                                $('#interiorfilepdf').append(
-                                    "<a  style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                    val.file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
-                            } else {
-                                // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
-                                $('#interiorpic').append(
-                                    "<a  target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
-                                    val.file + " '>" +
-                                    "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
-                                    val.file + "'>" + '</a>');
-                            }
-
-
-                        });
+                        //     $.each(data.interiorpititions.interiorfileattachements, function(key,
+                        //     val) {
+                        //     var fil = val.file
+                        //     //  alert(val.file);
+                        //     if (val.type == 'pdf') {
+                        //         // alert(val.type=='pdf');
+                        //         // $("#picss").empty();
+                        //         // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
+                        //         $('#interiorfilepdf').append(
+                        //             "<a  style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
+                        //             val.file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
+                        //     } else {
+                        //         // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
+                        //         $('#interiorpic').append(
+                        //             "<a  target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
+                        //             val.file + " '>" +
+                        //             "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
+                        //             val.file + "'>" + '</a>');
+                        //     }
+                        // });
                         }
                         //Human right department
                         // $('#humanrightremarks').text(data.humanrightpittions.remarks);
@@ -1102,11 +929,8 @@
                         // $.each(data.humanrightpittions.humanrightfileattachements, function(key,
                         //     val) {
                         //     var fil = val.file
-
-
                         //     //  alert(val.file);
                         //     if (val.type == 'pdf') {
-
                         //         // alert(val.type=='pdf');
                         //         // $("#picss").empty();
                         //         // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
@@ -1121,25 +945,19 @@
                         //             "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
                         //             val.file + "'>" + '</a>');
                         //     }
-
-
                         // });
                         if( data.humanrightpittions == null){
                                 $(".humanDoc").addClass('d-none');
                             }else{
                                 $(".humanDoc").removeClass('d-none');
-
                         $('#humanrightremarks').text(data.humanrightpittions.remarks);
                         $("#humanrightfilepdf").empty();
                         $("#humanrightpic").empty();
                         $.each(data.humanrightpittions.humanrightfileattachements, function(key,
                             val) {
                             var fil = val.file
-
-
                             //  alert(val.file);
                             if (val.type == 'pdf') {
-
                                 // alert(val.type=='pdf');
                                 // $("#picss").empty();
                                 // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
@@ -1154,87 +972,73 @@
                                     "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
                                     val.file + "'>" + '</a>');
                             }
-
-
                         });
                             }
-
                             if( data.humanrightpittions.remarks == ""){
                             $(".humanremarks").addClass('d-none');
                         }else{
                             $(".humanremarks").removeClass('d-none');
-                            $('#humanrightremarks').text(data.humanrightpittions.remarks);
+                            // $('#humanrightremarks').text(data.humanrightpittions.remarks);
                         }
                         if(data.humanrightpittions.humanrightfileattachements==""){
                             $(".humanfile").addClass('d-none');
                         }else{
                             $(".humanfile").removeClass('d-none');
-                            $.each(data.humanrightpittions.humanrightfileattachements, function(key,
-                            val) {
-                            var fil = val.file
-
-
-                            //  alert(val.file);
-                            if (val.type == 'pdf') {
-
-                                // alert(val.type=='pdf');
-                                // $("#picss").empty();
-                                // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
-                                $('#humanrightfilepdf').append(
-                                    "<a  style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                    val.file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
-                            } else {
-                                // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
-                                $('#humanrightpic').append(
-                                    "<a  target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
-                                    val.file + " '>" +
-                                    "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
-                                    val.file + "'>" + '</a>');
-                            }
-
-
-                        });
-
+                        //     $.each(data.humanrightpittions.humanrightfileattachements, function(key,
+                        //     val) {
+                        //     var fil = val.file
+                        //     //  alert(val.file);
+                        //     if (val.type == 'pdf') {
+                        //         // alert(val.type=='pdf');
+                        //         // $("#picss").empty();
+                        //         // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
+                        //         $('#humanrightfilepdf').append(
+                        //             "<a  style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
+                        //             val.file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
+                        //     } else {
+                        //         // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
+                        //         $('#humanrightpic').append(
+                        //             "<a  target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
+                        //             val.file + " '>" +
+                        //             "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
+                        //             val.file + "'>" + '</a>');
+                        //     }
+                        // });
                         }
-
-
-
-
-
-
-
-
                     }
-
                 });
-
             });
         });
     </script>
     <script type=text/javascript>
         $(document).ready(function() {
-
             $('body').on('click', '#remarksview', function(event) {
                 event.preventDefault();
-
                 //  alert( $(this).data('id'));
                 //  $("#getData").click(function() {
-
                 //     var get = $(this).val();
                 //     alert(get);
                 var id = $(this).data('id');
-
                 $.ajax({ //create an ajax request to display.php
-
                     type: "GET",
                     url: "{{ url('remarks') }}/" + id,
                     datatype: 'json',
-
                     success: function(data) {
-
-
-
-
+                        $("#homeremarksedit").empty();
+                        $('#homeremarksedit').append(
+                                    "<a class='mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white' style='margin-right:15px;'    href='{{ url('homeremarksedit/') }}/" +
+                                    id + "'>" + ' Forward <i class="fa fa-forward"></i>'+
+                                                                 '</a>');
+                        $("#petitionrmarksedit").empty();
+                        $('#petitionrmarksedit').append(
+                                    "<a class='mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white' style='margin-right:15px;'    href='{{ url('petitionrmarksedit/') }}/" +
+                                    id + "'>" + ' Forward <i class="fa fa-forward"></i>'+
+                                                                 '</a>');
+                        $("#forward").empty();
+                        $('#forward').append(
+                                    "<a class='mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white' style='margin-right:15px;'    href='{{ url('petitionforward/') }}/" +
+                                    id + "'>" + ' Forward <i class="fa fa-forward"></i>'+
+                                                                 '</a>');
                         $('#firstname').text(data.petitions.name);
                         $('#Fathername').text(data.petitions.f_name);
                         $('#Nationality').text(data.petitions.nationality);
@@ -1251,15 +1055,11 @@
                         $('#sentence_in_court').text(data.petitions.sentence_in_court);
                         $('#date_of_sentence').text(data.petitions.date_of_sentence);
                         $('#warrent_information').text(data.petitions.warrent_information);
-
                         $("#pic").empty();
                         $("#picss").empty();
                         $.each(data.petitions.fileattachements, function(key, val) {
                             var fil = val.file
-
-
                                 if (val.type == 'pdf') {
-
 // alert(val.type=='pdf');
 // $("#picss").empty();
 // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
@@ -1274,18 +1074,11 @@
                             "<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/') }}/" +
                             val.file + "'>" + '</a>');
 }
-
-
-
                             //  alert(val.file);
-
                         });
-
                         $("#application_images").empty();
                         $("#application_image").empty();
-
                         var ap = data.petitions.application_image;
-
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
                             $('#application_images').append(
@@ -1313,7 +1106,6 @@
                                 data.petitions.health_paper + " '>" +
                                 "<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/" +
                                 data.petitions.health_paper + "'>" + '</a>');
-
                             // $('#health_paper').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.health_paper+"'>");
                         }
                         $("#warrent_files").empty();
@@ -1330,7 +1122,6 @@
                                 data.petitions.warrent_file + " '>" +
                                 "<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/" +
                                 data.petitions.warrent_file + "'>" + '</a>');
-
                             // $('#warrent_file').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.warrent_file+"'>");
                         }
                         //  $('#Prisonerimage').html("<img style='height:100px;width:100px;border-radius:50px;' src=' {{ url('/assets/image/') }}/"+data.prisoner_image+"'>");
@@ -1340,26 +1131,16 @@
                             data.petitions.prisoner_image + " '>" +
                             "<img  class='example-image' alt='image-1'  style='height:100px;width:100px;border-radius:50px' src='{{ url('/assets/image/') }}/" +
                             data.petitions.prisoner_image + "'>" + '</a>');
-
-                            $("#homefilepdf").empty();
+                         $("#homefilepdf").empty();
                         $("#homepic").empty();
                        if( data.homepititions == null){
                         $(".homeDoc").addClass('d-none');
                        }else{
                         $(".homeDoc").removeClass('d-none');
                          $('#homeremarks').text(data.homepititions.remarks);
-
-
                         $.each(data.homepititions.homefileattachements, function(key, val) {
                             var fil = val.file
-
-
-
-
-
-
                             if (val.type == 'pdf') {
-
                                 // alert(val.type=='pdf');
                                 // $("#picss").empty();
                                 // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
@@ -1374,68 +1155,51 @@
                                     "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
                                     val.file + "'>" + '</a>');
                             }
-
                         });
                         if( data.homepititions.remarks == ""){
                         $(".homeremarks").addClass('d-none');
                        }else{
                         $(".homeremarks").removeClass('d-none');
-                         $('#homeremarks').text(data.homepititions.remarks);
+                        //  $('#homeremarks').text(data.homepititions.remarks);
                        }
                        if( data.homepititions.homefileattachements == ""){
                         $(".homefile").addClass('d-none');
                        }else
                        {
                         $(".homefile").removeClass('d-none');
-                       $.each(data.homepititions.homefileattachements, function(key, val) {
-                            var fil = val.file
-
-
-
-
-
-
-                            if (val.type == 'pdf') {
-
-                                // alert(val.type=='pdf');
-                                // $("#picss").empty();
-                                // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
-                                $('#homefilepdf').append(
-                                    "<a  style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                    val.file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
-                            } else {
-                                // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
-                                $('#homepic').append(
-                                    "<a  target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
-                                    val.file + " '>" +
-                                    "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
-                                    val.file + "'>" + '</a>');
-                            }
-
-                        });
+                    //    $.each(data.homepititions.homefileattachements, function(key, val) {
+                    //         var fil = val.file
+                    //         if (val.type == 'pdf') {
+                    //             // alert(val.type=='pdf');
+                    //             // $("#picss").empty();
+                    //             // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
+                    //             $('#homefilepdf').append(
+                    //                 "<a  style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
+                    //                 val.file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
+                    //         } else {
+                    //             // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
+                    //             $('#homepic').append(
+                    //                 "<a  target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
+                    //                 val.file + " '>" +
+                    //                 "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
+                    //                 val.file + "'>" + '</a>');
+                    //         }
+                    //     });
                     }
                        }
-
-
                         // interior file
                         $("#interiorfilepdf").empty();
                         $("#interiorpic").empty();
-
                         if( data.interiorpititions == null){
                          $(".interiorDoc").addClass('d-none');
                         }else{
                             $(".interiorDoc").removeClass('d-none');
-
                             $('#interiorremarks').text(data.interiorpititions.remarks);
-
                         $.each(data.interiorpititions.interiorfileattachements, function(key,
                             val) {
                             var fil = val.file
-
-
                             //  alert(val.file);
                             if (val.type == 'pdf') {
-
                                 // alert(val.type=='pdf');
                                 // $("#picss").empty();
                                 // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
@@ -1450,67 +1214,51 @@
                                     "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
                                     val.file + "'>" + '</a>');
                             }
-
-
                         });
                         if( data.interiorpititions.remarks == ""){
                             $(".interiorremarks").addClass('d-none');
                         }else{
                             $(".interiorremarks").removeClass('d-none');
-                            $('#interiorremarks').text(data.interiorpititions.remarks);
+                            // $('#interiorremarks').text(data.interiorpititions.remarks);
                         }
-
                          if( data.interiorpititions.interiorfileattachements == ""){
                             $(".interiorfile").addClass('d-none');
                         }else{
                             $(".interiorfile").removeClass('d-none');
-                            $.each(data.interiorpititions.interiorfileattachements, function(key,
-                            val) {
-                            var fil = val.file
-
-
-                            //  alert(val.file);
-                            if (val.type == 'pdf') {
-
-                                // alert(val.type=='pdf');
-                                // $("#picss").empty();
-                                // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
-                                $('#interiorfilepdf').append(
-                                    "<a  style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                    val.file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
-                            } else {
-                                // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
-                                $('#interiorpic').append(
-                                    "<a  target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
-                                    val.file + " '>" +
-                                    "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
-                                    val.file + "'>" + '</a>');
-                            }
-
-
-                        });
+                        //     $.each(data.interiorpititions.interiorfileattachements, function(key,
+                        //     val) {
+                        //     var fil = val.file
+                        //     //  alert(val.file);
+                        //     if (val.type == 'pdf') {
+                        //         // alert(val.type=='pdf');
+                        //         // $("#picss").empty();
+                        //         // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
+                        //         $('#interiorfilepdf').append(
+                        //             "<a  style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
+                        //             val.file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
+                        //     } else {
+                        //         // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
+                        //         $('#interiorpic').append(
+                        //             "<a  target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
+                        //             val.file + " '>" +
+                        //             "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
+                        //             val.file + "'>" + '</a>');
+                        //     }
+                        // });
                         }
                         }
-
-
                         $("#humanrightfilepdf").empty();
                         $("#humanrightpic").empty();
-
                         if( data.humanrightpittions == null){
                                 $(".humanDoc").addClass('d-none');
                             }else{
                                 $(".humanDoc").removeClass('d-none');
-
                         $('#humanrightremarks').text(data.humanrightpittions.remarks);
-
                         $.each(data.humanrightpittions.humanrightfileattachements, function(key,
                             val) {
                             var fil = val.file
-
-
                             //  alert(val.file);
                             if (val.type == 'pdf') {
-
                                 // alert(val.type=='pdf');
                                 // $("#picss").empty();
                                 // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
@@ -1525,91 +1273,75 @@
                                     "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
                                     val.file + "'>" + '</a>');
                             }
-
-
                         });
                         if( data.humanrightpittions.remarks == ""){
                             $(".humanremarks").addClass('d-none');
                         }else{
                             $(".humanremarks").removeClass('d-none');
-                            $('#humanrightremarks').text(data.humanrightpittions.remarks);
+                            // $('#humanrightremarks').text(data.humanrightpittions.remarks);
                         }
                         if(data.humanrightpittions.humanrightfileattachements==""){
                             $(".humanfile").addClass('d-none');
                         }else{
                             $(".humanfile").removeClass('d-none');
-                            $.each(data.humanrightpittions.humanrightfileattachements, function(key,
-                            val) {
-                            var fil = val.file
-
-
-                            //  alert(val.file);
-                            if (val.type == 'pdf') {
-
-                                // alert(val.type=='pdf');
-                                // $("#picss").empty();
-                                // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
-                                $('#humanrightfilepdf').append(
-                                    "<a  style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                    val.file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
-                            } else {
-                                // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
-                                $('#humanrightpic').append(
-                                    "<a  target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
-                                    val.file + " '>" +
-                                    "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
-                                    val.file + "'>" + '</a>');
-                            }
-
-
-                        });
-
+                        //     $.each(data.humanrightpittions.humanrightfileattachements, function(key,
+                        //     val) {
+                        //     var fil = val.file
+                        //     //  alert(val.file);
+                        //     if (val.type == 'pdf') {
+                        //         // alert(val.type=='pdf');
+                        //         // $("#picss").empty();
+                        //         // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
+                        //         $('#humanrightfilepdf').append(
+                        //             "<a  style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
+                        //             val.file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
+                        //     } else {
+                        //         // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
+                        //         $('#humanrightpic').append(
+                        //             "<a  target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
+                        //             val.file + " '>" +
+                        //             "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
+                        //             val.file + "'>" + '</a>');
+                        //     }
+                        // });
                         }
                             }
-
-
-
-
-
-
-
-
-
-
                     }
-
                 });
-
             });
         });
     </script>
 
     <script type=text/javascript>
         $(document).ready(function() {
-
             $('body').on('click', '#show-user', function(event) {
                 event.preventDefault();
-
                 //  alert( $(this).data('id'));
                 //  $("#getData").click(function() {
-
                 //     var get = $(this).val();
                 //     alert(get);
                 var id = $(this).data('id');
                 $.ajax({ //create an ajax request to display.php
-
                     type: "GET",
                     url: "{{ url('view') }}/" + id,
                     datatype: 'json',
-
                     success: function(data) {
-
-
-
+                        
+                       
+                        $("#forward").empty();
+                        $('#forward').append(
+                                    "<a class='mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white' style='margin-right:15px;'    href='{{ url('petitionforward/') }}/" +
+                                    id + "'>" + ' Forward <i class="fa fa-forward"></i>'+
+                                                                 '</a>');
+                        $("#Homeforward").empty();
+                        $('#Homeforward').append(
+                                    "<a class='mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white' style='margin-right:15px;'    href='{{ url('Homeforward/') }}/" +
+                                    id + "'>" + ' Forward <i class="fa fa-forward"></i>'+
+                                                                 '</a>');
+                        $('#id').text(data.id);
                         $('#firstname').text(data.name);
                         $('#Fathername').text(data.f_name);
                         $('#Nationality').text(data.nationality);
-
                         $('#Physicalstatus').text(data.physicalstatus.PhysicalStatus);
                         $('#Confined_in_jail').text(data.confined_in_jail);
                         $('#Gender').text(data.gender);
@@ -1619,21 +1351,16 @@
                         $('#Section_id').text(data.sectionss.undersection);
                         $('#Province').text(data.provinces.province_name);
                         $('#warrent_date').text(data.warrent_date);
-
                         $('#Remarks').text(data.remarks);
                         $('#sentence_in_court').text(data.sentence_in_court);
                         $('#date_of_sentence').text(data.date_of_sentence);
                         $('#warrent_information').text(data.warrent_information);
-
                         $("#pic").empty();
                         $("#picss").empty();
                         $.each(data.fileattachements, function(key, val) {
                             var fil = val.file
-
-
                             //  alert(val.file);
                             if (val.type == 'pdf') {
-
                                 // alert(val.type=='pdf');
                                 // $("#picss").empty();
                                 // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
@@ -1652,18 +1379,12 @@
                         $("#application_images").empty();
                         $("#application_image").empty();
                         var ap = data.application_image;
-
                         var finalap = ap.split(".");
-
                         if (finalap['1'] == "pdf") {
-
-
                             $('#application_images').append(
                                 "<a style='margin-right:15px;'' target='_blank'   href='{{ url('/assets/image/') }}/" + data
                                 .application_image + "'download>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>"+ '</a>');
-
                         } else {
-
                             // $('#application_image').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.application_image+"'>");
                             $('#application_image').html(
                                 "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
@@ -1676,18 +1397,15 @@
                         var ap = data.health_paper;
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
-
                             $('#health_papers').append(
                                 "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data
                                 .health_paper + "'>" + "<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                         } else {
-
                             $('#health_paper').html(
                                 "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
                                 data.health_paper + " '>" +
                                 "<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/" +
                                 data.health_paper + "'>" + '</a>');
-
                             // $('#health_paper').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.health_paper+"'>");
                         }
                         $("#warrent_files").empty();
@@ -1695,38 +1413,26 @@
                         var ap = data.warrent_file;
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
-
                             $('#warrent_files').append(
                                 "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data
                                 .warrent_file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                         } else {
-
                             $('#warrent_file').html(
                                 "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
                                 data.warrent_file + " '>" +
                                 "<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/" +
                                 data.warrent_file + "'>" + '</a>');
-
                             // $('#warrent_file').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.warrent_file+"'>");
                         }
                         //  $('#Prisonerimage').html("<img style='height:100px;width:100px;border-radius:50px;' src=' {{ url('/assets/image/') }}/"+data.prisoner_image+"'>");
                         $("#Prisonerimage").empty();
                         $('#Prisonerimage').html(
-
                             "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
                             data.prisoner_image + " '>" +
                             "<img  class='example-image' alt='image-1'  style='height:100px;width:100px;border-radius:50px' src='{{ url('/assets/image/') }}/" +
                             data.prisoner_image + "'>" + '</a>');
-
-
-
-
-
-
                     }
-
                 });
-
             });
         });
     </script>
@@ -1738,7 +1444,6 @@
             event.preventDefault();
             swal({
                     title: `Are you sure you want to forward this petition?`,
-
                     icon: "warning",
                     buttons: true,
                     dangerMode: false,
@@ -1749,8 +1454,6 @@
                     }
                 });
         });
-
-
         $('.inactive').click(function(event) {
             var form = $(this).closest("form");
             var name = $(this).data("name");
@@ -1774,21 +1477,15 @@
         $(document).ready(function() {
             $('#roles').change(function() {
                 var selected = $(this).val();
-
-
                 if (selected == 'jail-supt') {
                     $('#province').removeClass("d-lg-none");
                     $('#provincehome').addClass("d-lg-none");
-
                 }else if(selected == 'Homedept'){
                     $('#provincehome').removeClass("d-lg-none");
                     $('#confined_in_jail').addClass("d-lg-none");
-
-
                 }else if(selected == 'Admin'){
                     $('#provincehome').removeClass("d-lg-none");
                     $('#confined_in_jail').addClass("d-lg-none");
-
                 }
                 else{
                     $('#province').addClass("d-lg-none");
@@ -1800,8 +1497,6 @@
                 //     $('#Fetalposition').hide();
                 //     $('#Fundal').hide();
             });
-
-
         });
     </script>
      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
@@ -1826,43 +1521,21 @@
         $(document).ready(function() {
  $('#provincejail').change(function() {
     var selected = $(this).val();
-
-
     if (selected) {
         $('#confined_in_jail').removeClass("d-lg-none");
-
     }
     $.ajax({ //create an ajax request to display.php
-
 type: "GET",
 url: "{{ url('jailview') }}/" + selected,
 datatype: 'json',
-
 success: function(data) {
-
-
-
-
-
-
-
-
-
         $('#jailname').empty();
                     $('#jailname').append('<option disabled value="" selected hidden>Select jail</option>');
                     $.each(data, function(key, val) {
-
                         $('#jailname').append('<option value="'+ val.jail_name +'">'+val.jail_name+'</option>');
                         // $('#police_station_id_fk option[value='+value.police_station_id+']').attr('selected','selected');
-
     });
-
-
-
-
-
     }
-
 });
 });
 });
@@ -1873,44 +1546,27 @@ success: function(data) {
         document.getElementById("btnPrint").onclick = function() {
             document.getElementById("btnPrint").style.display = 'none';
             document.getElementById('btnhide1').style.display = 'none';
-
-
             printElement(document.getElementById("printThis"));
-
         }
-
-
         function printElement(elem) {
             var domClone = elem.cloneNode(true);
-
             document.getElementById("btnPrint").style.display = 'block';
             document.getElementById('btnhide1').style.display = 'block';
             var $printSection = document.getElementById("printSection");
-
             if (!$printSection) {
                 var $printSection = document.createElement("div");
                 $printSection.id = "printSection";
                 document.body.appendChild($printSection);
             }
-
             $printSection.innerHTML = "";
             $printSection.appendChild(domClone);
-
             window.print();
         }
     </script>
     <script>
 $(document).ready(function() {
-
-
-
-
         //////////////////////////////////
         // the small time picker inside popover
-
-
-
-
     var daterange_container = document.querySelector('#id-daterange-container')
         // Inject DateRangePicker into our container
         DateRangePicker.DateRangePicker(daterange_container, {
@@ -1922,11 +1578,9 @@ $(document).ready(function() {
             $('#id-daterange-from').val(range.start ? range.start.toDateString() : '')
             $('#id-daterange-to').val(range.end ? range.end.toDateString() : '')
           })
-
         $('#id-daterange-from, #id-daterange-to').on('focus', function() {
           daterange_container.classList.add('visible')
         })
-
         var daterange_wrapper = document.querySelector('#id-daterange-wrapper')
         var previousTimeout = null;
         $(daterange_wrapper).on('focusout', function() {
@@ -1948,17 +1602,14 @@ $(document).ready(function() {
             placement: 'auto',
             trigger: 'manual',
             container: 'body',
-
             template: '<div class="popover popover-timepicker brc-primary-m3 border-1 radius-1 shadow-sm" role="tooltip"><div class="arrow brc-primary"></div><h3 class="popover-header bgc-primary-l3 brc-primary-l1 text-dark-tp4 text-600 text-center pb-25"></h3><div class="popover-body text-grey-d2 p-4"></div></div>'
           })
           .on('click', function() {
             // show popover when button is clicked
             $(this).popover('toggle')
             $(this).toggleClass('active')
-
             // get a reference to it
             var popover = $(document.body).find('.popover-timepicker').last()
-
             // hide popover if clicked outside of it
             if (popover.length > 0 && popover.hasClass('show')) {
               var This = this
@@ -1966,12 +1617,10 @@ $(document).ready(function() {
                 if (popover.get(0).contains(ev.target) || ev.target == document.getElementById('id-popover-timepicker')) return
                 $(This).popover('hide')
                 $(This).removeClass('active')
-
                 $(document).off('.popover-time')
               })
             }
           });
-
 });
         </script>
 
@@ -2028,11 +1677,9 @@ $(document).ready(function() {
                 }
             });
         });
-
         $("#selectAll").click(function() {
             $("input[type=checkbox]").prop("checked", $(this).prop("checked"));
         });
-
         $("input[type=checkbox]").click(function() {
             if (!$(this).prop("checked")) {
                 $("#selectAll").prop("checked", false);
@@ -2056,7 +1703,6 @@ $(document).ready(function() {
             margin-top: 1px;
             margin-right: 6px;
         }
-
     </style>
     @yield('scripts')
 </body>

@@ -169,7 +169,7 @@
                         <i class="fas fa-cog text-white text-170 w-4 h-4"></i>
                     </span>
                 </div>
-
+                <a href="{{route('accepted')}}">
                 <div class="ml-3">
                     <div class="pos-rel">
 
@@ -180,7 +180,7 @@
                     </div>
                     <div class="text-dark-tp4">Accepted Petition</div>
                 </div>
-
+            </a>
                 <div class="position-tr m-1">
                     <!-- the dropdown used in some boxes (cards) -->
 
@@ -198,7 +198,7 @@
                         <i class="fas fa-cog text-white text-170 w-4 h-4"></i>
                     </span>
                 </div>
-
+                <a href="{{route('accepted')}}">
                 <div class="ml-3">
                     <div class="pos-rel">
                         <span class="text-dark-tp3 text-180">{{$Rejected}}</span>
@@ -206,7 +206,7 @@
                     </div>
                     <div class="text-dark-tp4 text-110">Rejected Petition</div>
                 </div>
-
+                </a>
                 <!-- this is a dropdown with tooltips -->
 
 
