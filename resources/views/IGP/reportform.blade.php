@@ -143,7 +143,6 @@
     <th class="p-3 mb-2 bg-success text-white">physical status</th>
     <th class="p-3 mb-2 bg-success text-white">status</th>
     <th class="p-3 mb-2 bg-success text-white">sentence in court </th>
-  
 
   </tr>
   </thead>
@@ -175,7 +174,7 @@
         @endif
         <td>{{ $petition->status }}</td>
         <td>{{ $petition->sentence_in_court }}</td>
-        
+
 
     </tr>
   @endforeach

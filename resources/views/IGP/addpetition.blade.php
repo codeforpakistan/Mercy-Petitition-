@@ -6,6 +6,14 @@
 @section('element', 'Add Petition')
 
 @section('content')
+
+<style>
+    .required:after {
+      content:" *";
+      color: red;
+    }
+  </style>
+
     <div role="main" class="page-content container container-plus">
 
         <div class="card bcard mt-2 mt-lg-3">
@@ -36,16 +44,16 @@
                 <div class="form-row">
                     <div class="form-group col-md-12">
                         <label for="inputEmail4">Prisoner ID</label>
-                        <input type="text" 
+                        <input type="text"
                             class="form-control"  name="prisonerid" value="{{ date('Ymdhis')}}" id="inputEmail4" placeholder="Enter Name" readonly>
-                             
-                      
+
+
                     </div>
-                  
+
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="inputEmail4">Prisoner Name</label>
+                        <label class="required" for="inputEmail4">Prisoner Name</label>
                         <input type="text" onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');"
                             class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" name="name"
                             class="form-control" id="inputEmail4" placeholder="Enter Name">
@@ -56,7 +64,7 @@
                         @enderror
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="inputPassword4">Father Name</label>
+                        <label class="required" for="inputPassword4">Father Name</label>
                         <input onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');" type="text"
                             class="form-control @error('f_name') is-invalid @enderror" value="{{ old('f_name') }}"
                             name="f_name" class="form-control" id="inputPassword4" placeholder="Father Name">
@@ -70,7 +78,7 @@
                 <div class="form-row">
 
                     <div class="form-group col-md-6">
-                        <label for="inputState">DOB</label>
+                        <label class="required" for="inputState">DOB</label>
 
                         <input type="date" class="form-control @error('f_name') is-invalid @enderror"
                             value="{{ old('dob') }}" name="dob" class="form-control">
@@ -81,7 +89,7 @@
                         @enderror
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="form-field-select-11">
+                        <label class="required" for="form-field-select-11">
                             Nationality
                         </label>
 
@@ -106,7 +114,7 @@
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="form-field-select-11">Physical Status</label>
+                        <label class="required" for="form-field-select-11">Physical Status</label>
                         <select class="form-control @error('physicalstatus') is-invalid @enderror"
                             value="{{ old('physicalstatus_id') }}"
                             class="ace-select text-dark-m1 bgc-default-l5 bgc-h-warning-l3 brc-default-m3 brc-h-warning-m1"
@@ -114,7 +122,7 @@
                             @foreach ($physicalstatus as $physical)
                                 <option value='{{ $physical->id }}'>{{ $physical->PhysicalStatus }}</option>
                             @endforeach
-                           
+
                         </select>
                         @error('physicalstatus')
                             <span class="invalid-feedback" role="alert">
@@ -123,7 +131,7 @@
                         @enderror
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="inputState">Fir & Date</label>
+                        <label class="required" for="inputState">Fir & Date</label>
                         <input onkeyup="this.value=this.value.replace(/[^-/0-9\s]/g,'');"
                             class="form-control @error('firdate') is-invalid @enderror" value="{{ old('firdate') }}"
                             type="text" name="firdate" class="form-control" id="inputCity">
@@ -138,7 +146,7 @@
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="form-field-select-11">Gender</label>
+                        <label class="required" for="form-field-select-11">Gender</label>
                         <select class="form-control @error('gender') is-invalid @enderror" value="{{ old('gender') }}"
                             name="gender"
                             class="ace-select text-dark-m1 bgc-default-l5 bgc-h-warning-l3 brc-default-m3 brc-h-warning-m1"
@@ -154,7 +162,7 @@
                         @enderror
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="form-field-select-11">Section</label>
+                        <label class="required" for="form-field-select-11">Section</label>
                         <select class="form-control @error('section_id') is-invalid @enderror"
                             value="{{ old('section_id') }}" name="section_id"
                             class="ace-select text-dark-m1 bgc-default-l5 bgc-h-warning-l3 brc-default-m3 brc-h-warning-m1"
@@ -173,7 +181,7 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="inputState">Mercy petition Date</label>
+                        <label class="required" for="inputState">Mercy petition Date</label>
 
                         <input class="form-control @error('mercypetitiondate') is-invalid @enderror"
                             value="{{ old('mercypetitiondate') }}" type="Date" name="mercypetitiondate"
@@ -185,7 +193,7 @@
                         @enderror
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="inputCity">Date of sentence</label>
+                        <label class="required" for="inputCity">Date of sentence</label>
                         <input class="form-control @error('date_of_sentence') is-invalid @enderror"
                             value="{{ old('date_of_sentence') }}" type="Date" name="date_of_sentence"
                             class="form-control" id="inputCity">
@@ -200,7 +208,7 @@
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="inputCity">Sentence in Court</label>
+                        <label class="required" for="inputCity">Sentence in Court</label>
                         <input onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');"
                             class="form-control @error('sentence_in_court') is-invalid @enderror"
                             value="{{ old('sentence_in_court') }}" type="text" name="sentence_in_court"
@@ -213,7 +221,7 @@
                     </div>
 
                     <div class="form-group col-md-6">
-                        <label for="inputState">Warrent Date (Jail entry Date)</label>
+                        <label class="required" for="inputState">Warrent Date (Jail entry Date)</label>
                         <input class="form-control @error('warrent_date') is-invalid @enderror"
                             value="{{ old('warrent_date') }}" type="Date" class="form-control" name="warrent_date"
                             placeholder=" Pick Warrent Date (Jail entry Date)">
@@ -256,7 +264,7 @@
                 <div class="form-row" style="margin:5px;">
 
                     <div class="form-group col-md-6">
-                        <label for="inputCity">  Application </label>
+                        <label class="required" for="inputCity">  Application </label>
                         <input accept=".pdf,.png,.jpeg,.jpg"
                             class="form-control @error('application_image') is-invalid @enderror"
                             value="{{ old('application_image') }}" type="file" name="application_image"
@@ -270,7 +278,7 @@
                     @enderror
                     <div class="form-group col-md-6">
 
-                        <label for="inputState"> Attach Health Report </label>
+                        <label class="required" for="inputState"> Attach Health Report </label>
                         <input accept=".pdf,.png,.jpeg,.jpg"
                             class="form-control @error('health_paper') is-invalid @enderror"
                             value="{{ old('health_paper') }}" type="file" name="health_paper" class="ace-file-input"
@@ -288,7 +296,7 @@
 
 
                     <div class="form-group col-md-6">
-                        <label for="inputCity"> Attach Prisoner Image</label>
+                        <label class="required" for="inputCity"> Attach Prisoner Image</label>
                         <input type="file" accept=".png,.jpeg,.jpg" value="{{ old('prisoner_image') }}"
                             name="prisoner_image"
                             class="ace-file-input form-control @error('prisoner_image') is-invalid @enderror"
@@ -304,7 +312,7 @@
                     @enderror
                     <div class="form-group col-md-6">
 
-                        <label for="inputState"> Attach Warrant File </label>
+                        <label class="required"  for="inputState"> Attach Warrant File </label>
                         <input type="file" accept=".pdf,.png,.jpeg,.jpg" value="{{ old('warrent_file') }}"
                             name="warrent_file"
                             class="ace-file-input form-control @error('warrent_file') is-invalid @enderror"

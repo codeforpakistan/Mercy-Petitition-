@@ -77,9 +77,9 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-       
+
         $this->validate($request, [
-            'name' => 'required',
+            'name' => 'required|regex:/^[a-zA-Z0-9 ]+$/|max:20',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|same:confirm-password',
             'roles' => 'required',
@@ -87,7 +87,7 @@ class UserController extends Controller
         ]);
 
         $input = $request->all();
-       
+
 
         $input['password'] = Hash::make($input['password']);
 
@@ -98,11 +98,11 @@ class UserController extends Controller
         }else{
             $user->province_id = $request->get('province_id1');
         }
-       
-        
+
+
 
         $user->assignRole($request->input('roles'));
-       
+
         $user->save();
 
         return redirect()->route('portal.users.index')
@@ -120,7 +120,7 @@ class UserController extends Controller
 
         $pets = Jail::where('province_id', $id)->get();
 
-        
+
 
         return response()->json($pets);
 
