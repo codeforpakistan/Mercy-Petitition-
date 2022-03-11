@@ -46,8 +46,14 @@ Route::Post('/forwardinteriorministrydepartment/{id}', 'HomeDepartmentController
 Route::get('/petitionforward/{id}', 'PetitionController@forwardpetition')->name('petition-forward');
 Route::get('/remarksfromhome', 'PetitionController@remarksfromhome')->name('remarksfromhome');
 Route::get('/interiorforward/{id}', 'InteriorMinstryController@forwardpetition')->name('interior-forward');
+Route::get('/interiorministryfinaldecisions/{id}', 'InteriorMinstryController@interiorministryfinaldecisions')->name('interiorministryfinaldecisions');
+Route::get('/decision/{id}', 'InteriorMinstryController@interiordecision')->name('decision');
+Route::Post('/finaldecision/{id}', 'InteriorMinstryController@finaldecision')->name('final-decision');
+
+Route::Post('/finalapprovedecision/{id}', 'InteriorMinstryController@finalapprovedecision')->name('finalapprovedecision');
 Route::Post('/decision/{id}', 'InteriorMinstryController@decision')->name('petition-decision');
 Route::get('interiorsearch', 'InteriorMinstryController@interiorsearch')->name('interiorsearch');
+Route::get('finaldecision', 'InteriorMinstryController@finaldecisions')->name('finaldecisions');
 Route::get('/humangrightback/{id}', 'HumanRightDepartmentController@backpetition')->name('humanright-back');
 Route::Post('/humanrighdecision/{id}', 'HumanRightDepartmentController@humanrightdecision')->name('petition-humanrighdecision');
 Route::get('/petitionedit/{id}', 'PetitionController@edit')->name('petition-edit');

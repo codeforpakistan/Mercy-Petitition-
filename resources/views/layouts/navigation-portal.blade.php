@@ -1,3 +1,4 @@
+
 <nav aria-label="Main">
     <ul class="nav flex-column mt-2 has-active-border active-on-top">
 
@@ -215,7 +216,7 @@
         <a href="{{route('Petition.index')}}" class="nav-link {{isset($menu) ? ($menu=='IGP' ? '' : 'collapsed') : 'collapsed'}}">
         <i class="nav-icon fa fa-file" style="color:#fff"></i>
         <span class="nav-text fadeable">
-        <span>Petition </span>
+        <span>Petition </span><span class="badge badge-warning mr-1"> {{$totalpetitions}}</span>
         </span>
 
 
@@ -229,7 +230,7 @@
                 <a href="{{route('remarksfromhome')}}" class="nav-link {{isset($menu) ? ($menu=='homeremarks' ? '' : 'collapsed') : 'collapsed'}}">
                 <i class="nav-icon fa fa-pen" style="color:#fff"></i>
                 <span class="nav-text fadeable">
-                <span>Remarks from home</span>
+                <span>Remarks from home</span><span class="badge badge-warning mr-1"> {{$recievefromhometotalpetitions}}</span>
                 </span>
 
 
@@ -258,7 +259,7 @@
                 <a href="{{route('accepted')}}" class="nav-link {{isset($menu) ? ($menu=='Accepted' ? '' : 'collapsed') : 'collapsed'}}">
                 <i class="nav-icon fa fa-check" style="color:#fff"></i>
                   <span class="nav-text fadeable">
-                          <span>Accepted Petition</span>
+                          <span>Accepted Petition   </span> <span class="badge badge-warning mr-1">{{$Accepted}}</span>
                   </span>
 
 
@@ -273,7 +274,7 @@
                         <i class="nav-icon  fa fa-ban" style="color:#fff"></i>
 
                           <span class="nav-text fadeable">
-                                  <span>Rejected Petition</span>
+                                  <span>Rejected Petition  </span> <span class="badge badge-warning mr-1">{{$Rejected}}</span>
                           </span>
 
 
@@ -315,7 +316,7 @@
 <a href="{{route('homedept.index')}}" class="nav-link {{isset($menu) ? ($menu=='HomeDepartment' ? '' : 'collapsed') : 'collapsed'}}">
 <i class="nav-icon fa fa-list" style="color:#fff"></i>
 <span class="nav-text fadeable">
-<span> HomeDepartment list</span>
+<span> HomeDepartment list  </span> <span class="badge badge-warning mr-1">{{$HomeDepartment}}</span>
 </span>
 
 
@@ -330,7 +331,7 @@
                 <a href="{{route('remarksfrominterior')}}" class="nav-link {{isset($menu) ? ($menu=='HomeDepartments' ? '' : 'collapsed') : 'collapsed'}}">
                 <i class="nav-icon fa fa-pen" style="color:#fff"></i>
                 <span class="nav-text fadeable">
-                <span>Remarks from interior</span>
+                <span>Remarks from interior    </span><span class="badge badge-warning mr-1">{{$receivefrominterior}}</span>
                 </span>
 
 
@@ -348,7 +349,7 @@
         <a href="{{route('InteriorMinstry.index')}}" class="nav-link {{isset($menu) ? ($menu=='InteriorMinitries' ? '' : 'collapsed') : 'collapsed'}}">
         <i class="nav-icon fa fa-folder" style="color:#fff"></i>
           <span class="nav-text fadeable">
-                  <span>Interior Ministry</span>
+                  <span>Interior Ministry  </span> <span class="badge badge-warning mr-1">{{$InteriorMinistryDepartment}}</span>
           </span>
 
 
@@ -362,7 +363,7 @@
                 <a href="{{route('InteriorMinstry.hrd')}}" class="nav-link {{isset($menu) ? ($menu=='Remarksfromhrd' ? '' : 'collapsed') : 'collapsed'}}">
                 <i class="nav-icon fa fa-pen" style="color:#fff"></i>
                   <span class="nav-text fadeable">
-                          <span>Remarks from HRD</span>
+                          <span>Remarks from HRD </span > <span class="badge badge-warning mr-1">{{$receivfromHumanRightDepartment}}</span>
                   </span>
 
 
@@ -371,6 +372,21 @@
                 <b class="sub-arrow"></b>
 
                 </li>
+
+                <li class="nav-item {{isset($menu) ? ($menu=='FinalDecision' ? 'active open' : '') : ''}}">
+
+                        <a href="{{route('finaldecisions')}}" class="nav-link {{isset($menu) ? ($menu=='FinalDecision' ? '' : 'collapsed') : 'collapsed'}}">
+                        <i class="nav-icon fa fa-pen" style="color:#fff"></i>
+                          <span class="nav-text fadeable">
+                                  <span>Decision </span>  <span class="badge badge-warning mr-1">{{$receivfromHumanRightDepartment}}</span>
+                          </span>
+        
+        
+                        </a>
+        
+                        <b class="sub-arrow"></b>
+        
+                        </li>
 
 
 
@@ -382,7 +398,7 @@
         <a href="{{route('HumanRight.index')}}" class="nav-link {{isset($menu) ? ($menu=='HumanRightDepartments' ? '' : 'collapsed') : 'collapsed'}}">
         <i class="nav-icon fa fa-list" style="color:#fff"></i>
           <span class="nav-text fadeable">
-                  <span>HumanRight list</span>
+                  <span>HumanRight list   </span><span class="badge badge-warning mr-1">{{$HumanRightDepartment}}</span>
           </span>
 
 

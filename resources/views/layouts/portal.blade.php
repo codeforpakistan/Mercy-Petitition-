@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
     <title>@yield('title', 'Mercy Petition System')</title>
-    <link rel="icon" type="image/png" href="{{ asset('assets/favicon.png') }}" />
+    <link rel="icon" type="image/png" href="{{ asset('assets/image/ig.png') }}" />
     @livewireStyles
     <!-- include common vendor stylesheets & fontawesome -->
     <link rel="stylesheet" type="text/css"
@@ -101,9 +101,55 @@
 
                             </div>
                         </div><!-- /.sdebar-section-item  -->
+                        <?php
+                      use  App\Petition;
+                        //  use  Auth;
+                        if (Auth::user()->confined_in_jail == "") {
+            $totalpetitions = Petition::where('province_id', '=', Auth::user()->province_id)->orderBy("id", "desc")->get()->count();
+        } else {
+            $totalpetitions = Petition::where('province_id', '=', Auth::user()->province_id)->Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('file_in_department', 'Jail-Supt')->orderBy("id", "desc")->get()->count();
 
+        }
+        if (Auth::user()->confined_in_jail == "") {
+            $recievefromhometotalpetitions = Petition::where('province_id', '=', Auth::user()->province_id)->Where('file_in_department', 'Jail-Supt')->Where('received_from_department', 'HomeDepartment')->orderBy("id", "desc")->get()->count();
 
-                        @include('layouts.navigation-portal')
+        }else{
+            $recievefromhometotalpetitions = Petition::where('province_id', '=', Auth::user()->province_id)->Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('file_in_department', 'Jail-Supt')->Where('received_from_department', 'HomeDepartment')->orderBy("id", "desc")->get()->count();
+
+        }
+                        $HomeDepartment = Petition::where('province_id', '=', Auth::user()->province_id)->Where('file_in_department', 'HomeDepartment')->Where('received_from_department', 'Jail-Supt')->orderBy("id", "desc")->get()->count();
+                        $receivefrominterior = Petition::where('province_id', '=', Auth::user()->province_id)->Where('file_in_department', 'HomeDepartment')->Where('received_from_department', 'InteriorMinistry')->orderBy("id", "desc")->get()->count();
+                        $InteriorMinistryDepartment = Petition::Where('file_in_department', 'InteriorMinistry')->Where('status', 'pending')->orderBy("id", "desc")->get()->count();
+                        $HumanRightDepartment = Petition::Where('file_in_department', 'HumanRightDepartment')->orderBy("id", "desc")->get()->count();
+                        $receivfromHumanRightDepartment = Petition::Where('file_in_department', 'InteriorMinistry')->Where('received_from_department', 'HumanRightDeparment')->Where('status', 'pending')->orderBy("id", "desc")->get()->count();
+                        if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id)) {
+  
+  $Accepted = Petition::where('confined_in_jail', '=', Auth::user()->confined_in_jail)->where('province_id', '=', Auth::user()->province_id)->Where('status', 'Accepted')->orderBy("id", "desc")->get()->count();
+ 
+} elseif(!empty(Auth::user()->province_id)) {
+
+  $Accepted = Petition::where('province_id', '=', Auth::user()->province_id)->Where('status', 'Accepted')->orderBy("id", "desc")->count();
+
+}else{
+
+  $Accepted = Petition::Where('status', 'Accepted')->orderBy("id", "desc")->count();
+
+}
+if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id)) {
+  $Rejected = Petition::where('confined_in_jail', '=', Auth::user()->confined_in_jail)->where('province_id', '=', Auth::user()->province_id)->Where('status', 'Rejected')->orderBy("id", "desc")->count();
+ 
+} elseif(!empty(Auth::user()->province_id)) {
+
+$Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Where('status', 'Rejected')->orderBy("id", "desc")->count();
+
+}else{
+
+  $Rejected = Petition::Where('status', 'Rejected')->orderBy("id", "desc")->count();
+
+}
+
+?>
+                        @include('layouts.navigation-portal',compact('InteriorMinistryDepartment','recievefromhometotalpetitions','totalpetitions','HumanRightDepartment','HomeDepartment','InteriorMinistryDepartment','receivfromHumanRightDepartment'))
 
                     </div>
 
@@ -661,6 +707,18 @@
                         $('#interiorforward').append(
                                     "<a class='mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white' style='margin-right:15px;'    href='{{ url('interiorforward/') }}/" +
                                     id + "'>" + ' Decision/forward <i class="fa fa-forward"></i>'+
+                                                                 '</a>');
+                                                               
+
+                                                                 $("#decision").empty();
+                        $('#interiorministryfinaldecisions').append(
+                                    "<a class='mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white' style='margin-right:15px;'    href='{{ url('interiorministryfinaldecisions/') }}/" +
+                                    id + "'>" + ' Decision <i class="fa fa-forward"></i>'+
+                                                                 '</a>');                                        
+                         $("#decision").empty();
+                        $('#decision').append(
+                                    "<a class='mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white' style='margin-right:15px;'    href='{{ url('decision/') }}/" +
+                                    id + "'>" + ' Decision <i class="fa fa-forward"></i>'+
                                                                  '</a>');
                                  $("#humangrightback").empty();
                                  $('#humangrightback').append(

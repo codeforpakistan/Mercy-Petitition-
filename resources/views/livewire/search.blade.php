@@ -304,7 +304,7 @@
                                                                 <hr class="w-100 mx-auto mb-0 brc-default-l2">
 
                                                                 <div class="bgc-white radius-1 center"
-                                                                    style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
+                                                                    style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;margin-left: 143px;">
                                                                     <table class="table table  table-borderless">
                                                                         <tr>
                                                                             <td>

@@ -255,7 +255,7 @@
                                             </td>
                                         </tr>
 
-
+                                  
 
 
                                     </tbody>
@@ -740,7 +740,7 @@
                                                                                     </h4>
                                                                                     <figure class="figure">
                                                                                         <div id="pic"></div>
-                                                                                        &nbsp;&nbsp;
+                                                                                        
 
 
                                                                                         <!-- <figcaption class="figure-caption text-right">Other documents</figcaption> -->
@@ -982,7 +982,7 @@
                         </div>
 
                     </div>
-
+                </div>
 
                 </div><!-- /.card-body -->
             </div><!-- /.card -->

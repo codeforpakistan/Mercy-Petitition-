@@ -138,7 +138,7 @@ class PetitionController extends Controller
     public function remarksfromhome()
     {
         if (Auth::user()->confined_in_jail == "") {
-            $petitions = Petition::Where('province_id', Auth::user()->province_id)->orderBy("id", "desc")->paginate(5);
+            $petitions = Petition::Where('province_id', Auth::user()->province_id)->Where('file_in_department', 'Jail-Supt')->Where('received_from_department', 'HomeDepartment')->orderBy("id", "desc")->paginate(5);
         } else {
             $petitions = Petition::Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('province_id', Auth::user()->province_id)->Where('file_in_department', 'Jail-Supt')->Where('received_from_department', 'HomeDepartment')->orderBy("id", "desc")->paginate(5);
           

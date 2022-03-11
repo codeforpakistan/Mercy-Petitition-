@@ -82,6 +82,13 @@ class InteriorMinstryController extends Controller
 
         return view('InteriorMinstry.remarksfromhrd', compact('InteriorMinistryDepartments'));
     }
+    public function finaldecisions()
+    {
+
+        $InteriorMinistryDepartments = Petition::Where('file_in_department', 'InteriorMinistry')->Where('received_from_department', 'HumanRightDepartment')->orderBy("id", "desc")->get();
+
+        return view('InteriorMinstry.finaldecision', compact('InteriorMinistryDepartments'));
+    }
     public function view($id)
     {
         $homepititions = HomeDepartment::with('homefileattachements')->where('petition_id', $id)->first();
@@ -105,6 +112,152 @@ class InteriorMinstryController extends Controller
     {
 
         return view('InteriorMinstry.forward');
+    }
+    public function interiordecision($id)
+    {
+
+        $interiorpititions = InteriorMinistry::with('interiorfileattachements')->where('petition_id', $id)->first();
+        foreach ($interiorpititions->interiorfileattachements as $post) {
+            $path = [];
+            $path = public_path() . "/assets/image/" . $post->file;
+
+            if (!isset($path)) {
+
+                unlink($path);
+            }
+
+        }
+        $interior = File::where('interiorministry_id', $interiorpititions->id)->get();
+        $interior->each->delete();
+        return view('InteriorMinstry.decision',compact('interiorpititions'));
+    }
+    public function interiorministryfinaldecisions($id)
+    {
+
+        $interiorpititions = InteriorMinistry::with('interiorfileattachements')->where('petition_id', $id)->first();
+        // foreach ($interiorpititions->interiorfileattachements as $post) {
+        //     $path = [];
+        //     $path = public_path() . "/assets/image/" . $post->file;
+
+        //     if (!isset($path)) {
+
+        //         unlink($path);
+        //     }
+
+        // }
+        // $interior = File::where('interiorministry_id', $interiorpititions->id)->get();
+        // $interior->each->delete();
+        return view('InteriorMinstry.interiorministryfinaldecisions',compact('interiorpititions'));
+    }
+    
+    public function finalapprovedecision(Request $request, $id)
+    {
+
+        $finalinteriorministrydecision = Petition::find($id);
+        $finalinteriorministrydecision->received_from_department = "HumanRightDeparment";
+        //    $forwardhomedepartment->remarks = strip_tags($request->get('remarks'));
+        // if($request->get('file_in_department')=="Accepted"){
+        //     $finalinteriorministrydecision->status = $request->get('file_in_department');
+        // }else if($request->get('file_in_department')=="Rejected"){
+        //     $finalinteriorministrydecision->status = $request->get('file_in_department');
+        // }else{
+        //     $finalinteriorministrydecision->file_in_department = $request->get('file_in_department');
+        // }
+        $finalinteriorministrydecision->status = $request->get('file_in_department');
+
+        $finalinteriorministrydecision->save();
+
+        //homedepartment remarks
+
+        $interiorpititions = InteriorMinistry::with('interiorfileattachements')->where('petition_id', $id)->first();
+
+        $interiorpititions->remarks = strip_tags($request->get('remarks'));
+
+        $interiorpititions->save();
+
+        if ($request->file('otherdocument')) {
+
+            foreach ($request->file('otherdocument') as $file) {
+                $otherdocument = $file->getClientOriginalName();
+
+                $file->move(public_path('assets/image'), $otherdocument);
+                $otherexplode = explode(".", $otherdocument);
+
+                $file = new File([
+                    'interiorministry_id' => $interiorpititions->id,
+                    "file" => $otherdocument,
+                    "type" => $otherexplode["1"],
+
+                ]);
+
+                $file->save();
+
+            }
+            $logPetitions =  new LogPetition([
+                "user_id" => Auth::user()->id,
+                "department" => $request->get('file_in_department'),
+                "petition_id" => $finalinteriorministrydecision->id,
+            ]);
+            $logPetitions->save();
+
+        }
+
+        return redirect()->route('finaldecisions')
+            ->with('success', 'Petition forward successfully');
+    }
+    public function finaldecision(Request $request, $id)
+    {
+
+        $finalinteriorministrydecision = Petition::find($id);
+        $finalinteriorministrydecision->received_from_department = "HumanRightDeparment";
+        //    $forwardhomedepartment->remarks = strip_tags($request->get('remarks'));
+        if($request->get('file_in_department')=="Accepted"){
+            $finalinteriorministrydecision->status = $request->get('file_in_department');
+        }else if($request->get('file_in_department')=="Rejected"){
+            $finalinteriorministrydecision->status = $request->get('file_in_department');
+        }else{
+            $finalinteriorministrydecision->file_in_department = $request->get('file_in_department');
+        }
+
+        $finalinteriorministrydecision->save();
+
+        //homedepartment remarks
+
+        $interiorpititions = InteriorMinistry::with('interiorfileattachements')->where('petition_id', $id)->first();
+
+        $interiorpititions->remarks = strip_tags($request->get('remarks'));
+
+        $interiorpititions->save();
+
+        if ($request->file('otherdocument')) {
+
+            foreach ($request->file('otherdocument') as $file) {
+                $otherdocument = $file->getClientOriginalName();
+
+                $file->move(public_path('assets/image'), $otherdocument);
+                $otherexplode = explode(".", $otherdocument);
+
+                $file = new File([
+                    'interiorministry_id' => $interiorpititions->id,
+                    "file" => $otherdocument,
+                    "type" => $otherexplode["1"],
+
+                ]);
+
+                $file->save();
+
+            }
+            $logPetitions =  new LogPetition([
+                "user_id" => Auth::user()->id,
+                "department" => $request->get('file_in_department'),
+                "petition_id" => $finalinteriorministrydecision->id,
+            ]);
+            $logPetitions->save();
+
+        }
+
+        return redirect()->route('InteriorMinstry.hrd')
+            ->with('success', 'Petition forward successfully');
     }
     public function decision(Request $request, $id)
     {

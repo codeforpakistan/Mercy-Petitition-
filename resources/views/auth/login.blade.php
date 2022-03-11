@@ -32,7 +32,7 @@
 
 
     <!-- favicon -->
-    <link rel="icon" type="image/png" href="{{asset('assets/favicon.png')}}" />
+    <link rel="icon" type="image/png" href="{{ asset('assets/image/ig.png') }}" />
 
     <!-- "Login" page styles, specific to this page for demo only -->
     <style>
@@ -187,6 +187,14 @@
 
                   <div id="id-col-main" class="col-12 col-lg-7 py-lg-5 bgc-white px-0">
                     <!-- you can also use these tab links -->
+                    @if (Session::has('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>{{ Session::get('success') }}!</strong> .
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
                     <ul class="d-none mt-n4 mb-4 nav nav-tabs nav-tabs-simple justify-content-end bgc-black-tp11" role="tablist">
                       <li class="nav-item mx-2">
                         <a class="nav-link active px-2" data-toggle="tab" href="#id-tab-login" role="tab" aria-controls="id-tab-login" aria-selected="true">

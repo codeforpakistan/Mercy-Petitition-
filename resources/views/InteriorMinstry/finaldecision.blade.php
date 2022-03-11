@@ -1,8 +1,8 @@
 @extends('layouts.portal', [
-'menu' => 'Remarksfromhrd',
+'menu' => 'FinalDecision',
 ])
 @section('module', 'InteriorMinitry Management')
-@section('element', 'Remarksfromhrd')
+@section('element', 'FinalDecision')
 
 @section('content')
     @if (!$InteriorMinistryDepartments->isEmpty())
@@ -206,9 +206,9 @@
                                             </a> -->
 
 
-                                                        <a href="{{ route('decision', [$petion->id]) }}"
+                                                        <a href="{{ route('interiorministryfinaldecisions', [$petion->id]) }}"
                                                             class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
-                                                            Decision/forward <i class="fa fa-forward"></i>
+                                                            Decision <i class="fa fa-forward"></i>
                                                         </a>
 
                                                     </div>
@@ -225,7 +225,7 @@
                                                         <div class="dropdown-menu dd-slide-up dd-slide-none-lg">
                                                            
                                                               
-                                                                <a href="{{ route('decision', [$petion->id]) }}"
+                                                                <a href="{{ route('interiorministryfinaldecisions', [$petion->id]) }}"
                                                                     class=" dropdown-item mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
                                                                     Decision <i class="fa fa-forward"></i>
                                                                 </a>
@@ -919,12 +919,8 @@
                                                                         <div id="btnhide1" class=" col-12 px-8 mt-5">
                                                                             <div class="form-row text-center">
                                                                                 <div class="form-group col-md-6">
-                                                                                    <span id="interiorforward"></span>
-                                                                                    {{-- <a href="{{ route('interior-forward', [$petion->id]) }}"
-                                                                                        class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
-                                                                                        Forward <i
-                                                                                            class="fa fa-forward"></i>
-                                                                                    </a> --}}
+                                                                                    <span id="interiorministryfinaldecisions"></span>
+                                                                                   
                                                                                 </div>
                                                                                 <div class="form-group col-md-6">
                                                                                     <a href="{{ route('InteriorMinstry.index') }}"

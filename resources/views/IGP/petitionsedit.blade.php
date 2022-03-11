@@ -184,7 +184,7 @@
                                     src="{{ asset('/assets/image/' . $petitionsedit->application_image) }}" width="50"
                                     height="50" margin-righ="5%" alt="pic" /> </a>
                         @endif
-                        <input type="file" name="application_image" class="ace-file-input" id="ace-file-input1">
+                        <input type="file" name="application_image" accept=".pdf,.png,.jpeg,.jpg" class="ace-file-input" id="ace-file-input1">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="inputState">Health Report Attachment</label>
@@ -221,7 +221,7 @@
                                 alt='image-1' style='height:100px;width:100px;margin-right:15px;'
                                 src="{{ asset('/assets/image/' . $petitionsedit->prisoner_image) }}" width="50" height="50"
                                 margin-righ="5%" alt="pic" /> </a>
-                        <input type="file" name="prisoner_image" value="{{ $petitionsedit->prisoner_image }}"
+                        <input type="file" name="prisoner_image" accept =".png,.jpeg,.jpg"  value="{{ $petitionsedit->prisoner_image }}"
                             class="ace-file-input" id="ace-file-input12">
                     </div>
                     <div class="form-group col-md-6">
@@ -246,7 +246,7 @@
                                     height="50" margin-righ="5%" alt="pic" /> </a>
                         @endif
 
-                        <input type="file" name="warrent_file" value="{{ $petitionsedit->warrent_file }}"
+                        <input type="file" name="warrent_file" accept=".pdf,.png,.jpeg,.jpg" value="{{ $petitionsedit->warrent_file }}"
                             class="ace-file-input" id="ace-file-input13">
                     </div>
 
