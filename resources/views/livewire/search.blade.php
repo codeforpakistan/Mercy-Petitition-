@@ -20,8 +20,8 @@
 
             </div>
         </div>
-      
-     
+
+
         @if (!$petitions->isEmpty())
         <table id="simple-table"
             class="mb-0 table table-borderless table-bordered-x brc-secondary-l3 text-dark-m2 radius-1 overflow-hidden">
@@ -60,7 +60,7 @@
                     <th>Action</th>
                 </tr>
             </thead>
-           
+
             @foreach ($petitions as $petion)
                 <tbody class="mt-1">
                     <tr class="bgc-h-yellow-l4 d-style">
@@ -168,8 +168,8 @@
         @else
         <h4 style="background-color:#800000; text-align:center;color:#fff"> No Record Found!</h4>
     @endif
-            
-       
+
+
         <div class="modal fade modal-fs" id="modalFullscreen" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalLabel2" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable" role="document">
@@ -294,21 +294,24 @@
 
 
                                                         <div class="row mt-5">
-                                                            <div class="col-8 px-4 mb-3 text-center center">
+                                                            <div class="col-8 px-4 mb-3 text-center center" style ="margin-left: 148px;">
 
                                                                 <h4 class="text-dark-m3 text-140">
-                                                                    <i class="fa fa-info text-blue mr-1 w-2"></i>
+                                                                    <i
+                                                                        class="fa fa-info text-blue mr-1 w-2"></i>
                                                                     Prisoner Info
                                                                 </h4>
 
-                                                                <hr class="w-100 mx-auto mb-0 brc-default-l2">
+                                                                <hr
+                                                                    class="w-100 mx-auto mb-0 brc-default-l2">
 
                                                                 <div class="bgc-white radius-1 center"
                                                                     style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;margin-left: 143px;">
                                                                     <table class="table table  table-borderless">
                                                                         <tr>
                                                                             <td>
-                                                                                <i class="far fa-user text-success"></i>
+                                                                                <i
+                                                                                    class="far fa-user text-success"></i>
                                                                             </td>
 
                                                                             <td
@@ -316,7 +319,8 @@
                                                                                 Nationality
                                                                             </td>
 
-                                                                            <td id="Nationality" class="text-dark-m3">
+                                                                            <td id="Nationality"
+                                                                                class="text-dark-m3">
 
                                                                             </td>
                                                                         </tr>
@@ -341,7 +345,8 @@
                                                                         <tr>
                                                                             <td>
 
-                                                                                <i class="fas fa-bars text-purple"></i>
+                                                                                <i
+                                                                                    class="fas fa-bars text-purple"></i>
                                                                             </td>
 
                                                                             <td
@@ -366,7 +371,8 @@
                                                                                 Gender
                                                                             </td>
 
-                                                                            <td id="Gender" class="text-dark-m3">
+                                                                            <td id="Gender"
+                                                                                class="text-dark-m3">
 
                                                                             </td>
                                                                         </tr>
@@ -382,7 +388,8 @@
                                                                                 DOB
                                                                             </td>
 
-                                                                            <td id="Dob" class="text-dark-m3">
+                                                                            <td id="Dob"
+                                                                                class="text-dark-m3">
 
                                                                             </td>
                                                                         </tr>
@@ -398,7 +405,8 @@
                                                                                 firdate
                                                                             </td>
 
-                                                                            <td id="firdate" class="text-dark-m3">
+                                                                            <td id="firdate"
+                                                                                class="text-dark-m3">
 
                                                                             </td>
                                                                         </tr>
@@ -429,7 +437,8 @@
                                                                                 Section
                                                                             </td>
 
-                                                                            <td id="Section_id" class="text-dark-m3">
+                                                                            <td id="Section_id"
+                                                                                class="text-dark-m3">
 
                                                                             </td>
                                                                         </tr>
@@ -460,7 +469,8 @@
                                                                                 Province
                                                                             </td>
 
-                                                                            <td id="Province" class="text-dark-m3">
+                                                                            <td id="Province"
+                                                                                class="text-dark-m3">
 
                                                                             </td>
                                                                         </tr>
@@ -502,6 +512,30 @@
 
                                                             </div>
 
+                                                            {{-- </div><!-- /.row --> --}}
+                                                            <div class="col-12 px-4 mt-3"
+                                                            style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
+
+                                                            <h4 class="mt-2 text-dark-m3 text-130">
+                                                                <i
+                                                                    class="fa fa-pen-alt text-85 text-purple-d1 w-3"></i>
+                                                           Jail-Supt Remarks
+                                                            </h4>
+
+                                                            <div
+                                                                class="d-flex flex-column flex-sm-row align-items-center align-items-sm-start mt-3 mb-2 text-95 pl-3">
+
+
+                                                                <div
+                                                                    class="mt-2 mt-sm-0 flex-grow-1 text-dark-m2">
+                                                                    <p id="Remarks"
+                                                                        class="mb-1">
+
+                                                                    </p>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                             {{-- </div><!-- /.row --> --}}
 
                                                             <div class="col-12 px-4 mt-3"
@@ -766,7 +800,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                   
+
                                                 </div>
 
 
@@ -776,7 +810,7 @@
                                                 <!-- activity tab -->
 
 
-                                              
+
 
 
 
