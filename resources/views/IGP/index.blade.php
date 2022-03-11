@@ -196,12 +196,7 @@
 
 
 
-                                                            {{-- <a href="{{ route('petition-forward', [$petion->id]) }}"
-
-                                                            <a href="{{ route('petition-forward', [$petion->id]) }}"
-
-
-                                                            <a href="{{ route('petition-forward', [$petion->id]) }}"
+                                                            
 
 
                                             </td>
