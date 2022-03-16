@@ -220,7 +220,7 @@
                           </h4>
                           <h4 class="text-dark-tp4 border-b-1 brc-secondary-l2 pb-1 text-130" style=" text-align: center;">
                             <i class="fa fa-key text-blue-m1 mr-1"></i>
-                             Login
+                             Password Reset
                           </h4>
                         </div>
 
@@ -244,49 +244,70 @@
                                     </span>
                                 @enderror
 
-                        <form method="POST" action="{{ route('login') }}" autocomplete="off" class="form-row mt-4" style="    margin-right: -166px;
+                        <form action="{{ route('reset.password.post') }}" method="POST"autocomplete="off" class="form-row mt-4" style="    margin-right: -166px;
                         margin-left: -183px;">
                             @csrf
-                          <div class="form-group col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-                                                        @if ($errors->any())
-        <div class="alert alert-danger">
-
-            <ul>
-
-                @foreach ($errors->all() as $error)
-                {{ $error }}
-                @endforeach
-            </ul>
-
-        </div><br />
+                           
+                                <input type="hidden" name="token" value="{{ $token }}">
+                                                 
+                                <div class="form-group col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+                                    @if ($errors->any())
+    <div class="alert alert-danger">
+    
+    <ul>
+    
+    @foreach ($errors->all() as $error)
+    {{ $error }}
+    @endforeach
+    </ul>
+    
+    </div><br />
+    @endif
+        <div class="d-flex align-items-center input-floating-label text-blue brc-blue-m2">
+    
+            <input type="email" class="form-control form-control-lg pr-4 shadow-none @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus />
+    
+    
+          <label class="floating-label text-grey-l1 ml-n3" for="id-login-username">
+          Email
+          </label>
+        </div>
+      </div>
+                             
+      
+                              
+      <div class="form-group col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 mt-2 mt-md-1">
+        <div class="d-flex align-items-center input-floating-label text-blue brc-blue-m2">
+    @error('password')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+          <input type="password" class="form-control form-control-lg pr-4 shadow-none @error('password') is-invalid @enderror" id="password" name="password" required autocomplete="current-password"/>
+    
+          <i class="fa fa-key text-grey-m2 ml-n4"></i>
+          <label class="floating-label text-grey-l1 ml-n3" for="id-login-password">
+            Password
+          </label>
+        </div>
+      </div>
+      
+      <div class="form-group col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 mt-2 mt-md-1">
+        <div class="d-flex align-items-center input-floating-label text-blue brc-blue-m2">
+            @if ($errors->has('password_confirmation'))
+            <span class="text-danger">{{ $errors->first('password_confirmation') }}</span>
         @endif
-                            <div class="d-flex align-items-center input-floating-label text-blue brc-blue-m2">
-
-                                <input type="email" class="form-control form-control-lg pr-4 shadow-none @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus />
-
-
-                              <label class="floating-label text-grey-l1 ml-n3" for="id-login-username">
-                              Email
-                              </label>
-                            </div>
-                          </div>
+          <input type="password" class="form-control form-control-lg pr-4 shadow-none @error('password_confirmation') is-invalid @enderror" id="password-confirm" name="password_confirmation" required autocomplete="current-password"/>
+    
+          <i class="fa fa-key text-grey-m2 ml-n4"></i>
+          <label class="floating-label text-grey-l1 ml-n3" for="id-login-password">
+            password confirmation
+          </label>
+        </div>
+      </div>
 
 
-                          <div class="form-group col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 mt-2 mt-md-1">
-                            <div class="d-flex align-items-center input-floating-label text-blue brc-blue-m2">
-  @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                              <input type="password" class="form-control form-control-lg pr-4 shadow-none @error('password') is-invalid @enderror" id="password" name="password" required autocomplete="current-password"/>
-
-                              <i class="fa fa-key text-grey-m2 ml-n4"></i>
-                              <label class="floating-label text-grey-l1 ml-n3" for="id-login-password">
-                                Password
-                              </label>
-                            </div>
-                          </div>
+                          
 
                              <div class="form-group col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 mt-2 mt-md-1">
                             <div class="d-flex align-items-center input-floating-label text-blue brc-blue-m2">
@@ -309,11 +330,7 @@
                           </div> --}}
 
 
-                          <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-right text-md-right mt-n2 mb-2">
-                            <a href="#" class="text-primary-m1 text-95" data-toggle="tab" data-target="#id-tab-forgot">
-                              Forgot Password?
-                            </a>
-                          </div>
+                         
 
 
                           <div class="form-group col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
@@ -324,7 +341,7 @@
                             </label> --}}
 
                             <button type="Submit" class="btn btn-danger btn-block px-4 btn-bold mt-2 mb-4">
-                              Login
+                              reset
                             </button>
                           </div>
                         </form>
@@ -496,7 +513,14 @@
                             Recover Password
                           </h4>
                         </div>
-                     
+                        @if (Session::has('success'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>{{ Session::get('success') }}!</strong> .
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
 
                         <form autocomplete="off" class="form-row mt-4"  method="POST" action="{{route('forget.password.post')}}">
                           @csrf

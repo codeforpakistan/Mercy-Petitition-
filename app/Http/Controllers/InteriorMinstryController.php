@@ -171,7 +171,7 @@ class InteriorMinstryController extends Controller
 
         $interiorpititions = InteriorMinistry::with('interiorfileattachements')->where('petition_id', $id)->first();
 
-        $interiorpititions->remarks = strip_tags($request->get('remarks'));
+        $interiorpititions->remarks = html_entity_decode(strip_tags($request->get('remarks')));
 
         $interiorpititions->save();
 
@@ -225,7 +225,7 @@ class InteriorMinstryController extends Controller
 
         $interiorpititions = InteriorMinistry::with('interiorfileattachements')->where('petition_id', $id)->first();
 
-        $interiorpititions->remarks = strip_tags($request->get('remarks'));
+        $interiorpititions->remarks = html_entity_decode(strip_tags($request->get('remarks')));
 
         $interiorpititions->save();
 
@@ -277,7 +277,7 @@ class InteriorMinstryController extends Controller
 
         $interiorministrydecision->save();
         $Interiorministries = new InteriorMinistry([
-            'remarks' => strip_tags($request->get('remarks')),
+            'remarks' => html_entity_decode(strip_tags($request->get('remarks'))),
             'petition_id' => $interiorministrydecision->id,
             'homedepartment_id' => $homepetition->id,
             "user_id" => Auth::user()->id,

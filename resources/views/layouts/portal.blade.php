@@ -107,11 +107,11 @@
                         if (Auth::user()->confined_in_jail == "") {
             $totalpetitions = Petition::where('province_id', '=', Auth::user()->province_id)->orderBy("id", "desc")->get()->count();
         } else {
-            $totalpetitions = Petition::where('province_id', '=', Auth::user()->province_id)->Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('file_in_department', 'Jail-Supt')->orderBy("id", "desc")->get()->count();
+            $totalpetitions = Petition::where('province_id', '=', Auth::user()->province_id)->Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('file_in_department', 'Jail-Supt')->Where('received_from_department', null)->orderBy("id", "desc")->get()->count();
 
         }
         if (Auth::user()->confined_in_jail == "") {
-            $recievefromhometotalpetitions = Petition::where('province_id', '=', Auth::user()->province_id)->Where('file_in_department', 'Jail-Supt')->Where('received_from_department', 'HomeDepartment')->orderBy("id", "desc")->get()->count();
+            $recievefromhometotalpetitions = Petition::where('province_id', '=', Auth::user()->province_id)->Where('file_in_department', 'Jail-Supt')->orderBy("id", "desc")->get()->count();
 
         }else{
             $recievefromhometotalpetitions = Petition::where('province_id', '=', Auth::user()->province_id)->Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('file_in_department', 'Jail-Supt')->Where('received_from_department', 'HomeDepartment')->orderBy("id", "desc")->get()->count();

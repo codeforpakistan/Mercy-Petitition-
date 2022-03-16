@@ -131,7 +131,7 @@ class HomeDepartmentController extends Controller
 
         $forwardhomedepartment->save();
         $HomeDepartments = new HomeDepartment([
-            'remarks' => strip_tags($request->get('remarks')),
+            'remarks' => html_entity_decode(strip_tags($request->get('remarks'))),
             'petition_id' => $forwardhomedepartment->id,
             "user_id" => Auth::user()->id,
 
@@ -201,7 +201,7 @@ class HomeDepartmentController extends Controller
 
         $homeedit = HomeDepartment::with('homefileattachements')->where('petition_id', $id)->first();
 
-        $homeedit->remarks = strip_tags($request->get('remarks'));
+        $homeedit->remarks = html_entity_decode(strip_tags($request->get('remarks')));
 
         $homeedit->save();
 

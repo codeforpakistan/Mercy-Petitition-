@@ -278,7 +278,7 @@ class PetitionController extends Controller
             "warrent_date" => $warrent_date,
             "date_of_sentence" => $date_of_sentence,
             "sentence_in_court" => $request->get('sentence_in_court'),
-            "warrent_information" => strip_tags($request->warrent_information),
+            "warrent_information" => html_entity_decode(strip_tags($request->warrent_information)),
             "status" => "pending",
             "file_in_department"=>"Jail-Supt",
 
@@ -286,7 +286,7 @@ class PetitionController extends Controller
             "warrent_file" => $warrent_file,
             "application_image" => $application_image,
             "health_paper" => $health_paper,
-            "remarks" => strip_tags($request->remarks),
+            "remarks" => html_entity_decode(strip_tags($request->get('remarks'))),
 
         ]);
 
@@ -302,6 +302,7 @@ class PetitionController extends Controller
 
     public function petitionupdate(Request $request, $id)
     {
+        
 
         $petitionsedit = Petition::find($id);
         if ($request->hasFile('warrent_file')) {
@@ -378,7 +379,7 @@ class PetitionController extends Controller
         $petitionsedit->warrent_information = $request->get('warrent_information');
         $petitionsedit->nationality = $request->get('nationality');
 
-        $petitionsedit->remarks = $request->get('remarks');
+        $petitionsedit->remarks = html_entity_decode(strip_tags($request->get('remarks')));
 
         // $fileupdate = File::where('petition_id',$id)->first();
 
@@ -394,9 +395,15 @@ class PetitionController extends Controller
     public function petitionremarksupdate(Request $request, $id)
     {
 
+        $this->validate($request, [
+            'checking' => 'required',
+              
+
+        ]);
+   
         $petitionsedit = Petition::find($id);
 
-        $petitionsedit->remarks = strip_tags($request->get('remarks'));
+        $petitionsedit->remarks = html_entity_decode(strip_tags($request->get('remarks')));
         $petitionsedit->received_from_department = "Jail-Supt";
 
         $petitionsedit->file_in_department = $request->get('file_in_department');
@@ -443,8 +450,16 @@ class PetitionController extends Controller
     public function forwardhomedepartment(Request $request, $id)
     {
 
+        $this->validate($request, [
+            'checking' => 'required',
+              
+
+        ]);
+  
+      
+     
         $forwardhomedepartment = Petition::find($id);
-        $forwardhomedepartment->remarks = strip_tags($request->get('remarks'));
+        $forwardhomedepartment->remarks = html_entity_decode(strip_tags($request->get('remarks')));
         $forwardhomedepartment->file_in_department = $request->get('file_in_department');
         $forwardhomedepartment->received_from_department = "Jail-Supt";
         $forwardhomedepartment->save();
