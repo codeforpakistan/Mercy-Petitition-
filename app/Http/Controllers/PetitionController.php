@@ -197,13 +197,21 @@ class PetitionController extends Controller
         // Validate the inputs
 
         // file validation
-       
+        
+      
 
         $this->validate($request, [
             'prisoner_image' => 'required|mimes:jpeg,png,jpg,gif,svg',
             'application_image' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
             'health_paper' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
             'warrent_file' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
+
+            'application_in_urdu_file' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
+            'judgments_file' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
+            'petition_certificate' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
+            'petition_roll_file' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
+            'check_list_file' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
+            'convection_summary' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
 
             'name' => 'required|regex:/^[a-zA-Z0-9 ]+$/|max:20',
 
@@ -226,11 +234,7 @@ class PetitionController extends Controller
 
         if ($request->hasFile('application_image') && $request->hasFile('prisoner_image') && $request->hasFile('warrent_file')) {
 
-            //   $request->application_image->store('assets/image', 'public');
-            //   $request->prisoner_image->store('assets/image', 'public');
-            //   $request->warrent_file->store('assets/image', 'public');
-
-          //  $application_image = time() . '.' . $request->application_image->extension();
+          
           $application_image = $request->file('application_image')->getClientOriginalName();
         //   dd($application_image);
 
@@ -245,6 +249,40 @@ class PetitionController extends Controller
             $request->warrent_file->move(public_path('assets/image'), $warrent_file);
 
         }
+        if ($request->hasFile('application_in_urdu_file') && $request->hasFile('judgments_file') && $request->hasFile('petition_certificate')) {
+
+          
+            $application_in_urdu_file = $request->file('application_in_urdu_file')->getClientOriginalName();
+          //   dd($application_image);
+  
+              $request->application_in_urdu_file->move(public_path('assets/image'), $application_in_urdu_file);
+  
+              $judgments_file = $request->file('judgments_file')->getClientOriginalName();
+  
+              $request->judgments_file->move(public_path('assets/image'), $judgments_file);
+  
+              $petition_certificate = $request->file('petition_certificate')->getClientOriginalName();
+  
+              $request->petition_certificate->move(public_path('assets/image'), $petition_certificate);
+  
+          }
+          if ($request->hasFile('petition_roll_file') && $request->hasFile('check_list_file') && $request->hasFile('convection_summary')) {
+
+          
+            $petition_roll_file = $request->file('petition_roll_file')->getClientOriginalName();
+          //   dd($application_image);
+  
+              $request->petition_roll_file->move(public_path('assets/image'), $petition_roll_file);
+  
+              $check_list_file = $request->file('check_list_file')->getClientOriginalName();
+  
+              $request->check_list_file->move(public_path('assets/image'), $check_list_file);
+  
+              $convection_summary = $request->file('convection_summary')->getClientOriginalName();
+  
+              $request->convection_summary->move(public_path('assets/image'), $convection_summary);
+  
+          }
         if ($request->hasFile('health_paper')) {
 
             // $request->health_paper->store('assets/image', 'public');
@@ -260,6 +298,8 @@ class PetitionController extends Controller
         $date_of_sentence = Carbon::parse($request->get('date_of_sentence'))->format('Y-m-d');
         $dob = Carbon::parse($request->get('dob'))->format('Y-m-d');
         $mercypetitiondate = Carbon::parse($request->get('mercypetitiondate'))->format('Y-m-d');
+
+
 
         $Petition = new Petition([
             "name" => $request->get('name'),
@@ -286,6 +326,13 @@ class PetitionController extends Controller
             "warrent_file" => $warrent_file,
             "application_image" => $application_image,
             "health_paper" => $health_paper,
+
+            "convection_summary" => $convection_summary,
+            "check_list_file" => $check_list_file,
+            "petition_roll_file" => $petition_roll_file,
+            "petition_certificate" => $petition_certificate,
+            "judgments_file" => $judgments_file,
+            "application_in_urdu_file" => $application_in_urdu_file,
             "remarks" => html_entity_decode(strip_tags($request->get('remarks'))),
 
         ]);
@@ -316,6 +363,78 @@ class PetitionController extends Controller
         } else {
 
             $petitionsedit->warrent_file = $petitionsedit->warrent_file;
+        }
+        if ($request->hasFile('convection_summary')) {
+
+            $convection_summary =  $request->file('convection_summary')->getClientOriginalName();
+
+            $request->convection_summary->move(public_path('assets/image'), $convection_summary);
+
+            $petitionsedit->convection_summary = $convection_summary;
+
+        } else {
+
+            $petitionsedit->convection_summary = $petitionsedit->convection_summary;
+        }
+        if ($request->hasFile('check_list_file')) {
+
+            $check_list_file =  $request->file('check_list_file')->getClientOriginalName();
+
+            $request->check_list_file->move(public_path('assets/image'), $check_list_file);
+
+            $petitionsedit->check_list_file = $check_list_file;
+
+        } else {
+
+            $petitionsedit->check_list_file = $petitionsedit->check_list_file;
+        }
+        if ($request->hasFile('petition_roll_file')) {
+
+            $petition_roll_file =  $request->file('petition_roll_file')->getClientOriginalName();
+
+            $request->petition_roll_file->move(public_path('assets/image'), $petition_roll_file);
+
+            $petitionsedit->petition_roll_file = $petition_roll_file;
+
+        } else {
+
+            $petitionsedit->petition_roll_file = $petitionsedit->petition_roll_file;
+        }
+        if ($request->hasFile('petition_certificate')) {
+
+            $petition_certificate =  $request->file('petition_certificate')->getClientOriginalName();
+
+            $request->petition_certificate->move(public_path('assets/image'), $petition_certificate);
+
+            $petitionsedit->petition_certificate = $petition_certificate;
+
+        } else {
+
+            $petitionsedit->petition_certificate = $petitionsedit->petition_certificate;
+        }
+        if ($request->hasFile('judgments_file')) {
+
+            $judgments_file =  $request->file('judgments_file')->getClientOriginalName();
+
+            $request->judgments_file->move(public_path('assets/image'), $judgments_file);
+
+            $petitionsedit->judgments_file = $judgments_file;
+
+        } else {
+
+            $petitionsedit->judgments_file = $petitionsedit->judgments_file;
+        }
+        if ($request->hasFile('application_in_urdu_file')) {
+
+            $application_in_urdu_file =  $request->file('application_in_urdu_file')->getClientOriginalName();
+
+            $request->application_in_urdu_file->move(public_path('assets/image'), $application_in_urdu_file);
+
+            $petitionsedit->application_in_urdu_file = $application_in_urdu_file;
+
+        } else {
+
+            $petitionsedit->application_in_urdu_file = $petitionsedit->application_in_urdu_file;
         }
 
         if ($request->hasFile('health_paper')) {
@@ -388,7 +507,7 @@ class PetitionController extends Controller
         $petitionsedit->save();
         // $fileupdate->save();
         return redirect()->route('Petition.index')
-            ->with('success', 'Product deleted successfully');
+            ->with('message', 'Product deleted successfully');
     }
 
     //petition remarks and file update

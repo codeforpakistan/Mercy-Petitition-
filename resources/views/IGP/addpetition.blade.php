@@ -25,7 +25,7 @@
                 </h3>
             </div>
 
-            <!-- @if ($errors->any())
+             @if ($errors->any())
             <div class="alert alert-danger">
 
                 <ul>
@@ -36,7 +36,7 @@
                 </ul>
 
             </div><br />
-            @endif -->
+            @endif 
             <?php date_default_timezone_set("Asia/Karachi");?>
             <form style=" margin-left:12px; margin-right:12px;padding-top:12px" action="{{ route('storepetition') }}"
                 method="post" enctype="multipart/form-data">
@@ -268,7 +268,7 @@
                         <input accept=".pdf,.png,.jpeg,.jpg"
                             class="form-control @error('application_image') is-invalid @enderror"
                             value="{{ old('application_image') }}" type="file" name="application_image"
-                            class="ace-file-input" id="ace-file-input1">
+                            class="ace-file-input" id="ace-file-input1" required>
 
                     </div>
                     @error('health_paper')
@@ -282,7 +282,7 @@
                         <input accept=".pdf,.png,.jpeg,.jpg"
                             class="form-control @error('health_paper') is-invalid @enderror"
                             value="{{ old('health_paper') }}" type="file" name="health_paper" class="ace-file-input"
-                            id="ace-file-input22">
+                            id="ace-file-input22" required>
 
                     </div>
 
@@ -300,7 +300,7 @@
                         <input type="file" accept=".png,.jpeg,.jpg" value="{{ old('prisoner_image') }}"
                             name="prisoner_image"
                             class="ace-file-input form-control @error('prisoner_image') is-invalid @enderror"
-                            id="ace-file-input12">
+                            id="ace-file-input12" required>
 
 
                     </div>
@@ -316,7 +316,68 @@
                         <input type="file" accept=".pdf,.png,.jpeg,.jpg" value="{{ old('warrent_file') }}"
                             name="warrent_file"
                             class="ace-file-input form-control @error('warrent_file') is-invalid @enderror"
-                            id="ace-file-input13">
+                            id="ace-file-input13" required>
+
+                    </div>
+                    {{-- here --}}
+                    <div class="form-group col-md-6">
+                        <label class="required" for="inputCity"> Attach  Application in urdu</label>
+                        <input type="file" accept=".pdf,.png,.jpeg,.jpg" value="{{ old('application_in_urdu_file') }}"
+                            name="application_in_urdu_file"
+                            class="ace-file-input form-control @error('application_in_urdu_file') is-invalid @enderror"
+                            id="ace-file-input27" required>
+
+
+                    </div>
+
+                  
+                    <div class="form-group col-md-6">
+
+                        <label class="required"  for="inputState"> Attach Judgments File </label>
+                        <input type="file" accept=".pdf,.png,.jpeg,.jpg" value="{{ old('judgments_file') }}"
+                            name="judgments_file"
+                            class="ace-file-input form-control @error('judgments_file') is-invalid @enderror"
+                            id="ace-file-input14" required>
+
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="required" for="inputCity"> Attach Petition Certificate</label>
+                        <input type="file" accept=".pdf,.png,.jpeg,.jpg" value="{{ old('petition_certificate') }}"
+                            name="petition_certificate"
+                            class="ace-file-input form-control @error('petition_certificate') is-invalid @enderror"
+                            id="ace-file-input26" required>
+
+
+                    </div>
+
+                   
+                    <div class="form-group col-md-6">
+
+                        <label class="required"  for="inputState"> Attach Mercy Petition Roll File </label>
+                        <input type="file" accept=".pdf,.png,.jpeg,.jpg" value="{{ old('petition_roll_file') }}"
+                            name="petition_roll_file"
+                            class="ace-file-input form-control @error('petition_roll_file') is-invalid @enderror"
+                            id="ace-file-input25" required>
+
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="required" for="inputCity"> Attach Check List</label>
+                        <input type="file" accept=".pdf,.png,.jpeg,.jpg" value="{{ old('check_list_file') }}"
+                            name="check_list_file"
+                            class="ace-file-input form-control @error('check_list_file') is-invalid @enderror"
+                            id="ace-file-input24" required>
+
+
+                    </div>
+
+                   
+                    <div class="form-group col-md-6">
+
+                        <label class="required"  for="inputState"> Attach Convection Summary </label>
+                        <input type="file" accept=".pdf,.png,.jpeg,.jpg" value="{{ old('convection_summary') }}"
+                            name="convection_summary"
+                            class="ace-file-input form-control @error('convection_summary') is-invalid @enderror"
+                            id="ace-file-input23" required>
 
                     </div>
 

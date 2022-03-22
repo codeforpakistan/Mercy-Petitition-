@@ -212,6 +212,162 @@
                     </div>
 
                 </div>
+                {{-- here --}}
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputCity"> Application urdu  Attachment</label>
+                        <?php
+                        $application_in_urdu_file = $petitionsedit->application_in_urdu_file;
+                        $pic = explode('.', $application_in_urdu_file);
+                        $pic[1];
+                        
+                        ?>
+                        @if ($pic[1] == 'pdf')
+                            <a style='height:100px;width:100px;margin-right:15px;' target='_blank' data-lightbox='example-1'
+                                href="{{ asset('/assets/image/' . $petitionsedit->application_in_urdu_file) }}"> <img
+                                    class='example-image' alt='image-1' style='height:100px;width:100px;margin-right:15px;'
+                                    src="{{ asset('/assets/image/pdf.png') }}" width="50" height="50" margin-righ="5%"
+                                    alt="pic" /> </a>
+                        @else
+                            <a target='_blank' data-lightbox='example-1'
+                                href="{{ asset('/assets/image/' . $petitionsedit->application_in_urdu_file) }}"> <img
+                                    class='example-image' alt='image-1' style='height:100px;width:100px;margin-right:15px;'
+                                    src="{{ asset('/assets/image/' . $petitionsedit->application_in_urdu_file) }}" width="50"
+                                    height="50" margin-righ="5%" alt="pic" /> </a>
+                        @endif
+                        <input type="file" name="application_in_urdu_file" accept=".pdf,.png,.jpeg,.jpg" class="ace-file-input" id="ace-file-input27">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputState">Judgments File Attachment</label>
+                        <?php
+                        $judgments_file = $petitionsedit->judgments_file;
+                        $pic = explode('.', $judgments_file);
+                        $pic[1];
+                        
+                        ?>
+                        @if ($pic[1] == 'pdf')
+                            <a style='height:100px;width:100px;margin-right:15px;' target='_blank' data-lightbox='example-1'
+                                href="{{ asset('/assets/image/' . $petitionsedit->judgments_file) }}"> <img
+                                    class='example-image' alt='image-1' style='height:100px;width:100px;margin-right:15px;'
+                                    src="{{ asset('/assets/image/pdf.png') }}" width="50" height="50" margin-righ="5%"
+                                    alt="pic" /> </a>
+                        @else
+                            <a target='_blank' data-lightbox='example-1'
+                                href="{{ asset('/assets/image/' . $petitionsedit->judgments_file) }}"> <img
+                                    class='example-image' alt='image-1' style='height:100px;width:100px;margin-right:15px;'
+                                    src="{{ asset('/assets/image/' . $petitionsedit->judgments_file) }}" width="50"
+                                    height="50" margin-righ="5%" alt="pic" /> </a>
+                        @endif
+
+                        <input type="file" name="judgments_file" class="ace-file-input" id="ace-file-input14">
+                    </div>
+
+                </div>
+                {{-- /here --}}
+                   {{-- here --}}
+                   <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputCity"> Petition Certificate Attachment</label>
+                        <?php
+                        $petition_certificate = $petitionsedit->petition_certificate;
+                        $pic = explode('.', $petition_certificate);
+                        $pic[1];
+                        
+                        ?>
+                        @if ($pic[1] == 'pdf')
+                            <a style='height:100px;width:100px;margin-right:15px;' target='_blank' data-lightbox='example-1'
+                                href="{{ asset('/assets/image/' . $petitionsedit->petition_certificate) }}"> <img
+                                    class='example-image' alt='image-1' style='height:100px;width:100px;margin-right:15px;'
+                                    src="{{ asset('/assets/image/pdf.png') }}" width="50" height="50" margin-righ="5%"
+                                    alt="pic" /> </a>
+                        @else
+                            <a target='_blank' data-lightbox='example-1'
+                                href="{{ asset('/assets/image/' . $petitionsedit->petition_certificate) }}"> <img
+                                    class='example-image' alt='image-1' style='height:100px;width:100px;margin-right:15px;'
+                                    src="{{ asset('/assets/image/' . $petitionsedit->petition_certificate) }}" width="50"
+                                    height="50" margin-righ="5%" alt="pic" /> </a>
+                        @endif
+                        <input type="file" name="petition_certificate" accept=".pdf,.png,.jpeg,.jpg" class="ace-file-input" id="ace-file-input26">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputState">Petition Roll File Attachment</label>
+                        <?php
+                        $petition_roll_file = $petitionsedit->petition_roll_file;
+                        $pic = explode('.', $petition_roll_file);
+                        $pic[1];
+                        
+                        ?>
+                        @if ($pic[1] == 'pdf')
+                            <a style='height:100px;width:100px;margin-right:15px;' target='_blank' data-lightbox='example-1'
+                                href="{{ asset('/assets/image/' . $petitionsedit->petition_roll_file) }}"> <img
+                                    class='example-image' alt='image-1' style='height:100px;width:100px;margin-right:15px;'
+                                    src="{{ asset('/assets/image/pdf.png') }}" width="50" height="50" margin-righ="5%"
+                                    alt="pic" /> </a>
+                        @else
+                            <a target='_blank' data-lightbox='example-1'
+                                href="{{ asset('/assets/image/' . $petitionsedit->petition_roll_file) }}"> <img
+                                    class='example-image' alt='image-1' style='height:100px;width:100px;margin-right:15px;'
+                                    src="{{ asset('/assets/image/' . $petitionsedit->petition_roll_file) }}" width="50"
+                                    height="50" margin-righ="5%" alt="pic" /> </a>
+                        @endif
+
+                        <input type="file" name="petition_roll_file" class="ace-file-input" id="ace-file-input25">
+                    </div>
+
+                </div>
+                {{-- /here --}}
+                {{-- here --}}
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputCity"> Check List FIle Attachment</label>
+                        <?php
+                        $check_list_file = $petitionsedit->check_list_file;
+                        $pic = explode('.', $check_list_file);
+                        $pic[1];
+                        
+                        ?>
+                        @if ($pic[1] == 'pdf')
+                            <a style='height:100px;width:100px;margin-right:15px;' target='_blank' data-lightbox='example-1'
+                                href="{{ asset('/assets/image/' . $petitionsedit->check_list_file) }}"> <img
+                                    class='example-image' alt='image-1' style='height:100px;width:100px;margin-right:15px;'
+                                    src="{{ asset('/assets/image/pdf.png') }}" width="50" height="50" margin-righ="5%"
+                                    alt="pic" /> </a>
+                        @else
+                            <a target='_blank' data-lightbox='example-1'
+                                href="{{ asset('/assets/image/' . $petitionsedit->check_list_file) }}"> <img
+                                    class='example-image' alt='image-1' style='height:100px;width:100px;margin-right:15px;'
+                                    src="{{ asset('/assets/image/' . $petitionsedit->check_list_file) }}" width="50"
+                                    height="50" margin-righ="5%" alt="pic" /> </a>
+                        @endif
+                        <input type="file" name="check_list_file" accept=".pdf,.png,.jpeg,.jpg" class="ace-file-input" id="ace-file-input24">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputState">Convection Summary Attachment</label>
+                        <?php
+                        $convection_summary = $petitionsedit->convection_summary;
+                        $pic = explode('.', $convection_summary);
+                        $pic[1];
+                        
+                        ?>
+                        @if ($pic[1] == 'pdf')
+                            <a style='height:100px;width:100px;margin-right:15px;' target='_blank' data-lightbox='example-1'
+                                href="{{ asset('/assets/image/' . $petitionsedit->convection_summary) }}"> <img
+                                    class='example-image' alt='image-1' style='height:100px;width:100px;margin-right:15px;'
+                                    src="{{ asset('/assets/image/pdf.png') }}" width="50" height="50" margin-righ="5%"
+                                    alt="pic" /> </a>
+                        @else
+                            <a target='_blank' data-lightbox='example-1'
+                                href="{{ asset('/assets/image/' . $petitionsedit->convection_summary) }}"> <img
+                                    class='example-image' alt='image-1' style='height:100px;width:100px;margin-right:15px;'
+                                    src="{{ asset('/assets/image/' . $petitionsedit->convection_summary) }}" width="50"
+                                    height="50" margin-righ="5%" alt="pic" /> </a>
+                        @endif
+
+                        <input type="file" name="convection_summary" class="ace-file-input" id="ace-file-input23">
+                    </div>
+
+                </div>
+                {{-- /here --}}
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputCity">Prisoner Image</label>
@@ -249,23 +405,23 @@
                         <input type="file" name="warrent_file" accept=".pdf,.png,.jpeg,.jpg" value="{{ $petitionsedit->warrent_file }}"
                             class="ace-file-input" id="ace-file-input13">
                     </div>
-
-                </div>
-
-
-                <div class=" form-group col-md-12 mt-5 border-t-1 brc-secondary-l2 py-35 mx-n25">
-                    <div class=" col-md-12 text-nowrap">
-                        <button style="float:right;" class="btn btn-info btn-bold px-4" type="submit">
-                            <i class="fa fa-check mr-1"></i>
-                            Submit
-                        </button>
-
-                        <button style="float:right;" class="btn btn-outline-lightgrey btn-bold ml-2 px-4" type="reset">
-                            <i class="fa fa-undo mr-1"></i>
-                            Reset
-                        </button>
+                    <div class=" form-group col-md-12 mt-5 border-t-1 brc-secondary-l2 py-35 mx-n25">
+                        <div class=" col-md-12 text-nowrap">
+                            <button style="float:right;" class="btn btn-info btn-bold px-4" type="submit">
+                                <i class="fa fa-check mr-1"></i>
+                                Submit
+                            </button>
+    
+                            <button style="float:right;" class="btn btn-outline-lightgrey btn-bold ml-2 px-4" type="reset">
+                                <i class="fa fa-undo mr-1"></i>
+                                Reset
+                            </button>
+                        </div>
                     </div>
                 </div>
+
+
+               
         </div>
 
 
