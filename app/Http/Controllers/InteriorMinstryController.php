@@ -34,8 +34,8 @@ class InteriorMinstryController extends Controller
         $search = trim($request->input('search'));
 
           $InteriorMinistryDepartments = Petition::where('file_in_department', 'InteriorMinistry')->where('received_from_department', 'HomeDepartment')
-       
-       
+
+
         ->where(function($query) use ($search){
                 $query->where('name', 'LIKE', '%'.$search.'%')
                     ->orWhere('gender', 'LIKE', '%'.$search.'%')
@@ -45,11 +45,11 @@ class InteriorMinstryController extends Controller
                     ->orWhere('status', 'LIKE', '%'.$search.'%')
                     ->orWhere('prisonerid', 'LIKE', '%'.$search.'%');
             })->get();
-   
-    
-    
-            
-   
+
+
+
+
+
         return view('InteriorMinstry.interiorsearch', compact('InteriorMinistryDepartments'));
     }
     public function humaninteriorsearch(Request $request)
@@ -57,8 +57,8 @@ class InteriorMinstryController extends Controller
         $search = trim($request->input('search'));
 
           $InteriorMinistryDepartments = Petition::where('file_in_department', 'InteriorMinistry')->where('received_from_department', 'HumanRightDepartment')
-       
-       
+
+
         ->where(function($query) use ($search){
                 $query->where('name', 'LIKE', '%'.$search.'%')
                     ->orWhere('gender', 'LIKE', '%'.$search.'%')
@@ -68,11 +68,11 @@ class InteriorMinstryController extends Controller
                     ->orWhere('status', 'LIKE', '%'.$search.'%')
                     ->orWhere('prisonerid', 'LIKE', '%'.$search.'%');
             })->get();
-   
-    
-    
-            
-   
+
+
+
+
+
         return view('InteriorMinstry.humaninteriorsearch', compact('InteriorMinistryDepartments'));
     }
     public function remarksfromhrd()
@@ -149,7 +149,7 @@ class InteriorMinstryController extends Controller
         // $interior->each->delete();
         return view('InteriorMinstry.interiorministryfinaldecisions',compact('interiorpititions'));
     }
-    
+
     public function finalapprovedecision(Request $request, $id)
     {
 
