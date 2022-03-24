@@ -496,24 +496,25 @@
                             Recover Password
                           </h4>
                         </div>
+                     
 
-
-                        <form autocomplete="off" class="form-row mt-4">
+                        <form autocomplete="off" class="form-row mt-4"  method="POST" action="{{route('forget.password.post')}}">
+                          @csrf
                           <div class="form-group col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
                             <label class="text-secondary-d3 mb-3">
-                              Contact your Administrator to change password :
+                             change password :
                             </label>
                             <div class="d-flex align-items-center">
-                              <input type="email" disabled class="form-control form-control-lg pr-4 shadow-none" id="id-recover-email" value = "Admin@gmail.com" />
+                              <input type="email"  class="form-control form-control-lg pr-4 shadow-none" id="id-recover-email" name="email" value=" {{old('email') }}" />
                               <i class="fa fa-envelope text-grey-m2 ml-n4"></i>
                             </div>
                           </div>
 
-                          {{-- <div class="form-group col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 mt-1">
-                            <button type="button" class="btn btn-orange btn-block px-4 btn-bold mt-2 mb-4">
+                          <div class="form-group col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 mt-1">
+                            <button type="submit" class="btn btn-orange btn-block px-4 btn-bold mt-2 mb-4">
                               Continue
                             </button>
-                          </div> --}}
+                          </div>
                         </form>
 
 

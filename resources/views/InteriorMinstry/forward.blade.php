@@ -102,9 +102,17 @@
 
 
                 </div>
+                <div class="form-group row">
+                
+                    <div class="col-sm-6 col-form-label text-sm-right pr-0">
+                        <input  class=" @error('checking') is-invalid @enderror" type="checkbox" id="checking" name="checking" value="checking" required>
+                        <label for="vehicle1"> I agree that i have reviewed the above documents</label><br>
+                    </div>
+                   
+                </div>
                 <div class="mt-5 border-t-1 brc-secondary-l2 py-35 mx-n25">
                     <div class="offset-md-3 col-md-9 text-nowrap">
-                        <button class="btn btn-info btn-bold px-4 show_confirm" type="submit">
+                        <button class="btn btn-info btn-bold px-4" type="submit">
                             <i class="fa fa-check mr-1"></i>
                             Forward
                         </button>

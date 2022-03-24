@@ -50,6 +50,11 @@ Route::get('/interiorministryfinaldecisions/{id}', 'InteriorMinstryController@in
 Route::get('/decision/{id}', 'InteriorMinstryController@interiordecision')->name('decision');
 Route::Post('/finaldecision/{id}', 'InteriorMinstryController@finaldecision')->name('final-decision');
 
+// Route::get('forget-password', 'Auth\ForgotPasswordController@showForgetPasswordForm')->name('forget.password.get');
+Route::post('forget-password', 'Auth\ForgotPasswordController@submitForgetPasswordForm')->name('forget.password.post'); 
+Route::get('reset-password/{token}', 'Auth\ForgotPasswordController@showResetPasswordForm')->name('reset.password.get');
+Route::post('reset-password', 'Auth\ForgotPasswordController@submitResetPasswordForm')->name('reset.password.post');
+
 Route::Post('/finalapprovedecision/{id}', 'InteriorMinstryController@finalapprovedecision')->name('finalapprovedecision');
 Route::Post('/decision/{id}', 'InteriorMinstryController@decision')->name('petition-decision');
 Route::get('interiorsearch', 'InteriorMinstryController@interiorsearch')->name('interiorsearch');

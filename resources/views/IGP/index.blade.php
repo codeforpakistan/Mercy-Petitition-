@@ -724,6 +724,85 @@
                                                                                         </figure>
                                                                                     </div>
 
+                                                                                    
+
+                                                                                </div>
+                                                                                <div class=" form-group row">
+                                                                                <div class="form-group col-md-3">
+                                                                                    <figure class="figure">
+                                                                                        <div id="convection_summary">
+                                                                                        </div>
+                                                                                        <div id="convection_summarys">
+                                                                                        </div>
+                                                                                        <figcaption
+                                                                                            class="figure-caption text-right">
+                                                                                            Convection Summary
+                                                                                        </figcaption>
+                                                                                    </figure>
+                                                                                </div>
+                                                                                <div class="form-group col-md-3">
+                                                                                    <figure class="figure">
+                                                                                        <div id="check_list_file">
+                                                                                        </div>
+                                                                                        <div id="check_list_files">
+                                                                                        </div>
+                                                                                        <figcaption
+                                                                                            class="figure-caption text-right">
+                                                                                            Check List File
+                                                                                        </figcaption>
+                                                                                    </figure>
+                                                                                </div>
+                                                                                <div class="form-group col-md-3">
+                                                                                    <figure class="figure">
+                                                                                        <div id="petition_roll_file">
+                                                                                        </div>
+                                                                                        <div id="petition_roll_files">
+                                                                                        </div>
+                                                                                        <figcaption
+                                                                                            class="figure-caption text-right">
+                                                                                            Petition Roll File
+                                                                                        </figcaption>
+                                                                                    </figure>
+                                                                                </div>
+                                                                                
+                                                                                </div>
+                                                                                <div class=" form-group row">
+                                                                                    <div class="form-group col-md-3">
+                                                                                        <figure class="figure">
+                                                                                            <div id="petition_certificate">
+                                                                                            </div>
+                                                                                            <div id="petition_certificates">
+                                                                                            </div>
+                                                                                            <figcaption
+                                                                                                class="figure-caption text-right">
+                                                                                                Petition Certificate
+                                                                                            </figcaption>
+                                                                                        </figure>
+                                                                                    </div>
+                                                                                    <div class="form-group col-md-3">
+                                                                                        <figure class="figure">
+                                                                                            <div id="judgments_file">
+                                                                                            </div>
+                                                                                            <div id="judgments_files">
+                                                                                            </div>
+                                                                                            <figcaption
+                                                                                                class="figure-caption text-right">
+                                                                                                Judgments_file
+                                                                                            </figcaption>
+                                                                                        </figure>
+                                                                                    </div>
+                                                                                    <div class="form-group col-md-3">
+                                                                                        <figure class="figure">
+                                                                                            <div id="application_in_urdu_file">
+                                                                                            </div>
+                                                                                            <div id="application_in_urdu_files">
+                                                                                            </div>
+                                                                                            <figcaption
+                                                                                                class="figure-caption text-right">
+                                                                                                Application In Urdu File
+                                                                                            </figcaption>
+                                                                                        </figure>
+                                                                                    </div>
                                                                                 </div>
                                                                                 <div class=" form-group row">
                                                                                     <div class="form-group col-md-12">
@@ -750,11 +829,7 @@
                                                                                                 class="fa fa-forward"></i>
                                                                                         </a> --}}
 
-                                                                                        <a href="{{ route('petition-forward', [$petion->id]) }}"
-                                                                                            class="  mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
-                                                                                            Forward <i
-                                                                                                class="fa fa-forward"></i>
-                                                                                        </a>
+                                                                                       
 
                                                                                     </div>
                                                                                     <div class="form-group col-md-6">

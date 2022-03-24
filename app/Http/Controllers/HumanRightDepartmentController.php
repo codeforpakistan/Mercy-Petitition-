@@ -84,7 +84,7 @@ class HumanRightDepartmentController extends Controller
 
         $humanrightdecision->save();
         $HumanRightDepartments = new HumanRightDepartment([
-            'remarks' => trim(strip_tags($request->get('remarks'))),
+            'remarks' => strip_tags($request->get('remarks')),
             'petition_id' => $humanrightdecision->id,
             'homedepartment_id' => $homepetition->id,
             'interiorministry_id' => $interiorministry->id,

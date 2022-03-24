@@ -198,7 +198,7 @@
                         <i class="fas fa-cog text-white text-170 w-4 h-4"></i>
                     </span>
                 </div>
-                <a href="{{route('accepted')}}">
+                <a href="{{route('rejected')}}">
                 <div class="ml-3">
                     <div class="pos-rel">
                         <span class="text-dark-tp3 text-180">{{$Rejected}}</span>
