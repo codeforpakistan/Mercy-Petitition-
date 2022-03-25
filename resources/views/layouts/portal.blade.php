@@ -125,7 +125,8 @@
                         $receivefrominterior = Petition::where('province_id', '=', Auth::user()->province_id)->Where('file_in_department', 'HomeDepartment')->Where('received_from_department', 'InteriorMinistry')->orderBy("id", "desc")->get()->count();
                         $InteriorMinistryDepartment = Petition::Where('file_in_department', 'InteriorMinistry')->Where('status', 'pending')->orderBy("id", "desc")->get()->count();
                         $HumanRightDepartment = Petition::Where('file_in_department', 'HumanRightDepartment')->orderBy("id", "desc")->get()->count();
-                        $receivfromHumanRightDepartment = Petition::Where('file_in_department', 'InteriorMinistry')->Where('received_from_department', 'HumanRightDeparment')->Where('status', 'pending')->orderBy("id", "desc")->get()->count();
+                        $receivfromHumanRightDepartment = Petition::Where('file_in_department', 'InteriorMinistry')->Where('received_from_department', 'HumanRightDepartment')->where('status','pending')->orderBy("id", "desc")->get()->count();
+  
                         if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id)) {
 
   $Accepted = Petition::where('confined_in_jail', '=', Auth::user()->confined_in_jail)->where('province_id', '=', Auth::user()->province_id)->Where('status', 'Accepted')->orderBy("id", "desc")->get()->count();
@@ -151,6 +152,7 @@ $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Wher
   $Rejected = Petition::Where('status', 'Rejected')->orderBy("id", "desc")->count();
 
 }
+
 
 ?>
                         @include('layouts.navigation-portal',compact('InteriorMinistryDepartment','recievefromhometotalpetitions','totalpetitions','HumanRightDepartment','HomeDepartment','InteriorMinistryDepartment','receivfromHumanRightDepartment'))
@@ -990,100 +992,96 @@ $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Wher
 
                             $("#convection_summarys").empty();
                         $("#convection_summary").empty();
-                        var ap = data.convection_summary;
+                       
+                        var ap = data.petitions.convection_summary;
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
                             $('#convection_summarys').append(
-                                "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data
+                                "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data.petitions
                                 .convection_summary + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                         } else {
                             $('#convection_summary').html(
                                 "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                data.convection_summary + " '>" +
+                                data.petitions.convection_summary + " '>" +
                                 "<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/" +
-                                data.convection_summary + "'>" + '</a>');
+                                data.petitions.convection_summary + "'>" + '</a>');
                             // $('#warrent_file').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.warrent_file+"'>");
                         }
                         $("#check_list_files").empty();
                         $("#check_list_file").empty();
-                        var ap = data.check_list_file;
+                        var ap = data.petitions.check_list_file;
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
                             $('#check_list_files').append(
-                                "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data
-                                .check_list_file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
+                                "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data.petitions.check_list_file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                         } else {
                             $('#check_list_file').html(
                                 "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                data.check_list_file + " '>" +
+                                data.petitions.check_list_file + " '>" +
                                 "<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/" +
-                                data.check_list_file + "'>" + '</a>');
+                                data.petitions.check_list_file + "'>" + '</a>');
                             // $('#warrent_file').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.warrent_file+"'>");
                         }
 
                         $("#petition_roll_files").empty();
                         $("#petition_roll_file").empty();
-                        var ap = data.petition_roll_file;
+                        var ap = data.petitions.petition_roll_file;
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
-                            $('#check_list_files').append(
-                                "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data
-                                .petition_roll_file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
+                            $('#petition_roll_files').append(
+                                "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data.petitions.petition_roll_file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                         } else {
                             $('#petition_roll_file').html(
                                 "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                data.petition_roll_file + " '>" +
+                                data.petitions.petition_roll_file + " '>" +
                                 "<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/" +
-                                data.petition_roll_file + "'>" + '</a>');
+                                data.petitions.petition_roll_file + "'>" + '</a>');
                             // $('#warrent_file').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.warrent_file+"'>");
                         }
 
                         $("#petition_certificates").empty();
                         $("#petition_certificate").empty();
-                        var ap = data.petition_certificate;
+                        var ap = data.petitions.petition_certificate;
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
                             $('#petition_certificates').append(
-                                "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data
-                                .petition_certificate + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
+                                "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data.petitions.petition_certificate + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                         } else {
                             $('#petition_certificate').html(
                                 "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                data.petition_certificate + " '>" +
+                                data.petitions.petition_certificate + " '>" +
                                 "<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/" +
-                                data.petition_certificate + "'>" + '</a>');
+                                data.petitions.petition_certificate + "'>" + '</a>');
                             // $('#warrent_file').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.warrent_file+"'>");
                         }
                         $("#judgments_files").empty();
                         $("#judgments_file").empty();
-                        var ap = data.judgments_file;
+                        var ap = data.petitions.judgments_file;
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
                             $('#judgments_files').append(
-                                "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data
-                                .judgments_file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
+                                "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data.petitions.judgments_file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                         } else {
                             $('#judgments_file').html(
                                 "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                data.judgments_file + " '>" +
+                                data.petitions.judgments_file + " '>" +
                                 "<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/" +
-                                data.judgments_file + "'>" + '</a>');
+                                data.petitions.judgments_file + "'>" + '</a>');
                             // $('#warrent_file').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.warrent_file+"'>");
                         }
                         $("#application_in_urdu_files").empty();
                         $("#application_in_urdu_file").empty();
-                        var ap = data.application_in_urdu_file;
+                        var ap = data.petitions.application_in_urdu_file;
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
                             $('#application_in_urdu_files').append(
-                                "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data
-                                .application_in_urdu_file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
+                                "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data.petitions.application_in_urdu_file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                         } else {
                             $('#application_in_urdu_file').html(
                                 "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                data.application_in_urdu_file + " '>" +
+                                data.petitions.application_in_urdu_file + " '>" +
                                 "<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/" +
-                                data.application_in_urdu_file + "'>" + '</a>');
+                                data.petitions.application_in_urdu_file + "'>" + '</a>');
                             // $('#warrent_file').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.warrent_file+"'>");
                         }
 
@@ -1270,102 +1268,98 @@ $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Wher
                             "<img  class='example-image' alt='image-1'  style='height:100px;width:100px;border-radius:50px' src='{{ url('/assets/image/') }}/" +
                             data.petitions.prisoner_image + "'>" + '</a>');
 
-                            $("#convection_summarys").empty();
+                        $("#convection_summarys").empty();
                         $("#convection_summary").empty();
-                        var ap = data.convection_summary;
+                       
+                        var ap = data.petitions.convection_summary;
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
                             $('#convection_summarys').append(
-                                "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data
+                                "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data.petitions
                                 .convection_summary + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                         } else {
                             $('#convection_summary').html(
                                 "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                data.convection_summary + " '>" +
+                                data.petitions.convection_summary + " '>" +
                                 "<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/" +
-                                data.convection_summary + "'>" + '</a>');
+                                data.petitions.convection_summary + "'>" + '</a>');
                             // $('#warrent_file').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.warrent_file+"'>");
                         }
                         $("#check_list_files").empty();
                         $("#check_list_file").empty();
-                        var ap = data.check_list_file;
+                        var ap = data.petitions.check_list_file;
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
                             $('#check_list_files').append(
-                                "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data
-                                .check_list_file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
+                                "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data.petitions.check_list_file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                         } else {
                             $('#check_list_file').html(
                                 "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                data.check_list_file + " '>" +
+                                data.petitions.check_list_file + " '>" +
                                 "<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/" +
-                                data.check_list_file + "'>" + '</a>');
+                                data.petitions.check_list_file + "'>" + '</a>');
                             // $('#warrent_file').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.warrent_file+"'>");
                         }
 
                         $("#petition_roll_files").empty();
                         $("#petition_roll_file").empty();
-                        var ap = data.petition_roll_file;
+                        var ap = data.petitions.petition_roll_file;
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
-                            $('#check_list_files').append(
-                                "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data
-                                .petition_roll_file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
+                            $('#petition_roll_files').append(
+                                "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data.petitions.petition_roll_file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                         } else {
                             $('#petition_roll_file').html(
                                 "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                data.petition_roll_file + " '>" +
+                                data.petitions.petition_roll_file + " '>" +
                                 "<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/" +
-                                data.petition_roll_file + "'>" + '</a>');
+                                data.petitions.petition_roll_file + "'>" + '</a>');
                             // $('#warrent_file').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.warrent_file+"'>");
                         }
 
                         $("#petition_certificates").empty();
                         $("#petition_certificate").empty();
-                        var ap = data.petition_certificate;
+                        var ap = data.petitions.petition_certificate;
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
                             $('#petition_certificates').append(
-                                "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data
-                                .petition_certificate + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
+                                "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data.petitions.petition_certificate + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                         } else {
                             $('#petition_certificate').html(
                                 "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                data.petition_certificate + " '>" +
+                                data.petitions.petition_certificate + " '>" +
                                 "<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/" +
-                                data.petition_certificate + "'>" + '</a>');
+                                data.petitions.petition_certificate + "'>" + '</a>');
                             // $('#warrent_file').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.warrent_file+"'>");
                         }
                         $("#judgments_files").empty();
                         $("#judgments_file").empty();
-                        var ap = data.judgments_file;
+                        var ap = data.petitions.judgments_file;
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
                             $('#judgments_files').append(
-                                "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data
-                                .judgments_file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
+                                "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data.petitions.judgments_file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                         } else {
                             $('#judgments_file').html(
                                 "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                data.judgments_file + " '>" +
+                                data.petitions.judgments_file + " '>" +
                                 "<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/" +
-                                data.judgments_file + "'>" + '</a>');
+                                data.petitions.judgments_file + "'>" + '</a>');
                             // $('#warrent_file').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.warrent_file+"'>");
                         }
                         $("#application_in_urdu_files").empty();
                         $("#application_in_urdu_file").empty();
-                        var ap = data.application_in_urdu_file;
+                        var ap = data.petitions.application_in_urdu_file;
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
                             $('#application_in_urdu_files').append(
-                                "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data
-                                .application_in_urdu_file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
+                                "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data.petitions.application_in_urdu_file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                         } else {
                             $('#application_in_urdu_file').html(
                                 "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                data.application_in_urdu_file + " '>" +
+                                data.petitions.application_in_urdu_file + " '>" +
                                 "<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/" +
-                                data.application_in_urdu_file + "'>" + '</a>');
+                                data.petitions.application_in_urdu_file + "'>" + '</a>');
                             // $('#warrent_file').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.warrent_file+"'>");
                         }
 
@@ -1747,100 +1741,96 @@ $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Wher
 
                             $("#convection_summarys").empty();
                         $("#convection_summary").empty();
-                        var ap = data.convection_summary;
+                       
+                        var ap = data.petitions.convection_summary;
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
                             $('#convection_summarys').append(
-                                "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data
+                                "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data.petitions
                                 .convection_summary + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                         } else {
                             $('#convection_summary').html(
                                 "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                data.convection_summary + " '>" +
+                                data.petitions.convection_summary + " '>" +
                                 "<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/" +
-                                data.convection_summary + "'>" + '</a>');
+                                data.petitions.convection_summary + "'>" + '</a>');
                             // $('#warrent_file').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.warrent_file+"'>");
                         }
                         $("#check_list_files").empty();
                         $("#check_list_file").empty();
-                        var ap = data.check_list_file;
+                        var ap = data.petitions.check_list_file;
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
                             $('#check_list_files').append(
-                                "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data
-                                .check_list_file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
+                                "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data.petitions.check_list_file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                         } else {
                             $('#check_list_file').html(
                                 "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                data.check_list_file + " '>" +
+                                data.petitions.check_list_file + " '>" +
                                 "<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/" +
-                                data.check_list_file + "'>" + '</a>');
+                                data.petitions.check_list_file + "'>" + '</a>');
                             // $('#warrent_file').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.warrent_file+"'>");
                         }
 
                         $("#petition_roll_files").empty();
                         $("#petition_roll_file").empty();
-                        var ap = data.petition_roll_file;
+                        var ap = data.petitions.petition_roll_file;
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
-                            $('#check_list_files').append(
-                                "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data
-                                .petition_roll_file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
+                            $('#petition_roll_files').append(
+                                "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data.petitions.petition_roll_file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                         } else {
                             $('#petition_roll_file').html(
                                 "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                data.petition_roll_file + " '>" +
+                                data.petitions.petition_roll_file + " '>" +
                                 "<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/" +
-                                data.petition_roll_file + "'>" + '</a>');
+                                data.petitions.petition_roll_file + "'>" + '</a>');
                             // $('#warrent_file').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.warrent_file+"'>");
                         }
 
                         $("#petition_certificates").empty();
                         $("#petition_certificate").empty();
-                        var ap = data.petition_certificate;
+                        var ap = data.petitions.petition_certificate;
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
                             $('#petition_certificates').append(
-                                "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data
-                                .petition_certificate + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
+                                "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data.petitions.petition_certificate + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                         } else {
                             $('#petition_certificate').html(
                                 "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                data.petition_certificate + " '>" +
+                                data.petitions.petition_certificate + " '>" +
                                 "<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/" +
-                                data.petition_certificate + "'>" + '</a>');
+                                data.petitions.petition_certificate + "'>" + '</a>');
                             // $('#warrent_file').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.warrent_file+"'>");
                         }
                         $("#judgments_files").empty();
                         $("#judgments_file").empty();
-                        var ap = data.judgments_file;
+                        var ap = data.petitions.judgments_file;
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
                             $('#judgments_files').append(
-                                "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data
-                                .judgments_file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
+                                "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data.petitions.judgments_file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                         } else {
                             $('#judgments_file').html(
                                 "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                data.judgments_file + " '>" +
+                                data.petitions.judgments_file + " '>" +
                                 "<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/" +
-                                data.judgments_file + "'>" + '</a>');
+                                data.petitions.judgments_file + "'>" + '</a>');
                             // $('#warrent_file').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.warrent_file+"'>");
                         }
                         $("#application_in_urdu_files").empty();
                         $("#application_in_urdu_file").empty();
-                        var ap = data.application_in_urdu_file;
+                        var ap = data.petitions.application_in_urdu_file;
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
                             $('#application_in_urdu_files').append(
-                                "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data
-                                .application_in_urdu_file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
+                                "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data.petitions.application_in_urdu_file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                         } else {
                             $('#application_in_urdu_file').html(
                                 "<a  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                                data.application_in_urdu_file + " '>" +
+                                data.petitions.application_in_urdu_file + " '>" +
                                 "<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/" +
-                                data.application_in_urdu_file + "'>" + '</a>');
+                                data.petitions.application_in_urdu_file + "'>" + '</a>');
                             // $('#warrent_file').html("<img style='height:70;width:100px;' src=' {{ url('/assets/image/') }}/"+data.warrent_file+"'>");
                         }
                          $("#homefilepdf").empty();
@@ -2145,7 +2135,7 @@ $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Wher
                             data.prisoner_image + " '>" +
                             "<img  class='example-image' alt='image-1'  style='height:100px;width:100px;border-radius:50px' src='{{ url('/assets/image/') }}/" +
                             data.prisoner_image + "'>" + '</a>');
-                            $("#convection_summarys").empty();
+                         $("#convection_summarys").empty();
                         $("#convection_summary").empty();
                         var ap = data.convection_summary;
                         var finalap = ap.split(".");
@@ -2183,7 +2173,7 @@ $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Wher
                         var ap = data.petition_roll_file;
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
-                            $('#check_list_files').append(
+                            $('#petition_roll_files').append(
                                 "<a  style='margin-right:15px;' target='_blank'   href='{{ url('/assets/image/') }}/" + data
                                 .petition_roll_file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
                         } else {
@@ -2313,9 +2303,11 @@ $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Wher
     </script>
      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+     <script type="text/javascript"  src="https://cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js"></script>
+
     <script type="text/javascript">
         function Export() {
-            html2canvas(document.getElementById('tblCustomers'), {
+            html2canvas(document.getElementsByClassName('tblCustomers'), {
                 onrendered: function (canvas) {
                     var data = canvas.toDataURL();
                     var docDefinition = {
@@ -2328,7 +2320,53 @@ $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Wher
                 }
             });
         }
+
+       
     </script>
+    <script type="text/javascript">
+    function printpayablebalanceexcel()  {
+
+$('.nbsp').addClass("removenbsp");
+  $("#forprint").removeAttr("style");
+  
+//   var datatoptint = "<div id='#repheader' style='text-align: center; margin-bottom: 5px;'><h5>Summary Report</h5><h5 style='text-align: center;'><span>For The Peroid </span>"+$("#payablestime").val()+"&nbsp;To&nbsp;"+$("#payableetime").val()+"</h5></div>";
+  datatoptint = document.getElementById('forprint').outerHTML;
+  
+
+var a = document.createElement('a');
+var data_type = 'data:application/vnd.ms-excel';
+a.href = data_type + ', ' + encodeURIComponent(datatoptint);
+//setting the file name
+a.download = 'summary_report.xls';
+//triggering the function
+a.click();
+//just in case, prevent default behaviour
+e.preventDefault();
+return true;
+
+  } 
+ </script>
+{{-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js", type="text/javascript">
+    function printpayablebalanceexcel() {
+        alert('In Function');
+      $("#forprint").table2excel({
+        filename: "file.xls"
+      });
+    }
+  </script> --}}
+{{-- 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/TableExport/5.2.0/js/tableexport.min.js" integrity="sha512-XmZS54be9JGMZjf+zk61JZaLZyjTRgs41JLSmx5QlIP5F+sSGIyzD2eJyxD4K6kGGr7AsVhaitzZ2WTfzpsQzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+    <script type="text/javascript">
+    function printpayablebalanceexcel() {
+        
+      $("#forprint").table2excel({
+        filename: "file.xls"
+      });
+    }
+    </script> --}}
+     
+     
      <script>
         $(document).ready(function() {
  $('#provincejail').change(function() {

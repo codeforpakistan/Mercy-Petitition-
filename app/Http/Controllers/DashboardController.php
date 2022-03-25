@@ -57,12 +57,12 @@ class DashboardController extends Controller
     
     $Inprocess = Petition::where('province_id', '=', Auth::user()->province_id)->orWhere('status', 'pending')->orderBy("id", "desc")->count();
    }
-  elseif($role->name == 'Jail-Supt'){
-  
+  elseif($role->name == 'jail-supt'){
+ 
         $Inprocess = Petition::where('user_id', '=', Auth::user()->id)->where('province_id', '=', Auth::user()->province_id)->Where('file_in_department', 'HomeDepartment')->orderBy("id", "desc")->count();
    }
    
-  elseif($role->name =='Homedpt'){
+  elseif($role->name =='Homedept'){
     
     $Inprocess = Petition::where('user_id', '=', Auth::user()->id)->where('province_id', '=', Auth::user()->province_id)->Where('file_in_department', 'InteriorMinistry')->orderBy("id", "desc")->count();
    }

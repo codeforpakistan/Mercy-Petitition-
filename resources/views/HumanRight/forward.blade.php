@@ -1,8 +1,8 @@
 @extends('layouts.portal', [
-    'menu' => ' InteriorMinstry',
+    'menu' => '  HumanRightDepartment',
     'sub_menu' => 'Decision'
 ])
-@section('module','InteriorMinstry Management')
+@section('module',' HumanRightDepartment Management')
 @section('element','Decision')
 
 @section('content')
