@@ -2001,7 +2001,7 @@ $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Wher
                             width: 500
                         }]
                     };
-                    pdfMake.createPdf(docDefinition).download("Mercy Petition.pdf");
+                    pdfMake.createPdf(docDefinition).download("Mercypetition_report.pdf");
                 }
             });
         }
@@ -2022,7 +2022,7 @@ var a = document.createElement('a');
 var data_type = 'data:application/vnd.ms-excel';
 a.href = data_type + ', ' + encodeURIComponent(datatoptint);
 //setting the file name
-a.download = 'summary_report.xls';
+a.download = 'Mercypetition_report.xls';
 //triggering the function
 a.click();
 //just in case, prevent default behaviour
