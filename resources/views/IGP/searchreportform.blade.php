@@ -8,7 +8,11 @@
 
 @section('content')
 
-
+<style>
+  table.table-bordered > tbody > tr > td{
+     border:1px solid black;
+ }
+   </style>
 <?php
  $gender = request()->input('gender');
  $province= request()->input('province');
@@ -131,7 +135,8 @@
 
               <div class="row">
                 <div class="col-md-6" style="text-align: left;">
-                  <button type="button" id="btnExport" onclick="Export()" class="btn btn-info">Export</button>
+                  <button type="button" id="btnExport" onclick="Export()" class="btn btn-info">Export in PDF</button>
+                  <button type="button" id="btnExport" onclick="printpayablebalanceexcel()" class="btn btn-info">Export in Excel</button>
                   {{-- <i class="fa-solid fa-download" type="button" id="btnExport" onclick="Export()"></i> --}}
 
                 </div>
@@ -147,11 +152,11 @@
             </form>
             <br>
 
-  <tr>
-    <table id="tblCustomers"
-    class="table-responsive; overflow: hidden; ">
+<div class="table-responsive">
+    <table id="forprint" 
+    class="tblCustomers nbsp table-bordered  overflow: hidden; ">
     <thead class="text-dark-tp3 bgc-grey-l4 text-90 border-b-1 brc-transparent">
-  <tr>
+  
     <th class="p-3 mb-2 bg-success text-white" style="width: 80px;">ID</th>
     {{-- <th class="p-3 mb-2 bg-success text-white">id</th> --}}
     <th class="p-3 mb-2 bg-success text-white">Name</th>
@@ -201,6 +206,7 @@
   @endforeach
   </tbody>
 </table>
+</div>
 </div>
 
 

@@ -9,9 +9,9 @@
 @section('content')
 
 <style>
-  body{
-
-  }
+ table.table-bordered > tbody > tr > td{
+    border:1px solid black;
+}
   </style>
 
 
@@ -126,8 +126,8 @@
             </form>
 
   <tr>
-    <table id="simple-table"
-    class="table-responsive; overflow: hidden; ">
+    <table id="simple-table" 
+    class=" table-bordered table-responsive; overflow: hidden; ">
     <thead class="text-dark-tp3 bgc-grey-l4 text-90 border-b-1 brc-transparent">
   <tr>
     <th class="p-3 mb-2 bg-success text-white">ID</th>

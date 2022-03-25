@@ -78,14 +78,14 @@ class InteriorMinstryController extends Controller
     public function remarksfromhrd()
     {
 
-        $InteriorMinistryDepartments = Petition::Where('file_in_department', 'InteriorMinistry')->Where('received_from_department', 'HumanRightDepartment')->orderBy("id", "desc")->get();
+        $InteriorMinistryDepartments = Petition::Where('file_in_department', 'InteriorMinistry')->Where('received_from_department', 'HumanRightDepartment')->where('status','pending')->orderBy("id", "desc")->get();
 
         return view('InteriorMinstry.remarksfromhrd', compact('InteriorMinistryDepartments'));
     }
     public function finaldecisions()
     {
 
-        $InteriorMinistryDepartments = Petition::Where('file_in_department', 'InteriorMinistry')->Where('received_from_department', 'HumanRightDepartment')->orderBy("id", "desc")->get();
+        $InteriorMinistryDepartments = Petition::Where('file_in_department', 'InteriorMinistry')->Where('received_from_department', 'HumanRightDepartment')->where('status','pending')->orderBy("id", "desc")->get();
 
         return view('InteriorMinstry.finaldecision', compact('InteriorMinistryDepartments'));
     }
