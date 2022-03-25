@@ -29,7 +29,7 @@ class PetitionController extends Controller
             $petitions = Petition::Where('province_id', Auth::user()->province_id)->orderBy("id", "desc")->paginate(5);
         } else {
             $petitions = Petition::Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('province_id', Auth::user()->province_id)->Where('file_in_department', 'Jail-Supt')->Where('received_from_department',null)->orderBy("id", "desc")->paginate(5);
-      
+
         }
 
         return view('IGP.index', compact('petitions'));
@@ -41,8 +41,8 @@ class PetitionController extends Controller
         if (Auth::user()->confined_in_jail == "") {
 
             $petitions =   Petition::Where('province_id', Auth::user()->province_id)
-       
-       
+
+
             ->where(function($query) use ($search){
                     $query->where('name', 'LIKE', '%'.$search.'%')
                           ->orWhere('gender', 'LIKE', '%'.$search.'%')
@@ -56,21 +56,21 @@ class PetitionController extends Controller
         } else {
             //   $pet=Petition::where('status','IGP')->where('confined_in_jail', Auth::user()->confined_in_jail)->get();
 
-            
+
             $petitions =   Petition::where('file_in_department', 'Jail-Supt')->where('confined_in_jail', Auth::user()->confined_in_jail)->Where('province_id', Auth::user()->province_id)
-       
-       
+
+
             ->where(function($query) use ($search){
                     $query->where('name', 'LIKE', '%'.$search.'%')
                           ->orWhere('gender', 'LIKE', '%'.$search.'%')
-                          
+
                           ->orWhere('nationality', 'LIKE', '%'.$search.'%')
                           ->orWhere('f_name', 'LIKE', '%'.$search.'%')
                           ->orWhere('status', 'LIKE', '%'.$search.'%')
                           ->orWhere('prisonerid', 'LIKE', '%'.$search.'%');
                 })->paginate(6);
 
-               
+
 
         }
 
@@ -84,8 +84,8 @@ class PetitionController extends Controller
         if (Auth::user()->confined_in_jail == "") {
 
             $petitions =   Petition::Where('province_id', Auth::user()->province_id)
-       
-       
+
+
             ->where(function($query) use ($search){
                     $query->where('name', 'LIKE', '%'.$search.'%')
                           ->orWhere('gender', 'LIKE', '%'.$search.'%')
@@ -97,23 +97,23 @@ class PetitionController extends Controller
                           ->orWhere('prisonerid', 'LIKE', '%'.$search.'%');
                 })->paginate(6);
         } else {
-            
+
             $petitions =   Petition::where('file_in_department', 'Jail-Supt')->where('received_from_department', 'HomeDepartment')->where('confined_in_jail', Auth::user()->confined_in_jail)->Where('province_id', Auth::user()->province_id)
-       
-       
+
+
             ->where(function($query) use ($search){
                     $query->where('name', 'LIKE', '%'.$search.'%')
                           ->orWhere('gender', 'LIKE', '%'.$search.'%')
-                          
+
                           ->orWhere('nationality', 'LIKE', '%'.$search.'%')
                           ->orWhere('f_name', 'LIKE', '%'.$search.'%')
                           ->orWhere('status', 'LIKE', '%'.$search.'%')
                           ->orWhere('prisonerid', 'LIKE', '%'.$search.'%');
                 })->paginate(6);
 
-               
+
             }
-        
+
 
         return view('IGP.homepetitionsearch', compact('petitions'));
     }
@@ -132,7 +132,7 @@ class PetitionController extends Controller
 
         $logpetitions = LogPetition::with('petitions', 'users')->get();
         return view('IGP.logpetition', compact('logpetitions'));
-     
+
 
     }
     public function remarksfromhome()
@@ -141,7 +141,7 @@ class PetitionController extends Controller
             $petitions = Petition::Where('province_id', Auth::user()->province_id)->Where('file_in_department', 'Jail-Supt')->Where('received_from_department', 'HomeDepartment')->orderBy("id", "desc")->paginate(5);
         } else {
             $petitions = Petition::Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('province_id', Auth::user()->province_id)->Where('file_in_department', 'Jail-Supt')->Where('received_from_department', 'HomeDepartment')->orderBy("id", "desc")->paginate(5);
-          
+
         }
 
         return view('IGP.remarksfromhome', compact('petitions'));
@@ -197,8 +197,8 @@ class PetitionController extends Controller
         // Validate the inputs
 
         // file validation
-        
-      
+
+
 
         $this->validate($request, [
             'prisoner_image' => 'required|mimes:jpeg,png,jpg,gif,svg',
@@ -234,7 +234,7 @@ class PetitionController extends Controller
 
         if ($request->hasFile('application_image') && $request->hasFile('prisoner_image') && $request->hasFile('warrent_file')) {
 
-          
+
           $application_image = $request->file('application_image')->getClientOriginalName();
         //   dd($application_image);
 
@@ -251,37 +251,37 @@ class PetitionController extends Controller
         }
         if ($request->hasFile('application_in_urdu_file') && $request->hasFile('judgments_file') && $request->hasFile('petition_certificate')) {
 
-          
+
             $application_in_urdu_file = $request->file('application_in_urdu_file')->getClientOriginalName();
           //   dd($application_image);
-  
+
               $request->application_in_urdu_file->move(public_path('assets/image'), $application_in_urdu_file);
-  
+
               $judgments_file = $request->file('judgments_file')->getClientOriginalName();
-  
+
               $request->judgments_file->move(public_path('assets/image'), $judgments_file);
-  
+
               $petition_certificate = $request->file('petition_certificate')->getClientOriginalName();
-  
+
               $request->petition_certificate->move(public_path('assets/image'), $petition_certificate);
-  
+
           }
           if ($request->hasFile('petition_roll_file') && $request->hasFile('check_list_file') && $request->hasFile('convection_summary')) {
 
-          
+
             $petition_roll_file = $request->file('petition_roll_file')->getClientOriginalName();
           //   dd($application_image);
-  
+
               $request->petition_roll_file->move(public_path('assets/image'), $petition_roll_file);
-  
+
               $check_list_file = $request->file('check_list_file')->getClientOriginalName();
-  
+
               $request->check_list_file->move(public_path('assets/image'), $check_list_file);
-  
+
               $convection_summary = $request->file('convection_summary')->getClientOriginalName();
-  
+
               $request->convection_summary->move(public_path('assets/image'), $convection_summary);
-  
+
           }
         if ($request->hasFile('health_paper')) {
 
@@ -343,13 +343,13 @@ class PetitionController extends Controller
         //  "file" => json_encode($otherdocumentarry),
         // ]);
         // $file->save();
-       
+
         return redirect()->route('Petition.index')->with('message', 'Petion Successfully save');
     }
 
     public function petitionupdate(Request $request, $id)
     {
-        
+
 
         $petitionsedit = Petition::find($id);
         if ($request->hasFile('warrent_file')) {
@@ -516,10 +516,10 @@ class PetitionController extends Controller
 
         $this->validate($request, [
             'checking' => 'required',
-              
+
 
         ]);
-   
+
         $petitionsedit = Petition::find($id);
 
         $petitionsedit->remarks = html_entity_decode(strip_tags($request->get('remarks')));
@@ -571,12 +571,12 @@ class PetitionController extends Controller
 
         $this->validate($request, [
             'checking' => 'required',
-              
+
 
         ]);
-  
-      
-     
+
+
+
         $forwardhomedepartment = Petition::find($id);
         $forwardhomedepartment->remarks = html_entity_decode(strip_tags($request->get('remarks')));
         $forwardhomedepartment->file_in_department = $request->get('file_in_department');

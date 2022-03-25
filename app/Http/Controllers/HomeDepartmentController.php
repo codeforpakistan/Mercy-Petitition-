@@ -25,7 +25,7 @@ class HomeDepartmentController extends Controller
             ['file_in_department', '=', 'HomeDepartment'],
             ['received_from_department', '=', 'Jail-Supt'],
             ['province_id', '=', Auth::user()->province_id],
-           
+
         ])->orderBy("id", "desc")->get();
 
         return view('homedept.index', compact('HomeDepartments'));
@@ -36,8 +36,8 @@ class HomeDepartmentController extends Controller
         $search = trim($request->input('search'));
 
           $petitions = Petition::where('file_in_department', 'HomeDepartment')->where('received_from_department', 'Jail-Supt')->where('province_id', Auth::user()->province_id)
-       
-       
+
+
 ->where(function($query) use ($search){
         $query->where('name', 'LIKE', '%'.$search.'%')
               ->orWhere('gender', 'LIKE', '%'.$search.'%')
@@ -46,13 +46,13 @@ class HomeDepartmentController extends Controller
               ->orWhere('f_name', 'LIKE', '%'.$search.'%')
               ->orWhere('status', 'LIKE', '%'.$search.'%')
               ->orWhere('prisonerid', 'LIKE', '%'.$search.'%');
-             
+
     })->get();
-   
-    
-    
-            
-   
+
+
+
+
+
         return view('homedept.petitionsearch', compact('petitions'));
     }
     public function homeinteriorsearch(Request $request)
@@ -60,8 +60,8 @@ class HomeDepartmentController extends Controller
         $search = trim($request->input('search'));
 
           $HomeDepartments = Petition::where('file_in_department', 'HomeDepartment')->where('received_from_department', 'InteriorMinistry')->where('province_id', Auth::user()->province_id)
-       
-       
+
+
 ->where(function($query) use ($search){
         $query->where('name', 'LIKE', '%'.$search.'%')
               ->orWhere('gender', 'LIKE', '%'.$search.'%')
@@ -71,11 +71,11 @@ class HomeDepartmentController extends Controller
               ->orWhere('status', 'LIKE', '%'.$search.'%')
               ->orWhere('prisonerid', 'LIKE', '%'.$search.'%');
     })->get();
-   
-    
-    
-            
-   
+
+
+
+
+
         return view('homedept.homeinteriorsearch', compact('HomeDepartments'));
     }
 
@@ -118,14 +118,14 @@ class HomeDepartmentController extends Controller
     }
     public function forwardinteriorministrydepartment(Request $request, $id)
     {
-        
+
         $forwardhomedepartment = Petition::find($id);
         //    $forwardhomedepartment->remarks = strip_tags($request->get('remarks'));
         $forwardhomedepartment->received_from_department = "HomeDepartment";
 
         $forwardhomedepartment->file_in_department = $request->get('file_in_department');
 
-       
+
 
 
 

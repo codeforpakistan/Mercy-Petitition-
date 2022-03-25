@@ -33,10 +33,10 @@ class HumanRightDepartmentController extends Controller
     {
         $search = trim($request->input('search'));
 
-        
+
         $hr = Petition::where('file_in_department', 'HumanRightDepartment')->where('received_from_department', 'InteriorMinistry')
-       
-       
+
+
 ->where(function($query) use ($search){
         $query->where('name', 'LIKE', '%'.$search.'%')
               ->orWhere('gender', 'LIKE', '%'.$search.'%')
@@ -84,7 +84,7 @@ class HumanRightDepartmentController extends Controller
 
         $humanrightdecision->save();
         $HumanRightDepartments = new HumanRightDepartment([
-            'remarks' => html_entity_decode(strip_tags($request->get('remarks'))),
+            'remarks' => strip_tags($request->get('remarks')),
             'petition_id' => $humanrightdecision->id,
             'homedepartment_id' => $homepetition->id,
             'interiorministry_id' => $interiorministry->id,
