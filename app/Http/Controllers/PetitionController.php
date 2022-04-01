@@ -198,7 +198,7 @@ class PetitionController extends Controller
 
         // file validation
 
-
+     
 
         $this->validate($request, [
             'prisoner_image' => 'required|mimes:jpeg,png,jpg,gif,svg',
@@ -222,13 +222,31 @@ class PetitionController extends Controller
             'gender' => 'required|regex:/^[a-zA-Z0-9 ]+$/|max:20',
             'dob' => 'required',
 
-            'firdate' => 'required|regex:/^[0-9.-]*$/',
+            'case_fir_no'=> 'required',
+            'fir_date'=> 'required',
+            'name_of_policestation' => 'required',
+            'case_title'=> 'required',
+            'cnic'=> 'required',
+            'martial_status'=> 'required',
+            'caste' => 'required',
+            'religion' => 'required',
+            'education' => 'required',
+         'mental_health' => 'required',
+         'physical_health'=> 'required',
+         'prisoner_conduct'=> 'required',
+         'compoundable_offence'=> 'required',
+         'non_compoundable_offence'=> 'required',
+         'Occupation'=> 'required',
+         'nature_of_crime'=> 'required',
+         'mitigating_circumstances'=> 'required',
+         
+         'age_of_petitioner'=> 'required',
             'mercypetitiondate' => 'required',
             'section_id' => 'required',
-            'warrent_date' => 'required',
+            
             'date_of_sentence' => 'required',
             'sentence_in_court' => 'required|regex:/^[a-zA-Z0-9 ]+$/|max:100',
-            'warrent_information' => 'required|regex:/[a-zA-Z0-9\s]+/|max:255',
+            'petition_history' => 'required|regex:/[a-zA-Z0-9\s]+/|max:255',
 
         ]);
 
@@ -312,15 +330,34 @@ class PetitionController extends Controller
             "gender" => $request->get('gender'),
             "dob" => $dob,
             "user_id" => Auth::user()->id,
-            "firdate" => $request->get('firdate'),
+            "fir_date" => $request->get('fir_date'),
             "mercypetitiondate" => $mercypetitiondate,
             "section_id" => $request->get('section_id'),
-            "warrent_date" => $warrent_date,
+           
             "date_of_sentence" => $date_of_sentence,
             "sentence_in_court" => $request->get('sentence_in_court'),
-            "warrent_information" => html_entity_decode(strip_tags($request->warrent_information)),
+            "petition_history" => html_entity_decode(strip_tags($request->petition_history)),
             "status" => "pending",
             "file_in_department"=>"Jail-Supt",
+            'case_fir_no'=> $request->get('case_fir_no'),
+           
+            'name_of_policestation' => $request->get('name_of_policestation'),
+            'case_title'=> $request->get('case_title'),
+            'cnic'=> $request->get('cnic'),
+            'martial_status'=> $request->get('martial_status'),
+            'caste' => $request->get('caste'),
+            'religion' => $request->get('religion'),
+            'education' => $request->get('education'),
+         'mental_health' => $request->get('mental_health'),
+         'physical_health'=> $request->get('physical_health'),
+         'prisoner_conduct'=> $request->get('prisoner_conduct'),
+         'compoundable_offence'=> $request->get('compoundable_offence'),
+         'non_compoundable_offence'=> $request->get('non_compoundable_offence'),
+         'Occupation'=> $request->get('Occupation'),
+         'nature_of_crime'=>$request->get('nature_of_crime'),
+         'mitigating_circumstances'=> $request->get('mitigating_circumstances'),
+         
+         'age_of_petitioner'=> $request->get('age_of_petitioner'),
 
             "prisoner_image" => $prisoner_image,
             "warrent_file" => $warrent_file,
@@ -495,8 +532,27 @@ class PetitionController extends Controller
         $petitionsedit->warrent_date = $warrent_date;
         $petitionsedit->date_of_sentence = $date_of_sentence;
         $petitionsedit->sentence_in_court = $request->get('sentence_in_court');
-        $petitionsedit->warrent_information = $request->get('warrent_information');
+        $petitionsedit->petition_history = $request->get('petition_history');
         $petitionsedit->nationality = $request->get('nationality');
+        $petitionsedit->case_fir_no  = $request->get('case_fir_no');
+           
+        $petitionsedit->name_of_policestation   = $request->get('name_of_policestation');
+        $petitionsedit->case_title = $request->get('case_title');
+        $petitionsedit->cnic = $request->get('cnic');
+        $petitionsedit->martial_status = $request->get('martial_status');
+        $petitionsedit->caste   = $request->get('caste');
+        $petitionsedit->religion   = $request->get('religion');
+        $petitionsedit->education   = $request->get('education');
+        $petitionsedit->mental_health  = $request->get('mental_health');
+        $petitionsedit->physical_health = $request->get('physical_health');
+        $petitionsedit->pisoner_conduct = $request->get('pisoner_conduct');
+        $petitionsedit->compoundable_offence  = $request->get('compoundable_offence');
+        $petitionsedit->non_compoundable_offence = $request->get('non_compoundable_offence');
+        $petitionsedit->Occupation  = $request->get('Occupation');
+        $petitionsedit->nature_of_crime = $request->get('nature_of_crime');
+        $petitionsedit->mitigating_circumstances  = $request->get('mitigating_circumstances');
+     
+        $petitionsedit->age_of_petitioner  = $request->get('age_of_petitioner');
 
         $petitionsedit->remarks = html_entity_decode(strip_tags($request->get('remarks')));
 

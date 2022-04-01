@@ -15,6 +15,7 @@
                     Edit Petion
                 </h3>
             </div>
+           
 
             <form style="margin-left:12px; margin-right:12px;padding-top:12px"
                 action="{{ route('petition-update', [$petitionsedit->id]) }}" method="post" enctype="multipart/form-data">
@@ -79,8 +80,8 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="inputState">Fir & Date</label>
-                        <input onkeyup="this.value=this.value.replace(/[^-/0-9\s]/g,'');" type="text" name="fir&date"
-                            value="{{ $petitionsedit->firdate }}" class="form-control" id="inputCity">
+                        <input onkeyup="this.value=this.value.replace(/[^-/0-9\s]/g,'');" type="text" name="fir_date"
+                            value="{{ $petitionsedit->fir_date }}" class="form-control" id="inputCity">
                     </div>
 
                 </div>

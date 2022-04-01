@@ -19,7 +19,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/npm/fontawesome-5.14.0/css/regular.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/npm/fontawesome-5.14.0/css/brands.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/npm/fontawesome-5.14.0/css/solid.min.css') }}">
-
+    <link rel="stylesheet" type="text/css"
+    href="{{ asset('assets/css/jquery.steps.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/npm/basictable@1.0.9/basictable.min.css') }}">
     <link rel="stylesheet" type="text/css"
         href="{{ asset('assets/npm/summernote@0.8.18\dist/summernote-lite.min.css') }}">
@@ -333,6 +334,7 @@ $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Wher
     <script src="{{ asset('assets/bootstrap-4.5.2/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/js/ace.min.js') }}"></script>
     <script src="{{ asset('assets/js/demo.min.js') }}"></script>
+    
 
 
     <!-- include vendor scripts used in "Basic Tables" page. see "application/views/default/pages/partials/tables-basic/@vendor-scripts.hbs" -->
@@ -371,13 +373,12 @@ $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Wher
 
     <script src="{{ asset('assets\npm\jquery-validation@1.19.2\dist\jquery.validate.min.js')}}"></script>
 
-    <script src="{{ asset('assets\npm\inputmask@5.0.5\dist\jquery.inputmask.min.js')}}"></script>
+   
 
 
 
-    <!-- include ace.js -->
-    {{-- <script src="{{ asset('assets/js/ace.min.js') }}"></script>
-    <script src="{{ asset('assets/js/demo.min.js') }}"></script> --}}
+   
+
 
 
 
@@ -430,12 +431,60 @@ $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Wher
               showPreviousButton: false, // show/hide a Previous button
               toolbarExtraButtons: [
                 $('<button class="btn btn-outline-secondary sw-btn-prev radius-l-1 mr-2px"><i class="fa fa-arrow-left mr-15"></i> Previous</button>'),
+              
 
                 $('<button class="btn btn-outline-primary sw-btn-next sw-btn-hide radius-r-1">Next <i class="fa fa-arrow-right mr-15"></i></button>'),
+//                  .on('click', function(event, currentIndex, newIndex) {
+        
+		      
+// //     //                 var empty = $(this).parent().find("input").filter(function(event) {
+// //     //     return this.value === "";
+// //     // });
+//     alert(currentIndex);
 
-                $('<button class="btn btn-green sw-btn-finish radius-r-1">Finish <i class="fa fa-check mr-15"></i></button>')
+//     if(currentIndex < newIndex) 
+// 				{
+// if(currentIndex === 0) 
+// 					{
+// 					 var case_fir_no = $('#case_fir_no').val();
+
+//                      var fir_date = $('#fir_date').val();
+
+//  var name_of_policestation = $('#name_of_policestation').val();
+//  var case_title = $('#case_title').value;
+//  var sentence_in_court = $('#sentence_in_court').val();
+// var date_of_sentence = $('#date_of_sentence').val();
+
+// var mercypetitiondate = $('#mercypetitiondate').val();
+
+
+
+// 						if(case_fir_no != '' && fir_date !='' && name_of_policestation != '' && case_title != '' && sentence_in_court != '' && date_of_sentence != '' && mercypetitiondate != '') 
+				
+// 						{
+// 							if(case_fir_no == '')        { alert('first name is required'); return false;}
+// 							if(fir_date == '')        { alert('last name is required'); return false;}
+// 							 if(name_of_policestation == '')   { alert('fathern name is required'); return false;}
+// 							 if(cnic == '')         { alert('CNIC is required'); return false;}
+// 							 if(case_title == '')    { alert('Contact Number is required'); return false;}
+// 							 if(sentence_in_court == '')          { alert('NTS is required'); return false;}
+// 							if(date_of_sentence == '')        { alert('email is required'); return false;}
+// 							if(mercypetitiondate == '') { alert('please type valid email'); return false;}
+					
+                
+// 					}
+
+
+//                  }
+//                 }else{
+//                     return true; 
+//                 }
+            
+//                 }),
+            
+                $('<button type="submit" class="btn btn-green sw-btn-finish radius-r-1">Finish <i class="fa fa-check mr-15"></i></button>')
                 .on('click', function() {
-                  //Finish Action
+                    $( "#petition" ).submit();
                 }),
               ]
             }
@@ -475,16 +524,16 @@ $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Wher
               if (document.getElementById('id-validate').checked && !$('#validation-form').valid()) return false;
 
               // or use HTML & Bootstrap validation
-              /**
-       var form = document.getElementById('validation-form');
-       if (form.checkValidity() === false) {
-         event.preventDefault();
-         event.stopPropagation();
+            
+    //    var form = document.getElementById('validation-form');
+    //    if (form.checkValidity() === false) {
+    //      event.preventDefault();
+    //      event.stopPropagation();
 
-         form.classList.add('was-validated');
-         return false;
-       }
-       */
+    //      form.classList.add('was-validated');
+    //      return false;
+    //    }
+       
             }
           })
           .triggerHandler('showStep', [null, selectedStep, null, null]) // move progressbar to step 1 (0 index)
@@ -544,63 +593,168 @@ $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Wher
           focusInvalid: false,
           ignore: "",
           rules: {
-            email: {
+            case_fir_no: {
               required: true,
-              email: true
+              case_fir_no: true
             },
-            password: {
+            fir_date: {
               required: true,
-              minlength: 5
+            
             },
-            password2: {
+            name_of_policestation: {
               required: true,
-              minlength: 5,
-              equalTo: "#password"
+             
+            },
+            case_title: {
+              required: true,
+            },
+            sentence_in_court: {
+              required: true,
+             
+            },
+            date_of_sentence: {
+              required: true,
+          
+            },
+            mercypetitiondate: {
+              required: true,
             },
             name: {
-              required: true
-            },
-            phone: {
               required: true,
-              phone: 'required'
             },
-            url: {
+            f_name: {
               required: true,
-              url: true
             },
-            comment: {
-              //required: true
-            },
-            state: {
-              //required: true
-            },
-            platform: {
-              required: true
-            },
-            subscription: {
-              required: true
+            cnic: {
+              required: true,
             },
             gender: {
               required: true,
             },
-            agree: {
+            age_of_petitioner: {
               required: true,
-            }
+            },
+            martial_status: {
+              required: true,
+            },
+            caste: {
+              required: true,
+            },
+            religion: {
+              required: true,
+            },
+            education: {
+              required: true,
+            },
+            occupation: {
+              required: true,
+            },
+            dob: {
+              required: true,
+            },
+            nationality: {
+              required: true,
+            },
+            physicalstatus_id: {
+              required: true,
+            },
+            mental_health: {
+              required: true,
+            },
+            physical_health: {
+              required: true,
+            },
+            prisoner_conduct: {
+              required: true,
+            },
+            compoundable_offence: {
+              required: true,
+            },
+            non_compoundable_offence: {
+              required: true,
+            },
+            nature_of_crime: {
+              required: true,
+            },
+            section_id: {
+              required: true,
+            },
+            mitigating_circumstances: {
+              required: true,
+            },
+            petition_history: {
+              required: true,
+            },
+            warrent_information: {
+              required: true,
+            },
+            prisoner_image: {
+              required: true,
+            },
+            application_image: {
+              required: true,
+            },
+            warrent_file: {
+              required: true,
+            },
+            application_in_urdu_file: {
+              required: true,
+            },
+            judgments_file: {
+              required: true,
+            },
+            petition_certificate: {
+              required: true,
+            },
+            petition_roll_file: {
+              required: true,
+            },
+            check_list_file: {
+              required: true,
+            },
+            convection_summary: {
+              required: true,
+            },
           },
 
-          messages: {
-            email: {
-              required: "Please provide a valid email.",
-              email: "Please provide a valid email."
-            },
-            password: {
-              required: "Please specify a password.",
-              minlength: "Please specify a secure password."
-            },
-            platform: "Please choose your platform",
-            subscription: "Please choose at least one option",
+          message: {
+            case_fir_no: "Please enter case fir no",
+            fir_date: "Please enter fir date",
+            name_of_policestation: "Please enter name of policestation",
+            case_title: "Please enter case title",
+            sentence_in_court: "Please enter sentence in court",
+            date_of_sentenec: "Please enter date of sentence",
+            mercypetitiondate: "Please enter mercy petition date",
+            name: "Please enter  name",
+            f_name: "Please enter father name",
             gender: "Please choose gender",
-            agree: "Please agree to our terms of use"
+            cnic: "Please enter  cninc number",
+            age_of_petitioner: "Please enter  age of petitioner",
+            martial_status: "Please enter  martial status",
+            cast: "Please enter  cast",
+            religion: "Please choose religion",
+            education: "Please enter  education",
+            occupation: "Please enter occupation",
+            nationality: "Please enter nationality",
+            physicalstatus_id: "Please choose physical status",
+            mental_health: "Please enter  mental health",
+            physical_health: "Please enter physical health",
+            prisoner_conduct: "Please enter  prisoner conduct",
+            compoundable_offence: "Please enter compoundable offence",
+            non_compoundable_offence: "Please enter  non compoundable offence",
+            nature_of_crime: "Please enter nature of crime",
+            section_id: "Please enter   undersection",
+            mitigating_circumstances: "Please enter mitigating circumstances",
+            petition_history: "Please enter  petition history",
+            warrent_information: "Please enter warrent information",
+            prisoner_image: "Please choose prisoner image",
+            warrent_file: "Please choose warrent_file",
+            application_in_urdu_file: "Please choose application in urdu file",
+            application_image: "Please choose application_image",
+            petition_certificate: "Please choose petition certifiacte",
+            petition_roll_file: "Please choose petition roll file",
+            check_list_file: "Please choose check list file",
+            convection_summary: "Please choose convection summary",
           },
 
 
@@ -2301,6 +2455,8 @@ $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Wher
             });
         });
     </script>
+   
+
      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
      <script type="text/javascript"  src="https://cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js"></script>
@@ -2413,6 +2569,7 @@ success: function(data) {
             window.print();
         }
     </script>
+    
     <script>
 $(document).ready(function() {
         //////////////////////////////////
@@ -2546,296 +2703,379 @@ $(document).ready(function() {
     } );
 } );
 </script>
+ <script>
+//     jQuery(function($) {
+//       // Smart Wizard v4.4.1 example
 
+//       // show/hide form validation
+//       $('#id-validate')
+//         .prop('checked', false)
+//         .on('change', function() {
+//           if (this.checked) {
+//             $('form[novalidate]').addClass('d-none')
+//             $('#validation-form').removeClass('d-none')
+//           } else {
+//             $('form[novalidate]').removeClass('d-none')
+//             $('#validation-form').addClass('d-none')
+//           }
+//         })
+
+
+//       var stepCount = $('#smartwizard-1').find('li > a').length
+//       var left = (100 / (stepCount * 2))
+//       // for example if we have **4** steps, `left` and `right` of progressbar should be **12.5%**
+//       // so that before first step and after last step we don't have any lines
+//       $('#smartwizard-1').find('.wizard-progressbar').css({
+//         left: left + '%',
+//         right: left + '%'
+//       })
+
+//       // enable wizard
+//       var selectedStep = 0
+//       $('#smartwizard-1').smartWizard({
+//           theme: 'circles',
+//           useURLhash: false,
+//           showStepURLhash: false,
+//           autoAdjustHeight: true,
+//           transitionSpeed: 150,
+
+//           //errorSteps: [0,1],
+//           //disabledSteps: [2,3],
+
+//           selected: selectedStep,
+
+//           toolbarSettings: {
+//             toolbarPosition: 'bottom', // none, top, bottom, both
+//             toolbarButtonPosition: 'right', // left, right
+//             showNextButton: false, // show/hide a Next button
+//             showPreviousButton: false, // show/hide a Previous button
+//             toolbarExtraButtons: [
+//               $('<button class="btn btn-outline-secondary sw-btn-prev radius-l-1 mr-2px"><i class="fa fa-arrow-left mr-15"></i> Previous</button>'),
+
+//               $('<button class="btn btn-outline-primary sw-btn-next sw-btn-hide radius-r-1">Next <i class="fa fa-arrow-right mr-15"></i></button>'),
+
+//               $('<button class="btn btn-green sw-btn-finish radius-r-1">Finish <i class="fa fa-check mr-15"></i></button>')
+//               .on('click', function() {
+//                 //Finish Action
+//               }),
+//             ]
+//           }
+//         })
+
+//         .removeClass('d-none') // initially it is hidden, and we show it after it is properly rendered
+
+//         .on("showStep", function(e, anchorObject, stepNumber, stepDirection) {
+//           // move the progress bar by increasing its size (width)
+//           var progress = parseInt((stepNumber + 1) * 100 / stepCount)
+//           var halfStepWidth = parseInt(100 / stepCount) / 2
+//           progress -= halfStepWidth //because for example for the first step, we don't want progressbar to move all the way to next step
+
+//           $('#smartwizard-1').find('.wizard-progressbar').css('max-width', progress + '%')
+
+//           // hide/show card toolbar buttons
+//           // if we are not in the first step, previous button should be enabled, otherwise disabled
+//           if (stepNumber > 0) {
+//             $('#wizard-1-prev').removeAttr('disabled')
+//           } else {
+//             $('#wizard-1-prev').attr('disabled', '')
+//           }
+
+//           // if we are in the last step, next button should be hidden, and finish button shown instead
+//           if (stepNumber == stepCount - 1) {
+//             $('#wizard-1-next').addClass('d-none')
+//             $('#wizard-1-finish').removeClass('d-none')
+//           } else {
+//             $('#wizard-1-next').removeClass('d-none')
+//             $('#wizard-1-finish').addClass('d-none')
+//           }
+//         })
+//         .on("leaveStep", function(e, anchorObject, stepNumber, stepDirection) {
+//           if (stepNumber == 0 && stepDirection == 'forward') {
+
+//             // use jQuery plugin to validate
+//             if (document.getElementById('id-validate').checked && !$('#validation-form').valid()) return false;
+
+//             // or use HTML & Bootstrap validation
+//             /**
+//      var form = document.getElementById('validation-form');
+//      if (form.checkValidity() === false) {
+//        event.preventDefault();
+//        event.stopPropagation();
+
+//        form.classList.add('was-validated');
+//        return false;
+//      }
+//      */
+//           }
+//         })
+//         .triggerHandler('showStep', [null, selectedStep, null, null]) // move progressbar to step 1 (0 index)
+
+
+//       // handle `click` event of card toolbar buttons
+//       $('#wizard-1-prev').on('click', function() {
+//         $('#smartwizard-1').smartWizard('prev')
+//       })
+
+//       $('#wizard-1-next').on('click', function() {
+//         $('#smartwizard-1').smartWizard('next')
+//       })
+
+//       $('#wizard-1-finish').on('click', function() {
+//         //
+//       })
+
+
+
+
+//       /////////////////////////////////////
+//       // add input mask to some inputs
+//       try { // not working in IE11
+//         $("#phone").inputmask("(999) 999-9999")
+//         $("#url").inputmask({
+//           regex: "https?://.*"
+//         })
+//       } catch (e) {
+//         $("#phone").attr("placeholder", "(999) 999-9999")
+//       }
+
+
+
+//       /////////////////////////////////////
+//       // Form Validation plugin
+
+//       //when select box value is changed, revalidate
+//       $('select#platform') // .css('width','200px').select2({allowClear:true}) //can have select2 or chosen
+//         .on('change', function() {
+//           $(this).closest('form').validate().element($(this))
+//         })
+
+
+//       var $invalidClass = 'brc-danger-tp2'
+//       var $validClass = 'brc-info-tp2'
+
+//       // add phone validation method
+//       jQuery.validator.addMethod("phone", function(value, element) {
+//         return this.optional(element) || /^\(\d{3}\) \d{3}\-\d{4}( x\d{1,6})?$/.test(value)
+//       }, "Enter a valid phone number.")
+
+
+//       $('#validation-form').validate({
+//         errorElement: 'span',
+//         errorClass: 'form-text form-error text-danger-m2',
+//         focusInvalid: false,
+//         ignore: "",
+//         rules: {
+//           email: {
+//             required: true,
+//             email: true
+//           },
+//           password: {
+//             required: true,
+//             minlength: 5
+//           },
+//           password2: {
+//             required: true,
+//             minlength: 5,
+//             equalTo: "#password"
+//           },
+//           name: {
+//             required: true
+//           },
+//           phone: {
+//             required: true,
+//             phone: 'required'
+//           },
+//           url: {
+//             required: true,
+//             url: true
+//           },
+//           comment: {
+//             //required: true
+//           },
+//           state: {
+//             //required: true
+//           },
+//           platform: {
+//             required: true
+//           },
+//           subscription: {
+//             required: true
+//           },
+//           gender: {
+//             required: true,
+//           },
+//           agree: {
+//             required: true,
+//           }
+//         },
+
+//         messages: {
+//           email: {
+//             required: "Please provide a valid email.",
+//             email: "Please provide a valid email."
+//           },
+//           password: {
+//             required: "Please specify a password.",
+//             minlength: "Please specify a secure password."
+//           },
+//           platform: "Please choose your platform",
+//           subscription: "Please choose at least one option",
+//           gender: "Please choose gender",
+//           agree: "Please agree to our terms of use"
+//         },
+
+
+//         highlight: function(element) {
+//           var $element = $(element);
+
+//           //remove error messages to be inserted again, so that the `.fa-exclamation-circle` is inserted in `errorPlacement` function
+//           $element.closest('.form-group').find('.form-text').remove()
+
+//           if ($element.is('input[type=checkbox]') || $element.is('input[type=radio]')) return
+
+//           else if ($element.is('.select2')) {
+//             var container = $element.siblings('[class*="select2-container"]')
+//             container.find('.select2-selection').addClass($invalidClass)
+//           } else if ($element.is('.chosen')) {
+//             var container = $element.siblings('[class*="chosen-container"]');
+//             container.find('.chosen-choices, .chosen-single').addClass($invalidClass)
+//           } else {
+//             $element.addClass($invalidClass + ' d-inline-block').removeClass($validClass)
+//           }
+//         },
+
+//         success: function(error, element) {
+//           var parent = error.parent()
+//           var $element = $(element)
+
+//           $element.removeClass($invalidClass)
+//             .closest('.form-group').find('.form-text').remove()
+
+//           if ($element.is('input[type=checkbox]') || $element.is('input[type=radio]')) return
+
+//           else if ($element.is('.select2')) {
+//             var container = $element.siblings('[class*="select2-container"]')
+//             container.find('.select2-selection').removeClass($invalidClass)
+//           } else if ($element.is('.chosen')) {
+//             var container = $element.siblings('[class*="chosen-container"]')
+//             container.find('.chosen-choices, .chosen-single').removeClass($invalidClass)
+//           } else {
+//             $element.addClass($validClass + ' d-inline-block')
+//           }
+
+//           // append 'fa-check' icon
+//           parent.append('<span class="form-text d-inline-block ml-sm-2"><i class=" fa fa-check text-success-m1 text-120"></i></span>')
+//         },
+
+//         errorPlacement: function(error, element) {
+//           // prepend 'fa-exclamation-circle' icon
+//           error.prepend('<i class="form-text fa fa-exclamation-circle text-danger-m1 text-100 mr-1 ml-2"></i>')
+
+//           if (element.is('input[type=checkbox]') || element.is('input[type=radio]')) {
+//             element.closest('div[class*="col-"]').append(error)
+//           } else if (element.is('.select2')) {
+//             var container = element.siblings('[class*="select2-container"]')
+//             error.insertAfter(container)
+//             container.find('.select2-selection').addClass($invalidClass)
+//           } else if (element.is('.chosen')) {
+//             var container = element.siblings('[class*="chosen-container"]')
+//             error.insertAfter(container)
+//             container.find('.chosen-choices, .chosen-single').addClass($invalidClass)
+//           } else {
+//             error.addClass('d-inline-block').insertAfter(element)
+//           }
+//         },
+
+//         submitHandler: function(form) {},
+//         invalidHandler: function(form) {}
+//       })
+
+//     })
+   </script>
+
+{{-- <script src="{{ asset('assets/js/jquery.steps.min.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.steps.js') }}"></script> --}}
+  <script>
+   
+   var currentTab = 0; // Current tab is set to be the first tab (0)
+showTab(currentTab); // Display the current tab
+
+function showTab(n) {
+  // This function will display the specified tab of the form ...
+  var x = document.getElementsByClassName("tab");
+  x[n].style.display = "block";
+  // ... and fix the Previous/Next buttons:
+  if (n == 0) {
+    document.getElementById("prevBtn").style.display = "none";
+  } else {
+    document.getElementById("prevBtn").style.display = "inline";
+  }
+  if (n == (x.length - 1)) {
+    document.getElementById("nextBtn").innerHTML = "Submit";
+  } else {
+    document.getElementById("nextBtn").innerHTML = "Next";
+  }
+  // ... and run a function that displays the correct step indicator:
+  fixStepIndicator(n)
+}
+
+function nextPrev(n) {
+  // This function will figure out which tab to display
+  var x = document.getElementsByClassName("tab");
+  // Exit the function if any field in the current tab is invalid:
+  if (n == 1 && !validateForm()) return false;
+  // Hide the current tab:
+  x[currentTab].style.display = "none";
+  // Increase or decrease the current tab by 1:
+  currentTab = currentTab + n;
+  // if you have reached the end of the form... :
+  if (currentTab >= x.length) {
+    //...the form gets submitted:
+    document.getElementById("regForm").submit();
+
+    return true;
+  }
+  // Otherwise, display the correct tab:
+  showTab(currentTab);
+}
+
+function validateForm() {
+  // This function deals with validation of the form fields
+  var x, y, i, valid = true;
+  x = document.getElementsByClassName("tab");
+  y = x[currentTab].getElementsByTagName("input");
+  // A loop that checks every input field in the current tab:
+  for (i = 0; i < y.length; i++) {
+    // If a field is empty...
+    if (y[i].value == "") {
+      // add an "invalid" class to the field:
+      y[i].className += " invalid";
+      // and set the current valid status to false:
+      valid = false;
+    }
+  }
+  // If the valid status is true, mark the step as finished and valid:
+  if (valid) {
+    document.getElementsByClassName("step")[currentTab].className += " finish";
+  }
+  return valid; // return the valid status
+}
+
+function fixStepIndicator(n) {
+  // This function removes the "active" class of all steps...
+  var i, x = document.getElementsByClassName("step");
+  for (i = 0; i < x.length; i++) {
+    x[i].className = x[i].className.replace(" active", "");
+  }
+  //... and adds the "active" class to the current step:
+  x[n].className += " active";
+}
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/4.0.9/jquery.inputmask.bundle.js"></script>
 <script>
-    jQuery(function($) {
-      // Smart Wizard v4.4.1 example
+    $(":input").inputmask();
 
-      // show/hide form validation
-      $('#id-validate')
-        .prop('checked', false)
-        .on('change', function() {
-          if (this.checked) {
-            $('form[novalidate]').addClass('d-none')
-            $('#validation-form').removeClass('d-none')
-          } else {
-            $('form[novalidate]').removeClass('d-none')
-            $('#validation-form').addClass('d-none')
-          }
-        })
-
-
-      var stepCount = $('#smartwizard-1').find('li > a').length
-      var left = (100 / (stepCount * 2))
-      // for example if we have **4** steps, `left` and `right` of progressbar should be **12.5%**
-      // so that before first step and after last step we don't have any lines
-      $('#smartwizard-1').find('.wizard-progressbar').css({
-        left: left + '%',
-        right: left + '%'
-      })
-
-      // enable wizard
-      var selectedStep = 0
-      $('#smartwizard-1').smartWizard({
-          theme: 'circles',
-          useURLhash: false,
-          showStepURLhash: false,
-          autoAdjustHeight: true,
-          transitionSpeed: 150,
-
-          //errorSteps: [0,1],
-          //disabledSteps: [2,3],
-
-          selected: selectedStep,
-
-          toolbarSettings: {
-            toolbarPosition: 'bottom', // none, top, bottom, both
-            toolbarButtonPosition: 'right', // left, right
-            showNextButton: false, // show/hide a Next button
-            showPreviousButton: false, // show/hide a Previous button
-            toolbarExtraButtons: [
-              $('<button class="btn btn-outline-secondary sw-btn-prev radius-l-1 mr-2px"><i class="fa fa-arrow-left mr-15"></i> Previous</button>'),
-
-              $('<button class="btn btn-outline-primary sw-btn-next sw-btn-hide radius-r-1">Next <i class="fa fa-arrow-right mr-15"></i></button>'),
-
-              $('<button class="btn btn-green sw-btn-finish radius-r-1">Finish <i class="fa fa-check mr-15"></i></button>')
-              .on('click', function() {
-                //Finish Action
-              }),
-            ]
-          }
-        })
-
-        .removeClass('d-none') // initially it is hidden, and we show it after it is properly rendered
-
-        .on("showStep", function(e, anchorObject, stepNumber, stepDirection) {
-          // move the progress bar by increasing its size (width)
-          var progress = parseInt((stepNumber + 1) * 100 / stepCount)
-          var halfStepWidth = parseInt(100 / stepCount) / 2
-          progress -= halfStepWidth //because for example for the first step, we don't want progressbar to move all the way to next step
-
-          $('#smartwizard-1').find('.wizard-progressbar').css('max-width', progress + '%')
-
-          // hide/show card toolbar buttons
-          // if we are not in the first step, previous button should be enabled, otherwise disabled
-          if (stepNumber > 0) {
-            $('#wizard-1-prev').removeAttr('disabled')
-          } else {
-            $('#wizard-1-prev').attr('disabled', '')
-          }
-
-          // if we are in the last step, next button should be hidden, and finish button shown instead
-          if (stepNumber == stepCount - 1) {
-            $('#wizard-1-next').addClass('d-none')
-            $('#wizard-1-finish').removeClass('d-none')
-          } else {
-            $('#wizard-1-next').removeClass('d-none')
-            $('#wizard-1-finish').addClass('d-none')
-          }
-        })
-        .on("leaveStep", function(e, anchorObject, stepNumber, stepDirection) {
-          if (stepNumber == 0 && stepDirection == 'forward') {
-
-            // use jQuery plugin to validate
-            if (document.getElementById('id-validate').checked && !$('#validation-form').valid()) return false;
-
-            // or use HTML & Bootstrap validation
-            /**
-     var form = document.getElementById('validation-form');
-     if (form.checkValidity() === false) {
-       event.preventDefault();
-       event.stopPropagation();
-
-       form.classList.add('was-validated');
-       return false;
-     }
-     */
-          }
-        })
-        .triggerHandler('showStep', [null, selectedStep, null, null]) // move progressbar to step 1 (0 index)
-
-
-      // handle `click` event of card toolbar buttons
-      $('#wizard-1-prev').on('click', function() {
-        $('#smartwizard-1').smartWizard('prev')
-      })
-
-      $('#wizard-1-next').on('click', function() {
-        $('#smartwizard-1').smartWizard('next')
-      })
-
-      $('#wizard-1-finish').on('click', function() {
-        //
-      })
-
-
-
-
-      /////////////////////////////////////
-      // add input mask to some inputs
-      try { // not working in IE11
-        $("#phone").inputmask("(999) 999-9999")
-        $("#url").inputmask({
-          regex: "https?://.*"
-        })
-      } catch (e) {
-        $("#phone").attr("placeholder", "(999) 999-9999")
-      }
-
-
-
-      /////////////////////////////////////
-      // Form Validation plugin
-
-      //when select box value is changed, revalidate
-      $('select#platform') // .css('width','200px').select2({allowClear:true}) //can have select2 or chosen
-        .on('change', function() {
-          $(this).closest('form').validate().element($(this))
-        })
-
-
-      var $invalidClass = 'brc-danger-tp2'
-      var $validClass = 'brc-info-tp2'
-
-      // add phone validation method
-      jQuery.validator.addMethod("phone", function(value, element) {
-        return this.optional(element) || /^\(\d{3}\) \d{3}\-\d{4}( x\d{1,6})?$/.test(value)
-      }, "Enter a valid phone number.")
-
-
-      $('#validation-form').validate({
-        errorElement: 'span',
-        errorClass: 'form-text form-error text-danger-m2',
-        focusInvalid: false,
-        ignore: "",
-        rules: {
-          email: {
-            required: true,
-            email: true
-          },
-          password: {
-            required: true,
-            minlength: 5
-          },
-          password2: {
-            required: true,
-            minlength: 5,
-            equalTo: "#password"
-          },
-          name: {
-            required: true
-          },
-          phone: {
-            required: true,
-            phone: 'required'
-          },
-          url: {
-            required: true,
-            url: true
-          },
-          comment: {
-            //required: true
-          },
-          state: {
-            //required: true
-          },
-          platform: {
-            required: true
-          },
-          subscription: {
-            required: true
-          },
-          gender: {
-            required: true,
-          },
-          agree: {
-            required: true,
-          }
-        },
-
-        messages: {
-          email: {
-            required: "Please provide a valid email.",
-            email: "Please provide a valid email."
-          },
-          password: {
-            required: "Please specify a password.",
-            minlength: "Please specify a secure password."
-          },
-          platform: "Please choose your platform",
-          subscription: "Please choose at least one option",
-          gender: "Please choose gender",
-          agree: "Please agree to our terms of use"
-        },
-
-
-        highlight: function(element) {
-          var $element = $(element);
-
-          //remove error messages to be inserted again, so that the `.fa-exclamation-circle` is inserted in `errorPlacement` function
-          $element.closest('.form-group').find('.form-text').remove()
-
-          if ($element.is('input[type=checkbox]') || $element.is('input[type=radio]')) return
-
-          else if ($element.is('.select2')) {
-            var container = $element.siblings('[class*="select2-container"]')
-            container.find('.select2-selection').addClass($invalidClass)
-          } else if ($element.is('.chosen')) {
-            var container = $element.siblings('[class*="chosen-container"]');
-            container.find('.chosen-choices, .chosen-single').addClass($invalidClass)
-          } else {
-            $element.addClass($invalidClass + ' d-inline-block').removeClass($validClass)
-          }
-        },
-
-        success: function(error, element) {
-          var parent = error.parent()
-          var $element = $(element)
-
-          $element.removeClass($invalidClass)
-            .closest('.form-group').find('.form-text').remove()
-
-          if ($element.is('input[type=checkbox]') || $element.is('input[type=radio]')) return
-
-          else if ($element.is('.select2')) {
-            var container = $element.siblings('[class*="select2-container"]')
-            container.find('.select2-selection').removeClass($invalidClass)
-          } else if ($element.is('.chosen')) {
-            var container = $element.siblings('[class*="chosen-container"]')
-            container.find('.chosen-choices, .chosen-single').removeClass($invalidClass)
-          } else {
-            $element.addClass($validClass + ' d-inline-block')
-          }
-
-          // append 'fa-check' icon
-          parent.append('<span class="form-text d-inline-block ml-sm-2"><i class=" fa fa-check text-success-m1 text-120"></i></span>')
-        },
-
-        errorPlacement: function(error, element) {
-          // prepend 'fa-exclamation-circle' icon
-          error.prepend('<i class="form-text fa fa-exclamation-circle text-danger-m1 text-100 mr-1 ml-2"></i>')
-
-          if (element.is('input[type=checkbox]') || element.is('input[type=radio]')) {
-            element.closest('div[class*="col-"]').append(error)
-          } else if (element.is('.select2')) {
-            var container = element.siblings('[class*="select2-container"]')
-            error.insertAfter(container)
-            container.find('.select2-selection').addClass($invalidClass)
-          } else if (element.is('.chosen')) {
-            var container = element.siblings('[class*="chosen-container"]')
-            error.insertAfter(container)
-            container.find('.chosen-choices, .chosen-single').addClass($invalidClass)
-          } else {
-            error.addClass('d-inline-block').insertAfter(element)
-          }
-        },
-
-        submitHandler: function(form) {},
-        invalidHandler: function(form) {}
-      })
-
-    })
-  </script>
+   </script>
 
     <style>
         .myclass {

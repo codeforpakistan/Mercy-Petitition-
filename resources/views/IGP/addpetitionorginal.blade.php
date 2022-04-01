@@ -58,7 +58,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label class="required" for="inputEmail4">Case FIR NO</label>
-                        <input type="text" onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');"
+                        <input type="text" onkeyup="this.value=this.value.replace(/[^-/0-9\s]/g,'');"
                             class="form-control @error('name') is-invalid @enderror" value="{{ old('case_fir_no') }}" name="case_fir_no"
                             class="form-control" id="inputEmail4" placeholder="Enter Fir no">
                         @error('case_fir_no')
@@ -194,7 +194,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label class="required" for="inputEmail4">Cnic No</label>
-                        <input type="text" onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');"
+                        <input type="text" onkeyup="this.value=this.value.replace(/[^-/0-9\s]/g,'');"
                             class="form-control @error('name') is-invalid @enderror" value="{{ old('cnic') }}" name="cnic"
                             class="form-control" id="inputEmail4" placeholder="Enter Name">
                         @error('cnic')
@@ -206,7 +206,7 @@
                     <div class="form-group col-md-6">
                         <label class="required" for="inputPassword4">Age of Petitoner</label>
                         <input onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');" type="text"
-                            class="form-control @error('f_name') is-invalid @enderror" value="{{ old('f_name') }}"
+                            class="form-control @error('f_name') is-invalid @enderror" value="{{ old('age_of_petitioner') }}"
                             name="age_of_petitioner" class="form-control" id="inputPassword4" placeholder="age_of_petitioner">
                         @error('age_of_petitioner')
                             <span class="invalid-feedback" role="alert">
