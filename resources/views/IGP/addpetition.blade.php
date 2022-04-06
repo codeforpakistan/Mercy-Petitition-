@@ -31,7 +31,7 @@
       width: 100%;
       font-size: 17px;
       font-family: Raleway;
-      border: 1px solid #aaaaaa;
+    
     }
     select {
       padding: 10px;
@@ -39,6 +39,13 @@
       font-size: 17px;
       font-family: Raleway;
       border: 1px solid #aaaaaa;
+    }
+    textarea {
+      padding: 10px;
+      width: 100%;
+      font-size: 17px;
+      font-family: Raleway;
+     
     }
     
     /* Mark input boxes that gets an error on validation: */
@@ -118,6 +125,43 @@
         
         <!-- One "tab" for each step in the form: -->
         <div class="tab">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label class="required" for="inputCity">Nature of crime</label>
+                    <input oninput="this.className = ''" onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');"
+                        class="form-control @error('nature_of_crime') is-invalid @enderror"
+                        value="{{ old('nature_of_crime') }}" type="text" name="nature_of_crime"
+                        placeholder="Enter nature of crime" class="form-control" id="inputCity">
+                    @error('nature_of_crime')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+    
+                <div class="form-group col-md-6 tag-input-style " id="select2-parent">
+                    <label  for="form-field-select-11">Section</label>
+                    <select oninput="this.className = ''"   multiple=""   value="{{ old('section_id') }}"  id="state" name="section_id[]" class="select2 form-control " data-placeholder="Click to Choose...">
+                        @foreach ($sections as $section)
+                            <option value='{{ $section->undersection }}'>{{ $section->undersection }}</option>
+                        @endforeach
+                    </select>
+                    
+                   
+                </div>
+            </div>
+            <div class="form-row">
+               
+    
+                <div class="form-group col-md-6 " style="display: none;">
+                    <label  for="form-field-select-11">Section</label>
+                    <select    id="state" class="select2 form-control " data-placeholder="Click to Choose...">
+                       
+                    </select>
+                    
+                   
+                </div>
+            </div>
          
           <div class="form-row">
             <div class="form-group col-md-6">
@@ -143,6 +187,7 @@
                 @enderror
             </div>
         </div>
+      
         <div class="form-row">
 
             <div class="form-group col-md-6">
@@ -255,7 +300,7 @@
             <div class="form-group col-md-6">
                 <label class="required" for="inputEmail4">Cnic No</label>
                 <input type="text" oninput="this.className = ''" data-inputmask="'mask': '99999-9999999-9'"   required=""
-                    class="form-control @error('name') is-invalid @enderror" value="{{ old('cnic') }}" name="cnic"
+                    class="form-control @error('cnic') is-invalid @enderror" value="{{ old('cnic') }}" name="cnic"
                     class="form-control" id="inputEmail4"  placeholder="XXXXX-XXXXXXX-X">
                 @error('cnic')
                     <span class="invalid-feedback" role="alert">
@@ -265,8 +310,8 @@
             </div>
             <div class="form-group col-md-6">
                 <label class="required" for="inputPassword4">Age of Petitoner</label>
-                <input oninput="this.className = ''" onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');" type="text"
-                    class="form-control @error('f_name') is-invalid @enderror" value="{{ old('age_of_petitioner') }}"
+                <input oninput="this.className = ''" onkeyup="this.value=this.value.replace(/[^A0-9Za-z\s]/g,'');" type="text"
+                    class="form-control @error('age_of_petitioner') is-invalid @enderror" value="{{ old('age_of_petitioner') }}"
                     name="age_of_petitioner" class="form-control" id="inputPassword4" placeholder="age_of_petitioner">
                 @error('age_of_petitioner')
                     <span class="invalid-feedback" role="alert">
@@ -295,7 +340,7 @@
             </div>
             <div class="form-group col-md-6">
                 <label class="required" for="form-field-select-11">Martial Status</label>
-                <select  oninput="this.className = ''" class=" select form-control @error('gender') is-invalid @enderror" value="{{ old('martial_status') }}"
+                <select  oninput="this.className = ''" class=" select form-control @error('martial_status') is-invalid @enderror" value="{{ old('martial_status') }}"
                     name="martial_status"
                     class="ace-select text-dark-m1 bgc-default-l5 bgc-h-warning-l3 brc-default-m3 brc-h-warning-m1"
                     id="form-field-select-11">
@@ -315,7 +360,7 @@
             <div class="form-group col-md-6">
                 <label class="required" for="inputEmail4">Caste</label>
                 <input oninput="this.className = ''" type="text" onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');"
-                    class="form-control @error('name') is-invalid @enderror" value="{{ old('caste') }}" name="caste"
+                    class="form-control @error('caste') is-invalid @enderror" value="{{ old('caste') }}" name="caste"
                     class="form-control" id="inputEmail4" placeholder="Enter caste">
                 @error('caste')
                     <span class="invalid-feedback" role="alert">
@@ -325,7 +370,7 @@
             </div>
             <div class="form-group col-md-6">
                 <label class="required" for="form-field-select-11">Religion</label>
-                <select oninput="this.className = ''" class="form-control @error('gender') is-invalid @enderror" value="{{ old('religion') }}"
+                <select oninput="this.className = ''" class="form-control @error('religion') is-invalid @enderror" value="{{ old('religion') }}"
                     name="religion"
                     class="ace-select text-dark-m1 bgc-default-l5 bgc-h-warning-l3 brc-default-m3 brc-h-warning-m1"
                     id="form-field-select-11">
@@ -346,7 +391,7 @@
             <div class="form-group col-md-6">
                 <label class="required" for="inputEmail4">Education</label>
                 <input oninput="this.className = ''" type="text" onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');"
-                    class="form-control @error('name') is-invalid @enderror" value="{{ old('education') }}" name="education"
+                    class="form-control @error('education') is-invalid @enderror" value="{{ old('education') }}" name="education"
                     class="form-control" id="inputEmail4" placeholder="Enter education">
                 @error('education')
                     <span class="invalid-feedback" role="alert">
@@ -357,7 +402,7 @@
             <div class="form-group col-md-6">
                 <label class="required" for="inputPassword4">Occupation</label>
                 <input oninput="this.className = ''" onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');" type="text"
-                    class="form-control @error('f_name') is-invalid @enderror" value="{{ old('Occupation') }}"
+                    class="form-control @error('Occupation') is-invalid @enderror" value="{{ old('Occupation') }}"
                     name="Occupation" class="form-control" id="inputPassword4" placeholder="Enter Occupation">
                 @error('Occupation')
                     <span class="invalid-feedback" role="alert">
@@ -371,7 +416,7 @@
             <div class="form-group col-md-6">
                 <label class="required" for="inputState">DOB</label>
 
-                <input  oninput="this.className = ''" type="date" class="form-control @error('f_name') is-invalid @enderror"
+                <input  oninput="this.className = ''" type="date" class="form-control @error('dob') is-invalid @enderror"
                     value="{{ old('dob') }}" name="dob" class="form-control">
                 @error('dob')
                     <span class="invalid-feedback" role="alert">
@@ -406,7 +451,7 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label class="required" for="form-field-select-11">Physical Status</label>
-                <select oninput="this.className = ''" class="form-control @error('physicalstatus') is-invalid @enderror"
+                <select oninput="this.className = ''" class="form-control @error('physicalstatus_id') is-invalid @enderror"
                     value="{{ old('physicalstatus_id') }}"
                     class="ace-select text-dark-m1 bgc-default-l5 bgc-h-warning-l3 brc-default-m3 brc-h-warning-m1"
                     name="physicalstatus_id" id="form-field-select-11">
@@ -415,7 +460,7 @@
                     @endforeach
 
                 </select>
-                @error('physicalstatus')
+                @error('physicalstatus_id')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -424,7 +469,7 @@
             <div class="form-group col-md-6">
                 <label class="required" for="inputState">Mental Helth</label>
                 <input
-                oninput="this.className = ''"  class="form-control @error('firdate') is-invalid @enderror" value="{{ old('mental_health') }}"
+                oninput="this.className = ''"  onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');" class="form-control @error('mental_health') is-invalid @enderror" value="{{ old('mental_health') }}"
                     type="text" name="mental_health" class="form-control" id="inputCity">
                 @error('mental_health')
                     <span class="invalid-feedback" role="alert">
@@ -450,9 +495,9 @@
             <div class="form-group col-md-6">
                 <label class="required" for="inputState">Physical Helth</label>
                 <input
-                oninput="this.className = ''"  class="form-control @error('mental_health') is-invalid @enderror" value="{{ old('mental_health') }}"
+                oninput="this.className = ''"  class="form-control @error('physical_health') is-invalid @enderror" value="{{ old('physical_health') }}"
                     type="text" name="physical_health" class="form-control" id="inputCity">
-                @error('mental_health')
+                @error('physical_health')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -489,8 +534,8 @@
                     name="non_compoundable_offence"
                     class="ace-select text-dark-m1 bgc-default-l5 bgc-h-warning-l3 brc-default-m3 brc-h-warning-m1"
                     id="form-field-select-11">
-                    <option value='Good'>Yes</option>
-                    <option value='Bad'>No</option>
+                    <option value='Yes'>Yes</option>
+                    <option value='No'>No</option>
                 </select>
                 @error('non_compoundable_offence')
                     <span class="invalid-feedback" role="alert">
@@ -501,37 +546,7 @@
 
         </div>
 
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label class="required" for="inputCity">Nature of crime</label>
-                <input oninput="this.className = ''" onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');"
-                    class="form-control @error('nature_of_crime') is-invalid @enderror"
-                    value="{{ old('nature_of_crime') }}" type="text" name="nature_of_crime"
-                    placeholder="Enter nature of crime" class="form-control" id="inputCity">
-                @error('nature_of_crime')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-
-            <div class="form-group col-md-6">
-                <label class="required" for="form-field-select-11">Section</label>
-                <select oninput="this.className = ''" class="form-control @error('section_id') is-invalid @enderror"
-                    value="{{ old('section_id') }}" name="section_id"
-                    class="ace-select text-dark-m1 bgc-default-l5 bgc-h-warning-l3 brc-default-m3 brc-h-warning-m1"
-                    id="form-field-select-11">
-                    @foreach ($sections as $section)
-                        <option value='{{ $section->id }}'>{{ $section->undersection }}</option>
-                    @endforeach
-                </select>
-                @error('section_id')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-        </div>
+       
         <div class="form-row">
 
             <div class="form-group col-md-12">

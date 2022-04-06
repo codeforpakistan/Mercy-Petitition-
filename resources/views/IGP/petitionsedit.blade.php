@@ -79,7 +79,7 @@
 
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="inputState">Fir & Date</label>
+                        <label for="inputState">Fir  Date</label>
                         <input onkeyup="this.value=this.value.replace(/[^-/0-9\s]/g,'');" type="text" name="fir_date"
                             value="{{ $petitionsedit->fir_date }}" class="form-control" id="inputCity">
                     </div>
@@ -96,19 +96,29 @@
                             <option value='other'>Other</option>
                         </select>
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-6 tag-input-style " id="select2-parent">
                         <label for="form-field-select-11">Section</label>
-                        <select name="section_id"
-                            class="ace-select text-dark-m1 bgc-default-l5 bgc-h-warning-l3 brc-default-m3 brc-h-warning-m1"
-                            id="form-field-select-11">
+                       
+                        
+                      
+                       
+                        <select multiple="" id="state" name="section_id[]" class="select2 form-control " data-placeholder="Click to Choose...">
+                            
                             @foreach ($sections as $section)
+                               
+                            <?php
+                            $selected = explode(",", $petitionsedit->section_id);
+                           
+                       
+                          ?>
+                           <option value="{{$section->undersection}}" {{ (in_array($section->undersection, $selected)) ? 'selected' : '' }}>{{ $section->undersection}}</option>
 
-
-                                <option {{ $petitionsedit->select_id == $section->id ? 'selected="selected"' : '' }} value="{{$section->id}}"
-                                    >
-                                    {{ $section->undersection }}</option>
-                            @endforeach
-                        </select>
+                         
+                               
+                        @endforeach
+                          
+                          </select>
+      
                     </div>
 
                 </div>
@@ -120,15 +130,11 @@
                         <input type="date" value="{{ $petitionsedit->dob }}" name="dob" class="form-control">
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="inputState">Warrent Date (Jail entry Date)</label>
-
-                        <input type="Date" class="form-control" value="{{ $petitionsedit->warrent_date }}"
-                            name="warrent_date" placeholder=" Pick Warrent Date (Jail entry Date)">
-
-
-
+                    <label class="required" for="inputEmail4">Case FIR NO</label>
+                <input type="text" oninput="this.className = ''" onkeyup="this.value=this.value.replace(/[^-/0-9\s]/g,'');"
+                    class="form-control @error('name') is-invalid @enderror" value="{{ $petitionsedit->case_fir_no }}" name="case_fir_no"
+                    class="form-control" id="inputEmail4" placeholder="Enter Fir no">
                     </div>
-
                 </div>
                 
                 <div class="form-row">
@@ -145,19 +151,189 @@
                     </div>
 
                 </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputState"> Name Police Station</label>
+
+                        <input type="text" name="name_of_policestation" value="{{ $petitionsedit->name_of_policestation }}"
+                            class="form-control" placeholder="Police station">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputCity">Case Title</label>
+                        <input type="text" name="case_title" class="form-control"
+                            value="{{ $petitionsedit->case_title }}" id="inputCity">
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputState">cnic</label>
+
+                        <input type="text" name="cnic" data-inputmask="'mask': '99999-9999999-9'" value="{{ $petitionsedit->cnic }}"
+                            class="form-control" placeholder="cnic ">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputCity">Age of Petitioner</label>
+                        <input type="text" name="age_of_petitioner" class="form-control"
+                            value="{{ $petitionsedit->age_of_petitioner }}" id="inputCity">
+                    </div>
+
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label class="required" for="form-field-select-11">Martial Status</label>
+                <select  oninput="this.className = ''" class=" select form-control @error('gender') is-invalid @enderror" value="{{ old('martial_status') }}"
+                    name="martial_status"
+                    class="ace-select text-dark-m1 bgc-default-l5 bgc-h-warning-l3 brc-default-m3 brc-h-warning-m1"
+                    id="form-field-select-11">
+                    
+                    <option value='Single' {{ $petitionsedit->martial_status == 'Single' ? 'selected' : '' }}>Single</option>
+                    <option value='Married'{{ $petitionsedit->martial_status == 'Married' ? 'selected' : '' }}>Married</option>
+
+                </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputCity">Caste</label>
+                        <input type="text" name="caste" class="form-control"
+                            value="{{ $petitionsedit->caste }}" id="inputCity">
+                    </div>
+
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label class="required" for="form-field-select-11">Education</label>
+                        <input oninput="this.className = ''" type="text" onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');"
+                        class="form-control @error('name') is-invalid @enderror" value="{{ $petitionsedit->education }}" name="education"
+                        class="form-control" id="inputEmail4" placeholder="Enter education">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="required" for="form-field-select-11">Religion</label>
+                        <select oninput="this.className = ''" class="form-control @error('religion') is-invalid @enderror" value="{{ old('religion') }}"
+                            name="religion"
+                            class="ace-select text-dark-m1 bgc-default-l5 bgc-h-warning-l3 brc-default-m3 brc-h-warning-m1"
+                            id="form-field-select-11">
+                            <option value='Muslim'{{ $petitionsedit->religion == 'Muslim' ? 'selected' : '' }}>Muslim</option>
+                            <option value='Christian'{{ $petitionsedit->religion == 'Christian' ? 'selected' : '' }}>Christian</option>
+                            <option value='Hindu'{{ $petitionsedit->religion == 'Hindu' ? 'selected' : '' }}>Hindu</option>
+                            <option value='Other'{{ $petitionsedit->religion == 'Other' ? 'selected' : '' }}>Other</option>
+        
+                        </select>
+                    </div>
+
+                </div>
                
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label class="required" for="inputPassword4">Occupation</label>
+                <input oninput="this.className = ''" onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');" type="text"
+                    class="form-control @error('Occupation') is-invalid @enderror" value="{{ $petitionsedit->Occupation }}"
+                    name="Occupation" class="form-control" id="inputPassword4" placeholder="Enter Occupation">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="required" for="inputState">Mental Helth</label>
+                <input
+                oninput="this.className = ''"  onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');" class="form-control @error('mental_health') is-invalid @enderror" value="{{ $petitionsedit->mental_health  }}"
+                    type="text" name="mental_health" class="form-control" id="inputCity">
+                    </div>
+
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label class="required" for="form-field-select-11">Prisoner Conduct</label>
+                <input
+                oninput="this.className = ''"  onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');" class="form-control @error('prisoner_conduct') is-invalid @enderror" value="{{$petitionsedit->prisoner_conduct }}"
+                    type="text" name="prisoner_conduct" class="form-control" id="inputCity">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="required" for="inputState">Physical Helth</label>
+                        <input
+                        oninput="this.className = ''"  onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');" class="form-control @error('physical_health') is-invalid @enderror" value="{{$petitionsedit->physical_health }}"
+                            type="text" name="physical_health" class="form-control" id="inputCity">
+                    </div>
+
+                </div>
+                <h4>PARTICULAR OF CRIME:</h4>
+         
+          <div class="form-row">
+            <div class="form-group col-md-6">
+                <label class="required" for="form-field-select-11">Compoundable offence</label>
+                <select oninput="this.className = ''" class="form-control @error('compoundable_offence') is-invalid @enderror" value="{{ old('compoundable_offence') }}"
+                    name="compoundable_offence"
+                    class="ace-select text-dark-m1 bgc-default-l5 bgc-h-warning-l3 brc-default-m3 brc-h-warning-m1"
+                    id="form-field-select-11">
+                    <option value='Yes'{{ $petitionsedit->compoundable_offence == 'Yes' ? 'selected' : '' }}>Yes</option>
+                    <option value='No'{{ $petitionsedit->compoundable_offence == 'No' ? 'selected' : '' }}>No</option>
+                </select>
+               
+            </div>
+            <div class="form-group col-md-6">
+                <label class="required" for="form-field-select-11">Non compoundable offence</label>
+                <select oninput="this.className = ''" class="form-control @error('non_compoundable_offence') is-invalid @enderror" value="{{ old('non_compoundable_offence') }}"
+                    name="non_compoundable_offence"
+                    class="ace-select text-dark-m1 bgc-default-l5 bgc-h-warning-l3 brc-default-m3 brc-h-warning-m1"
+                    id="form-field-select-11">
+                    <option value='Yes'{{ $petitionsedit->non_compoundable_offence == 'Yes' ? 'selected' : '' }}>Yes</option>
+                    <option value='No'{{ $petitionsedit->non_compoundable_offence == 'Noo' ? 'selected' : '' }}>No</option>
+                </select>
+                @error('non_compoundable_offence')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label class="required" for="inputCity">Nature of crime</label>
+                <input oninput="this.className = ''" onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');"
+                    class="form-control @error('nature_of_crime') is-invalid @enderror"
+                    value="{{ $petitionsedit->nature_of_crime }}" type="text" name="nature_of_crime"
+                    placeholder="Enter nature of crime" class="form-control" id="inputCity">
+                @error('nature_of_crime')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
+
+            
+        <div class="form-row">
+
+            <div class="form-group col-12">
+                <h3 class="text-primary-d2 text-140 mb-3">
+                    Mitigating Circumstances
+                </h3>
+                <div class="card bcard border-1 brc-dark-l1">
+                    <div class="card-body p-0">
+                        
+                        <textarea  rows="10" onchange="this.className = ''" onkeyup="this.value=this.value.replace(/[^A-Za-z0-9\s]/g,'');"
+                            class="form-control @error('warrent_information') is-invalid @enderror"
+                            name="mitigating_circumstances" required>{{ $petitionsedit->mitigating_circumstances }}</textarea>
+                      
+                      
+
+                    </div>
+                </div>
+            </div>
+        </div>
 
                 <div class="form-row">
 
                     <div class="form-group col-md-12">
                         <h3 class="text-primary-d2 text-140 mb-3">
-                            warrent information
+                            Petition History
                         </h3>
                         <div class="card bcard border-1 brc-dark-l1">
                             <div class="card-body p-0">
                                 {{-- <form method="post"> --}}
                                 <textarea id="summernote"
-                                    name="warrent_information">{{ $petitionsedit->warrent_information }}</textarea>
+                                    name="petition_history">{{ $petitionsedit->petition_history }}</textarea>
                                 {{-- </form> --}}
                             </div>
                         </div>
@@ -209,7 +385,7 @@
                                     height="50" margin-righ="5%" alt="pic" /> </a>
                         @endif
 
-                        <input type="file" name="health_paper" class="ace-file-input" id="ace-file-input22">
+                        <input type="file" name="health_paper" accept=".pdf,.png,.jpeg,.jpg" class="ace-file-input" id="ace-file-input22">
                     </div>
 
                 </div>
@@ -260,7 +436,7 @@
                                     height="50" margin-righ="5%" alt="pic" /> </a>
                         @endif
 
-                        <input type="file" name="judgments_file" class="ace-file-input" id="ace-file-input14">
+                        <input type="file" name="judgments_file" accept=".pdf,.png,.jpeg,.jpg" class="ace-file-input" id="ace-file-input14">
                     </div>
 
                 </div>
@@ -312,7 +488,7 @@
                                     height="50" margin-righ="5%" alt="pic" /> </a>
                         @endif
 
-                        <input type="file" name="petition_roll_file" class="ace-file-input" id="ace-file-input25">
+                        <input type="file" name="petition_roll_file" accept=".pdf,.png,.jpeg,.jpg" class="ace-file-input" id="ace-file-input25">
                     </div>
 
                 </div>
@@ -364,7 +540,7 @@
                                     height="50" margin-righ="5%" alt="pic" /> </a>
                         @endif
 
-                        <input type="file" name="convection_summary" class="ace-file-input" id="ace-file-input23">
+                        <input type="file" name="convection_summary" accept=".pdf,.png,.jpeg,.jpg" class="ace-file-input" id="ace-file-input23">
                     </div>
 
                 </div>
@@ -424,6 +600,7 @@
 
                
         </div>
+    </div>
 
 
 

@@ -41,6 +41,9 @@ class HomeDepartmentController extends Controller
 ->where(function($query) use ($search){
         $query->where('name', 'LIKE', '%'.$search.'%')
               ->orWhere('gender', 'LIKE', '%'.$search.'%')
+              ->orWhere('cnic', 'LIKE', '%'.$search.'%')
+                          ->orWhere('name_of_policestation', 'LIKE', '%'.$search.'%')
+                          ->orWhere('case_fir_no', 'LIKE', '%'.$search.'%')
               ->orWhere('confined_in_jail', 'LIKE', '%'.$search.'%')
               ->orWhere('nationality', 'LIKE', '%'.$search.'%')
               ->orWhere('f_name', 'LIKE', '%'.$search.'%')
@@ -65,6 +68,9 @@ class HomeDepartmentController extends Controller
 ->where(function($query) use ($search){
         $query->where('name', 'LIKE', '%'.$search.'%')
               ->orWhere('gender', 'LIKE', '%'.$search.'%')
+              ->orWhere('cnic', 'LIKE', '%'.$search.'%')
+                          ->orWhere('name_of_policestation', 'LIKE', '%'.$search.'%')
+                          ->orWhere('case_fir_no', 'LIKE', '%'.$search.'%')
               ->orWhere('confined_in_jail', 'LIKE', '%'.$search.'%')
               ->orWhere('nationality', 'LIKE', '%'.$search.'%')
               ->orWhere('f_name', 'LIKE', '%'.$search.'%')

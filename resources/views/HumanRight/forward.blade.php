@@ -60,7 +60,7 @@
                       <label for="email" class="mb-0">Otherdocuments</label>
                   </div>
                   <div class="col-sm-4">
-                  <input type="file" class="ace-file-input" name="otherdocument[]" id="ace-file-input2" multiple="" accept="gif|jpg|jpeg|png|webp|svg|pdf">
+                  <input type="file" class="ace-file-input" name="otherdocument[]" id="ace-file-input2" multiple="" accept=".pdf,.jpg,.jpeg,.png">
 
                   </div>
               </div>

@@ -93,6 +93,12 @@
                             @endforeach
                         </select>
                     </div>
+                    <div class="col-sm-5 col-12 tag-input-style" style="display: none;">
+                        <select multiple id="roles"  id="roles" class="select2 form-control"
+                            data-placeholder="Choose Role For User...">
+                         
+                        </select>
+                    </div>
                 </div>
                 <div id="provincehome" class="form-group row d-lg-none">
                     <div class="col-sm-3 col-form-label text-sm-right pr-0">

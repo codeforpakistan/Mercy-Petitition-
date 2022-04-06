@@ -16,9 +16,8 @@
         href="{{ asset('assets/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css"
         href="{{ asset('assets/npm/fontawesome-5.14.0/css/fontawesome.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/npm/fontawesome-5.14.0/css/regular.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/npm/fontawesome-5.14.0/css/brands.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/npm/fontawesome-5.14.0/css/solid.min.css') }}">
+  
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/npm/select2@4.0.13/dist/css/select2.min.css') }}">
     <link rel="stylesheet" type="text/css"
     href="{{ asset('assets/css/jquery.steps.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/npm/basictable@1.0.9/basictable.min.css') }}">
@@ -27,24 +26,21 @@
     <link rel="stylesheet" type="text/css"
         href="{{ asset('assets/npm/bootstrap-markdown@2.10.0/css/bootstrap-markdown.min.css') }}">
     <!-- include vendor stylesheets used in "Form Basic Elements" page. see "application/views/default/pages/partials/form-basic/@vendor-stylesheets.hbs" -->
-    <link rel="stylesheet" type="text/css"
-        href="{{ asset('assets/npm\nouislider@14.6.1\distribute\nouislider.min.css') }}">
-    <link rel="stylesheet" type="text/css"
-        href="{{ asset('assets/npm\ion-rangeslider@2.3.1\css\ion.rangeSlider.min.css') }}">
+  
     <link rel="stylesheet" type="text/css"
         href="{{ asset('assets/combine\npm\tiny-date-picker@3.2.8\tiny-date-picker.min.css,npm\tiny-date-picker@3.2.8\date-range-picker.min.css') }}">
     <link rel="stylesheet" type="text/css"
         href="{{ asset('assets/npm\eonasdan-bootstrap-datetimepicker@4.17.47\build\css\bootstrap-datetimepicker.min.css') }}">
-    <link rel="stylesheet" type="text/css"
-        href="{{ asset('assets/npm\bootstrap-colorpicker@3.2.0\dist\css\bootstrap-colorpicker.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/npm/fontawesome-5.14.0/css/regular.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/npm/fontawesome-5.14.0/css/brands.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/npm/fontawesome-5.14.0/css/solid.min.css') }}">
+    
 
-    <link rel="stylesheet" type="text/css"
-        href="{{ asset('assets/npm\eonasdan-bootstrap-datetimepicker@4.17.47\build\css\bootstrap-datetimepicker.min.css') }}">
+   
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/ace.min.css') }}">
 
     <link rel="stylesheet" href="{{ asset('assets/css/lightbox.min.css') }}">
-    <link rel="stylesheet" type="text/css" href = "{{ asset('assets/npm/smartwizard@4.4.1/dist/css/smart_wizard.min.css')}}">
-    <link rel="stylesheet" type="text/css" href = "{{ asset('assets/npm/smartwizard@4.4.1/dist/css/smart_wizard_theme_circles.min.css')}}">
+    
 
 
 
@@ -124,7 +120,7 @@
         }
                         $HomeDepartment = Petition::where('province_id', '=', Auth::user()->province_id)->Where('file_in_department', 'HomeDepartment')->Where('received_from_department', 'Jail-Supt')->orderBy("id", "desc")->get()->count();
                         $receivefrominterior = Petition::where('province_id', '=', Auth::user()->province_id)->Where('file_in_department', 'HomeDepartment')->Where('received_from_department', 'InteriorMinistry')->orderBy("id", "desc")->get()->count();
-                        $InteriorMinistryDepartment = Petition::Where('file_in_department', 'InteriorMinistry')->Where('status', 'pending')->orderBy("id", "desc")->get()->count();
+                        $InteriorMinistryDepartment = Petition::Where('file_in_department', 'InteriorMinistry')->Where('received_from_department', 'HomeDepartment')->Where('status', 'pending')->orderBy("id", "desc")->get()->count();
                         $HumanRightDepartment = Petition::Where('file_in_department', 'HumanRightDepartment')->orderBy("id", "desc")->get()->count();
                         $receivfromHumanRightDepartment = Petition::Where('file_in_department', 'InteriorMinistry')->Where('received_from_department', 'HumanRightDepartment')->where('status','pending')->orderBy("id", "desc")->get()->count();
   
@@ -330,7 +326,7 @@ $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Wher
     </div>
     @livewireScripts
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
-    <script src="{{ asset('assets/js/popper.min.js') }}"></script>
+ 
     <script src="{{ asset('assets/bootstrap-4.5.2/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/js/ace.min.js') }}"></script>
     <script src="{{ asset('assets/js/demo.min.js') }}"></script>
@@ -338,40 +334,38 @@ $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Wher
 
 
     <!-- include vendor scripts used in "Basic Tables" page. see "application/views/default/pages/partials/tables-basic/@vendor-scripts.hbs" -->
-    <script src="{{ asset('assets\npm\basictable@1.0.9\jquery.basictable.min.js') }}"></script>
-    <script src="{{ asset('assets\npm\sweetalert2@9.17.1\dist\sweetalert2.all.min.js') }}"></script>
+    {{-- <script src="{{ asset('assets\npm\basictable@1.0.9\jquery.basictable.min.js') }}"></script>
+    <script src="{{ asset('assets\npm\sweetalert2@9.17.1\dist\sweetalert2.all.min.js') }}"></script> --}}
     <script src="{{ asset('assets\npm\select2@4.0.13\dist\js\select2.min.js') }}"></script>
     <!-- <script src="{{ asset('assets/js/lightbox-plus-jquery.min.js') }}"></script> -->
 
-    <!-- include vendor scripts used in "Form Basic Elements" page. see "application/views/default/pages/partials/form-basic/@vendor-scripts.hbs" -->
-    <script src="{{ asset('assets\npm\autosize@4.0.2\dist\autosize.min.js') }}"></script>
+
+    {{-- <!-- include vendor scripts used in "Form Basic Elements" page. see "application/views/default/pages/partials/form-basic/@vendor-scripts.hbs" -->
+    <script src="{{ asset('assets\npm\autosize@4.0.2\dist\autosize.min.js') }}"></script> --}}
     <script src="{{ asset('assets\npm\bootstrap-maxlength@1.10.0\dist\bootstrap-maxlength.min.js') }}"></script>
     <script src="{{ asset('assets\npm\inputmask@5.0.5\dist\jquery.inputmask.min.js') }}"></script>
-    <script src="{{ asset('assets\npm\nouislider@14.6.1\distribute\nouislider.min.js') }}"></script>
+    {{-- <script src="{{ asset('assets\npm\nouislider@14.6.1\distribute\nouislider.min.js') }}"></script>
     <script src="{{ asset('assets\npm\ion-rangeslider@2.3.1\js\ion.rangeSlider.min.js') }}"></script>
-    <script src="{{ asset('assets\npm\bootstrap-touchspin@4.3.0\dist\jquery.bootstrap-touchspin.min.js') }}"></script>
+    <script src="{{ asset('assets\npm\bootstrap-touchspin@4.3.0\dist\jquery.bootstrap-touchspin.min.js') }}"></script> --}}
     <script src="{{ asset('assets\npm\tiny-date-picker@3.2.8\dist\date-range-picker.min.js') }}"></script>
     <script src="{{ asset('assets\npm\moment@2.27.0\moment.min.js') }}"></script>
     <script
         src="{{ asset('assets\npm\eonasdan-bootstrap-datetimepicker@4.17.47\src\js\bootstrap-datetimepicker.min.js') }}">
     </script>
-    <script src="{{ asset('assets\npm\bootstrap-colorpicker@3.2.0\dist\js\bootstrap-colorpicker.min.js') }}"></script>
-    <script src="{{ asset('assets\npm\es6-object-assign@1.1.0\dist\object-assign-auto.min.js') }}"></script>
-    <script src="{{ asset('assets\npm\@jaames\iro@5.2.0\dist\iro.min.js') }}"></script>
-    <script src="{{ asset('assets\npm\jquery-knob@1.2.11\dist\jquery.knob.min.js') }}"></script>
+
     <script src="{{ asset('assets\npm\tiny-date-picker@3.2.8\dist\date-range-picker.min.js') }}"></script>
     <script src="{{ asset('assets\npm\summernote@0.8.18\dist\summernote-lite.min.js') }}"></script>
-    <script src="{{ asset('assets\npm\bootstrap-wysiwyg@2.0.1\js\bootstrap-wysiwyg.min.js') }}"></script>
-    <script src="{{ asset('assets\npm\popper.js@1.16.1\dist\umd\popper.min.js')}}"></script>
-    <script src="{{ asset('assets\npm\bootstrap@4.5.2\dist\js\bootstrap.min.js')}}"></script>
+  
+    
 
 
 
     <!-- include vendor scripts used in "Wizard & Validation" page. see "application/views/default/pages/partials/form-wizard/@vendor-scripts.hbs" -->
-    <script src="{{ asset('assets\npm\smartwizard@4.4.1\dist\js\jquery.smartWizard.min.js')}}"></script>
+   
 
 
     <script src="{{ asset('assets\npm\jquery-validation@1.19.2\dist\jquery.validate.min.js')}}"></script>
+   
 
    
 
@@ -382,449 +376,7 @@ $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Wher
 
 
 
-    <!-- "Wizard & Validation" page script to enable its demo functionality -->
-    <script>
-      jQuery(function($) {
-        // Smart Wizard v4.4.1 example
-
-        // show/hide form validation
-        $('#id-validate')
-          .prop('checked', false)
-          .on('change', function() {
-            if (this.checked) {
-              $('form[novalidate]').addClass('d-none')
-              $('#validation-form').removeClass('d-none')
-            } else {
-              $('form[novalidate]').removeClass('d-none')
-              $('#validation-form').addClass('d-none')
-            }
-          })
-
-
-        var stepCount = $('#smartwizard-1').find('li > a').length
-        var left = (100 / (stepCount * 2))
-        // for example if we have **4** steps, `left` and `right` of progressbar should be **12.5%**
-        // so that before first step and after last step we don't have any lines
-        $('#smartwizard-1').find('.wizard-progressbar').css({
-          left: left + '%',
-          right: left + '%'
-        })
-
-        // enable wizard
-        var selectedStep = 0
-        $('#smartwizard-1').smartWizard({
-            theme: 'circles',
-            useURLhash: false,
-            showStepURLhash: false,
-            autoAdjustHeight: true,
-            transitionSpeed: 150,
-
-            //errorSteps: [0,1],
-            //disabledSteps: [2,3],
-
-            selected: selectedStep,
-
-            toolbarSettings: {
-              toolbarPosition: 'bottom', // none, top, bottom, both
-              toolbarButtonPosition: 'right', // left, right
-              showNextButton: false, // show/hide a Next button
-              showPreviousButton: false, // show/hide a Previous button
-              toolbarExtraButtons: [
-                $('<button class="btn btn-outline-secondary sw-btn-prev radius-l-1 mr-2px"><i class="fa fa-arrow-left mr-15"></i> Previous</button>'),
-              
-
-                $('<button class="btn btn-outline-primary sw-btn-next sw-btn-hide radius-r-1">Next <i class="fa fa-arrow-right mr-15"></i></button>'),
-//                  .on('click', function(event, currentIndex, newIndex) {
-        
-		      
-// //     //                 var empty = $(this).parent().find("input").filter(function(event) {
-// //     //     return this.value === "";
-// //     // });
-//     alert(currentIndex);
-
-//     if(currentIndex < newIndex) 
-// 				{
-// if(currentIndex === 0) 
-// 					{
-// 					 var case_fir_no = $('#case_fir_no').val();
-
-//                      var fir_date = $('#fir_date').val();
-
-//  var name_of_policestation = $('#name_of_policestation').val();
-//  var case_title = $('#case_title').value;
-//  var sentence_in_court = $('#sentence_in_court').val();
-// var date_of_sentence = $('#date_of_sentence').val();
-
-// var mercypetitiondate = $('#mercypetitiondate').val();
-
-
-
-// 						if(case_fir_no != '' && fir_date !='' && name_of_policestation != '' && case_title != '' && sentence_in_court != '' && date_of_sentence != '' && mercypetitiondate != '') 
-				
-// 						{
-// 							if(case_fir_no == '')        { alert('first name is required'); return false;}
-// 							if(fir_date == '')        { alert('last name is required'); return false;}
-// 							 if(name_of_policestation == '')   { alert('fathern name is required'); return false;}
-// 							 if(cnic == '')         { alert('CNIC is required'); return false;}
-// 							 if(case_title == '')    { alert('Contact Number is required'); return false;}
-// 							 if(sentence_in_court == '')          { alert('NTS is required'); return false;}
-// 							if(date_of_sentence == '')        { alert('email is required'); return false;}
-// 							if(mercypetitiondate == '') { alert('please type valid email'); return false;}
-					
-                
-// 					}
-
-
-//                  }
-//                 }else{
-//                     return true; 
-//                 }
-            
-//                 }),
-            
-                $('<button type="submit" class="btn btn-green sw-btn-finish radius-r-1">Finish <i class="fa fa-check mr-15"></i></button>')
-                .on('click', function() {
-                    $( "#petition" ).submit();
-                }),
-              ]
-            }
-          })
-
-          .removeClass('d-none') // initially it is hidden, and we show it after it is properly rendered
-
-          .on("showStep", function(e, anchorObject, stepNumber, stepDirection) {
-            // move the progress bar by increasing its size (width)
-            var progress = parseInt((stepNumber + 1) * 100 / stepCount)
-            var halfStepWidth = parseInt(100 / stepCount) / 2
-            progress -= halfStepWidth //because for example for the first step, we don't want progressbar to move all the way to next step
-
-            $('#smartwizard-1').find('.wizard-progressbar').css('max-width', progress + '%')
-
-            // hide/show card toolbar buttons
-            // if we are not in the first step, previous button should be enabled, otherwise disabled
-            if (stepNumber > 0) {
-              $('#wizard-1-prev').removeAttr('disabled')
-            } else {
-              $('#wizard-1-prev').attr('disabled', '')
-            }
-
-            // if we are in the last step, next button should be hidden, and finish button shown instead
-            if (stepNumber == stepCount - 1) {
-              $('#wizard-1-next').addClass('d-none')
-              $('#wizard-1-finish').removeClass('d-none')
-            } else {
-              $('#wizard-1-next').removeClass('d-none')
-              $('#wizard-1-finish').addClass('d-none')
-            }
-          })
-          .on("leaveStep", function(e, anchorObject, stepNumber, stepDirection) {
-            if (stepNumber == 0 && stepDirection == 'forward') {
-
-              // use jQuery plugin to validate
-              if (document.getElementById('id-validate').checked && !$('#validation-form').valid()) return false;
-
-              // or use HTML & Bootstrap validation
-            
-    //    var form = document.getElementById('validation-form');
-    //    if (form.checkValidity() === false) {
-    //      event.preventDefault();
-    //      event.stopPropagation();
-
-    //      form.classList.add('was-validated');
-    //      return false;
-    //    }
-       
-            }
-          })
-          .triggerHandler('showStep', [null, selectedStep, null, null]) // move progressbar to step 1 (0 index)
-
-
-        // handle `click` event of card toolbar buttons
-        $('#wizard-1-prev').on('click', function() {
-          $('#smartwizard-1').smartWizard('prev')
-        })
-
-        $('#wizard-1-next').on('click', function() {
-          $('#smartwizard-1').smartWizard('next')
-        })
-
-        $('#wizard-1-finish').on('click', function() {
-          //
-        })
-
-
-
-
-        /////////////////////////////////////
-        // add input mask to some inputs
-        try { // not working in IE11
-          $("#phone").inputmask("(999) 999-9999")
-          $("#url").inputmask({
-            regex: "https?://.*"
-          })
-        } catch (e) {
-          $("#phone").attr("placeholder", "(999) 999-9999")
-        }
-
-
-
-        /////////////////////////////////////
-        // Form Validation plugin
-
-        //when select box value is changed, revalidate
-        $('select#platform') // .css('width','200px').select2({allowClear:true}) //can have select2 or chosen
-          .on('change', function() {
-            $(this).closest('form').validate().element($(this))
-          })
-
-
-        var $invalidClass = 'brc-danger-tp2'
-        var $validClass = 'brc-info-tp2'
-
-        // add phone validation method
-        jQuery.validator.addMethod("phone", function(value, element) {
-          return this.optional(element) || /^\(\d{3}\) \d{3}\-\d{4}( x\d{1,6})?$/.test(value)
-        }, "Enter a valid phone number.")
-
-
-        $('#validation-form').validate({
-          errorElement: 'span',
-          errorClass: 'form-text form-error text-danger-m2',
-          focusInvalid: false,
-          ignore: "",
-          rules: {
-            case_fir_no: {
-              required: true,
-              case_fir_no: true
-            },
-            fir_date: {
-              required: true,
-            
-            },
-            name_of_policestation: {
-              required: true,
-             
-            },
-            case_title: {
-              required: true,
-            },
-            sentence_in_court: {
-              required: true,
-             
-            },
-            date_of_sentence: {
-              required: true,
-          
-            },
-            mercypetitiondate: {
-              required: true,
-            },
-            name: {
-              required: true,
-            },
-            f_name: {
-              required: true,
-            },
-            cnic: {
-              required: true,
-            },
-            gender: {
-              required: true,
-            },
-            age_of_petitioner: {
-              required: true,
-            },
-            martial_status: {
-              required: true,
-            },
-            caste: {
-              required: true,
-            },
-            religion: {
-              required: true,
-            },
-            education: {
-              required: true,
-            },
-            occupation: {
-              required: true,
-            },
-            dob: {
-              required: true,
-            },
-            nationality: {
-              required: true,
-            },
-            physicalstatus_id: {
-              required: true,
-            },
-            mental_health: {
-              required: true,
-            },
-            physical_health: {
-              required: true,
-            },
-            prisoner_conduct: {
-              required: true,
-            },
-            compoundable_offence: {
-              required: true,
-            },
-            non_compoundable_offence: {
-              required: true,
-            },
-            nature_of_crime: {
-              required: true,
-            },
-            section_id: {
-              required: true,
-            },
-            mitigating_circumstances: {
-              required: true,
-            },
-            petition_history: {
-              required: true,
-            },
-            warrent_information: {
-              required: true,
-            },
-            prisoner_image: {
-              required: true,
-            },
-            application_image: {
-              required: true,
-            },
-            warrent_file: {
-              required: true,
-            },
-            application_in_urdu_file: {
-              required: true,
-            },
-            judgments_file: {
-              required: true,
-            },
-            petition_certificate: {
-              required: true,
-            },
-            petition_roll_file: {
-              required: true,
-            },
-            check_list_file: {
-              required: true,
-            },
-            convection_summary: {
-              required: true,
-            },
-          },
-
-          message: {
-            case_fir_no: "Please enter case fir no",
-            fir_date: "Please enter fir date",
-            name_of_policestation: "Please enter name of policestation",
-            case_title: "Please enter case title",
-            sentence_in_court: "Please enter sentence in court",
-            date_of_sentenec: "Please enter date of sentence",
-            mercypetitiondate: "Please enter mercy petition date",
-            name: "Please enter  name",
-            f_name: "Please enter father name",
-            gender: "Please choose gender",
-            cnic: "Please enter  cninc number",
-            age_of_petitioner: "Please enter  age of petitioner",
-            martial_status: "Please enter  martial status",
-            cast: "Please enter  cast",
-            religion: "Please choose religion",
-            education: "Please enter  education",
-            occupation: "Please enter occupation",
-            nationality: "Please enter nationality",
-            physicalstatus_id: "Please choose physical status",
-            mental_health: "Please enter  mental health",
-            physical_health: "Please enter physical health",
-            prisoner_conduct: "Please enter  prisoner conduct",
-            compoundable_offence: "Please enter compoundable offence",
-            non_compoundable_offence: "Please enter  non compoundable offence",
-            nature_of_crime: "Please enter nature of crime",
-            section_id: "Please enter   undersection",
-            mitigating_circumstances: "Please enter mitigating circumstances",
-            petition_history: "Please enter  petition history",
-            warrent_information: "Please enter warrent information",
-            prisoner_image: "Please choose prisoner image",
-            warrent_file: "Please choose warrent_file",
-            application_in_urdu_file: "Please choose application in urdu file",
-            application_image: "Please choose application_image",
-            petition_certificate: "Please choose petition certifiacte",
-            petition_roll_file: "Please choose petition roll file",
-            check_list_file: "Please choose check list file",
-            convection_summary: "Please choose convection summary",
-          },
-
-
-          highlight: function(element) {
-            var $element = $(element);
-
-            //remove error messages to be inserted again, so that the `.fa-exclamation-circle` is inserted in `errorPlacement` function
-            $element.closest('.form-group').find('.form-text').remove()
-
-            if ($element.is('input[type=checkbox]') || $element.is('input[type=radio]')) return
-
-            else if ($element.is('.select2')) {
-              var container = $element.siblings('[class*="select2-container"]')
-              container.find('.select2-selection').addClass($invalidClass)
-            } else if ($element.is('.chosen')) {
-              var container = $element.siblings('[class*="chosen-container"]');
-              container.find('.chosen-choices, .chosen-single').addClass($invalidClass)
-            } else {
-              $element.addClass($invalidClass + ' d-inline-block').removeClass($validClass)
-            }
-          },
-
-          success: function(error, element) {
-            var parent = error.parent()
-            var $element = $(element)
-
-            $element.removeClass($invalidClass)
-              .closest('.form-group').find('.form-text').remove()
-
-            if ($element.is('input[type=checkbox]') || $element.is('input[type=radio]')) return
-
-            else if ($element.is('.select2')) {
-              var container = $element.siblings('[class*="select2-container"]')
-              container.find('.select2-selection').removeClass($invalidClass)
-            } else if ($element.is('.chosen')) {
-              var container = $element.siblings('[class*="chosen-container"]')
-              container.find('.chosen-choices, .chosen-single').removeClass($invalidClass)
-            } else {
-              $element.addClass($validClass + ' d-inline-block')
-            }
-
-            // append 'fa-check' icon
-            parent.append('<span class="form-text d-inline-block ml-sm-2"><i class=" fa fa-check text-success-m1 text-120"></i></span>')
-          },
-
-          errorPlacement: function(error, element) {
-            // prepend 'fa-exclamation-circle' icon
-            error.prepend('<i class="form-text fa fa-exclamation-circle text-danger-m1 text-100 mr-1 ml-2"></i>')
-
-            if (element.is('input[type=checkbox]') || element.is('input[type=radio]')) {
-              element.closest('div[class*="col-"]').append(error)
-            } else if (element.is('.select2')) {
-              var container = element.siblings('[class*="select2-container"]')
-              error.insertAfter(container)
-              container.find('.select2-selection').addClass($invalidClass)
-            } else if (element.is('.chosen')) {
-              var container = element.siblings('[class*="chosen-container"]')
-              error.insertAfter(container)
-              container.find('.chosen-choices, .chosen-single').addClass($invalidClass)
-            } else {
-              error.addClass('d-inline-block').insertAfter(element)
-            }
-          },
-
-          submitHandler: function(form) {},
-          invalidHandler: function(form) {}
-        })
-
-      })
-    </script>
+  
     <script>
         $('#ace-file-input1').aceFileInput({
             // btnChooseClass: 'bgc-grey-l2 pt-15 px-2 my-1px mr-1px',
@@ -1051,6 +603,7 @@ $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Wher
                                     "<a class='mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white' style='margin-right:15px;'    href='{{ url('interior-forward/') }}/" +
                                     id + "'>" + ' Forward <i class="fa fa-forward"></i>'+
                                                                  '</a>');
+                        $('#prisonerid').text(data.petitions.prisonerid);
                         $('#firstname').text(data.petitions.name);
                         $('#Fathername').text(data.petitions.f_name);
                         $('#Nationality').text(data.petitions.nationality);
@@ -1058,15 +611,33 @@ $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Wher
                         $('#Confined_in_jail').text(data.petitions.confined_in_jail);
                         $('#Gender').text(data.petitions.gender);
                         $('#Dob').text(data.petitions.dob);
-                        $('#firdate').text(data.petitions.firdate);
+                        $('.firdate').text(data.petitions.fir_date);
+                         $('.policestation').text(data.petitions.name_of_policestation);
+                        $('#casetitle').text(data.petitions.case_title);
+                        $('#casefirno').text(data.petitions.case_fir_no);
+                        $('#caste').text(data.petitions.caste);
+                        $('#cnic').text(data.petitions.cnic);
+                        $('#age').text(data.petitions.age_of_petitioner);
+                        $('#martialstatus').text(data.petitions.martial_status);
+                        $('#religion').text(data.petitions.religion);
+                        $('#education').text(data.petitions.education);
+                        $('#occupation').text(data.petitions.Occupation);
+                        $('#mentalhealth').text(data.petitions.mental_health);
+                        $('#physicalhealth').text(data.petitions.physical_health);
+                        $('#natureofcrime').text(data.petitions.nature_of_crime);
+                        $('#prisonerconduct').text(data.petitions.prisoner_conduct);
+                        $('#compoundableoffence').text(data.petitions.compoundable_offence);
+                        $('#noncompoundableoffence').text(data.petitions.non_compoundable_offence);
+                        $('#mitigatingcircumstances').text(data.petitions.mitigating_circumstances);
+                        $('#petitionhistory').text(data.petitions.petition_history);
                         $('#Mercypetitiondate').text(data.petitions.mercypetitiondate);
-                        $('#Section_id').text(data.petitions.sectionss.undersection);
+                        $('#Section_id').text(data.petitions.section_id);
                         $('#Province').text(data.petitions.provinces.province_name);
-                        $('#warrent_date').text(data.petitions.warrent_date);
+                      
                         $('#Remarks').text(data.petitions.remarks);
                         $('#sentence_in_court').text(data.petitions.sentence_in_court);
                         $('#date_of_sentence').text(data.petitions.date_of_sentence);
-                        $('#warrent_information').text(data.petitions.warrent_information);
+                      
                         $("#pic").empty();
                         $("#picss").empty();
                         $.each(data.petitions.fileattachements, function(key, val) {
@@ -1330,21 +901,40 @@ $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Wher
                                     id + "'>" + ' Decision/forward <i class="fa fa-forward"></i>'+
                                                                  '</a>');
                         $('#firstname').text(data.petitions.name);
+                        $('#prisonerid').text(data.petitions.prisonerid);
                         $('#Fathername').text(data.petitions.f_name);
                         $('#Nationality').text(data.petitions.nationality);
                         $('#Physicalstatus').text(data.petitions.physicalstatus.PhysicalStatus);
                         $('#Confined_in_jail').text(data.petitions.confined_in_jail);
                         $('#Gender').text(data.petitions.gender);
                         $('#Dob').text(data.petitions.dob);
-                        $('#firdate').text(data.petitions.firdate);
+                        $('.firdate').text(data.petitions.fir_date);
+                         $('.policestation').text(data.petitions.name_of_policestation);
+                        $('#casetitle').text(data.petitions.case_title);
+                        $('#casefirno').text(data.petitions.case_fir_no);
+                        $('#caste').text(data.petitions.caste);
+                        $('#cnic').text(data.petitions.cnic);
+                        $('#age').text(data.petitions.age_of_petitioner);
+                        $('#martialstatus').text(data.petitions.martial_status);
+                        $('#religion').text(data.petitions.religion);
+                        $('#education').text(data.petitions.education);
+                        $('#occupation').text(data.petitions.Occupation);
+                        $('#mentalhealth').text(data.petitions.mental_health);
+                        $('#physicalhealth').text(data.petitions.physical_health);
+                        $('#natureofcrime').text(data.petitions.nature_of_crime);
+                        $('#prisonerconduct').text(data.petitions.prisoner_conduct);
+                        $('#compoundableoffence').text(data.petitions.compoundable_offence);
+                        $('#noncompoundableoffence').text(data.petitions.non_compoundable_offence);
+                        $('#mitigatingcircumstances').text(data.petitions.mitigating_circumstances);
+                        $('#petitionhistory').text(data.petitions.petition_history);
                         $('#Mercypetitiondate').text(data.petitions.mercypetitiondate);
-                        $('#Section_id').text(data.petitions.sectionss.undersection);
-                        $('#warrent_date').text(data.petitions.warrent_date);
+                        $('#Section_id').text(data.petitions.section_id);
+                        
                         $('#Province').text(data.petitions.provinces.province_name);
                         $('#Remarks').text(data.petitions.remarks);
                         $('#sentence_in_court').text(data.petitions.sentence_in_court);
                         $('#date_of_sentence').text(data.petitions.date_of_sentence);
-                        $('#warrent_information').text(data.petitions.warrent_information);
+                       
                         $("#pic").empty();
                         $("#picss").empty();
                         $.each(data.petitions.fileattachements, function(key, val) {
@@ -1800,6 +1390,8 @@ $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Wher
                                     "<a class='mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white' style='margin-right:15px;'    href='{{ url('petitionforward/') }}/" +
                                     id + "'>" + ' Forward <i class="fa fa-forward"></i>'+
                                                                  '</a>');
+                                                                 
+                     $('#prisonerid').text(data.petitions.prisonerid);
                         $('#firstname').text(data.petitions.name);
                         $('#Fathername').text(data.petitions.f_name);
                         $('#Nationality').text(data.petitions.nationality);
@@ -1807,15 +1399,33 @@ $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Wher
                         $('#Confined_in_jail').text(data.petitions.confined_in_jail);
                         $('#Gender').text(data.petitions.gender);
                         $('#Dob').text(data.petitions.dob);
-                        $('#firdate').text(data.petitions.firdate);
+                        $('.firdate').text(data.petitions.fir_date);
+                         $('.policestation').text(data.petitions.name_of_policestation);
+                        $('#casetitle').text(data.petitions.case_title);
+                        $('#casefirno').text(data.petitions.case_fir_no);
+                        $('#caste').text(data.petitions.caste);
+                        $('#cnic').text(data.petitions.cnic);
+                        $('#age').text(data.petitions.age_of_petitioner);
+                        $('#martialstatus').text(data.petitions.martial_status);
+                        $('#religion').text(data.petitions.religion);
+                        $('#education').text(data.petitions.education);
+                        $('#occupation').text(data.petitions.Occupation);
+                        $('#mentalhealth').text(data.petitions.mental_health);
+                        $('#physicalhealth').text(data.petitions.physical_health);
+                        $('#natureofcrime').text(data.petitions.nature_of_crime);
+                        $('#prisonerconduct').text(data.petitions.prisoner_conduct);
+                        $('#compoundableoffence').text(data.petitions.compoundable_offence);
+                        $('#noncompoundableoffence').text(data.petitions.non_compoundable_offence);
+                        $('#mitigatingcircumstances').text(data.petitions.mitigating_circumstances);
+                        $('#petitionhistory').text(data.petitions.petition_history);
                         $('#Mercypetitiondate').text(data.petitions.mercypetitiondate);
-                        $('#Section_id').text(data.petitions.sectionss.undersection);
+                        $('#Section_id').text(data.petitions.section_id);
                         $('#Province').text(data.petitions.provinces.province_name);
-                        $('#warrent_date').text(data.petitions.warrent_date);
+                      
                         $('#Remarks').text(data.petitions.remarks);
                         $('#sentence_in_court').text(data.petitions.sentence_in_court);
                         $('#date_of_sentence').text(data.petitions.date_of_sentence);
-                        $('#warrent_information').text(data.petitions.warrent_information);
+                        
                         $("#pic").empty();
                         $("#picss").empty();
                         $.each(data.petitions.fileattachements, function(key, val) {
@@ -2195,6 +1805,7 @@ $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Wher
                                     id + "'>" + ' Forward <i class="fa fa-forward"></i>'+
                                                                  '</a>');
                         $('#id').text(data.id);
+                      
                         $('#firstname').text(data.name);
                         $('#Fathername').text(data.f_name);
                         $('#Nationality').text(data.nationality);
@@ -2202,15 +1813,38 @@ $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Wher
                         $('#Confined_in_jail').text(data.confined_in_jail);
                         $('#Gender').text(data.gender);
                         $('#Dob').text(data.dob);
-                        $('#firdate').text(data.firdate);
+                        $('#prisonerid').text(data.prisonerid);
+                      
+                        $('.firdate').text(data.fir_date);
+                        
+                        $('.policestation').text(data.name_of_policestation);
+                        $('#casetitle').text(data.case_title);
+                        $('#casefirno').text(data.case_fir_no);
+                        $('#caste').text(data.caste);
+                        $('#cnic').text(data.cnic);
+                        $('#age').text(data.age_of_petitioner);
+                        $('#martialstatus').text(data.martial_status);
+                        $('#religion').text(data.religion);
+                        $('#education').text(data.education);
+                        $('#occupation').text(data.Occupation);
+                        $('#mentalhealth').text(data.mental_health);
+                        $('#physicalhealth').text(data.physical_health);
+                        $('#natureofcrime').text(data.nature_of_crime);
+                        $('#prisonerconduct').text(data.prisoner_conduct);
+                        $('#compoundableoffence').text(data.compoundable_offence);
+                        $('#noncompoundableoffence').text(data.non_compoundable_offence);
+                        $('#mitigatingcircumstances').text(data.mitigating_circumstances);
+                        $('#petitionhistory').text(data.petition_history);
+                       
                         $('#Mercypetitiondate').text(data.mercypetitiondate);
-                        $('#Section_id').text(data.sectionss.undersection);
+                      
+                        $('#Section_id').text(data.section_id);
                         $('#Province').text(data.provinces.province_name);
-                        $('#warrent_date').text(data.warrent_date);
+                       
                         $('#Remarks').text(data.remarks);
                         $('#sentence_in_court').text(data.sentence_in_court);
                         $('#date_of_sentence').text(data.date_of_sentence);
-                        $('#warrent_information').text(data.warrent_information);
+                       
                         $("#pic").empty();
                         $("#picss").empty();
                         $.each(data.fileattachements, function(key, val) {
@@ -2502,25 +2136,7 @@ return true;
 
   } 
  </script>
-{{-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js", type="text/javascript">
-    function printpayablebalanceexcel() {
-        alert('In Function');
-      $("#forprint").table2excel({
-        filename: "file.xls"
-      });
-    }
-  </script> --}}
-{{-- 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/TableExport/5.2.0/js/tableexport.min.js" integrity="sha512-XmZS54be9JGMZjf+zk61JZaLZyjTRgs41JLSmx5QlIP5F+sSGIyzD2eJyxD4K6kGGr7AsVhaitzZ2WTfzpsQzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    </script>
-    <script type="text/javascript">
-    function printpayablebalanceexcel() {
-        
-      $("#forprint").table2excel({
-        filename: "file.xls"
-      });
-    }
-    </script> --}}
+
      
      
      <script>
@@ -2630,7 +2246,15 @@ $(document).ready(function() {
           });
 });
         </script>
+<script>
+    $('.select2').select2({
+          allowClear: true,
+          dropdownParent: $('#select2-parent'),
+         
+        })
 
+      
+    </script>
 <script>
     $(document).ready(function() {
       $('.del-prov').on('click', function(e){
@@ -2703,295 +2327,8 @@ $(document).ready(function() {
     } );
 } );
 </script>
- <script>
-//     jQuery(function($) {
-//       // Smart Wizard v4.4.1 example
-
-//       // show/hide form validation
-//       $('#id-validate')
-//         .prop('checked', false)
-//         .on('change', function() {
-//           if (this.checked) {
-//             $('form[novalidate]').addClass('d-none')
-//             $('#validation-form').removeClass('d-none')
-//           } else {
-//             $('form[novalidate]').removeClass('d-none')
-//             $('#validation-form').addClass('d-none')
-//           }
-//         })
-
-
-//       var stepCount = $('#smartwizard-1').find('li > a').length
-//       var left = (100 / (stepCount * 2))
-//       // for example if we have **4** steps, `left` and `right` of progressbar should be **12.5%**
-//       // so that before first step and after last step we don't have any lines
-//       $('#smartwizard-1').find('.wizard-progressbar').css({
-//         left: left + '%',
-//         right: left + '%'
-//       })
-
-//       // enable wizard
-//       var selectedStep = 0
-//       $('#smartwizard-1').smartWizard({
-//           theme: 'circles',
-//           useURLhash: false,
-//           showStepURLhash: false,
-//           autoAdjustHeight: true,
-//           transitionSpeed: 150,
-
-//           //errorSteps: [0,1],
-//           //disabledSteps: [2,3],
-
-//           selected: selectedStep,
-
-//           toolbarSettings: {
-//             toolbarPosition: 'bottom', // none, top, bottom, both
-//             toolbarButtonPosition: 'right', // left, right
-//             showNextButton: false, // show/hide a Next button
-//             showPreviousButton: false, // show/hide a Previous button
-//             toolbarExtraButtons: [
-//               $('<button class="btn btn-outline-secondary sw-btn-prev radius-l-1 mr-2px"><i class="fa fa-arrow-left mr-15"></i> Previous</button>'),
-
-//               $('<button class="btn btn-outline-primary sw-btn-next sw-btn-hide radius-r-1">Next <i class="fa fa-arrow-right mr-15"></i></button>'),
-
-//               $('<button class="btn btn-green sw-btn-finish radius-r-1">Finish <i class="fa fa-check mr-15"></i></button>')
-//               .on('click', function() {
-//                 //Finish Action
-//               }),
-//             ]
-//           }
-//         })
-
-//         .removeClass('d-none') // initially it is hidden, and we show it after it is properly rendered
-
-//         .on("showStep", function(e, anchorObject, stepNumber, stepDirection) {
-//           // move the progress bar by increasing its size (width)
-//           var progress = parseInt((stepNumber + 1) * 100 / stepCount)
-//           var halfStepWidth = parseInt(100 / stepCount) / 2
-//           progress -= halfStepWidth //because for example for the first step, we don't want progressbar to move all the way to next step
-
-//           $('#smartwizard-1').find('.wizard-progressbar').css('max-width', progress + '%')
-
-//           // hide/show card toolbar buttons
-//           // if we are not in the first step, previous button should be enabled, otherwise disabled
-//           if (stepNumber > 0) {
-//             $('#wizard-1-prev').removeAttr('disabled')
-//           } else {
-//             $('#wizard-1-prev').attr('disabled', '')
-//           }
-
-//           // if we are in the last step, next button should be hidden, and finish button shown instead
-//           if (stepNumber == stepCount - 1) {
-//             $('#wizard-1-next').addClass('d-none')
-//             $('#wizard-1-finish').removeClass('d-none')
-//           } else {
-//             $('#wizard-1-next').removeClass('d-none')
-//             $('#wizard-1-finish').addClass('d-none')
-//           }
-//         })
-//         .on("leaveStep", function(e, anchorObject, stepNumber, stepDirection) {
-//           if (stepNumber == 0 && stepDirection == 'forward') {
-
-//             // use jQuery plugin to validate
-//             if (document.getElementById('id-validate').checked && !$('#validation-form').valid()) return false;
-
-//             // or use HTML & Bootstrap validation
-//             /**
-//      var form = document.getElementById('validation-form');
-//      if (form.checkValidity() === false) {
-//        event.preventDefault();
-//        event.stopPropagation();
-
-//        form.classList.add('was-validated');
-//        return false;
-//      }
-//      */
-//           }
-//         })
-//         .triggerHandler('showStep', [null, selectedStep, null, null]) // move progressbar to step 1 (0 index)
-
-
-//       // handle `click` event of card toolbar buttons
-//       $('#wizard-1-prev').on('click', function() {
-//         $('#smartwizard-1').smartWizard('prev')
-//       })
-
-//       $('#wizard-1-next').on('click', function() {
-//         $('#smartwizard-1').smartWizard('next')
-//       })
-
-//       $('#wizard-1-finish').on('click', function() {
-//         //
-//       })
-
-
-
-
-//       /////////////////////////////////////
-//       // add input mask to some inputs
-//       try { // not working in IE11
-//         $("#phone").inputmask("(999) 999-9999")
-//         $("#url").inputmask({
-//           regex: "https?://.*"
-//         })
-//       } catch (e) {
-//         $("#phone").attr("placeholder", "(999) 999-9999")
-//       }
-
-
-
-//       /////////////////////////////////////
-//       // Form Validation plugin
-
-//       //when select box value is changed, revalidate
-//       $('select#platform') // .css('width','200px').select2({allowClear:true}) //can have select2 or chosen
-//         .on('change', function() {
-//           $(this).closest('form').validate().element($(this))
-//         })
-
-
-//       var $invalidClass = 'brc-danger-tp2'
-//       var $validClass = 'brc-info-tp2'
-
-//       // add phone validation method
-//       jQuery.validator.addMethod("phone", function(value, element) {
-//         return this.optional(element) || /^\(\d{3}\) \d{3}\-\d{4}( x\d{1,6})?$/.test(value)
-//       }, "Enter a valid phone number.")
-
-
-//       $('#validation-form').validate({
-//         errorElement: 'span',
-//         errorClass: 'form-text form-error text-danger-m2',
-//         focusInvalid: false,
-//         ignore: "",
-//         rules: {
-//           email: {
-//             required: true,
-//             email: true
-//           },
-//           password: {
-//             required: true,
-//             minlength: 5
-//           },
-//           password2: {
-//             required: true,
-//             minlength: 5,
-//             equalTo: "#password"
-//           },
-//           name: {
-//             required: true
-//           },
-//           phone: {
-//             required: true,
-//             phone: 'required'
-//           },
-//           url: {
-//             required: true,
-//             url: true
-//           },
-//           comment: {
-//             //required: true
-//           },
-//           state: {
-//             //required: true
-//           },
-//           platform: {
-//             required: true
-//           },
-//           subscription: {
-//             required: true
-//           },
-//           gender: {
-//             required: true,
-//           },
-//           agree: {
-//             required: true,
-//           }
-//         },
-
-//         messages: {
-//           email: {
-//             required: "Please provide a valid email.",
-//             email: "Please provide a valid email."
-//           },
-//           password: {
-//             required: "Please specify a password.",
-//             minlength: "Please specify a secure password."
-//           },
-//           platform: "Please choose your platform",
-//           subscription: "Please choose at least one option",
-//           gender: "Please choose gender",
-//           agree: "Please agree to our terms of use"
-//         },
-
-
-//         highlight: function(element) {
-//           var $element = $(element);
-
-//           //remove error messages to be inserted again, so that the `.fa-exclamation-circle` is inserted in `errorPlacement` function
-//           $element.closest('.form-group').find('.form-text').remove()
-
-//           if ($element.is('input[type=checkbox]') || $element.is('input[type=radio]')) return
-
-//           else if ($element.is('.select2')) {
-//             var container = $element.siblings('[class*="select2-container"]')
-//             container.find('.select2-selection').addClass($invalidClass)
-//           } else if ($element.is('.chosen')) {
-//             var container = $element.siblings('[class*="chosen-container"]');
-//             container.find('.chosen-choices, .chosen-single').addClass($invalidClass)
-//           } else {
-//             $element.addClass($invalidClass + ' d-inline-block').removeClass($validClass)
-//           }
-//         },
-
-//         success: function(error, element) {
-//           var parent = error.parent()
-//           var $element = $(element)
-
-//           $element.removeClass($invalidClass)
-//             .closest('.form-group').find('.form-text').remove()
-
-//           if ($element.is('input[type=checkbox]') || $element.is('input[type=radio]')) return
-
-//           else if ($element.is('.select2')) {
-//             var container = $element.siblings('[class*="select2-container"]')
-//             container.find('.select2-selection').removeClass($invalidClass)
-//           } else if ($element.is('.chosen')) {
-//             var container = $element.siblings('[class*="chosen-container"]')
-//             container.find('.chosen-choices, .chosen-single').removeClass($invalidClass)
-//           } else {
-//             $element.addClass($validClass + ' d-inline-block')
-//           }
-
-//           // append 'fa-check' icon
-//           parent.append('<span class="form-text d-inline-block ml-sm-2"><i class=" fa fa-check text-success-m1 text-120"></i></span>')
-//         },
-
-//         errorPlacement: function(error, element) {
-//           // prepend 'fa-exclamation-circle' icon
-//           error.prepend('<i class="form-text fa fa-exclamation-circle text-danger-m1 text-100 mr-1 ml-2"></i>')
-
-//           if (element.is('input[type=checkbox]') || element.is('input[type=radio]')) {
-//             element.closest('div[class*="col-"]').append(error)
-//           } else if (element.is('.select2')) {
-//             var container = element.siblings('[class*="select2-container"]')
-//             error.insertAfter(container)
-//             container.find('.select2-selection').addClass($invalidClass)
-//           } else if (element.is('.chosen')) {
-//             var container = element.siblings('[class*="chosen-container"]')
-//             error.insertAfter(container)
-//             container.find('.chosen-choices, .chosen-single').addClass($invalidClass)
-//           } else {
-//             error.addClass('d-inline-block').insertAfter(element)
-//           }
-//         },
-
-//         submitHandler: function(form) {},
-//         invalidHandler: function(form) {}
-//       })
-
-//     })
-   </script>
+ 
+  
 
 {{-- <script src="{{ asset('assets/js/jquery.steps.min.js') }}"></script>
 <script src="{{ asset('assets/js/jquery.steps.js') }}"></script> --}}

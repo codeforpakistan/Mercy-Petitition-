@@ -46,6 +46,9 @@ class PetitionController extends Controller
             ->where(function($query) use ($search){
                     $query->where('name', 'LIKE', '%'.$search.'%')
                           ->orWhere('gender', 'LIKE', '%'.$search.'%')
+                          ->orWhere('cnic', 'LIKE', '%'.$search.'%')
+                          ->orWhere('name_of_policestation', 'LIKE', '%'.$search.'%')
+                          ->orWhere('case_fir_no', 'LIKE', '%'.$search.'%')
                           ->orWhere('file_in_department', 'LIKE', '%'.$search.'%')
                           ->orWhere('confined_in_jail', 'LIKE', '%'.$search.'%')
                           ->orWhere('nationality', 'LIKE', '%'.$search.'%')
@@ -63,7 +66,9 @@ class PetitionController extends Controller
             ->where(function($query) use ($search){
                     $query->where('name', 'LIKE', '%'.$search.'%')
                           ->orWhere('gender', 'LIKE', '%'.$search.'%')
-
+                          ->orWhere('cnic', 'LIKE', '%'.$search.'%')
+                          ->orWhere('name_of_policestation', 'LIKE', '%'.$search.'%')
+                          ->orWhere('case_fir_no', 'LIKE', '%'.$search.'%')
                           ->orWhere('nationality', 'LIKE', '%'.$search.'%')
                           ->orWhere('f_name', 'LIKE', '%'.$search.'%')
                           ->orWhere('status', 'LIKE', '%'.$search.'%')
@@ -90,6 +95,9 @@ class PetitionController extends Controller
                     $query->where('name', 'LIKE', '%'.$search.'%')
                           ->orWhere('gender', 'LIKE', '%'.$search.'%')
                           ->orWhere('file_in_department', 'LIKE', '%'.$search.'%')
+                          ->orWhere('cnic', 'LIKE', '%'.$search.'%')
+                          ->orWhere('name_of_policestation', 'LIKE', '%'.$search.'%')
+                          ->orWhere('case_fir_no', 'LIKE', '%'.$search.'%')
                           ->orWhere('confined_in_jail', 'LIKE', '%'.$search.'%')
                           ->orWhere('nationality', 'LIKE', '%'.$search.'%')
                           ->orWhere('f_name', 'LIKE', '%'.$search.'%')
@@ -104,7 +112,9 @@ class PetitionController extends Controller
             ->where(function($query) use ($search){
                     $query->where('name', 'LIKE', '%'.$search.'%')
                           ->orWhere('gender', 'LIKE', '%'.$search.'%')
-
+                          ->orWhere('cnic', 'LIKE', '%'.$search.'%')
+                          ->orWhere('name_of_policestation', 'LIKE', '%'.$search.'%')
+                          ->orWhere('case_fir_no', 'LIKE', '%'.$search.'%')
                           ->orWhere('nationality', 'LIKE', '%'.$search.'%')
                           ->orWhere('f_name', 'LIKE', '%'.$search.'%')
                           ->orWhere('status', 'LIKE', '%'.$search.'%')
@@ -160,7 +170,9 @@ class PetitionController extends Controller
     public function edit($id)
     {
 
-        $sections = Section::all();
+        $sections = Section::get();
+   
+
         $physicalstatus = PhysicalStatus::all();
         $petitionsedit = Petition::find($id);
         $filepetition = File::where('petition_id', $id)->first();
@@ -316,7 +328,14 @@ class PetitionController extends Controller
         $date_of_sentence = Carbon::parse($request->get('date_of_sentence'))->format('Y-m-d');
         $dob = Carbon::parse($request->get('dob'))->format('Y-m-d');
         $mercypetitiondate = Carbon::parse($request->get('mercypetitiondate'))->format('Y-m-d');
-
+        $data = [];
+        foreach($request->get('section_id') as $seat_id) {
+            $data[] = 
+                 $seat_id;
+                
+                //  $petitionsedit->section_id=$data;
+                $section = implode(',',$data);
+        }
 
 
         $Petition = new Petition([
@@ -332,7 +351,8 @@ class PetitionController extends Controller
             "user_id" => Auth::user()->id,
             "fir_date" => $request->get('fir_date'),
             "mercypetitiondate" => $mercypetitiondate,
-            "section_id" => $request->get('section_id'),
+            
+            "section_id" =>  $section,
            
             "date_of_sentence" => $date_of_sentence,
             "sentence_in_court" => $request->get('sentence_in_court'),
@@ -386,9 +406,10 @@ class PetitionController extends Controller
 
     public function petitionupdate(Request $request, $id)
     {
-
-
+      
+     
         $petitionsedit = Petition::find($id);
+
         if ($request->hasFile('warrent_file')) {
 
             $warrent_file =  $request->file('warrent_file')->getClientOriginalName();
@@ -508,7 +529,7 @@ class PetitionController extends Controller
         }
 
         //  $now = date('Y-m-d',strttotime($request->get('warrent_date'))); //Fomat Date and time //you are overwriting this variable below
-        $warrent_date = Carbon::parse($request->get('warrent_date'))->format('Y-m-d');
+     
 
         $date_of_sentence = Carbon::parse($request->get('date_of_sentence'))->format('Y-m-d');
         $dob = Carbon::parse($request->get('dob'))->format('Y-m-d');
@@ -523,16 +544,25 @@ class PetitionController extends Controller
 
         $petitionsedit->user_id = Auth::user()->id;
 
-        $petitionsedit->firdate = $request->get('fir&date');
+        $petitionsedit->fir_date = $request->get('fir_date');
         $petitionsedit->mercypetitiondate = $mercypetitiondate;
         $petitionsedit->confined_in_jail = Auth::user()->confined_in_jail;
 
         $petitionsedit->gender = $request->get('gender');
-        $petitionsedit->section_id = $request->get('section_id');
-        $petitionsedit->warrent_date = $warrent_date;
+       
+        $data = [];
+        foreach($request->get('section_id') as $seat_id) {
+            $data[] = 
+                 $seat_id;
+                
+                //  $petitionsedit->section_id=$data;
+                $petitionsedit->section_id = implode(',',$data);
+        }
+    
+    
         $petitionsedit->date_of_sentence = $date_of_sentence;
         $petitionsedit->sentence_in_court = $request->get('sentence_in_court');
-        $petitionsedit->petition_history = $request->get('petition_history');
+        $petitionsedit->petition_history = html_entity_decode(strip_tags($request->get('petition_history')));
         $petitionsedit->nationality = $request->get('nationality');
         $petitionsedit->case_fir_no  = $request->get('case_fir_no');
            
@@ -545,7 +575,7 @@ class PetitionController extends Controller
         $petitionsedit->education   = $request->get('education');
         $petitionsedit->mental_health  = $request->get('mental_health');
         $petitionsedit->physical_health = $request->get('physical_health');
-        $petitionsedit->pisoner_conduct = $request->get('pisoner_conduct');
+        $petitionsedit->prisoner_conduct = $request->get('prisoner_conduct');
         $petitionsedit->compoundable_offence  = $request->get('compoundable_offence');
         $petitionsedit->non_compoundable_offence = $request->get('non_compoundable_offence');
         $petitionsedit->Occupation  = $request->get('Occupation');
