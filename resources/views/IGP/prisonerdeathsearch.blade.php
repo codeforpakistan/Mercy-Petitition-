@@ -112,8 +112,13 @@
 
 
                             @if (Session::has('message'))
-                                <p class="alert alert-info">{{ Session::get('message') }}</p>
-                            @endif
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>{{ Session::get('message') }}!</strong> .
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
                             @if (!$prisonerdeath->isEmpty())
                             <table id="simple-table"
                                 class="mb-0 table table-borderless table-bordered-x brc-secondary-l3 text-dark-m2 radius-1 overflow-hidden">
