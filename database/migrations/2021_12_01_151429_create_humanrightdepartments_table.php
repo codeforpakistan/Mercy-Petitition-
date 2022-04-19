@@ -16,11 +16,7 @@ class CreateHumanrightdepartmentsTable extends Migration
         Schema::create('humanrightdepartments', function (Blueprint $table) {
            $table->Increments('id');
             
-              $table->unsignedInteger('file_id');
-            $table->foreign('file_id')
-            ->references('id')
-            ->on('files')
-            ->onDelete('cascade');
+             
             $table->unsignedInteger('petition_id');
             $table->foreign('petition_id')
             ->references('id')

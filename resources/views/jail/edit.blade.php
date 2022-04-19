@@ -1,6 +1,6 @@
 @extends('layouts.portal', [
-'menu' => 'system_setting',
-'sub_menu' => 'jail'
+'menu' => 'jails',
+'sub_menu' => 'jails'
 ])
 @section('module', 'Access Control System')
 @section('element', 'edit jail')
@@ -11,7 +11,7 @@
         <div class="card-header">
             <h3 class="card-title text-125">
                 <i class="far fa-edit text-dark-l3 mr-1"></i>
-                Update physical status
+                Update Jail
             </h3>
         </div>
         <div class="card-body px-3 pb-1">

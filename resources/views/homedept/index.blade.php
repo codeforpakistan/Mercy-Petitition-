@@ -224,11 +224,13 @@
                                                 class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success">
                                                 <i class="fa fa-pencil-alt"></i>
                                             </a> -->
+                                            @can('HomeDepartment-create')
 
                                                     <a href="{{ route('home-forward', [$petion->id]) }}"
                                                         class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
                                                         Forward <i class="fa fa-forward"></i>
                                                     </a>
+                                                    @endcan
 
                                                 </div>
 
@@ -252,10 +254,12 @@
                                                     <i class="fa fa-pencil-alt text-blue mr-1 p-2 w-4"></i>
                                                     Edit
                                                 </a> --}}
+                                                @can('HomeDepartment-create')
                                                             <a href="{{ route('home-forward', [$petion->id]) }}"
                                                                 class=" dropdown-item mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
                                                                 Forward <i class="fa fa-forward"></i>
                                                             </a>
+                                                            @endcan
                                                         </div>
                                             </td>
                                         </tr>
@@ -359,263 +363,313 @@
                                                                     class="position-tr w-100 border-t-4 brc-blue-m2 radius-2 d-md-none">
                                                                 </div>
 
-                                                                <u> <h3 style="text-align: center";>Check list for Prisoner Authorties</h3></u>
+                                                                <u> <h3 style="text-align: center";>Check list for Prisoner Authorities </h3></u>
                                                                 <br>
-                                                                <h5>The following particulars pertaining to the condemed prisoner has been disclosed as required in the checklist on part of prison authorties</h5>
+                                                                <h5>The following particulars pertaining to the condemned prisoner has been disclosed as required in the checklist on part of prison Authorities </h5>
                                                                  <br>
                                                                  <u> <h3>Case file particulars</h3></u>
                                                                  <div>
                                                                  <table class="table" width="100%" style="border: none;">
      
-                                                                     <tbody>
-                                                                         <tr>
-     
-                                                                             <td width="25%">Case Fir No</td>
-                                                                             <td width="25%" id="casefirno"></td>
-                                                                         </tr>
-                                                                         <tr>
-     
-                                                                             <td width="25%" >Fir date</td>
-                                                                             <td width="25%" class="firdate"></td>
-                                                                         </tr>
-                                                                         <tr>
-     
-                                                                             <td width="25%">Name of Police station</td>
-                                                                             <td width="25%"class="policestation"></td>
-                                                                         </tr>
-                                                                         <tr>
-
-                                                                            <td width="25%">province</td>
-                                                                            <td width="25%"id="Province"></td>
+                                                                    <tbody>
+                                                                        <tr>
+    
+                                                                            <td width="25%">Case Fir No</td>
+                                                                            <td width="75%" id="casefirno"></td>
+                                                                        </tr>
+                                                                        <tr>
+    
+                                                                            <td width="25%">Fir date</td>
+                                                                            <td width="75%" class="firdate"></td>
+                                                                        </tr>
+                                                                        <tr>
+    
+                                                                            <td width="25%">Name of Police station</td>
+                                                                            <td width="75%" class="policestation"></td>
                                                                         </tr>
                                                                         <tr>
 
-                                                                            <td width="25%">Nationality</td>
-                                                                            <td width="25%" id="Nationality"></td>
+                                                                           <td width="25%">province</td>
+                                                                           <td width="75%" id="Province"></td>
+                                                                       </tr>
+                                                                       <tr>
+
+                                                                           <td width="25%">Age of petitioner</td>
+                                                                           <td width="75%" id="age"></td>
+                                                                       </tr>
+                                                                       <tr>
+
+                                                                           <td width="25%">Nationality</td>
+                                                                           <td  width="75%" id="Nationality"></td>
+                                                                       </tr>
+                                                                       <tr>
+
+                                                                           <td width="25%"><b>Status</b></td>
+                                                                           <td width="75%" id="status"></td>
+                                                                       </tr>
+                                                                        <tr>
+    
+                                                                            <td width="25%">Case Title</td>
+                                                                            <td width="75%" id="casetitle"></td>
                                                                         </tr>
-                                                                         <tr>
-     
-                                                                             <td width="25%">Case Title</td>
-                                                                             <td id="casetitle"></td>
-                                                                         </tr>
-                                                                         <tr>
-     
-                                                                             <td width="25%">Sentencing Court</td>
-                                                                             <td id="sentence_in_court"></td>
-                                                                         </tr>
-                                                                         <tr>
-     
-                                                                             <td width="25%">Date of Sentence</td>
-                                                                             <td id="date_of_sentence"></td>
-     
-                                                                         </tr>
-                                                                         <tr>
-     
-                                                                             <td width="25%">Mercy petition number</td>
-                                                                             <td id="prisonerid"></td>
-                                                                         </tr>
-                                                                         <tr>
-     
-                                                                             <td width="25%">Date of submission of Mercy Petition</td>
-                                                                             <td id="Mercypetitiondate"></td>
-                                                                         </tr>
-                                                                         <tr>
-                                                                             <td width="25%">
-                                                                         <u> <h3>Particulars of Prisoner</h3></u>
-                                                                             </td>
-                                                                         </tr>
-                                                                         <tr>
-     
-                                                                             <td width="25%">Name</td>
-                                                                             <td id="firstname"></td>
-                                                                         </tr>
-                                                                         <tr>
-     
-                                                                             <td width="25%"> Father Name</td>
-                                                                             <td id="Fathername"></td>
-                                                                         </tr>
-                                                                         <tr>
-     
-                                                                             <td width="25%">Cnic</td>
-                                                                             <td id="cnic"></td>
-                                                                         </tr>
-                                                                         <tr>
-     
-                                                                             <td width="25%">Date of birth</td>
-                                                                             <td id="Dob"></td>
-     
-                                                                         </tr>
-                                                                         <tr>
-     
-                                                                             <td width="25%">Gender</td>
-     
-                                                                             <td id="Gender"></td>
-                                                                         </tr>
-                                                                         <tr>
-     
-                                                                             <td width="25%">Martial Status</td>
-                                                                             <td id="martialstatus"></td>
-     
-                                                                         </tr>
-                                                                         <tr>
-     
-                                                                             <td width="25%">Caste</td>
-                                                                             <td id="caste"></td>
-                                                                         </tr>
-                                                                         <tr>
-     
-                                                                             <td width="25%">Religion</td>
-                                                                             <td id="religion"></td>
-                                                                         </tr>
-     
-                                                                         <tr>
-     
-                                                                             <td width="25%">Education</td>
-                                                                             <td id="education"></td>
-                                                                         </tr>
-                                                                         <tr>
-     
-                                                                             <td width="25%">Occupation</td>
-                                                                             <td><span id="occupation"></span></td>
-                                                                         </tr>
-                                                                         <tr>
-     
-                                                                             <td width="25%">Petition History</td>
-                                                                             <td><span id="petitionhistory"></span></td>
-                                                                         </tr>
-                                                                         <tr>
-     
-                                                                             <td width="25%">Physical Health</td>
-                                                                             <td><span id="physicalhealth"></span></td>
-                                                                         </tr>
-                                                                         <tr>
-     
-                                                                             <td width="25%">Mental Health</td>
-                                                                             <td><span id="mentalhealth"></span></td>
-                                                                         </tr>
-     
-                                                                         <tr>
-     
-                                                                             <td width="25%">Prisoner Conduct</td>
-                                                                             <td><span id="prisonerconduct"></span></td>
-                                                                         </tr>
-                                                                         <tr>
-                                                                             <td width="25%">
-                                                                         <u> <h3>Particulars of Crime </h3></u>
-                                                                             </td>
-                                                                         </tr>
-                                                                         <tr>
-     
-                                                                             <td width="25%">Date of Fir</td>
-                                                                             <td><span class="firdate"></span></td>
-                                                                         </tr>
-                                                                         <tr>
-     
-                                                                             <td width="25%">Name of Police station</td>
-                                                                             <td><span class="policestation"></span></td>
-                                                                         </tr>
-                                                                         <tr>
-     
-                                                                             <td width="25%">compoundable_offence</td>
-                                                                             <td><span id="compoundableoffence"></span></td>
-                                                                         </tr>
-                                                                         <tr>
-     
-                                                                             <td width="25%">Non Compoundable offense</td>
-                                                                             <td><span id="noncompoundableoffence"></span></td>
-                                                                         </tr>
-                                                                         <tr>
-     
-                                                                             <td width="25%">Nature of crime</td>
-                                                                             <td><span id="natureofcrime"></span></td>
-                                                                         </tr>
-                                                                         <tr>
-     
-                                                                             <td width="25%">Mitigating factors</td>
-                                                                             <td><span id="mitigatingcircumstances"></span></td>
-                                                                         </tr>
-                                                                         <tr>
-     
-                                                                             <td width="25%">Confined in jail</td>
-                                                                             <td><span id="Confined_in_jail"></span></td>
-                                                                         </tr>
-                                                                         {{-- <tr>
-     
-                                                                             <td width="25%">Confined in jail</td>
-                                                                             <td>{{$petion->mitigating_circumstances}}</td>
-                                                                         </tr> --}}
-                                                                         <tr>
-                                                                             <td width="25%">
-                                                                         <u> <h3>Attachments</h3></u>
-                                                                             </td>
-                                                                         </tr>
-                                                                         <tr>
-     
-                                                                             <td width="33%">Warrent File Attachment</td>
-                                                                             <td><span id="warrent_file"></span>
-                                                                                 <span id="warrent_files"></span>
-                                                                             </td>
-                                                                        
-     
-                                                                             <td width="33%">Health paper</td>
-                                                                             <td><span id="health_paper"></span>
-                                                                                 <span id="health_papers"></span></td>
-                                                                         
-     
-                                                                             <td width="33%">Application image</td>
-                                                                             <td><span id="application_image"></span>
-                                                                                 <span id="application_images"></span></td>
-                                                                         </tr>
-                                                                         
-                                                                        
-                                                                         <tr>
-     
-                                                                             <td width="33%">Application urdu Attachment</td>
-                                                                             <td><span id="application_in_urdu_file"></span>
-                                                                             <span id="application_in_urdu_files"></span></td>
-                                                                         
-     
-                                                                             <td width="33%">Judgement file document</td>
-                                                                             <td><span id="judgments_file"></span>
-                                                                                 <span id="judgments_files"></span></td>
+                                                                        <tr>
+    
+                                                                            <td width="25%">Sentencing Court</td>
+                                                                            <td width="75%" id="sentence_in_court"></td>
+                                                                        </tr>
+                                                                        <tr>
+    
+                                                                            <td width="25%">Date of Sentence</td>
+                                                                            <td width="75%" id="date_of_sentence"></td>
+    
+                                                                        </tr>
+                                                                        <tr>
+    
+                                                                            <td width="25%">Mercy petition number</td>
+                                                                            <td width="75%"  id="prisonerid"></td>
+                                                                        </tr>
+                                                                        <tr>
+    
+                                                                            <td width="25%">Date of submission of Mercy Petition</td>
+                                                                            <td width="75%" id="Mercypetitiondate"></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td width="25%">
+                                                                        <u> <h3>Particulars of Prisoner</h3></u>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+    
+                                                                            <td width="25%">Name</td>
+                                                                            <td width="75%"  id="firstname"></td>
+                                                                        </tr>
+                                                                        <tr>
+    
+                                                                            <td width="25%"> Father Name</td>
+                                                                            <td width="75%" id="Fathername"></td>
+                                                                        </tr>
+                                                                        <tr>
+    
+                                                                            <td width="25%">Cnic</td>
+                                                                            <td width="75%"  id="cnic"></td>
+                                                                        </tr>
+                                                                        <tr>
+    
+                                                                            <td width="25%">Date of birth</td>
+                                                                            <td width="75%" id="Dob"></td>
+    
+                                                                        </tr>
+                                                                        <tr>
+    
+                                                                            <td width="25%">Gender</td>
+    
+                                                                            <td width="75%" id="Gender"></td>
+                                                                        </tr>
+                                                                        <tr>
+    
+                                                                           <td width="25%">Address</td>
+   
+                                                                           <td width="75%" id="address"></td>
+                                                                       </tr>
+                                                                       <tr>
+    
+                                                                           <td width="25%">Phone</td>
+   
+                                                                           <td width="75%" id="phone"></td>
+                                                                       </tr>
+                                                                       <tr>
+    
+                                                                           <td width="25%">Mark of identification</td>
+   
+                                                                           <td width="75%" id="mark_of_identification"></td>
+                                                                       </tr>
+                                                                       <tr>
+    
+                                                                           <td width="25%">Imediate heirs</td>
+   
+                                                                           <td width="75%" id="imediate_heirs"></td>
+                                                                       </tr>
+                                                                        <tr>
+    
+                                                                            <td width="25%">Martial Status</td>
+                                                                            <td width="75%" id="martialstatus"></td>
+    
+                                                                        </tr>
+                                                                        <tr>
+    
+                                                                            <td width="25%">Caste</td>
+                                                                            <td width="75%" id="caste"></td>
+                                                                        </tr>
+                                                                        <tr>
+    
+                                                                            <td width="25%">Religion</td>
+                                                                            <td width="75%"  id="religion"></td>
+                                                                        </tr>
+    
+                                                                        <tr>
+    
+                                                                            <td width="25%">Education</td>
+                                                                            <td width="75%"  id="education"></td>
+                                                                        </tr>
+                                                                        <tr>
+    
+                                                                            <td width="25%">Occupation</td>
+                                                                            <td> <span width="75%" id="occupation"></span></td>
+                                                                        </tr>
+                                                                        <tr>
+    
+                                                                            <td width="25%">Petition History</td>
+                                                                            <td><span width="75%"  id="petitionhistory"></span></td>
+                                                                        </tr>
+                                                                        <tr>
+    
+                                                                            <td width="25%">Physical Health</td>
+                                                                            <td><span width="75%"  id="physicalhealth"></span></td>
+                                                                        </tr>
+                                                                        <tr>
+    
+                                                                            <td width="25%">Mental Health</td>
+                                                                            <td><span width="75%"  id="mentalhealth"></span></td>
+                                                                        </tr>
+    
+                                                                        <tr>
+    
+                                                                            <td width="25%">Prisoner Conduct</td>
+                                                                            <td><span width="75%"  id="prisonerconduct"></span></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td width="25%">
+                                                                        <u> <h3>Particulars of Crime </h3></u>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+    
+                                                                            <td width="25%">Date of Fir</td>
+                                                                            <td><span width="75%" class="firdate"></span></td>
+                                                                        </tr>
+                                                                        <tr>
+    
+                                                                            <td width="25%">Name of Police station</td>
+                                                                            <td><span width="75%" class="policestation"></span></td>
+                                                                        </tr>
+                                                                        <tr>
+    
+                                                                            <td width="25%">compoundable_offence</td>
+                                                                            <td><span width="75%"  id="compoundableoffence"></span></td>
+                                                                        </tr>
+                                                                        <tr>
+    
+                                                                            <td width="25%">Non Compoundable offense</td>
+                                                                            <td><span width="75%"  id="noncompoundableoffence"></span></td>
+                                                                        </tr>
+                                                                        <tr>
+    
+                                                                            <td width="25%">Nature of crime</td>
+                                                                            <td><span width="75%" id="natureofcrime"></span></td>
+                                                                        </tr>
+                                                                        <tr>
+    
+                                                                            <td width="25%">Mitigating factors</td>
+                                                                            <td><span width="75%"  id="mitigatingcircumstances"></span></td>
+                                                                        </tr>
+                                                                        <tr>
+    
+                                                                            <td width="25%">Confined in jail</td>
+                                                                            <td><span width="75%"  id="Confined_in_jail"></span></td>
+                                                                        </tr>
+                                                                        {{-- <tr>
+    
+                                                                            <td width="25%">Confined in jail</td>
+                                                                            <td>{{$petion->mitigating_circumstances}}</td>
+                                                                        </tr> --}}
+                                                                        <tr>
+                                                                            <td width="25%">
+                                                                        <u> <h3>Attachments</h3></u>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+    
+                                                                            <td width="33%">Warrent File Attachment</td>
+                                                                            <td><span id="warrent_file"></span>
+                                                                                <span id="warrent_files"></span>
+                                                                            </td>
                                                                        
-     
-                                                                             <td width="33%">Conviction Summary</td>
-                                                                             <td><span id="convection_summary"></span>
-                                                                                 <span id="convection_summarys"></span></td>
-                                                                         </tr>
-                                                                         <tr>
-     
-                                                                             <td width="33%">check file list</td>
-                                                                             <td><span id="check_list_file"></span>
-                                                                                 <span id="check_list_files"></span></td>
-                                                                         
-     
-                                                                             <td width="33%">Petition roll file</td>
-                                                                             <td><span id="petition_roll_file"></span>
-                                                                                 <span id="petition_roll_files"></span></td>
+    
+                                                                            <td width="33%">Health paper</td>
+                                                                            <td><span id="health_paper"></span>
+                                                                                <span id="health_papers"></span></td>
+                                                                        
+    
+                                                                            <td width="33%">Application image</td>
+                                                                            <td><span id="application_image"></span>
+                                                                                <span id="application_images"></span></td>
+                                                                        </tr>
+                                                                        
                                                                        
-     
-                                                                             <td width="33%">petition Certificate</td>
-                                                                             <td><span id="petition_certificate "></span>
-                                                                                 <span id="petition_certificates"></span></td>
-                                                                         </tr>
-                                                                         
-                                                                         <tr>
-     
-                                                                             <td width="50%">Jail-Supt Remarks</td>
-                                                                             <td><span id="Remarks"></td>
-                                                                            
-                                                                         </tr>
-                                                                         <tr>
-     
-                                                                             <td width="50%">Other Documents</td>
-                                                                             <td><span id="pic"></td>
-                                                                             <td></span>
-                                                                                 <span id="picss"></span></td>
-                                                                         </tr>
-     
-                                                                     </tbody>
+                                                                        <tr>
+    
+                                                                            <td width="33%">Application urdu Attachment</td>
+                                                                            <td><span id="application_in_urdu_file"></span>
+                                                                            <span id="application_in_urdu_files"></span></td>
+                                                                        
+    
+                                                                            <td width="33%">Judgement file document</td>
+                                                                            <td><span id="judgments_file"></span>
+                                                                                <span id="judgments_files"></span></td>
+                                                                      
+    
+                                                                            <td width="33%">Conviction Summary</td>
+                                                                            <td><span id="convection_summary"></span>
+                                                                                <span id="convection_summarys"></span></td>
+                                                                        </tr>
+                                                                        <tr>
+    
+                                                                            <td width="33%">check file list</td>
+                                                                            <td><span id="check_list_file"></span>
+                                                                                <span id="check_list_files"></span></td>
+                                                                        
+    
+                                                                            <td width="33%">Petition roll file</td>
+                                                                            <td><span id="petition_roll_file"></span>
+                                                                                <span id="petition_roll_files"></span></td>
+                                                                      
+    
+                                                                            <td width="33%">petition Certificate</td>
+                                                                            <td><span id="petition_certificate "></span>
+                                                                                <span id="petition_certificates"></span></td>
+                                                                        </tr>
+                                                                        
+                                                                        <tr>
+    
+                                                                            <td width="33%">Jail-Supt Remarks</td>
+                                                                            <td><span id="Remarks"></td>
+                                                                           
+                                                                        </tr>
+                                                                        <tr>
+    
+                                                                            <td width="33%">Other Documents</td>
+                                                                            <td><span id="pic"></td>
+                                                                            <td></span>
+                                                                                <span id="picss"></span></td>
+                                                                        </tr>
+                                                                        <tr class="homeDoc">
+                                                                           
+                                                                           
+                                                                           
+                                                                           <td class="homefile"width="33%">Home Department</td>
+                                                                           <td class="homefile"><span id="homepic"></span></td>
+                                                                           <td class="homefile" width="33%">
+                                                                               <span id="homefilepdf"></span></td>
+                                                                        </tr>
+                                                                        <tr class="homeremarks homeDoc">
+                                                                               <td width="33%">Home Remarks</td>
+                                                                           <td ><span id="homeremarks"></td>
+                                                                       </tr>
+                                                                   
+                                                                      
+                                                                   
+    
+                                                                    </tbody>
                                                                  </table>
                                                                                      </div>
                                                                                     </div>
@@ -635,8 +689,9 @@
                                                                     <div id="btnhide1" class="col-12 px-8 mt-5">
                                                                         <div class="form-row text-center">
                                                                             <div class="form-group col-md-6">
-
+                                                                                @can('HomeDepartment-create')
                                                                                 <span id="Homeforward"></span>
+                                                                                @endcan
                                                                                 {{-- <a href="{{ route('home-forward', [$petion->id]) }}"
                                                                                     class="no-print mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white">
                                                                                     Forward <i class="fa fa-forward"></i>

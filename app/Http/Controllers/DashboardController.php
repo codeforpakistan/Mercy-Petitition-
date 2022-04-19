@@ -19,7 +19,7 @@ class DashboardController extends Controller
         if (Auth::user()->confined_in_jail == "") {
             $totalpetitions = Petition::where('province_id', '=', Auth::user()->province_id)->orderBy("id", "desc")->get()->count();
         } else {
-            $totalpetitions = Petition::where('province_id', '=', Auth::user()->province_id)->Where('confined_in_jail', Auth::user()->confined_in_jail)->Where('file_in_department', 'Jail-Supt')->orderBy("id", "desc")->get()->count();
+            $totalpetitions = Petition::where('province_id', '=', Auth::user()->province_id)->where('confined_in_jail', '=', Auth::user()->confined_in_jail)->Where('file_in_department', 'Jail-Supt')->orderBy("id", "desc")->get()->count();
 
         }
       
@@ -34,6 +34,45 @@ class DashboardController extends Controller
     }else{
       
         $Accepted = Petition::Where('status', 'Accepted')->orderBy("id", "desc")->count();
+
+    }
+    if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id)) {
+  
+        $compromised = Petition::where('confined_in_jail', '=', Auth::user()->confined_in_jail)->where('province_id', '=', Auth::user()->province_id)->Where('status', 'Compromise')->orderBy("id", "desc")->get()->count();
+    
+    } elseif(!empty(Auth::user()->province_id)) {
+     
+        $compromised = Petition::where('province_id', '=', Auth::user()->province_id)->Where('status', 'Compromise')->orderBy("id", "desc")->count();
+      
+    }else{
+      
+        $compromised = Petition::Where('status', 'Compromise')->orderBy("id", "desc")->count();
+
+    }
+    if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id)) {
+  
+        $death = Petition::where('confined_in_jail', '=', Auth::user()->confined_in_jail)->where('province_id', '=', Auth::user()->province_id)->Where('status', 'Prisoner death')->orderBy("id", "desc")->get()->count();
+       
+    } elseif(!empty(Auth::user()->province_id)) {
+     
+        $death = Petition::where('province_id', '=', Auth::user()->province_id)->Where('status', 'Prisoner death')->orderBy("id", "desc")->count();
+      
+    }else{
+      
+        $death = Petition::Where('status', 'Prisoner death')->orderBy("id", "desc")->count();
+
+    }
+    if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id)) {
+  
+        $staypetition = Petition::where('confined_in_jail', '=', Auth::user()->confined_in_jail)->where('province_id', '=', Auth::user()->province_id)->Where('status', 'Stay')->orderBy("id", "desc")->get()->count();
+       
+    } elseif(!empty(Auth::user()->province_id)) {
+     
+        $staypetition = Petition::where('province_id', '=', Auth::user()->province_id)->Where('status', 'Stay')->orderBy("id", "desc")->count();
+      
+    }else{
+      
+        $staypetition = Petition::Where('status', 'Stay')->orderBy("id", "desc")->count();
 
     }
     if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id)) {
@@ -59,7 +98,7 @@ class DashboardController extends Controller
    }
   elseif($role->name == 'jail-supt'){
  
-        $Inprocess = Petition::where('user_id', '=', Auth::user()->id)->where('province_id', '=', Auth::user()->province_id)->Where('file_in_department', 'HomeDepartment')->orderBy("id", "desc")->count();
+        $Inprocess = Petition::where('user_id', '=', Auth::user()->id)->where('province_id', '=', Auth::user()->province_id)->where('status', 'pending')->orderBy("id", "desc")->count();
    }
    
   elseif($role->name =='Homedept'){
@@ -71,11 +110,26 @@ class DashboardController extends Controller
     $Inprocess = Petition::where('user_id', '=', Auth::user()->id)->where('province_id', '=', Auth::user()->province_id)->Where('file_in_department', 'HumanRightDeparment')->orderBy("id", "desc")->count();
    }
         $HomeDepartment = Petition::where('province_id', '=', Auth::user()->province_id)->Where('file_in_department', 'HomeDepartment')->orderBy("id", "desc")->get()->count();
-        $InteriorMinistryDepartment = Petition::Where('file_in_department', 'InteriorMinistry')->orderBy("id", "desc")->get()->count();
+        $InteriorMinistryDepartment = Petition::Where('status','pending')->Where('file_in_department', 'InteriorMinistry')->orderBy("id", "desc")->get()->count();
         $HumanRightDepartment = Petition::Where('file_in_department', 'HumanRightDepartment')->orderBy("id", "desc")->get()->count();
        
-        return view('welcome' , compact(['totalpetitions','Inprocess','Accepted','Rejected','HomeDepartment','InteriorMinistryDepartment','HumanRightDepartment']));
+        return view('welcome' , compact(['totalpetitions','Inprocess','Accepted','compromised','death','staypetition','Rejected','HomeDepartment','InteriorMinistryDepartment','HumanRightDepartment']));
 
 
        }
+
+       public function petitionstatusedit($id){
+       $petitionstatusedit = Petition::find($id);
+       return view('IGP.inprocessedit' , compact('petitionstatusedit'));
+
+       }
+      
+       
+       public function inprocesseditupdate(Request $request, $id){
+        $inprocesseditupdate = Petition::find($id);
+        $inprocesseditupdate->status = $request->get('status');
+        $inprocesseditupdate->save();
+        return redirect()->route('inprocess')->with('message', 'Petition Forward Successfully ');
+ 
+        }
 }

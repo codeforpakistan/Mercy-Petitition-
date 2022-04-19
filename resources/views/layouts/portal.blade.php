@@ -149,10 +149,49 @@ $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Wher
   $Rejected = Petition::Where('status', 'Rejected')->orderBy("id", "desc")->count();
 
 }
+if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id)) {
+  
+  $compromised = Petition::where('confined_in_jail', '=', Auth::user()->confined_in_jail)->where('province_id', '=', Auth::user()->province_id)->Where('status', 'Compromise')->orderBy("id", "desc")->get()->count();
+
+} elseif(!empty(Auth::user()->province_id)) {
+
+  $compromised = Petition::where('province_id', '=', Auth::user()->province_id)->Where('status', 'Compromise')->orderBy("id", "desc")->count();
+
+}else{
+
+  $compromised = Petition::Where('status', 'Compromise')->orderBy("id", "desc")->count();
+
+}
+if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id)) {
+
+  $death = Petition::where('confined_in_jail', '=', Auth::user()->confined_in_jail)->where('province_id', '=', Auth::user()->province_id)->Where('status', 'Prisoner death')->orderBy("id", "desc")->get()->count();
+ 
+} elseif(!empty(Auth::user()->province_id)) {
+
+  $death = Petition::where('province_id', '=', Auth::user()->province_id)->Where('status', 'Prisoner death')->orderBy("id", "desc")->count();
+
+}else{
+
+  $death = Petition::Where('status', 'Prisoner death')->orderBy("id", "desc")->count();
+
+}
+if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id)) {
+
+  $staypetition = Petition::where('confined_in_jail', '=', Auth::user()->confined_in_jail)->where('province_id', '=', Auth::user()->province_id)->Where('status', 'Stay')->orderBy("id", "desc")->get()->count();
+ 
+} elseif(!empty(Auth::user()->province_id)) {
+
+  $staypetition = Petition::where('province_id', '=', Auth::user()->province_id)->Where('status', 'Stay')->orderBy("id", "desc")->count();
+
+}else{
+
+  $staypetition = Petition::Where('status', 'Stay')->orderBy("id", "desc")->count();
+
+}
 
 
 ?>
-                        @include('layouts.navigation-portal',compact('InteriorMinistryDepartment','recievefromhometotalpetitions','totalpetitions','HumanRightDepartment','HomeDepartment','InteriorMinistryDepartment','receivfromHumanRightDepartment'))
+                        @include('layouts.navigation-portal',compact('InteriorMinistryDepartment','staypetition','death','compromised','recievefromhometotalpetitions','totalpetitions','HumanRightDepartment','HomeDepartment','InteriorMinistryDepartment','receivfromHumanRightDepartment'))
 
                     </div>
 
@@ -607,10 +646,15 @@ $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Wher
                         $('#firstname').text(data.petitions.name);
                         $('#Fathername').text(data.petitions.f_name);
                         $('#Nationality').text(data.petitions.nationality);
+                        $('#status').text(data.petitions.status);
                         $('#Physicalstatus').text(data.petitions.physicalstatus.PhysicalStatus);
                         $('#Confined_in_jail').text(data.petitions.confined_in_jail);
                         $('#Gender').text(data.petitions.gender);
                         $('#Dob').text(data.petitions.dob);
+                        $('#marksofindentification').text(data.petitions.mark_of_identification);
+                        $('#address').text(data.petitions.address);
+                        $('#phone').text(data.petitions.phone);
+                        $('#imediateheirs').text(data.petitions.imediate_heirs);
                         $('.firdate').text(data.petitions.fir_date);
                          $('.policestation').text(data.petitions.name_of_policestation);
                         $('#casetitle').text(data.petitions.case_title);
@@ -904,6 +948,7 @@ $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Wher
                         $('#prisonerid').text(data.petitions.prisonerid);
                         $('#Fathername').text(data.petitions.f_name);
                         $('#Nationality').text(data.petitions.nationality);
+                        $('#status').text(data.petitions.status);
                         $('#Physicalstatus').text(data.petitions.physicalstatus.PhysicalStatus);
                         $('#Confined_in_jail').text(data.petitions.confined_in_jail);
                         $('#Gender').text(data.petitions.gender);
@@ -918,6 +963,10 @@ $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Wher
                         $('#martialstatus').text(data.petitions.martial_status);
                         $('#religion').text(data.petitions.religion);
                         $('#education').text(data.petitions.education);
+                        $('#marksofindentification').text(data.petitions.mark_of_identification);
+                        $('#address').text(data.petitions.address);
+                        $('#phone').text(data.petitions.phone);
+                        $('#imediateheirs').text(data.petitions.imediate_heirs);
                         $('#occupation').text(data.petitions.Occupation);
                         $('#mentalhealth').text(data.petitions.mental_health);
                         $('#physicalhealth').text(data.petitions.physical_health);
@@ -1395,11 +1444,16 @@ $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Wher
                         $('#firstname').text(data.petitions.name);
                         $('#Fathername').text(data.petitions.f_name);
                         $('#Nationality').text(data.petitions.nationality);
+                        $('#status').text(data.petitions.status);
                         $('#Physicalstatus').text(data.petitions.physicalstatus.PhysicalStatus);
                         $('#Confined_in_jail').text(data.petitions.confined_in_jail);
                         $('#Gender').text(data.petitions.gender);
                         $('#Dob').text(data.petitions.dob);
                         $('.firdate').text(data.petitions.fir_date);
+                        $('#marksofindentification').text(data.petitions.mark_of_identification);
+                        $('#address').text(data.petitions.address);
+                        $('#phone').text(data.petitions.phone);
+                        $('#imediateheirs').text(data.petitions.imediate_heirs);
                          $('.policestation').text(data.petitions.name_of_policestation);
                         $('#casetitle').text(data.petitions.case_title);
                         $('#casefirno').text(data.petitions.case_fir_no);
@@ -1622,40 +1676,26 @@ $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Wher
                                     val.file + "'>" + '</a>');
                             }
                         });
+                       
                         if( data.homepititions.remarks == ""){
                         $(".homeremarks").addClass('d-none');
                        }else{
                         $(".homeremarks").removeClass('d-none');
                         //  $('#homeremarks').text(data.homepititions.remarks);
                        }
+                      
                        if( data.homepititions.homefileattachements == ""){
                         $(".homefile").addClass('d-none');
                        }else
                        {
                         $(".homefile").removeClass('d-none');
-                    //    $.each(data.homepititions.homefileattachements, function(key, val) {
-                    //         var fil = val.file
-                    //         if (val.type == 'pdf') {
-                    //             // alert(val.type=='pdf');
-                    //             // $("#picss").empty();
-                    //             // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
-                    //             $('#homefilepdf').append(
-                    //                 "<a  style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                    //                 val.file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
-                    //         } else {
-                    //             // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
-                    //             $('#homepic').append(
-                    //                 "<a  target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
-                    //                 val.file + " '>" +
-                    //                 "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
-                    //                 val.file + "'>" + '</a>');
-                    //         }
-                    //     });
+                    
                     }
                        }
                         // interior file
                         $("#interiorfilepdf").empty();
                         $("#interiorpic").empty();
+                       
                         if( data.interiorpititions == null){
                          $(".interiorDoc").addClass('d-none');
                         }else{
@@ -1681,6 +1721,7 @@ $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Wher
                                     val.file + "'>" + '</a>');
                             }
                         });
+                       
                         if( data.interiorpititions.remarks == ""){
                             $(".interiorremarks").addClass('d-none');
                         }else{
@@ -1691,26 +1732,7 @@ $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Wher
                             $(".interiorfile").addClass('d-none');
                         }else{
                             $(".interiorfile").removeClass('d-none');
-                        //     $.each(data.interiorpititions.interiorfileattachements, function(key,
-                        //     val) {
-                        //     var fil = val.file
-                        //     //  alert(val.file);
-                        //     if (val.type == 'pdf') {
-                        //         // alert(val.type=='pdf');
-                        //         // $("#picss").empty();
-                        //         // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
-                        //         $('#interiorfilepdf').append(
-                        //             "<a  style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                        //             val.file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
-                        //     } else {
-                        //         // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
-                        //         $('#interiorpic').append(
-                        //             "<a  target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
-                        //             val.file + " '>" +
-                        //             "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
-                        //             val.file + "'>" + '</a>');
-                        //     }
-                        // });
+                        
                         }
                         }
                         $("#humanrightfilepdf").empty();
@@ -1725,9 +1747,7 @@ $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Wher
                             var fil = val.file
                             //  alert(val.file);
                             if (val.type == 'pdf') {
-                                // alert(val.type=='pdf');
-                                // $("#picss").empty();
-                                // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
+                                
                                 $('#humanrightfilepdf').append(
                                     "<a  style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
                                     val.file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
@@ -1750,26 +1770,7 @@ $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Wher
                             $(".humanfile").addClass('d-none');
                         }else{
                             $(".humanfile").removeClass('d-none');
-                        //     $.each(data.humanrightpittions.humanrightfileattachements, function(key,
-                        //     val) {
-                        //     var fil = val.file
-                        //     //  alert(val.file);
-                        //     if (val.type == 'pdf') {
-                        //         // alert(val.type=='pdf');
-                        //         // $("#picss").empty();
-                        //         // $('#picss').append("<a   href='{{ url('/assets/image/') }}/"+val.file+" data-lightbox='example-1''>"+"<img  class='example-image' alt='image-1'  style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>"+'</a>');
-                        //         $('#humanrightfilepdf').append(
-                        //             "<a  style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
-                        //             val.file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
-                        //     } else {
-                        //         // $('#pic').append("<img style='height:100px;width:100pxborder-radius:50px' src='{{ url('/assets/image/') }}/"+val.file+"'>");
-                        //         $('#humanrightpic').append(
-                        //             "<a  target='_blank'  data-lightbox='example-1' href='{{ url('/assets/image/') }}/" +
-                        //             val.file + " '>" +
-                        //             "<img  class='example-image' alt='image-1'  style='height:100px;width:100px; margin-right:15px;' src='{{ url('/assets/image/') }}/" +
-                        //             val.file + "'>" + '</a>');
-                        //     }
-                        // });
+                     
                         }
                             }
                     }
@@ -1814,8 +1815,12 @@ $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Wher
                         $('#Gender').text(data.gender);
                         $('#Dob').text(data.dob);
                         $('#prisonerid').text(data.prisonerid);
-                      
+                        $('#status').text(data.status);
                         $('.firdate').text(data.fir_date);
+                        $('#marksofindentification').text(data.mark_of_identification);
+                        $('#address').text(data.address);
+                        $('#phone').text(data.phone);
+                        $('#imediateheirs').text(data.imediate_heirs);
                         
                         $('.policestation').text(data.name_of_policestation);
                         $('#casetitle').text(data.case_title);
@@ -2033,7 +2038,7 @@ $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Wher
             var name = $(this).data("name");
             event.preventDefault();
             swal({
-                    title: `Are you sure you want to forward this petition?`,
+                    title: `Are you sure you want to  end stay of this petition?`,
                     icon: "warning",
                     buttons: true,
                     dangerMode: false,

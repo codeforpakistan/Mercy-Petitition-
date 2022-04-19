@@ -261,6 +261,16 @@
                                                             <tr>
                                                                 <td class="text-left">Nationality:</td>
                                                                 <td id="Nationality" class="font-w600 font-size-sm"></td>
+                                                                <tr>
+    
+                                                                    <td width="25%">Nationality</td>
+                                                                    <td  width="25%" id="Nationality"></td>
+                                                                </tr>
+                                                                <tr>
+
+                                                                    <td class="text-left"><b>Status</b></td>
+                                                                    <td class="font-w600 font-size-sm" id="status"></td>
+                                                                </tr>
                                                                 <td class="text-left">Physical status:</td>
                                                                 <td id="Physicalstatus" class="font-w600 font-size-sm"></td>
                                                             </tr>
@@ -279,7 +289,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <td class="text-left">Fir and date:</td>
-                                                                <td id="fir&date" class="font-w600 font-size-sm"></td>
+                                                                <td id="fir_date" class="font-w600 font-size-sm"></td>
                                                                 <td class="text-left">Mercy petition date:</td>
                                                                 <td id="Mercypetitiondate" class="font-w600 font-size-sm">
                                                                 </td>

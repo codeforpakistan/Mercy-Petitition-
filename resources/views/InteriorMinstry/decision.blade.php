@@ -59,7 +59,8 @@
                 </div>
                 <div class="col-sm-5 col-11 tag-input-style">
                 <input id="Jail-Supt"  value="Accepted" name="file_in_department" type="radio"><label for='Accepted'>Accepted</label><br/> 
-                <input id="Jail-Supt"  value="Rejected" name="file_in_department" type="radio"><label for='Rejected'>Rejected</label><br/> 
+                <input id="Jail-Supt"  value="Rejected" name="file_in_department" type="radio"><label for='Rejected'>Rejected</label><br/>
+                <input id="Jail-Supt"  value="Stay" name="file_in_department" type="radio"><label for='Stay'>Stay</label><br/>  
 
             </div>
         </div> 

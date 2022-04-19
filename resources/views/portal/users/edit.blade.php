@@ -99,6 +99,17 @@
                         </select>
                     </div>
                 </div>
+                <div class="form-group row" style="display: none">
+                    <div class="col-sm-3 col-form-label text-sm-right pr-0">
+                        <label for="roles">User Role</label>
+                    </div>
+                    <div class="col-sm-5 col-12 tag-input-style">
+                        <select multiple id="roles" name="roles[]" class="select2 form-control"
+                            data-placeholder="Choose Role For User...">
+                         
+                        </select>
+                    </div>
+                </div>
 
                 <div class="mt-5 border-t-1 brc-secondary-l2 py-35 mx-n25">
                     <div class="offset-md-3 col-md-9 text-nowrap">

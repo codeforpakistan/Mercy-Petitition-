@@ -15,6 +15,7 @@ class Petition extends Model
     protected $fillable = [
         'name','f_name', 'nationality', 'confined_in_jail','prisonerid','file_in_department','physicalstatus_id',
         'gender','dob','mercypetitiondate','section_id','status','date_of_sentence',
+        'mark_of_identification','imediate_heirs','address','phone',
         'application_image','health_paper','prisoner_image', 'user_id','province_id',
         'remarks','sentence_in_court','warrent_file','received_from_department',
          'case_fir_no','fir_date','name_of_policestation','case_title','cnic','martial_status','caste','religion','education',

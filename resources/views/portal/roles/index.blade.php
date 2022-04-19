@@ -102,18 +102,6 @@
 
 
 
-                                            <td class="text-center pr-0">
-                                                <div>
-                                                    <a href="#" data-toggle="collapse" data-target="#table-detail-0"
-                                                        class="d-style btn btn-outline-info text-90 text-600 border-0 px-2 collapsed"
-                                                        title="Show Details">
-                                                        <span class="d-none d-md-inline mr-1">
-                                                            Details
-                                                        </span>
-                                                        <i class="fa fa-angle-down toggle-icon opacity-1 text-90"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
 
                                             <td>
                                                 <!-- action buttons -->
@@ -128,10 +116,7 @@
                                                             <i class="fa fa-pencil-alt"></i>
                                                         </a>
                                                     @endcan
-                                                    <a id="delete-role"
-                                                        class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-danger btn-a-lighter-danger">
-                                                        <i class="fa fa-trash-alt"></i>
-                                                    </a>
+                                                    
                                                     @can('role-delete')
 
                                                         {{-- {!! Form::open(['method' => 'DELETE','route' => ['portal.roles.destroy', $role->id],'style'=>'mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-danger btn-a-lighter-danger']) !!}
@@ -202,31 +187,9 @@
                             </table>
 
                             <!-- table footer -->
-                            <div class="d-flex pl-4 pr-3 pt-35 border-t-1 brc-secondary-l2 flex-column flex-sm-row mt-n1px">
-                                <div class="text-nowrap align-self-center align-self-sm-start">
-                                    <span class="d-inline-block text-grey-d2">
-                                        Showing 1 - 10 of 152
-                                    </span>
-
-                                    <select
-                                        class="ml-3 ace-select no-border angle-down brc-h-blue-m3 w-auto pr-45 text-secondary-d3">
-                                        <option value="10">Show 10</option>
-                                        <option value="20">Show 20</option>
-                                        <option value="50">Show 50</option>
-                                    </select>
-                                </div>
-
-                                <div class="btn-group ml-sm-auto mt-3 mt-sm-0">
-                                    <a href="#"
-                                        class="btn btn-lighter-default btn-bgc-white btn-a-secondary radius-l-1 px-3 border-2">
-                                        <i class="fa fa-caret-left mr-1"></i>
-                                        Prev
-                                    </a>
-                                    <a href="#"
-                                        class="btn btn-lighter-default btn-bgc-white btn-a-secondary radius-r-1 px-3 border-2 ml-n2px">
-                                        Next
-                                        <i class="fa fa-caret-right ml-1"></i>
-                                    </a>
+                          
+                            {{ $roles->links() }}
+                                  
                                 </div>
                             </div>
                         </form>

@@ -25,7 +25,15 @@ Route::get('/reload-captcha', 'HomeController@reloadCaptcha')->name('reloadCaptc
 Route::get('logout', 'Auth\loginController@logout')->name('logout');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/acceptsearch', 'HomeController@acceptsearch')->name('acceptsearch');
+Route::get('/compromisesearch', 'HomeController@compromisesearch')->name('compromisesearch');
+Route::get('/prisonerdeathesearch', 'HomeController@prisonerdeathesearch')->name('prisonerdeathesearch');
+Route::get('/rejectsearch', 'HomeController@rejectsearch')->name('rejectsearch');
 Route::get('/Accepted', 'HomeController@accepted')->name('accepted');
+Route::get('/Compromised', 'HomeController@compromised')->name('compromised');
+Route::get('/prisonerdeath', 'HomeController@prisonerdeath')->name('death');
+Route::get('/Staypetition', 'HomeController@staypetition')->name('staypetition');
+Route::get('/Staypetitionsearch', 'HomeController@staypetitionsearch')->name('staypetitionsearch');
 Route::get('/Rejected', 'HomeController@rejected')->name('rejected');
 Route::get('remarks/{id}', 'HomeController@view')->name('remarksview');
 Route::get('inprocess', 'HomeController@inprocess')->name('inprocess');
@@ -62,6 +70,8 @@ Route::get('finaldecision', 'InteriorMinstryController@finaldecisions')->name('f
 Route::get('/humangrightback/{id}', 'HumanRightDepartmentController@backpetition')->name('humanright-back');
 Route::Post('/humanrighdecision/{id}', 'HumanRightDepartmentController@humanrightdecision')->name('petition-humanrighdecision');
 Route::get('/petitionedit/{id}', 'PetitionController@edit')->name('petition-edit');
+
+Route::Post('/stayupdate/{id}', 'HomeController@stayupdate')->name('stayupdate');
 Route::get('/reportform', 'HomeController@reportform')->name('reportform');
 Route::get('/reportform/search', 'HomeController@searchreport')->name('reportform.search');
 Route::get('/reportsearch', 'HomeController@searchreportform')->name('reportformtt.search');
@@ -75,6 +85,8 @@ Route::get('/petitionrmarksedit/{id}', 'PetitionController@petitionremarksedit')
 Route::Post('/forwardhomedepartment/{id}', 'PetitionController@forwardhomedepartment')->name('forwardhomedepartment');
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', 'dashboardController@dashboard')->name('portal.dashboard');
+    Route::get('/petitionstatusedit/{id}', 'dashboardController@petitionstatusedit')->name('petitionstatusedit');
+    Route::Post('/inprocesseditupdate/{id}', 'dashboardController@inprocesseditupdate')->name('inprocessedit-update');
     Route::get('/petitionforward/{id}', 'PetitionController@forwardpetition')->name('petition-forward');
 
     Route::Post('/storepetition', 'PetitionController@storepetition')->name('storepetition');

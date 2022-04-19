@@ -12,8 +12,9 @@
                 <div class="bcard h-100 d-flex align-items-center p-3">
                     <div>
                         <span class="d-inline-block bgc-default p-3 radius-round text-center border-4 brc-primary-l2">
-                            <i class="fas fa-cog text-white text-170 w-4 h-4"></i>
-                        </span>
+                            <img
+                            src="{{ asset('/assets/image/new.png') }}"
+                            width="50" height="50" alt="pic" /></span>
                     </div>
 
                     <div class="ml-3">
@@ -39,8 +40,9 @@
                 <div class="bcard h-100 d-flex align-items-center p-3">
                     <div>
                         <span class="d-inline-block bgc-default p-3 radius-round text-center border-4 brc-primary-l2">
-                            <i class="fas fa-cog text-white text-170 w-4 h-4"></i>
-                        </span>
+                            <img
+                            src="{{ asset('/assets/image/new.png') }}"
+                            width="50" height="50" alt="pic" /></span>
                     </div>
 
                     <div class="ml-3">
@@ -69,8 +71,10 @@
             <div class="bcard h-100 d-flex align-items-center p-3">
                 <div>
                     <span class="d-inline-block bgc-default p-3 radius-round text-center border-4 brc-primary-l2">
-                        <i class="fas fa-cog text-white text-170 w-4 h-4"></i>
-                    </span>
+                        <img
+                        src="{{ asset('/assets/image/new.png') }}"
+                        width="50" height="50" alt="pic" /></span>
+                    
                 </div>
 
                 <div class="ml-3">
@@ -98,8 +102,10 @@
 
                     <div>
                         <span class="d-inline-block bgc-default p-3 radius-round text-center border-4 brc-primary-l2">
-                            <i class="fas fa-cog text-white text-170 w-4 h-4"></i>
-                        </span>
+                            <img
+                            src="{{ asset('/assets/image/new.png') }}"
+                            width="50" height="50" alt="pic" /></span>
+                        
                     </div>
 
                     <div class="ml-3 flex-grow-1">
@@ -132,7 +138,9 @@
 
             <div>
                 <span class="d-inline-block bgc-danger p-3 radius-round text-center border-4 brc-primary-l2">
-                    <i class="fas fa-cog text-white text-170 w-4 h-4"></i>
+                    <img
+                        src="{{ asset('/assets/image/inprocess.png') }}"
+                        width="50" height="50" alt="pic" /></span>
                 </span>
             </div>
             <a href="{{route('inprocess')}}">
@@ -166,8 +174,11 @@
             <div class="bcard h-100 d-flex align-items-center p-3">
                 <div>
                     <span class="d-inline-block bgc-danger p-3 radius-round text-center border-4 brc-primary-l2">
-                        <i class="fas fa-cog text-white text-170 w-4 h-4"></i>
-                    </span>
+                        <img
+                        src="{{ asset('/assets/image/accepted.png') }}"
+                        width="50" height="50" alt="pic" /></span>
+                        
+                    
                 </div>
                 <a href="{{route('accepted')}}">
                 <div class="ml-3">
@@ -188,15 +199,15 @@
             </div>
         </div>
 
-
-
+        
         <div class="col-12 col-sm-6 col-lg-4 px-2 mb-2 mb-lg-0">
             <div class="bcard h-100 d-flex align-items-center p-3">
 
                 <div>
                     <span class="d-inline-block bgc-danger p-3 radius-round text-center border-4 brc-primary-l2">
-                        <i class="fas fa-cog text-white text-170 w-4 h-4"></i>
-                    </span>
+                        <img
+                        src="{{ asset('/assets/image/reject.png') }}"
+                        width="50" height="50" alt="pic" /></span>
                 </div>
                 <a href="{{route('rejected')}}">
                 <div class="ml-3">
@@ -218,8 +229,94 @@
 
 
 
+    </div>
+    <div class="row px-2 mt-3">
+    <div class="col-12 col-sm-6 col-lg-4 px-2 mb-2 mb-lg-0">
+        <div class="bcard h-100 d-flex align-items-center p-3">
+            <div>
+                <span class="d-inline-block bgc-danger p-3 radius-round text-center border-4 brc-primary-l2">
+                    <img
+                    src="{{ asset('/assets/image/accepted.png') }}"
+                    width="50" height="50" alt="pic" /></span>
+                    
+                
+            </div>
+            <a href="{{route('compromised')}}">
+            <div class="ml-3">
+                <div class="pos-rel">
 
+                    <span class="text-dark-tp3 text-180">{{$compromised}}</span>
+
+
+                    </span>
+                </div>
+                <div class="text-dark-tp4">Compromised Petition</div>
+            </div>
+        </a>
+            <div class="position-tr m-1">
+                <!-- the dropdown used in some boxes (cards) -->
+
+            </div>
+        </div>
     </div>
 
+    <div class="col-12 col-sm-6 col-lg-4 px-2 mb-2 mb-lg-0">
+        <div class="bcard h-100 d-flex align-items-center p-3">
+            <div>
+                <span class="d-inline-block bgc-danger p-3 radius-round text-center border-4 brc-primary-l2">
+                    <img
+                    src="{{ asset('/assets/image/accepted.png') }}"
+                    width="50" height="50" alt="pic" /></span>
+                    
+                
+            </div>
+            <a href="{{route('death')}}">
+            <div class="ml-3">
+                <div class="pos-rel">
+
+                    <span class="text-dark-tp3 text-180">{{$death}}</span>
+
+
+                    </span>
+                </div>
+                <div class="text-dark-tp4">Death Petition</div>
+            </div>
+        </a>
+            <div class="position-tr m-1">
+                <!-- the dropdown used in some boxes (cards) -->
+
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-4 px-2 mb-2 mb-lg-0">
+        <div class="bcard h-100 d-flex align-items-center p-3">
+            <div>
+                <span class="d-inline-block bgc-danger p-3 radius-round text-center border-4 brc-primary-l2">
+                    <img
+                    src="{{ asset('/assets/image/accepted.png') }}"
+                    width="50" height="50" alt="pic" /></span>
+                    
+                
+            </div>
+            <a href="{{route('staypetition')}}">
+            <div class="ml-3">
+                <div class="pos-rel">
+
+                    <span class="text-dark-tp3 text-180">{{$staypetition}}</span>
+
+
+                    </span>
+                </div>
+                <div class="text-dark-tp4">Stay Petition</div>
+            </div>
+        </a>
+            <div class="position-tr m-1">
+                <!-- the dropdown used in some boxes (cards) -->
+
+            </div>
+        </div>
+    </div>
+
+</div>
 
 @endsection

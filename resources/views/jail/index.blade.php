@@ -1,5 +1,5 @@
 @extends('layouts.portal', [
-'menu' => 'system_setting',
+'menu' => 'Jails',
 'sub_menu' => 'jails'
 ])
 @section('module', 'jail Management')
@@ -39,7 +39,7 @@
                             <a  href="{{ route('jail.add') }}"
                                 class="btn btn-blue px-3 d-block w-100 text-95 radius-round border-2 brc-black-tp10 text-right">
                                 <i class="fa fa-plus mr-1"></i>
-                                Add <span class="d-sm-none d-md-inline">New</span> province
+                                Add <span class="d-sm-none d-md-inline">New</span> Jail
                             </a>
                         </div>
                     </div>

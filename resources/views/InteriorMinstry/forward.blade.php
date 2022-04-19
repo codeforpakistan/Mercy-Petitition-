@@ -68,7 +68,7 @@
                         <label for="Status"></label>
                     </div>
                     <div class="col-sm-5 col-11 tag-input-style">
-                        <input id="Jail-Supt"  value="HumanRightDepartment" name="file_in_department" type="radio" checked="checked"><label for='HumanRightDepartment'>Forward To HumanRightDepartment</label><br/> 
+                        <input id="Jail-Supt"  value="HumanRightDepartment" name="file_in_department" type="radio" checked="checked"><label for='HumanRightDepartment'>Forward To HumanRightsMinistry</label><br/> 
 
                     </div>
                 </div>

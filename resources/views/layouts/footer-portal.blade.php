@@ -7,6 +7,8 @@
             &copy; <span data-toggle="year-copy">{{ date('Y') }}</span>
             <span class="text-danger"><img src="{{ asset('assets/image/cfp.png') }}"
                 style="width: 100px" ;></span>
+				 <span class="text-danger"><img src="{{ asset('assets/image/itboardlogo.jpg') }}"
+                    style="width: 200px" ;></span>
         </div>
     </div>
 </footer>

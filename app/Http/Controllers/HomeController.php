@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Province;
 use App\Section;
 use App\Jail;
+
 use App\PhysicalStatus;
 use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
@@ -34,6 +35,114 @@ class HomeController extends Controller
     {
         return view('home');
     }
+    public function acceptsearch(Request $request)
+    {
+        $search = trim($request->input('search'));
+
+          $Accepted = Petition::where('status', 'Accepted')
+
+
+->where(function($query) use ($search){
+        $query->where('name', 'LIKE', '%'.$search.'%')
+              ->orWhere('gender', 'LIKE', '%'.$search.'%')
+              ->orWhere('cnic', 'LIKE', '%'.$search.'%')
+                          ->orWhere('name_of_policestation', 'LIKE', '%'.$search.'%')
+                          ->orWhere('case_fir_no', 'LIKE', '%'.$search.'%')
+              ->orWhere('confined_in_jail', 'LIKE', '%'.$search.'%')
+              ->orWhere('nationality', 'LIKE', '%'.$search.'%')
+              ->orWhere('phone', 'LIKE', '%'.$search.'%')
+              ->orWhere('f_name', 'LIKE', '%'.$search.'%')
+              ->orWhere('status', 'LIKE', '%'.$search.'%')
+              ->orWhere('prisonerid', 'LIKE', '%'.$search.'%');
+    })->paginate(6);
+
+
+
+
+
+        return view('IGP.acceptsearch', compact('Accepted'));
+  }
+  public function compromisesearch(Request $request)
+  {
+      $search = trim($request->input('search'));
+
+        $compromised = Petition::where('status', 'Compromise')
+
+
+->where(function($query) use ($search){
+      $query->where('name', 'LIKE', '%'.$search.'%')
+            ->orWhere('gender', 'LIKE', '%'.$search.'%')
+            ->orWhere('cnic', 'LIKE', '%'.$search.'%')
+                        ->orWhere('name_of_policestation', 'LIKE', '%'.$search.'%')
+                        ->orWhere('case_fir_no', 'LIKE', '%'.$search.'%')
+            ->orWhere('confined_in_jail', 'LIKE', '%'.$search.'%')
+            ->orWhere('nationality', 'LIKE', '%'.$search.'%')
+            ->orWhere('phone', 'LIKE', '%'.$search.'%')
+            ->orWhere('f_name', 'LIKE', '%'.$search.'%')
+            ->orWhere('status', 'LIKE', '%'.$search.'%')
+            ->orWhere('prisonerid', 'LIKE', '%'.$search.'%');
+  })->paginate(6);
+
+
+
+
+
+      return view('IGP.compromisesearch', compact('compromised'));
+}
+public function prisonerdeathesearch(Request $request)
+{
+    $search = trim($request->input('search'));
+
+      $prisonerdeath = Petition::where('status', 'Compromise')
+
+
+->where(function($query) use ($search){
+    $query->where('name', 'LIKE', '%'.$search.'%')
+          ->orWhere('gender', 'LIKE', '%'.$search.'%')
+          ->orWhere('cnic', 'LIKE', '%'.$search.'%')
+                      ->orWhere('name_of_policestation', 'LIKE', '%'.$search.'%')
+                      ->orWhere('case_fir_no', 'LIKE', '%'.$search.'%')
+          ->orWhere('confined_in_jail', 'LIKE', '%'.$search.'%')
+          ->orWhere('nationality', 'LIKE', '%'.$search.'%')
+          ->orWhere('phone', 'LIKE', '%'.$search.'%')
+          ->orWhere('f_name', 'LIKE', '%'.$search.'%')
+          ->orWhere('status', 'LIKE', '%'.$search.'%')
+          ->orWhere('prisonerid', 'LIKE', '%'.$search.'%');
+})->paginate(6);
+
+
+
+
+
+    return view('IGP.prisonerdeathesearch', compact('prisonerdeath'));
+}
+        public function rejectsearch(Request $request)
+    {
+        $search = trim($request->input('search'));
+
+          $Rejected = Petition::where('status', 'Rejected')
+
+
+->where(function($query) use ($search){
+        $query->where('name', 'LIKE', '%'.$search.'%')
+              ->orWhere('gender', 'LIKE', '%'.$search.'%')
+              ->orWhere('cnic', 'LIKE', '%'.$search.'%')
+                          ->orWhere('name_of_policestation', 'LIKE', '%'.$search.'%')
+                          ->orWhere('case_fir_no', 'LIKE', '%'.$search.'%')
+              ->orWhere('confined_in_jail', 'LIKE', '%'.$search.'%')
+              ->orWhere('nationality', 'LIKE', '%'.$search.'%')
+              ->orWhere('phone', 'LIKE', '%'.$search.'%')
+              ->orWhere('f_name', 'LIKE', '%'.$search.'%')
+              ->orWhere('status', 'LIKE', '%'.$search.'%')
+              ->orWhere('prisonerid', 'LIKE', '%'.$search.'%');
+    })->paginate(6);
+
+
+
+
+
+        return view('IGP.rejectsearch', compact('Rejected'));
+  }
     public function inprocess()
     {
       $dd=Auth::user()->getRoleNames()['0'];
@@ -47,7 +156,7 @@ class HomeController extends Controller
    }
   elseif($role->name == 'jail-supt'){
 
-        $Inprocess = Petition::where('user_id', '=', Auth::user()->id)->where('province_id', '=', Auth::user()->province_id)->Where('file_in_department', 'HomeDepartment')->orderBy("id", "desc")->paginate(5);
+        $Inprocess = Petition::where('user_id', '=', Auth::user()->id)->where('province_id', '=', Auth::user()->province_id)->where('status', 'pending')->orderBy("id", "desc")->paginate(5);
    }
    
   elseif($role->name =='Homedept'){
@@ -100,6 +209,66 @@ class HomeController extends Controller
         
         return view('IGP.accepted', compact('Accepted'));
     }
+    public function compromised()
+    {
+      if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id)) {
+  
+        $compromised = Petition::where('confined_in_jail', '=', Auth::user()->confined_in_jail)->where('province_id', '=', Auth::user()->province_id)->Where('status', 'Compromise')->orderBy("id", "desc")->paginate(5);
+       
+    } elseif(!empty(Auth::user()->province_id)) {
+     
+        $compromised = Petition::where('province_id', '=', Auth::user()->province_id)->Where('status', 'Compromise')->orderBy("id", "desc")->paginate(5);
+      
+    }else{
+      
+        $compromised = Petition::Where('status', 'Compromise')->orderBy("id", "desc")->paginate(5);
+
+    }
+   
+        
+        
+        return view('IGP.compromised', compact('compromised'));
+    }
+    public function prisonerdeath()
+    {
+      if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id)) {
+  
+        $prisonerdeath = Petition::where('confined_in_jail', '=', Auth::user()->confined_in_jail)->where('province_id', '=', Auth::user()->province_id)->Where('status', 'Prisoner death')->orderBy("id", "desc")->paginate(5);
+       
+    } elseif(!empty(Auth::user()->province_id)) {
+     
+        $prisonerdeath = Petition::where('province_id', '=', Auth::user()->province_id)->Where('status', 'Prisoner death')->orderBy("id", "desc")->paginate(5);
+      
+    }else{
+      
+        $prisonerdeath = Petition::Where('status', 'Prisoner death')->orderBy("id", "desc")->paginate(5);
+
+    }
+   
+        
+        
+        return view('IGP.prisonerdeath', compact('prisonerdeath'));
+    }
+    public function staypetition()
+    {
+      if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id)) {
+  
+        $staypetition = Petition::where('confined_in_jail', '=', Auth::user()->confined_in_jail)->where('province_id', '=', Auth::user()->province_id)->Where('status', 'Stay')->orderBy("id", "desc")->paginate(5);
+       
+    } elseif(!empty(Auth::user()->province_id)) {
+     
+        $staypetition = Petition::where('province_id', '=', Auth::user()->province_id)->Where('status', 'Stay')->orderBy("id", "desc")->paginate(5);
+      
+    }else{
+      
+        $staypetition = Petition::Where('status', 'Stay')->orderBy("id", "desc")->paginate(5);
+
+    }
+   
+        
+        
+        return view('IGP.staypetition', compact('staypetition'));
+    }
     public function rejected()
     {
       if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id)) {
@@ -138,6 +307,7 @@ class HomeController extends Controller
      
         $provinces = Province::all();
         $section = Section::all();
+       
         $jail = Jail::all();
         $physicalstatus = PhysicalStatus::all();
         $fromdate = Carbon::parse($request->get('fromdate'))->format('Y-m-d');
@@ -149,8 +319,20 @@ class HomeController extends Controller
         $status = trim($request->input('status'));
         $physicalstatuses = trim($request->input('physicalstatus'));
         $confinedinjail    = trim($request->input('confinedinjail'));
-        $undersection = trim($request->input('undersection'));
-       
+        $age_of_petitioner    = trim($request->input('age_of_petitioner'));
+       $age = $age_of_petitioner." ".'years';
+     
+        if(!empty($request->get('undersection'))){
+        $data = [];
+        foreach($request->get('undersection') as $seat_id) {
+            $data[] = 
+                 $seat_id;
+                
+                //  $petitionsedit->section_id=$data;
+                $sections = implode(',',$data);
+        }
+        $undersection = trim($sections);
+      }
         $report = Petition::query();
 
 
@@ -158,6 +340,11 @@ class HomeController extends Controller
           if(!empty($confinedinjail))
           {
             $report->where('confined_in_jail', $confinedinjail)->get();
+           //dd($searchs);
+          }
+          if(!empty($age_of_petitioner))
+          {
+            $report->where('age_of_petitioner', $age )->get();
            //dd($searchs);
           }
           if(!empty($gender)){
@@ -187,10 +374,20 @@ class HomeController extends Controller
           if(!empty($fromdate)){
             $report->orwherebetween('created_at',[$fromdate,$todate])->get();
           }
-          $searchs = $report->with('provinces','users', 'sectionss','physicalstatus')->get();
+          $searchs = $report->with('provinces','users','physicalstatus')->get();
 
                 return view('IGP.searchreportform', compact('searchs' , 'section' , 'provinces' , 'jail' , 'physicalstatus'));
 }
+
+public function stayupdate(Request $request,$id){
+  $petitionstatusedit = Petition::where('id',$id)->first();
+  $petitionstatusedit->status="pending";
+  $petitionstatusedit->save();
+
+ 
+  return redirect()->route('staypetition')->with('message', 'Petition Forward Successfully ');
+
+  }
 
 
 }

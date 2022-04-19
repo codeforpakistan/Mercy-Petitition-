@@ -114,7 +114,7 @@
 </li> --}}
 
 
-@can('user-list')
+@can('users-list')
 
 <li class="nav-item {{isset($menu) ? ($menu=='system_setting' ? 'active open' : '') : ''}}">
 <a href="#" id="system_setting" class="nav-link dropdown-toggle {{isset($menu) ? ($menu=='system_setting' ? '' : 'collapsed') : 'collapsed'}}">
@@ -165,7 +165,7 @@
             </span>
     </a>
 </li>
-<li class="nav-item {{isset($sub_menu) ? ($sub_menu=='jail' ? 'active' : '') : ''}}">
+<li class="nav-item {{isset($sub_menu) ? ($sub_menu=='jails' ? 'active' : '') : ''}}">
     <a href="{{route('jail.index')}}" class="nav-link">
             <span class="nav-text">
                     <span>Jail</span>
@@ -408,6 +408,48 @@
 
         </li>
         @endcan
+        <li class="nav-item {{isset($menu) ? ($menu=='Compromised' ? 'active open' : '') : ''}}">
+
+                <a href="{{route('compromised')}}" class="nav-link {{isset($menu) ? ($menu=='Compromised' ? '' : 'collapsed') : 'collapsed'}}">
+                <i class="nav-icon fa fa-paste" style="color:#fff"></i>
+                  <span class="nav-text fadeable">
+                          <span>Compromised Petition</span><span class="badge badge-warning mr-1">{{$compromised}}</span>
+                  </span>
+    
+    
+                </a>
+    
+                <b class="sub-arrow"></b>
+    
+                </li>
+                <li class="nav-item {{isset($menu) ? ($menu=='PrisonerDeath' ? 'active open' : '') : ''}}">
+
+                        <a href="{{route('death')}}" class="nav-link {{isset($menu) ? ($menu=='PrisonerDeath' ? '' : 'collapsed') : 'collapsed'}}">
+                        <i class="nav-icon fa fa-paste" style="color:#fff"></i>
+                          <span class="nav-text fadeable">
+                                  <span>Prisonerdeath Petition</span><span class="badge badge-warning mr-1">{{$death}}</span>
+                          </span>
+            
+            
+                        </a>
+            
+                        <b class="sub-arrow"></b>
+            
+                        </li>
+                        <li class="nav-item {{isset($menu) ? ($menu=='StayPetition' ? 'active open' : '') : ''}}">
+
+                                <a href="{{route('staypetition')}}" class="nav-link {{isset($menu) ? ($menu=='StayPetition' ? '' : 'collapsed') : 'collapsed'}}">
+                                <i class="nav-icon fa fa-paste" style="color:#fff"></i>
+                                  <span class="nav-text fadeable">
+                                          <span>Stay Petition</span><span class="badge badge-warning mr-1">{{$staypetition}}</span>
+                                  </span>
+                    
+                    
+                                </a>
+                    
+                                <b class="sub-arrow"></b>
+                    
+                                </li>
 
         <li class="nav-item {{isset($menu) ? ($menu=='Report' ? 'active open' : '') : ''}}">
 

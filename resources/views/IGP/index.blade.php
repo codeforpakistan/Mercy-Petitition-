@@ -92,7 +92,7 @@
                                             class="fa fa-arrow-right ml-2 f-n-hover"></i></button>
                                     </form>
                                 </div>
-
+                                @can('jail-supt-create')
                                 <div class="mb-2 mb-sm-0">
                                     <a href="{{ route('Petition.create') }}"
                                         class="btn btn-blue px-3 d-block w-100 text-95 radius-round border-2 brc-black-tp10">
@@ -100,6 +100,7 @@
                                         Add <span class="d-sm-none d-md-inline">New</span> Petition
                                     </a>
                                 </div>
+                                @endcan
                             </div>
                             @if (!$petitions->isEmpty())
                             @if ($errors->any())
@@ -155,7 +156,9 @@
                                         </th>
 
                                         <th>Show</th>
+                                        @can('jail-supt-create')
                                         <th>Action</th>
+                                        @endcan
                                     </tr>
                                 </thead>
                                 @foreach ($petitions as $petion)
@@ -224,6 +227,7 @@
 
                                             <td>
                                                 <!-- action buttons -->
+                                                @can('jail-supt-create')
                                                 <div class='d-none d-lg-flex'>
                                                     <a href="{{ route('petition-edit', [$petion->id]) }}"
                                                         class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success">
@@ -236,6 +240,7 @@
                                                     </a>
 
                                                 </div>
+                                                @endcan
 
                                                 <!-- show a dropdown in mobile -->
                                                 <div
@@ -245,7 +250,7 @@
                                                         data-toggle="dropdown">
                                                         <i class="fa fa-cog"></i>
                                                     </a>
-
+                                                    @can('jail-supt-create')
                                                     <div class="dropdown-menu dd-slide-up dd-slide-none-lg">
                                                         <div class="dropdown-inner">
                                                             <div
@@ -265,6 +270,7 @@
                                                                 Forward <i class="fa fa-forward"></i>
                                                             </a>
                                                         </div>
+                                                        @endcan
                                             </td>
                                         </tr>
 
@@ -378,9 +384,9 @@
                                                                     class="position-tr w-100 border-t-4 brc-blue-m2 radius-2 d-md-none">
                                                                 </div>
 
-                                                                <u> <h3 style="text-align: center";>Check list for Prisoner Authorties</h3></u>
+                                                                <u> <h3 style="text-align: center";>Check list for Prisoner Authorities </h3></u>
                                                            <br>
-                                                           <h5>The following particulars pertaining to the condemed prisoner has been disclosed as required in the checklist on part of prison authorties</h5>
+                                                           <h5>The following particulars pertaining to the condemned prisoner has been disclosed as required in the checklist on part of prison Authorities </h5>
                                                             <br>
                                                             <u> <h3>Case file particulars</h3></u>
                                                             <div>
@@ -390,48 +396,63 @@
                                                                     <tr>
 
                                                                         <td width="25%">Case Fir No</td>
-                                                                        <td id="casefirno"></td>
+                                                                        <td width="75%" id="casefirno"></td>
                                                                     </tr>
                                                                     <tr>
 
                                                                         <td width="25%">Fir date</td>
-                                                                        <td class="firdate"></td>
+                                                                        <td width="75%" class="firdate"></td>
                                                                     </tr>
                                                                     <tr>
 
                                                                         <td width="25%">Name of Police station</td>
-                                                                        <td class="policestation"></td>
+                                                                        <td width="75%" class="policestation"></td>
                                                                     </tr>
                                                                     <tr>
 
-                                                                        <td width="25%">province</td>
-                                                                        <td id="Province"></td>
-                                                                    </tr>
+                                                                       <td width="25%">province</td>
+                                                                       <td width="75%" id="Province"></td>
+                                                                   </tr>
+                                                                   <tr>
+
+                                                                       <td width="25%">Age of petitioner</td>
+                                                                       <td width="75%" id="age"></td>
+                                                                   </tr>
+                                                                   <tr>
+
+                                                                       <td width="25%">Nationality</td>
+                                                                       <td  width="75%" id="Nationality"></td>
+                                                                   </tr>
+                                                                   <tr>
+
+                                                                       <td width="25%"><b>Status</b></td>
+                                                                       <td width="75%" id="status"></td>
+                                                                   </tr>
                                                                     <tr>
 
                                                                         <td width="25%">Case Title</td>
-                                                                        <td id="casetitle"></td>
+                                                                        <td width="75%" id="casetitle"></td>
                                                                     </tr>
                                                                     <tr>
 
                                                                         <td width="25%">Sentencing Court</td>
-                                                                        <td id="sentence_in_court"></td>
+                                                                        <td width="75%" id="sentence_in_court"></td>
                                                                     </tr>
                                                                     <tr>
 
                                                                         <td width="25%">Date of Sentence</td>
-                                                                        <td id="date_of_sentence"></td>
+                                                                        <td width="75%" id="date_of_sentence"></td>
 
                                                                     </tr>
                                                                     <tr>
 
                                                                         <td width="25%">Mercy petition number</td>
-                                                                        <td id="prisonerid"></td>
+                                                                        <td width="75%"  id="prisonerid"></td>
                                                                     </tr>
                                                                     <tr>
 
                                                                         <td width="25%">Date of submission of Mercy Petition</td>
-                                                                        <td id="Mercypetitiondate"></td>
+                                                                        <td width="75%" id="Mercypetitiondate"></td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td width="25%">
@@ -441,77 +462,101 @@
                                                                     <tr>
 
                                                                         <td width="25%">Name</td>
-                                                                        <td id="firstname"></td>
+                                                                        <td width="75%"  id="firstname"></td>
                                                                     </tr>
                                                                     <tr>
 
                                                                         <td width="25%"> Father Name</td>
-                                                                        <td id="Fathername"></td>
+                                                                        <td width="75%" id="Fathername"></td>
                                                                     </tr>
                                                                     <tr>
 
                                                                         <td width="25%">Cnic</td>
-                                                                        <td id="cnic"></td>
+                                                                        <td width="75%"  id="cnic"></td>
                                                                     </tr>
                                                                     <tr>
 
                                                                         <td width="25%">Date of birth</td>
-                                                                        <td id="Dob"></td>
+                                                                        <td width="75%" id="Dob"></td>
 
                                                                     </tr>
                                                                     <tr>
 
                                                                         <td width="25%">Gender</td>
 
-                                                                        <td id="Gender"></td>
+                                                                        <td width="75%" id="Gender"></td>
                                                                     </tr>
                                                                     <tr>
 
+                                                                       <td width="25%">Address</td>
+
+                                                                       <td width="75%" id="address"></td>
+                                                                   </tr>
+                                                                   <tr>
+
+                                                                       <td width="25%">Phone</td>
+
+                                                                       <td width="75%" id="phone"></td>
+                                                                   </tr>
+                                                                   <tr>
+
+                                                                       <td width="25%">Mark of identification</td>
+
+                                                                       <td width="75%" id="mark_of_identification"></td>
+                                                                   </tr>
+                                                                   <tr>
+
+                                                                       <td width="25%">Imediate heirs</td>
+
+                                                                       <td width="75%" id="imediate_heirs"></td>
+                                                                   </tr>
+                                                                    <tr>
+
                                                                         <td width="25%">Martial Status</td>
-                                                                        <td id="martialstatus"></td>
+                                                                        <td width="75%" id="martialstatus"></td>
 
                                                                     </tr>
                                                                     <tr>
 
                                                                         <td width="25%">Caste</td>
-                                                                        <td id="caste"></td>
+                                                                        <td width="75%" id="caste"></td>
                                                                     </tr>
                                                                     <tr>
 
                                                                         <td width="25%">Religion</td>
-                                                                        <td id="religion"></td>
+                                                                        <td width="75%"  id="religion"></td>
                                                                     </tr>
 
                                                                     <tr>
 
                                                                         <td width="25%">Education</td>
-                                                                        <td id="education"></td>
+                                                                        <td width="75%"  id="education"></td>
                                                                     </tr>
                                                                     <tr>
 
                                                                         <td width="25%">Occupation</td>
-                                                                        <td><span id="occupation"></span></td>
+                                                                        <td> <span width="75%" id="occupation"></span></td>
                                                                     </tr>
                                                                     <tr>
 
                                                                         <td width="25%">Petition History</td>
-                                                                        <td><span id="petitionhistory"></span></td>
+                                                                        <td><span width="75%"  id="petitionhistory"></span></td>
                                                                     </tr>
                                                                     <tr>
 
                                                                         <td width="25%">Physical Health</td>
-                                                                        <td><span id="physicalhealth"></span></td>
+                                                                        <td><span width="75%"  id="physicalhealth"></span></td>
                                                                     </tr>
                                                                     <tr>
 
                                                                         <td width="25%">Mental Health</td>
-                                                                        <td><span id="mentalhealth"></span></td>
+                                                                        <td><span width="75%"  id="mentalhealth"></span></td>
                                                                     </tr>
 
                                                                     <tr>
 
                                                                         <td width="25%">Prisoner Conduct</td>
-                                                                        <td><span id="prisonerconduct"></span></td>
+                                                                        <td><span width="75%"  id="prisonerconduct"></span></td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td width="25%">
@@ -521,37 +566,37 @@
                                                                     <tr>
 
                                                                         <td width="25%">Date of Fir</td>
-                                                                        <td><span class="firdate"></span></td>
+                                                                        <td><span width="75%" class="firdate"></span></td>
                                                                     </tr>
                                                                     <tr>
 
                                                                         <td width="25%">Name of Police station</td>
-                                                                        <td><span class="policestation"></span></td>
+                                                                        <td><span width="75%" class="policestation"></span></td>
                                                                     </tr>
                                                                     <tr>
 
                                                                         <td width="25%">compoundable_offence</td>
-                                                                        <td><span id="compoundableoffence"></span></td>
+                                                                        <td><span width="75%"  id="compoundableoffence"></span></td>
                                                                     </tr>
                                                                     <tr>
 
                                                                         <td width="25%">Non Compoundable offense</td>
-                                                                        <td><span id="noncompoundableoffence"></span></td>
+                                                                        <td><span width="75%"  id="noncompoundableoffence"></span></td>
                                                                     </tr>
                                                                     <tr>
 
                                                                         <td width="25%">Nature of crime</td>
-                                                                        <td><span id="natureofcrime"></span></td>
+                                                                        <td><span width="75%" id="natureofcrime"></span></td>
                                                                     </tr>
                                                                     <tr>
 
                                                                         <td width="25%">Mitigating factors</td>
-                                                                        <td><span id="mitigatingcircumstances"></span></td>
+                                                                        <td><span width="75%"  id="mitigatingcircumstances"></span></td>
                                                                     </tr>
                                                                     <tr>
 
                                                                         <td width="25%">Confined in jail</td>
-                                                                        <td><span id="Confined_in_jail"></span></td>
+                                                                        <td><span width="75%"  id="Confined_in_jail"></span></td>
                                                                     </tr>
                                                                     {{-- <tr>
 
@@ -628,6 +673,8 @@
                                                                         <td></span>
                                                                             <span id="picss"></span></td>
                                                                     </tr>
+                                                                  
+                                                               
 
                                                                 </tbody>
                                                             </table>

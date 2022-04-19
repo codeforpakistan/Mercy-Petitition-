@@ -60,11 +60,10 @@
               </select>
               </div>
                 <label class="col-md-2">Under Section</label>
-                <div class="col-md-4">
-                <select class="form-control"  name="undersection" id="undersection">
-                    <option value="">Please select</option>
-                    @foreach($section as $sections)
-                        <option value="{{$sections->id}}">{{$sections->undersection}}</option>
+                <div class="col-md-4" id="select2-parent">
+                  <select   multiple=""   value="{{ old('undersection') }}"  id="state" name="undersection[]" class="select2 form-control " data-placeholder="Click to Choose...">
+                    @foreach ($section as $sections)
+                        <option value='{{ $sections->undersection }}'>{{ $sections->undersection }}</option>
                     @endforeach
                 </select>
                 </div>
@@ -115,6 +114,14 @@
                   <div id="id-daterange-container" class="dp-daterange-picker dp-daterange-above"></div>
                 </div>
             </div>
+           
+            <label class="col-md-2">Age of petitioner</label>
+            <div class="col-md-4">
+              <input   class="form-control "
+
+              value="{{ old('age_of_petitioner') }}" type="number" placeholder="Enter age of petitioner"name="age_of_petitioner"
+              class="form-control" id="inputCity">
+            </div>
               </div>
 
             <br>
@@ -158,7 +165,7 @@
         <td>{{ $petition->confined_in_jail }}</td>
         <td>{{ $petition->gender }}</td>
 
-        <td>{{ $petition->sectionss->undersection }}</td>
+        <td>{{ $petition->section_id }}</td>
 
         @if($petition->provinces)
         <td>{{ $petition->provinces->province_name }}</td>

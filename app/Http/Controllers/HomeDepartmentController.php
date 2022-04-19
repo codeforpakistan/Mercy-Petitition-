@@ -171,7 +171,7 @@ class HomeDepartmentController extends Controller
 
         }
 
-        return redirect()->route('homedept.index')->with('message', 'Petion Forward Successfully ');
+        return redirect()->route('homedept.index')->with('message', 'Petition Forward Successfully ');
     }
 
     public function homeremarksedit($id)

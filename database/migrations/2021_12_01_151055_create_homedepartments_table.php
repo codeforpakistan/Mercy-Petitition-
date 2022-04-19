@@ -16,11 +16,6 @@ class CreateHomedepartmentsTable extends Migration
         Schema::create('homedepartments', function (Blueprint $table) {
            $table->Increments('id');
 
-            $table->unsignedInteger('file_id');
-            $table->foreign('file_id')
-            ->references('id')
-            ->on('files')
-            ->onDelete('cascade');
 
             $table->unsignedInteger('petition_id');
             $table->foreign('petition_id')

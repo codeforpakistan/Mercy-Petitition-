@@ -11,6 +11,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+
 class PetitionController extends Controller
 {
 
@@ -23,6 +26,8 @@ class PetitionController extends Controller
     }
     public function index()
     {
+       
+       
         $pets = Petition::with('fileattachements', 'sectionss','provinces','physicalstatus')->get();
 
         if (Auth::user()->confined_in_jail == "") {
@@ -401,7 +406,7 @@ class PetitionController extends Controller
         // ]);
         // $file->save();
 
-        return redirect()->route('Petition.index')->with('message', 'Petion Successfully save');
+        return redirect()->route('Petition.index')->with('message', 'Petition Successfully save');
     }
 
     public function petitionupdate(Request $request, $id)
@@ -593,7 +598,7 @@ class PetitionController extends Controller
         $petitionsedit->save();
         // $fileupdate->save();
         return redirect()->route('Petition.index')
-            ->with('message', 'Product deleted successfully');
+            ->with('message', 'Petition update successfully');
     }
 
     //petition remarks and file update
@@ -644,7 +649,7 @@ class PetitionController extends Controller
         }
 
         return redirect()->route('remarksfromhome')
-            ->with('success', 'Petition forward successfully');
+            ->with('message', 'Petition forward successfully');
     }
 
     public function forwardpetition($id)
@@ -699,7 +704,7 @@ class PetitionController extends Controller
         //    $otherdoc->file = $otherdocument;
         //    $otherdoc->type = $file['1'];
         //    $otherdoc->save();
-        return redirect()->route('Petition.index')->with('message', 'Petion Forward Successfully ');
+        return redirect()->route('Petition.index')->with('message', 'Petition Forward Successfully ');
     }
 
     // public function reportform()

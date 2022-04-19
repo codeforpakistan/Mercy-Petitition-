@@ -37,6 +37,28 @@ class PermissionTableSeeder extends Seeder
         Permission::create(['name'=>'permission-create', 'friendly_title'=>'Create Permissions']);
         Permission::create(['name'=>'permission-edit', 'friendly_title'=>'Edit Permissions']);
         Permission::create(['name'=>'permission-delete', 'friendly_title'=>'Delete Permissions']);
+        Permission::create(['name'=>'HomeDepartment-list', 'friendly_title'=>'web']);
+        Permission::create(['name'=>'HomeDepartment-create', 'friendly_title'=>'web']);
+        Permission::create(['name'=>'HomeDepartment-edit', 'friendly_title'=>'web']);
+        Permission::create(['name'=>'HomeDepartment-delete', 'friendly_title'=>'web']);
+        Permission::create(['name'=>'interior-list', 'friendly_title'=>'InteriorMinistry']);
+        Permission::create(['name'=>'interior-create', 'friendly_title'=>'InteriorMinistry']);
+        Permission::create(['name'=>'interior-edit', 'friendly_title'=>'InteriorMinistry']);
+        Permission::create(['name'=>'interior-delete', 'friendly_title'=>'InteriorMinistry']);
+        Permission::create(['name'=>'jail-supt-list', 'friendly_title'=>'Jail-superintendent']);
+        Permission::create(['name'=>'jail-supt-edit', 'friendly_title'=>'Jail-superintendent']);
+        Permission::create(['name'=>'jail-supt-create', 'friendly_title'=>'Jail-superintendent']);
+        Permission::create(['name'=>'jail-supt-delete', 'friendly_title'=>'Jail-superintendent']);
+        Permission::create(['name'=>'HumanRightDepartment-list', 'friendly_title'=>'HumanRightsMinistry']);
+        Permission::create(['name'=>'HumanRightDepartment-edit', 'friendly_title'=>'HumanRightsMinistry']);
+        Permission::create(['name'=>'HumanRightDepartment-create', 'friendly_title'=>'HumanRightsMinistry']);
+        Permission::create(['name'=>'HumanRightDepartment-delete', 'friendly_title'=>'HumanRightsMinistry']);
+        	
+
+	
+
+
+
 
     }
 }

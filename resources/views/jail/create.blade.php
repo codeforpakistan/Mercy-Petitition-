@@ -1,6 +1,6 @@
 @extends('layouts.portal', [
-'menu' => 'system_setting',
-'sub_menu' => 'Jail'
+'menu' => 'jails',
+'sub_menu' => 'jails'
 ])
 @section('module', 'system_setting')
 @section('element', 'Add Jail')

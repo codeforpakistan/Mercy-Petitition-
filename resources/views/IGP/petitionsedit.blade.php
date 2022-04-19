@@ -586,7 +586,7 @@
                         <div class=" col-md-12 text-nowrap">
                             <button style="float:right;" class="btn btn-info btn-bold px-4" type="submit">
                                 <i class="fa fa-check mr-1"></i>
-                                Submit
+                                update
                             </button>
     
                             <button style="float:right;" class="btn btn-outline-lightgrey btn-bold ml-2 px-4" type="reset">

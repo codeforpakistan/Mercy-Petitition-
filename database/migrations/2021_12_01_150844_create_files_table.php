@@ -17,7 +17,7 @@ class CreateFilesTable extends Migration
            
               $table->Increments('id');
             $table->string('file');
-             $table->string('departments');
+            
             $table->timestamps();
         });
     }

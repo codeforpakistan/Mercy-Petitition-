@@ -24,7 +24,7 @@ class InteriorMinstryController extends Controller
     public function index()
     {
 
-        $InteriorMinistryDepartments = Petition::Where('file_in_department', 'InteriorMinistry')->Where('received_from_department', 'HomeDepartment')->orderBy("id", "desc")->get();
+        $InteriorMinistryDepartments = Petition::Where('status','pending')->Where('file_in_department', 'InteriorMinistry')->Where('received_from_department', 'HomeDepartment')->orderBy("id", "desc")->get();
 
         return view('InteriorMinstry.index', compact('InteriorMinistryDepartments'));
 
@@ -33,7 +33,7 @@ class InteriorMinstryController extends Controller
     {
         $search = trim($request->input('search'));
 
-          $InteriorMinistryDepartments = Petition::where('file_in_department', 'InteriorMinistry')->where('received_from_department', 'HomeDepartment')
+          $InteriorMinistryDepartments = Petition::Where('status','pending')->where('file_in_department', 'InteriorMinistry')->where('received_from_department', 'HomeDepartment')
 
 
         ->where(function($query) use ($search){
@@ -59,7 +59,7 @@ class InteriorMinstryController extends Controller
     {
         $search = trim($request->input('search'));
 
-          $InteriorMinistryDepartments = Petition::where('file_in_department', 'InteriorMinistry')->where('received_from_department', 'HumanRightDepartment')
+          $InteriorMinistryDepartments = Petition::Where('status','pending')->where('file_in_department', 'InteriorMinistry')->where('received_from_department', 'HumanRightDepartment')
 
 
         ->where(function($query) use ($search){
@@ -84,14 +84,14 @@ class InteriorMinstryController extends Controller
     public function remarksfromhrd()
     {
 
-        $InteriorMinistryDepartments = Petition::Where('file_in_department', 'InteriorMinistry')->Where('received_from_department', 'HumanRightDepartment')->where('status','pending')->orderBy("id", "desc")->get();
-
+        $InteriorMinistryDepartments = Petition::Where('file_in_department', 'InteriorMinistry')->Where('received_from_department', 'HumanRightDepartment')->orderBy("id", "desc")->get();
+       
         return view('InteriorMinstry.remarksfromhrd', compact('InteriorMinistryDepartments'));
     }
     public function finaldecisions()
     {
 
-        $InteriorMinistryDepartments = Petition::Where('file_in_department', 'InteriorMinistry')->Where('received_from_department', 'HumanRightDepartment')->where('status','pending')->orderBy("id", "desc")->get();
+        $InteriorMinistryDepartments = Petition::Where('file_in_department', 'InteriorMinistry')->Where('received_from_department', 'HumanRightDepartment')->orderBy("id", "desc")->get();
 
         return view('InteriorMinstry.finaldecision', compact('InteriorMinistryDepartments'));
     }
@@ -160,7 +160,7 @@ class InteriorMinstryController extends Controller
     {
 
         $finalinteriorministrydecision = Petition::find($id);
-        $finalinteriorministrydecision->received_from_department = "HumanRightDeparment";
+        $finalinteriorministrydecision->received_from_department = "HumanRightDepartment";
         //    $forwardhomedepartment->remarks = strip_tags($request->get('remarks'));
         // if($request->get('file_in_department')=="Accepted"){
         //     $finalinteriorministrydecision->status = $request->get('file_in_department');
@@ -209,19 +209,22 @@ class InteriorMinstryController extends Controller
         }
 
         return redirect()->route('finaldecisions')
-            ->with('success', 'Petition forward successfully');
+            ->with('message', 'Petition forward successfully');
     }
     public function finaldecision(Request $request, $id)
     {
 
         $finalinteriorministrydecision = Petition::find($id);
-        $finalinteriorministrydecision->received_from_department = "HumanRightDeparment";
+        $finalinteriorministrydecision->received_from_department = "HumanRightDepartment";
         //    $forwardhomedepartment->remarks = strip_tags($request->get('remarks'));
         if($request->get('file_in_department')=="Accepted"){
             $finalinteriorministrydecision->status = $request->get('file_in_department');
         }else if($request->get('file_in_department')=="Rejected"){
             $finalinteriorministrydecision->status = $request->get('file_in_department');
-        }else{
+        
+    }else if($request->get('file_in_department')=="Stay"){
+        $finalinteriorministrydecision->status = $request->get('file_in_department');
+    }else{
             $finalinteriorministrydecision->file_in_department = $request->get('file_in_department');
         }
 
@@ -263,7 +266,7 @@ class InteriorMinstryController extends Controller
         }
 
         return redirect()->route('InteriorMinstry.hrd')
-            ->with('success', 'Petition forward successfully');
+            ->with('message', 'Petition forward successfully');
     }
     public function decision(Request $request, $id)
     {
@@ -277,7 +280,10 @@ class InteriorMinstryController extends Controller
             $interiorministrydecision->status = $request->get('file_in_department');
         }else if($request->get('file_in_department')=="Rejected"){
             $interiorministrydecision->status = $request->get('file_in_department');
-        }else{
+        
+    }else if($request->get('file_in_department')=="Stay"){
+        $finalinteriorministrydecision->status = $request->get('file_in_department');
+    }else{
             $interiorministrydecision->file_in_department = $request->get('file_in_department');
         }
 
@@ -317,6 +323,6 @@ class InteriorMinstryController extends Controller
             $logPetitions->save();
         }
 
-        return redirect()->route('InteriorMinstry.index')->with('message', 'Petion Forward Successfully ');
+        return redirect()->route('InteriorMinstry.index')->with('message', 'Petition Forward Successfully ');
     }
 }
