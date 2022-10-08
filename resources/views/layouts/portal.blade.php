@@ -16,7 +16,7 @@
         href="{{ asset('assets/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css"
         href="{{ asset('assets/npm/fontawesome-5.14.0/css/fontawesome.min.css') }}">
-  
+
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/npm/select2@4.0.13/dist/css/select2.min.css') }}">
     <link rel="stylesheet" type="text/css"
     href="{{ asset('assets/css/jquery.steps.css') }}">
@@ -26,7 +26,7 @@
     <link rel="stylesheet" type="text/css"
         href="{{ asset('assets/npm/bootstrap-markdown@2.10.0/css/bootstrap-markdown.min.css') }}">
     <!-- include vendor stylesheets used in "Form Basic Elements" page. see "application/views/default/pages/partials/form-basic/@vendor-stylesheets.hbs" -->
-  
+
     <link rel="stylesheet" type="text/css"
         href="{{ asset('assets/combine\npm\tiny-date-picker@3.2.8\tiny-date-picker.min.css,npm\tiny-date-picker@3.2.8\date-range-picker.min.css') }}">
     <link rel="stylesheet" type="text/css"
@@ -34,13 +34,13 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/npm/fontawesome-5.14.0/css/regular.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/npm/fontawesome-5.14.0/css/brands.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/npm/fontawesome-5.14.0/css/solid.min.css') }}">
-    
 
-   
+
+
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/ace.min.css') }}">
 
     <link rel="stylesheet" href="{{ asset('assets/css/lightbox.min.css') }}">
-    
+
 
 
 
@@ -123,7 +123,7 @@
                         $InteriorMinistryDepartment = Petition::Where('file_in_department', 'InteriorMinistry')->Where('received_from_department', 'HomeDepartment')->Where('status', 'pending')->orderBy("id", "desc")->get()->count();
                         $HumanRightDepartment = Petition::Where('file_in_department', 'HumanRightDepartment')->orderBy("id", "desc")->get()->count();
                         $receivfromHumanRightDepartment = Petition::Where('file_in_department', 'InteriorMinistry')->Where('received_from_department', 'HumanRightDepartment')->where('status','pending')->orderBy("id", "desc")->get()->count();
-  
+
                         if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id)) {
 
   $Accepted = Petition::where('confined_in_jail', '=', Auth::user()->confined_in_jail)->where('province_id', '=', Auth::user()->province_id)->Where('status', 'Accepted')->orderBy("id", "desc")->get()->count();
@@ -150,7 +150,7 @@ $Rejected = Petition::where('province_id', '=', Auth::user()->province_id)->Wher
 
 }
 if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id)) {
-  
+
   $compromised = Petition::where('confined_in_jail', '=', Auth::user()->confined_in_jail)->where('province_id', '=', Auth::user()->province_id)->Where('status', 'Compromise')->orderBy("id", "desc")->get()->count();
 
 } elseif(!empty(Auth::user()->province_id)) {
@@ -165,7 +165,7 @@ if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id))
 if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id)) {
 
   $death = Petition::where('confined_in_jail', '=', Auth::user()->confined_in_jail)->where('province_id', '=', Auth::user()->province_id)->Where('status', 'Prisoner death')->orderBy("id", "desc")->get()->count();
- 
+
 } elseif(!empty(Auth::user()->province_id)) {
 
   $death = Petition::where('province_id', '=', Auth::user()->province_id)->Where('status', 'Prisoner death')->orderBy("id", "desc")->count();
@@ -178,7 +178,7 @@ if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id))
 if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id)) {
 
   $staypetition = Petition::where('confined_in_jail', '=', Auth::user()->confined_in_jail)->where('province_id', '=', Auth::user()->province_id)->Where('status', 'Stay')->orderBy("id", "desc")->get()->count();
- 
+
 } elseif(!empty(Auth::user()->province_id)) {
 
   $staypetition = Petition::where('province_id', '=', Auth::user()->province_id)->Where('status', 'Stay')->orderBy("id", "desc")->count();
@@ -365,11 +365,11 @@ if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id))
     </div>
     @livewireScripts
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
- 
+
     <script src="{{ asset('assets/bootstrap-4.5.2/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/js/ace.min.js') }}"></script>
     <script src="{{ asset('assets/js/demo.min.js') }}"></script>
-    
+
 
 
     <!-- include vendor scripts used in "Basic Tables" page. see "application/views/default/pages/partials/tables-basic/@vendor-scripts.hbs" -->
@@ -394,28 +394,28 @@ if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id))
 
     <script src="{{ asset('assets\npm\tiny-date-picker@3.2.8\dist\date-range-picker.min.js') }}"></script>
     <script src="{{ asset('assets\npm\summernote@0.8.18\dist\summernote-lite.min.js') }}"></script>
-  
-    
+
+
 
 
 
     <!-- include vendor scripts used in "Wizard & Validation" page. see "application/views/default/pages/partials/form-wizard/@vendor-scripts.hbs" -->
-   
+
 
 
     <script src="{{ asset('assets\npm\jquery-validation@1.19.2\dist\jquery.validate.min.js')}}"></script>
-   
-
-   
-
-
-
-   
 
 
 
 
-  
+
+
+
+
+
+
+
+
     <script>
         $('#ace-file-input1').aceFileInput({
             // btnChooseClass: 'bgc-grey-l2 pt-15 px-2 my-1px mr-1px',
@@ -646,15 +646,21 @@ if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id))
                         $('#firstname').text(data.petitions.name);
                         $('#Fathername').text(data.petitions.f_name);
                         $('#Nationality').text(data.petitions.nationality);
+                        $('#listlegalheirvictim').text(data.petitions.listlegalheirvictim);
+                        $('#listlegalheiragreement').text(data.petitions.listlegalheiragreement);
+                        $('#resultappealfederalcourt').text(data.petitions.resultappealfederalcourt);
+                        $('#resultappealsuppremecourt').text(data.petitions.resultappealsuppremecourt);
+                        $('#resultappealhighcourt').text(data.petitions.resultappealhighcourt);
+                        $('#confirmationdatehighcourt').text(data.petitions.confirmationdatehighcourt);
                         $('#status').text(data.petitions.status);
                         $('#Physicalstatus').text(data.petitions.physicalstatus.PhysicalStatus);
                         $('#Confined_in_jail').text(data.petitions.confined_in_jail);
                         $('#Gender').text(data.petitions.gender);
                         $('#Dob').text(data.petitions.dob);
-                        $('#marksofindentification').text(data.petitions.mark_of_identification);
+                        $('#mark_of_identification').text(data.petitions.mark_of_identification);
                         $('#address').text(data.petitions.address);
                         $('#phone').text(data.petitions.phone);
-                        $('#imediateheirs').text(data.petitions.imediate_heirs);
+                        $('#imediate_heirs').text(data.petitions.imediate_heirs);
                         $('.firdate').text(data.petitions.fir_date);
                          $('.policestation').text(data.petitions.name_of_policestation);
                         $('#casetitle').text(data.petitions.case_title);
@@ -677,11 +683,11 @@ if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id))
                         $('#Mercypetitiondate').text(data.petitions.mercypetitiondate);
                         $('#Section_id').text(data.petitions.section_id);
                         $('#Province').text(data.petitions.provinces.province_name);
-                      
+
                         $('#Remarks').text(data.petitions.remarks);
                         $('#sentence_in_court').text(data.petitions.sentence_in_court);
                         $('#date_of_sentence').text(data.petitions.date_of_sentence);
-                      
+
                         $("#pic").empty();
                         $("#picss").empty();
                         $.each(data.petitions.fileattachements, function(key, val) {
@@ -761,7 +767,7 @@ if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id))
 
                             $("#convection_summarys").empty();
                         $("#convection_summary").empty();
-                       
+
                         var ap = data.petitions.convection_summary;
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
@@ -948,6 +954,12 @@ if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id))
                         $('#prisonerid').text(data.petitions.prisonerid);
                         $('#Fathername').text(data.petitions.f_name);
                         $('#Nationality').text(data.petitions.nationality);
+                        $('#listlegalheirvictim').text(data.petitions.listlegalheirvictim);
+                        $('#listlegalheiragreement').text(data.petitions.listlegalheiragreement);
+                        $('#resultappealfederalcourt').text(data.petitions.resultappealfederalcourt);
+                        $('#resultappealsuppremecourt').text(data.petitions.resultappealsuppremecourt);
+                        $('#resultappealhighcourt').text(data.petitions.resultappealhighcourt);
+                        $('#confirmationdatehighcourt').text(data.petitions.confirmationdatehighcourt);
                         $('#status').text(data.petitions.status);
                         $('#Physicalstatus').text(data.petitions.physicalstatus.PhysicalStatus);
                         $('#Confined_in_jail').text(data.petitions.confined_in_jail);
@@ -963,10 +975,10 @@ if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id))
                         $('#martialstatus').text(data.petitions.martial_status);
                         $('#religion').text(data.petitions.religion);
                         $('#education').text(data.petitions.education);
-                        $('#marksofindentification').text(data.petitions.mark_of_identification);
+                        $('#mark_of_identification').text(data.petitions.mark_of_identification);
                         $('#address').text(data.petitions.address);
                         $('#phone').text(data.petitions.phone);
-                        $('#imediateheirs').text(data.petitions.imediate_heirs);
+                        $('#imediate_heirs').text(data.petitions.imediate_heirs);
                         $('#occupation').text(data.petitions.Occupation);
                         $('#mentalhealth').text(data.petitions.mental_health);
                         $('#physicalhealth').text(data.petitions.physical_health);
@@ -978,12 +990,12 @@ if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id))
                         $('#petitionhistory').text(data.petitions.petition_history);
                         $('#Mercypetitiondate').text(data.petitions.mercypetitiondate);
                         $('#Section_id').text(data.petitions.section_id);
-                        
+
                         $('#Province').text(data.petitions.provinces.province_name);
                         $('#Remarks').text(data.petitions.remarks);
                         $('#sentence_in_court').text(data.petitions.sentence_in_court);
                         $('#date_of_sentence').text(data.petitions.date_of_sentence);
-                       
+
                         $("#pic").empty();
                         $("#picss").empty();
                         $.each(data.petitions.fileattachements, function(key, val) {
@@ -1063,7 +1075,7 @@ if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id))
 
                         $("#convection_summarys").empty();
                         $("#convection_summary").empty();
-                       
+
                         var ap = data.petitions.convection_summary;
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
@@ -1439,21 +1451,27 @@ if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id))
                                     "<a class='mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success bg-success text-white' style='margin-right:15px;'    href='{{ url('petitionforward/') }}/" +
                                     id + "'>" + ' Forward <i class="fa fa-forward"></i>'+
                                                                  '</a>');
-                                                                 
+
                      $('#prisonerid').text(data.petitions.prisonerid);
                         $('#firstname').text(data.petitions.name);
                         $('#Fathername').text(data.petitions.f_name);
                         $('#Nationality').text(data.petitions.nationality);
+                        $('#listlegalheirvictim').text(data.petitions.listlegalheirvictim);
+                        $('#listlegalheiragreement').text(data.petitions.listlegalheiragreement);
+                        $('#resultappealfederalcourt').text(data.petitions.resultappealfederalcourt);
+                        $('#resultappealsuppremecourt').text(data.petitions.resultappealsuppremecourt);
+                        $('#resultappealhighcourt').text(data.petitions.resultappealhighcourt);
+                        $('#confirmationdatehighcourt').text(data.petitions.confirmationdatehighcourt);
                         $('#status').text(data.petitions.status);
                         $('#Physicalstatus').text(data.petitions.physicalstatus.PhysicalStatus);
                         $('#Confined_in_jail').text(data.petitions.confined_in_jail);
                         $('#Gender').text(data.petitions.gender);
                         $('#Dob').text(data.petitions.dob);
                         $('.firdate').text(data.petitions.fir_date);
-                        $('#marksofindentification').text(data.petitions.mark_of_identification);
+                        $('#mark_of_identification').text(data.petitions.mark_of_identification);
                         $('#address').text(data.petitions.address);
                         $('#phone').text(data.petitions.phone);
-                        $('#imediateheirs').text(data.petitions.imediate_heirs);
+                        $('#imediate_heirs').text(data.petitions.imediate_heirs);
                          $('.policestation').text(data.petitions.name_of_policestation);
                         $('#casetitle').text(data.petitions.case_title);
                         $('#casefirno').text(data.petitions.case_fir_no);
@@ -1475,11 +1493,11 @@ if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id))
                         $('#Mercypetitiondate').text(data.petitions.mercypetitiondate);
                         $('#Section_id').text(data.petitions.section_id);
                         $('#Province').text(data.petitions.provinces.province_name);
-                      
+
                         $('#Remarks').text(data.petitions.remarks);
                         $('#sentence_in_court').text(data.petitions.sentence_in_court);
                         $('#date_of_sentence').text(data.petitions.date_of_sentence);
-                        
+
                         $("#pic").empty();
                         $("#picss").empty();
                         $.each(data.petitions.fileattachements, function(key, val) {
@@ -1559,7 +1577,7 @@ if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id))
 
                             $("#convection_summarys").empty();
                         $("#convection_summary").empty();
-                       
+
                         var ap = data.petitions.convection_summary;
                         var finalap = ap.split(".");
                         if (finalap['1'] == "pdf") {
@@ -1676,26 +1694,26 @@ if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id))
                                     val.file + "'>" + '</a>');
                             }
                         });
-                       
+
                         if( data.homepititions.remarks == ""){
                         $(".homeremarks").addClass('d-none');
                        }else{
                         $(".homeremarks").removeClass('d-none');
                         //  $('#homeremarks').text(data.homepititions.remarks);
                        }
-                      
+
                        if( data.homepititions.homefileattachements == ""){
                         $(".homefile").addClass('d-none');
                        }else
                        {
                         $(".homefile").removeClass('d-none');
-                    
+
                     }
                        }
                         // interior file
                         $("#interiorfilepdf").empty();
                         $("#interiorpic").empty();
-                       
+
                         if( data.interiorpititions == null){
                          $(".interiorDoc").addClass('d-none');
                         }else{
@@ -1721,7 +1739,7 @@ if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id))
                                     val.file + "'>" + '</a>');
                             }
                         });
-                       
+
                         if( data.interiorpititions.remarks == ""){
                             $(".interiorremarks").addClass('d-none');
                         }else{
@@ -1732,7 +1750,7 @@ if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id))
                             $(".interiorfile").addClass('d-none');
                         }else{
                             $(".interiorfile").removeClass('d-none');
-                        
+
                         }
                         }
                         $("#humanrightfilepdf").empty();
@@ -1747,7 +1765,7 @@ if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id))
                             var fil = val.file
                             //  alert(val.file);
                             if (val.type == 'pdf') {
-                                
+
                                 $('#humanrightfilepdf').append(
                                     "<a  style='margin-right:15px;'  target='_blank'  href='{{ url('/assets/image/') }}/" +
                                     val.file + "'>" +"<img  class='example-image' alt='image-1'  style='height:100px;width:100px;margin-right:15px;' src='{{ url('/assets/image/pdf.png') }}'>" + '</a>');
@@ -1770,7 +1788,7 @@ if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id))
                             $(".humanfile").addClass('d-none');
                         }else{
                             $(".humanfile").removeClass('d-none');
-                     
+
                         }
                             }
                     }
@@ -1806,10 +1824,16 @@ if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id))
                                     id + "'>" + ' Forward <i class="fa fa-forward"></i>'+
                                                                  '</a>');
                         $('#id').text(data.id);
-                      
+
                         $('#firstname').text(data.name);
                         $('#Fathername').text(data.f_name);
                         $('#Nationality').text(data.nationality);
+                        $('#listlegalheirvictim').text(data.listlegalheirvictim);
+                        $('#listlegalheiragreement').text(data.listlegalheiragreement);
+                        $('#resultappealfederalcourt').text(data.resultappealfederalcourt);
+                        $('#resultappealsuppremecourt').text(data.resultappealsuppremecourt);
+                        $('#resultappealhighcourt').text(data.resultappealhighcourt);
+                        $('#confirmationdatehighcourt').text(data.confirmationdatehighcourt);
                         $('#Physicalstatus').text(data.physicalstatus.PhysicalStatus);
                         $('#Confined_in_jail').text(data.confined_in_jail);
                         $('#Gender').text(data.gender);
@@ -1817,11 +1841,12 @@ if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id))
                         $('#prisonerid').text(data.prisonerid);
                         $('#status').text(data.status);
                         $('.firdate').text(data.fir_date);
-                        $('#marksofindentification').text(data.mark_of_identification);
+
+                        $('#mark_of_identification').text(data.mark_of_identification);
                         $('#address').text(data.address);
                         $('#phone').text(data.phone);
-                        $('#imediateheirs').text(data.imediate_heirs);
-                        
+                        $('#imediate_heirs').text(data.imediate_heirs);
+
                         $('.policestation').text(data.name_of_policestation);
                         $('#casetitle').text(data.case_title);
                         $('#casefirno').text(data.case_fir_no);
@@ -1840,16 +1865,16 @@ if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id))
                         $('#noncompoundableoffence').text(data.non_compoundable_offence);
                         $('#mitigatingcircumstances').text(data.mitigating_circumstances);
                         $('#petitionhistory').text(data.petition_history);
-                       
+
                         $('#Mercypetitiondate').text(data.mercypetitiondate);
-                      
+
                         $('#Section_id').text(data.section_id);
                         $('#Province').text(data.provinces.province_name);
-                       
+
                         $('#Remarks').text(data.remarks);
                         $('#sentence_in_court').text(data.sentence_in_court);
                         $('#date_of_sentence').text(data.date_of_sentence);
-                       
+
                         $("#pic").empty();
                         $("#picss").empty();
                         $.each(data.fileattachements, function(key, val) {
@@ -2094,7 +2119,7 @@ if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id))
             });
         });
     </script>
-   
+
 
      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
@@ -2116,17 +2141,17 @@ if (!empty(Auth::user()->confined_in_jail) && !empty(Auth::user()->province_id))
             });
         }
 
-       
+
     </script>
     <script type="text/javascript">
     function printpayablebalanceexcel()  {
 
 $('.nbsp').addClass("removenbsp");
   $("#forprint").removeAttr("style");
-  
+
 //   var datatoptint = "<div id='#repheader' style='text-align: center; margin-bottom: 5px;'><h5>Summary Report</h5><h5 style='text-align: center;'><span>For The Peroid </span>"+$("#payablestime").val()+"&nbsp;To&nbsp;"+$("#payableetime").val()+"</h5></div>";
   datatoptint = document.getElementById('forprint').outerHTML;
-  
+
 
 var a = document.createElement('a');
 var data_type = 'data:application/vnd.ms-excel';
@@ -2139,11 +2164,11 @@ a.click();
 e.preventDefault();
 return true;
 
-  } 
+  }
  </script>
 
-     
-     
+
+
      <script>
         $(document).ready(function() {
  $('#provincejail').change(function() {
@@ -2190,7 +2215,7 @@ success: function(data) {
             window.print();
         }
     </script>
-    
+
     <script>
 $(document).ready(function() {
         //////////////////////////////////
@@ -2255,10 +2280,10 @@ $(document).ready(function() {
     $('.select2').select2({
           allowClear: true,
           dropdownParent: $('#select2-parent'),
-         
+
         })
 
-      
+
     </script>
 <script>
     $(document).ready(function() {
@@ -2332,13 +2357,13 @@ $(document).ready(function() {
     } );
 } );
 </script>
- 
-  
+
+
 
 {{-- <script src="{{ asset('assets/js/jquery.steps.min.js') }}"></script>
 <script src="{{ asset('assets/js/jquery.steps.js') }}"></script> --}}
   <script>
-   
+
    var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the current tab
 

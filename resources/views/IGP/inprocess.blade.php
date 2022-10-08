@@ -5,7 +5,7 @@
     ])
     @section('module', 'IGP Management')
     @section('element', 'Listing')
-    
+
     @section('content')
 
 
@@ -50,8 +50,8 @@
                 </form>
             </div>
         </div>
-      
-     
+
+
         @if (!$Inprocess->isEmpty())
         <table id="simple-table"
             class="mb-0 table table-borderless table-bordered-x brc-secondary-l3 text-dark-m2 radius-1 overflow-hidden">
@@ -93,7 +93,7 @@
                     <th>Action</th>
                 </tr>
             </thead>
-           
+
             @foreach ($Inprocess as $petion)
                 <tbody class="mt-1">
                     <tr class="bgc-h-yellow-l4 d-style">
@@ -148,16 +148,16 @@
                         <td>
                             <!-- action buttons -->
                             <div class='d-none d-lg-flex'>
-                              
+
                                 @can('jail-supt-create')
-                               
+
                                 <a href="{{ route('petitionstatusedit', [$petion->id]) }}" class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success">
                                   <i class="fa fa-pencil-alt"></i>
                                 </a>
                                @endcan
-                            
-                             
-                            
+
+
+
                                 {{-- <a href="{{ route('petition-forward', [$petion->id]) }}" class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success">
                                     <i class="fa fa-plus"></i>
                                   </a> --}}
@@ -210,8 +210,8 @@
         @else
         <h4 style="background-color:#800000; text-align:center;color:#fff"> No Record Found!</h4>
     @endif
-            
-       
+
+
         <div class="modal fade modal-fs" id="modalFullscreen" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalLabel2" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable" role="document">
@@ -271,7 +271,7 @@
                                                         class="text-130 text-dark-m3">
 
                                                     </h5>
-                                                    
+
 
                                                     {{-- <span
                                                         class="d-none badge bgc-orange-l3 text-orange-d3 pt-2px pb-1 text-85 radius-round px-25 border-1 brc-orange-m3">
@@ -427,6 +427,38 @@
                                                        </tr>
                                                        <tr>
 
+                                                        <td width="25%">Confirmationdate_Highcourt</td>
+                                                        <td><span width="75%"  id="confirmationdatehighcourt"></span></td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td width="25%">Resultappeal_Highcourt</td>
+                                                        <td><span width="75%"  id="resultappealhighcourt"></span></td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td width="25%">Resultappeal_Suppremecourt</td>
+                                                        <td><span width="75%"  id="resultappealsuppremecourt"></span></td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td width="25%">Resultappeal_Federalcourt</td>
+                                                        <td><span width="75%"  id="resultappealfederalcourt"></span></td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td width="25%">Listlegalheir_Agreement</td>
+                                                        <td><span width="75%"  id="listlegalheiragreement"></span></td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td width="25%">Listlegalheir_Victim</td>
+                                                        <td><span width="75%"  id="listlegalheirvictim"></span></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                       <tr>
+
                                                            <td width="25%">Imediate heirs</td>
 
                                                            <td width="75%" id="imediate_heirs"></td>
@@ -535,30 +567,30 @@
                                                             <td><span id="warrent_file"></span>
                                                                 <span id="warrent_files"></span>
                                                             </td>
-                                                       
+
 
                                                             <td width="33%">Health paper</td>
                                                             <td><span id="health_paper"></span>
                                                                 <span id="health_papers"></span></td>
-                                                        
+
 
                                                             <td width="33%">Application image</td>
                                                             <td><span id="application_image"></span>
                                                                 <span id="application_images"></span></td>
                                                         </tr>
-                                                        
-                                                       
+
+
                                                         <tr>
 
                                                             <td width="33%">Application urdu Attachment</td>
                                                             <td><span id="application_in_urdu_file"></span>
                                                             <span id="application_in_urdu_files"></span></td>
-                                                        
+
 
                                                             <td width="33%">Judgement file document</td>
                                                             <td><span id="judgments_file"></span>
                                                                 <span id="judgments_files"></span></td>
-                                                      
+
 
                                                             <td width="33%">Conviction Summary</td>
                                                             <td><span id="convection_summary"></span>
@@ -569,23 +601,23 @@
                                                             <td width="33%">check file list</td>
                                                             <td><span id="check_list_file"></span>
                                                                 <span id="check_list_files"></span></td>
-                                                        
+
 
                                                             <td width="33%">Petition roll file</td>
                                                             <td><span id="petition_roll_file"></span>
                                                                 <span id="petition_roll_files"></span></td>
-                                                      
+
 
                                                             <td width="33%">petition Certificate</td>
                                                             <td><span id="petition_certificate "></span>
                                                                 <span id="petition_certificates"></span></td>
                                                         </tr>
-                                                        
+
                                                         <tr>
 
                                                             <td width="33%">Jail-Supt Remarks</td>
                                                             <td><span id="Remarks"></td>
-                                                           
+
                                                         </tr>
                                                         <tr>
 
@@ -595,9 +627,9 @@
                                                                 <span id="picss"></span></td>
                                                         </tr>
                                                         <tr class="homeDoc">
-                                                           
-                                                           
-                                                           
+
+
+
                                                            <td class="homefile"width="33%">Home Department</td>
                                                            <td class="homefile"><span id="homepic"></span></td>
                                                            <td class="homefile" width="33%">
@@ -607,11 +639,11 @@
                                                                <td width="33%">Home Remarks</td>
                                                            <td ><span id="homeremarks"></td>
                                                        </tr>
-                                                   
+
                                                        <tr class="interiorDoc">
-                                                           
-                                                        
-                                                         
+
+
+
                                                            <td class="interiorfile" width="33%">InteriorMinistry </td>
                                                            <td class="interiorfile"><span id="interiorpic"></span></td>
                                                            <td class="interiorfile" width="33%">
@@ -622,37 +654,37 @@
                                                                <td  width="33%">InteriorMinistry Remarks</td>
                                                            <td ><span id="interiorremarks"></span></td>
                                                            </tr>
-                                                       
+
                                                        <tr class="humanDoc">
-                                                           
-                                                           
-                                                           
+
+
+
                                                            <td class="humanfile"width="33%">HumanrightsMinistry </td>
                                                            <td class="humanfile"><span id="humanrightpic"></span></td>
-                                                          
+
                                                            <td class="humanfile" width="33%">
                                                                <span  id="humanrightfilepdf"></span></td>
                                                        </tr>
                                                            <tr class="humanremarks humanDoc">
-                                                         
+
                                                                <td  width="33%">HumanrightsMinistry Remarks</td>
                                                            <td  ><span id="humanrightremarks"></span></td>
-                                                           </tr> 
-                                                   
+                                                           </tr>
+
 
                                                     </tbody>
                                                  </table>
                                                                      </div>
                                                                     </div>
-                                                               
+
 
                                                             {{-- </div><!-- /.row --> --}}
 
-                                                            
-                                                            
+
+
                                                         </div>
                                                     </div>
-                                                   
+
                                                 </div>
 
 
@@ -662,7 +694,7 @@
                                                 <!-- activity tab -->
 
 
-                                              
+
 
 
 

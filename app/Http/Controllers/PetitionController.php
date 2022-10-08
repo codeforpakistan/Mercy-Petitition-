@@ -26,8 +26,8 @@ class PetitionController extends Controller
     }
     public function index()
     {
-       
-       
+
+
         $pets = Petition::with('fileattachements', 'sectionss','provinces','physicalstatus')->get();
 
         if (Auth::user()->confined_in_jail == "") {
@@ -176,7 +176,7 @@ class PetitionController extends Controller
     {
 
         $sections = Section::get();
-   
+
 
         $physicalstatus = PhysicalStatus::all();
         $petitionsedit = Petition::find($id);
@@ -215,57 +215,57 @@ class PetitionController extends Controller
 
         // file validation
 
-     
 
-        $this->validate($request, [
-            'prisoner_image' => 'required|mimes:jpeg,png,jpg,gif,svg',
-            'application_image' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
-            'health_paper' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
-            'warrent_file' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
 
-            'application_in_urdu_file' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
-            'judgments_file' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
-            'petition_certificate' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
-            'petition_roll_file' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
-            'check_list_file' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
-            'convection_summary' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
+        // $this->validate($request, [
+        //     'prisoner_image' => 'required|mimes:jpeg,png,jpg,gif,svg',
+        //     'application_image' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
+        //     'health_paper' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
+        //     'warrent_file' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
 
-            'name' => 'required|regex:/^[a-zA-Z0-9 ]+$/|max:20',
+        //     'application_in_urdu_file' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
+        //     'judgments_file' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
+        //     'petition_certificate' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
+        //     'petition_roll_file' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
+        //     'check_list_file' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
+        //     'convection_summary' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
 
-            'f_name' => 'required|regex:/^[a-zA-Z0-9 ]+$/|max:20',
-            'nationality' => 'required|regex:/^[a-zA-Z0-9 ]+$/|max:20',
-            'physicalstatus_id' => 'required',
+        //     'name' => 'required|regex:/^[a-zA-Z0-9 ]+$/|max:20',
 
-            'gender' => 'required|regex:/^[a-zA-Z0-9 ]+$/|max:20',
-            'dob' => 'required',
+        //     'f_name' => 'required|regex:/^[a-zA-Z0-9 ]+$/|max:20',
+        //     'nationality' => 'required|regex:/^[a-zA-Z0-9 ]+$/|max:20',
+        //     'physicalstatus_id' => 'required',
 
-            'case_fir_no'=> 'required',
-            'fir_date'=> 'required',
-            'name_of_policestation' => 'required',
-            'case_title'=> 'required',
-            'cnic'=> 'required',
-            'martial_status'=> 'required',
-            'caste' => 'required',
-            'religion' => 'required',
-            'education' => 'required',
-         'mental_health' => 'required',
-         'physical_health'=> 'required',
-         'prisoner_conduct'=> 'required',
-         'compoundable_offence'=> 'required',
-         'non_compoundable_offence'=> 'required',
-         'Occupation'=> 'required',
-         'nature_of_crime'=> 'required',
-         'mitigating_circumstances'=> 'required',
-         
-         'age_of_petitioner'=> 'required',
-            'mercypetitiondate' => 'required',
-            'section_id' => 'required',
-            
-            'date_of_sentence' => 'required',
-            'sentence_in_court' => 'required|regex:/^[a-zA-Z0-9 ]+$/|max:100',
-            'petition_history' => 'required|regex:/[a-zA-Z0-9\s]+/|max:255',
+        //     'gender' => 'required|regex:/^[a-zA-Z0-9 ]+$/|max:20',
+        //     'dob' => 'required',
 
-        ]);
+        //     'case_fir_no'=> 'required',
+        //     'fir_date'=> 'required',
+        //     'name_of_policestation' => 'required',
+        //     'case_title'=> 'required',
+        //     'cnic'=> 'required',
+        //     'martial_status'=> 'required',
+        //     'caste' => 'required',
+        //     'religion' => 'required',
+        //     'education' => 'required',
+        //     'mental_health' => 'required',
+        //     'physical_health'=> 'required',
+        //     'prisoner_conduct'=> 'required',
+        //     'compoundable_offence'=> 'required',
+        //     'non_compoundable_offence'=> 'required',
+        //      'Occupation'=> 'required',
+        //     'nature_of_crime'=> 'required',
+        //    'mitigating_circumstances'=> 'required',
+
+        //     'age_of_petitioner'=> 'required',
+        //     'mercypetitiondate' => 'required',
+        //     'section_id' => 'required',
+
+        //     'date_of_sentence' => 'required',
+        //     'sentence_in_court' => 'required|regex:/^[a-zA-Z0-9 ]+$/|max:100',
+        //     'petition_history' => 'required|regex:/[a-zA-Z0-9\s]+/|max:255',
+
+        // ]);
 
         if ($request->hasFile('application_image') && $request->hasFile('prisoner_image') && $request->hasFile('warrent_file')) {
 
@@ -329,15 +329,16 @@ class PetitionController extends Controller
 
         //  $now = date('Y-m-d',strttotime($request->get('warrent_date'))); //Fomat Date and time //you are overwriting this variable below
         $warrent_date = Carbon::parse($request->get('warrent_date'))->format('Y-m-d');
+        $confirmationdatehighcourt = Carbon::parse($request->get(' confirmationdatehighcourt'))->format('Y-m-d');
 
         $date_of_sentence = Carbon::parse($request->get('date_of_sentence'))->format('Y-m-d');
         $dob = Carbon::parse($request->get('dob'))->format('Y-m-d');
         $mercypetitiondate = Carbon::parse($request->get('mercypetitiondate'))->format('Y-m-d');
         $data = [];
         foreach($request->get('section_id') as $seat_id) {
-            $data[] = 
+            $data[] =
                  $seat_id;
-                
+
                 //  $petitionsedit->section_id=$data;
                 $section = implode(',',$data);
         }
@@ -356,16 +357,24 @@ class PetitionController extends Controller
             "user_id" => Auth::user()->id,
             "fir_date" => $request->get('fir_date'),
             "mercypetitiondate" => $mercypetitiondate,
-            
+            "confirmationdatehighcourt" => $confirmationdatehighcourt,
+            'resultappealhighcourt' => $request->get('resultappealhighcourt'),
+            'resultappealsuppremecourt' => $request->get('resultappealsuppremecourt'),
+            'resultappealfederalcourt' => $request->get('resultappealfederalcourt'),
+            'listlegalheiragreement' => $request->get('listlegalheiragreement'),
+            'listlegalheirvictim' => $request->get('listlegalheirvictim'),
+
             "section_id" =>  $section,
-           
             "date_of_sentence" => $date_of_sentence,
             "sentence_in_court" => $request->get('sentence_in_court'),
             "petition_history" => html_entity_decode(strip_tags($request->petition_history)),
             "status" => "pending",
             "file_in_department"=>"Jail-Supt",
             'case_fir_no'=> $request->get('case_fir_no'),
-           
+            'phone' => $request->get('phone'),
+            'address' => $request->get('address'),
+            'imediate_heirs' => $request->get('imediate_heirs'),
+            'mark_of_identification' => $request->get('mark_of_identification'),
             'name_of_policestation' => $request->get('name_of_policestation'),
             'case_title'=> $request->get('case_title'),
             'cnic'=> $request->get('cnic'),
@@ -381,7 +390,7 @@ class PetitionController extends Controller
          'Occupation'=> $request->get('Occupation'),
          'nature_of_crime'=>$request->get('nature_of_crime'),
          'mitigating_circumstances'=> $request->get('mitigating_circumstances'),
-         
+
          'age_of_petitioner'=> $request->get('age_of_petitioner'),
 
             "prisoner_image" => $prisoner_image,
@@ -411,8 +420,8 @@ class PetitionController extends Controller
 
     public function petitionupdate(Request $request, $id)
     {
-      
-     
+
+
         $petitionsedit = Petition::find($id);
 
         if ($request->hasFile('warrent_file')) {
@@ -534,14 +543,20 @@ class PetitionController extends Controller
         }
 
         //  $now = date('Y-m-d',strttotime($request->get('warrent_date'))); //Fomat Date and time //you are overwriting this variable below
-     
+
 
         $date_of_sentence = Carbon::parse($request->get('date_of_sentence'))->format('Y-m-d');
         $dob = Carbon::parse($request->get('dob'))->format('Y-m-d');
         $mercypetitiondate = Carbon::parse($request->get('mercypetitiondate'))->format('Y-m-d');
+        $confirmationdatehighcourt = Carbon::parse($request->get('confirmationdatehighcourt'))->format('Y-m-d');
 
+        $petitionsedit->resultappealsuppremecourt = $request->get('resultappealsuppremecourt');
+        $petitionsedit->resultappealhighcourt = $request->get('nresultappealhighcourtame');
         $petitionsedit->name = $request->get('name');
-
+        $petitionsedit->listlegalheirvictim = $request->get('listlegalheirvictim');
+        $petitionsedit->listlegalheiragreement = $request->get('listlegalheiragreement');
+        $petitionsedit->resultappealfederalcourt = $request->get('resultappealfederalcourt');
+        $petitionsedit->confirmationdatehighcourt = $confirmationdatehighcourt;
         $petitionsedit->f_name = $request->get('f_name');
         $petitionsedit->nationality = $request->get('nationality');
         $petitionsedit->physicalstatus_id = $request->get('physicalstatus_id');
@@ -554,28 +569,32 @@ class PetitionController extends Controller
         $petitionsedit->confined_in_jail = Auth::user()->confined_in_jail;
 
         $petitionsedit->gender = $request->get('gender');
-       
+
         $data = [];
         foreach($request->get('section_id') as $seat_id) {
-            $data[] = 
+            $data[] =
                  $seat_id;
-                
+
                 //  $petitionsedit->section_id=$data;
                 $petitionsedit->section_id = implode(',',$data);
         }
-    
-    
+
+
         $petitionsedit->date_of_sentence = $date_of_sentence;
         $petitionsedit->sentence_in_court = $request->get('sentence_in_court');
         $petitionsedit->petition_history = html_entity_decode(strip_tags($request->get('petition_history')));
         $petitionsedit->nationality = $request->get('nationality');
         $petitionsedit->case_fir_no  = $request->get('case_fir_no');
-           
+
         $petitionsedit->name_of_policestation   = $request->get('name_of_policestation');
         $petitionsedit->case_title = $request->get('case_title');
         $petitionsedit->cnic = $request->get('cnic');
         $petitionsedit->martial_status = $request->get('martial_status');
         $petitionsedit->caste   = $request->get('caste');
+        $petitionsedit->phone = $request->get('phone');
+        $petitionsedit->address = $request->get('address');
+        $petitionsedit->imediate_heirs = $request->get('imediate_heirs');
+        $petitionsedit->mark_of_identification = $request->get('mark_of_identification');
         $petitionsedit->religion   = $request->get('religion');
         $petitionsedit->education   = $request->get('education');
         $petitionsedit->mental_health  = $request->get('mental_health');
@@ -586,7 +605,7 @@ class PetitionController extends Controller
         $petitionsedit->Occupation  = $request->get('Occupation');
         $petitionsedit->nature_of_crime = $request->get('nature_of_crime');
         $petitionsedit->mitigating_circumstances  = $request->get('mitigating_circumstances');
-     
+
         $petitionsedit->age_of_petitioner  = $request->get('age_of_petitioner');
 
         $petitionsedit->remarks = html_entity_decode(strip_tags($request->get('remarks')));

@@ -8,30 +8,30 @@
     * {
       box-sizing: border-box;
     }
-    
+
     body {
       background-color: #f1f1f1;
     }
-    
+
     #regForm {
       background-color: #ffffff;
-     
+
       font-family: Raleway;
       padding: 40px;
       width: 100%;
-      
+
     }
-    
+
     h1 {
-      text-align: center;  
+      text-align: center;
     }
-    
+
     input {
       padding: 10px;
       width: 100%;
       font-size: 17px;
       font-family: Raleway;
-    
+
     }
     select {
       padding: 10px;
@@ -45,19 +45,19 @@
       width: 100%;
       font-size: 17px;
       font-family: Raleway;
-     
+
     }
-    
+
     /* Mark input boxes that gets an error on validation: */
     input.invalid {
       background-color: #ac1818;
     }
-    
+
     /* Hide all steps by default: */
     .tab {
       display: none;
     }
-    
+
     button {
       background-color: #04AA6D;
       color: #ffffff;
@@ -67,31 +67,31 @@
       font-family: Raleway;
       cursor: pointer;
     }
-    
+
     button:hover {
       opacity: 0.8;
     }
-    
+
     #prevBtn {
       background-color: #bbbbbb;
     }
-    
+
     /* Make circles that indicate the steps of the form: */
     .step {
       height: 15px;
       width: 15px;
       margin: 0 2px;
       background-color: #bbbbbb;
-      border: none;  
+      border: none;
       border-radius: 50%;
       display: inline-block;
       opacity: 0.5;
     }
-    
+
     .step.active {
       opacity: 1;
     }
-    
+
     /* Mark the steps that are finished and valid: */
     .step.finish {
       background-color: #04AA6D;
@@ -100,7 +100,7 @@
 
 @section('content')
 
- 
+
 @if ($errors->any())
 <div class="alert alert-danger">
 
@@ -121,7 +121,11 @@
      <form id="regForm" action="{{ route('storepetition') }}" method="post" enctype="multipart/form-data">
         @csrf
 
-        <h4>PARTICULARS OF PRISONER: </h4>
+
+
+        <!-- One "tab" for each step in the form: -->
+        <div class="tab">
+            <h4>PARTICULARS OF PRISONER: </h4>
           <div class="form-row">
             <div class="form-group col-md-6">
                 <label class="required" for="inputEmail4">Prisoner Name</label>
@@ -170,57 +174,6 @@
                 @enderror
             </div>
         </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label class="required" for="inputEmail4">Family Phone</label>
-                <input type="text" oninput="this.className = ''"  required="" placeholder="Phone number" data-inputmask="'mask': '9999-9999999'" 
-                    class="form-control @error('phone') is-invalid @enderror" value="{{ old('phone') }}" name="phone"
-                    class="form-control" id="inputEmail4" >
-                @error('phone')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-            <div class="form-group col-md-6">
-                <label class="required" for="inputPassword4">Family address</label>
-                <input oninput="this.className = ''" onkeyup="this.value=this.value.replace(/[^A0-9Za-z\s]/g,'');" type="text"
-                    class="form-control @error('address') is-invalid @enderror" value="{{ old('address') }}"
-                    name="address" class="form-control" id="inputPassword4" placeholder=" Family Address">
-                @error('address')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label class="required" for="inputEmail4">Imediate heirs</label>
-                <input type="number" oninput="this.className = ''"  required="" placeholder="Imediate heirs" maxlength="11" onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');"
-                    class="form-control @error('imediate_heirs') is-invalid @enderror" value="{{ old('imediate_heirs') }}" name="imediate_heirs"
-                    class="form-control" id="inputEmail4" >
-                @error('imediate_heirs')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-            <div class="form-group col-md-6">
-                <label class="required" for="inputPassword4">Mark of identification</label>
-                <input oninput="this.className = ''" onkeyup="this.value=this.value.replace(/[^A0-9Za-z\s]/g,'');" type="text"
-                    class="form-control @error('mark_of_identification') is-invalid @enderror" value="{{ old('mark_of_identification') }}"
-                    name="mark_of_identification" class="form-control" id="inputPassword4" placeholder="Mark of identification">
-                @error('mark_of_identification')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-        </div>
-        
-
-    
 
         <div class="form-row">
             <div class="form-group col-md-6">
@@ -347,6 +300,126 @@
             </div>
 
         </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label class="required" for="inputEmail4">Family Phone</label>
+                <input type="text" oninput="this.className = ''"  required="" placeholder="Phone number" data-inputmask="'mask': '9999-9999999'"
+                    class="form-control @error('phone') is-invalid @enderror" value="{{ old('phone') }}" name="phone"
+                    class="form-control" id="inputEmail4" >
+                @error('phone')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="form-group col-md-6">
+                <label class="required" for="inputPassword4">Family address</label>
+                <input oninput="this.className = ''" onkeyup="this.value=this.value.replace(/[^A0-9Za-z\s]/g,'');" type="text"
+                    class="form-control @error('address') is-invalid @enderror" value="{{ old('address') }}"
+                    name="address" class="form-control" id="inputPassword4" placeholder=" Family Address">
+                @error('address')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label class="required" for="inputEmail4">Imediate heirs</label>
+                <input type="text" oninput="this.className = ''"  required="" placeholder="Imediate heirs" maxlength="11" onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');"
+                    class="form-control @error('imediate_heirs') is-invalid @enderror" value="{{ old('imediate_heirs') }}" name="imediate_heirs"
+                    class="form-control" id="inputEmail4" >
+                @error('imediate_heirs')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="form-group col-md-6">
+                <label class="required" for="inputPassword4">Mark of identification</label>
+                <input oninput="this.className = ''" onkeyup="this.value=this.value.replace(/[^A0-9Za-z\s]/g,'');" type="text"
+                    class="form-control @error('mark_of_identification') is-invalid @enderror" value="{{ old('mark_of_identification') }}"
+                    name="mark_of_identification" class="form-control" id="inputPassword4" placeholder="Mark of identification">
+                @error('mark_of_identification')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label class="required" for="inputEmail4">Confirmation date highcourt</label>
+                <input type="date" oninput="this.className = ''" placeholder="Confirmation date highcourt"
+                    class="form-control @error('confirmationdatehighcourt') is-invalid @enderror" value="{{ old('confirmationdatehighcourt') }}" name="confirmationdatehighcourt"
+                    class="form-control" id="inputEmail4" >
+                @error('confirmationdatehighcourt')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="form-group col-md-6">
+                <label class="required" for="inputPassword4">Result of appeal highcourt</label>
+                <input oninput="this.className = ''"  type="text"
+                    class="form-control @error('mark_of_identification') is-invalid @enderror" value="{{ old('resultappealhighcourt') }}"
+                    name="resultappealhighcourt" class="form-control" id="inputPassword4" placeholder="result appealh highcourt">
+                @error('resultappealhighcourt')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label class="required" for="inputPassword4">Result of appeal suppreme court</label>
+                <input oninput="this.className = ''"  type="text"
+                    class="form-control @error('mark_of_identification') is-invalid @enderror" value="{{ old('resultappealsuppremecourt') }}"
+                    name="resultappealsuppremecourt" class="form-control" id="inputPassword4" placeholder="result appealh suppreme court">
+                @error('resultappealsuppremecourt')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="form-group col-md-6">
+                <label class="required" for="inputPassword4">Result of appeal federal court</label>
+                <input oninput="this.className = ''"  type="text"
+                    class="form-control @error('mark_of_identification') is-invalid @enderror" value="{{ old('resultappealfederalcourt') }}"
+                    name="resultappealfederalcourt" class="form-control" id="inputPassword4" placeholder="result appeal federalcourt">
+                @error('resultappealfederalcourt')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label class="required" for="inputPassword4">list of legal heir if agreed</label>
+                <input oninput="this.className = ''"  type="text"
+                    class="form-control @error('mark_of_identification') is-invalid @enderror" value="{{ old('listlegalheiragreement') }}"
+                    name="listlegalheiragreement" class="form-control" id="inputPassword4" placeholder=" list legal heir aggreement">
+                @error('listlegalheiragreement')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="form-group col-md-6">
+                <label class="required" for="inputPassword4">list of legal heir if victim</label>
+                <input oninput="this.className = ''"  type="text"
+                    class="form-control @error('listlegalheirvictim') is-invalid @enderror" value="{{ old('listlegalheirvictim') }}"
+                    name="listlegalheirvictim" class="form-control" id="inputPassword4" placeholder=" list legal heir victims">
+                @error('listlegalheirvictim')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
 
 
         <div class="form-row">
@@ -404,170 +477,162 @@
                     </span>
                 @enderror
             </div>
-
-
         </div>
 
         </div>
-        
-      
         <div class="tab">
-            {{-- start --}}
-            
-        
-            <!-- One "tab" for each step in the form: -->
-            <div class="tab">
-                <h4>CASE FILE PARTICULARS</h4>
-               
-             
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label class="required" for="inputEmail4">Case FIR NO</label>
-                    <input type="text" oninput="this.className = ''" onkeyup="this.value=this.value.replace(/[^-/0-9\s]/g,'');"
-                        class="form-control @error('name') is-invalid @enderror" value="{{ old('case_fir_no') }}" name="case_fir_no"
-                        class="form-control" id="inputEmail4" placeholder="Enter Fir no">
-                    @error('case_fir_no')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-                <div class="form-group col-md-6">
-                    <label class="required" for="inputState">Date Of FIR</label>
-                    <input oninput="this.className = ''" onkeyup="this.value=this.value.replace(/[^-/0-9\s]/g,'');"
-                        class="form-control @error('firdate') is-invalid @enderror" value="{{ old('fir_date') }}"
-                        type="date" name="fir_date" class="form-control" id="inputCity">
-                    @error('fir_date')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
+            <h4>CASE FILE PARTICULARS</h4>
+
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+                <label class="required" for="inputEmail4">Case FIR NO</label>
+                <input type="text" oninput="this.className = ''" onkeyup="this.value=this.value.replace(/[^-/0-9\s]/g,'');"
+                    class="form-control @error('name') is-invalid @enderror" value="{{ old('case_fir_no') }}" name="case_fir_no"
+                    class="form-control" id="inputEmail4" placeholder="Enter Fir no">
+                @error('case_fir_no')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
-          
+            <div class="form-group col-md-6">
+                <label class="required" for="inputState">Date of FIR</label>
+                <input oninput="this.className = ''" onkeyup="this.value=this.value.replace(/[^-/0-9\s]/g,'');"
+                    class="form-control @error('firdate') is-invalid @enderror" value="{{ old('fir_date') }}"
+                    type="date" name="fir_date" class="form-control" id="inputCity">
+                @error('fir_date')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
+
+        <div class="form-row">
+
+            <div class="form-group col-md-6">
+                <label class="required" for="inputEmail4">Name of Police station</label>
+                <input type="text"  oninput="this.className = ''"  onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');"
+                    class="form-control @error('name') is-invalid @enderror" value="{{ old('name_of_policestation') }}" name="name_of_policestation"
+                    class="form-control" id="inputEmail4" placeholder="Enter police staion Name">
+                @error('name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="form-group col-md-6">
+                <label class="required" for="inputEmail4">Case Title</label>
+                <input type="text" oninput="this.className = ''"  onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');"
+                    class="form-control @error('name') is-invalid @enderror" value="{{ old('case_title') }}" name="case_title"
+                    class="form-control" id="inputEmail4" placeholder="Enter case title">
+                @error('case_title')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+
+        </div>
+
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label class="required" for="inputCity">Sentencing Court</label>
+                <input oninput="this.className = ''"  onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');"
+                    class="form-control @error('sentence_in_court') is-invalid @enderror"
+                    value="{{ old('sentence_in_court') }}" type="text" name="sentence_in_court"
+                    placeholder="Enter name of Court" class="form-control" id="inputCity">
+                @error('sentence_in_court')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="form-group col-md-6">
+                <label class="required" for="inputCity">Date of sentence</label>
+                <input oninput="this.className = ''"  class="form-control @error('date_of_sentence') is-invalid @enderror"
+                    value="{{ old('date_of_sentence') }}" type="Date" name="date_of_sentence"
+                    class="form-control" id="inputCity">
+                @error('date_of_sentence')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+            <label for="inputEmail4">Mercy Petition Number</label>
+            <input  oninput="this.className = ''"  type="text"
+                class="form-control"  name="prisonerid" value="{{ date('Ymdhis')}}" id="inputEmail4" placeholder="Enter Name" readonly>
+
+
+        </div>
+
+
+
+            <div class="form-group col-md-6">
+                <label class="required" for="inputState">Mercy petition Date</label>
+
+                <input  oninput="this.className = ''" class="form-control @error('mercypetitiondate') is-invalid @enderror"
+                    value="{{ old('mercypetitiondate') }}" type="Date" name="mercypetitiondate"
+                    class="form-control" placeholder=" Pick Mercy petition Date">
+                @error('mercypetitiondate')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label class="required" for="inputCity">Nature of crime</label>
+                <input oninput="this.className = ''" onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');"
+                    class="form-control @error('nature_of_crime') is-invalid @enderror"
+                    value="{{ old('nature_of_crime') }}" type="text" name="nature_of_crime"
+                    placeholder="Enter nature of crime" class="form-control" id="inputCity">
+                @error('nature_of_crime')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+
+            <div class="form-group col-md-6 tag-input-style " id="select2-parent">
+                <label  for="form-field-select-11">Section</label>
+                <select oninput="this.className = ''"   multiple=""   value="{{ old('section_id') }}"  id="state" name="section_id[]" class="select2 form-control " data-placeholder="Click to Choose...">
+                    @foreach ($sections as $section)
+                        <option value='{{ $section->undersection }}'>{{ $section->undersection }}</option>
+                    @endforeach
+                </select>
+
+
+            </div>
             <div class="form-row">
-    
-                <div class="form-group col-md-6">
-                    <label class="required" for="inputEmail4">Name Of Police Station</label>
-                    <input type="text"  oninput="this.className = ''"  onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');"
-                        class="form-control @error('name') is-invalid @enderror" value="{{ old('name_of_policestation') }}" name="name_of_policestation"
-                        class="form-control" id="inputEmail4" placeholder="Enter police staion Name">
-                    @error('name')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-                <div class="form-group col-md-6">
-                    <label class="required" for="inputEmail4">Case Title</label>
-                    <input type="text" oninput="this.className = ''"  onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');"
-                        class="form-control @error('name') is-invalid @enderror" value="{{ old('case_title') }}" name="case_title"
-                        class="form-control" id="inputEmail4" placeholder="Enter case title">
-                    @error('case_title')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-    
-            </div>
-    
-    
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label class="required" for="inputCity">Sentencing Court</label>
-                    <input oninput="this.className = ''"  onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');"
-                        class="form-control @error('sentence_in_court') is-invalid @enderror"
-                        value="{{ old('sentence_in_court') }}" type="text" name="sentence_in_court"
-                        placeholder="Enter name of Court" class="form-control" id="inputCity">
-                    @error('sentence_in_court')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-                <div class="form-group col-md-6">
-                    <label class="required" for="inputCity">Date Of Sentence</label>
-                    <input oninput="this.className = ''"  class="form-control @error('date_of_sentence') is-invalid @enderror"
-                        value="{{ old('date_of_sentence') }}" type="Date" name="date_of_sentence"
-                        class="form-control" id="inputCity">
-                    @error('date_of_sentence')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-    
-            </div>
-    
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                <label for="inputEmail4">Mercy Petition Number</label>
-                <input  oninput="this.className = ''"  type="text"
-                    class="form-control"  name="prisonerid" value="{{ date('Ymdhis')}}" id="inputEmail4" placeholder="Enter Name" readonly>
-    
-    
-            </div>
-    
-    
-    
-                <div class="form-group col-md-6">
-                    <label class="required" for="inputState">Mercy Petition Date</label>
-    
-                    <input  oninput="this.className = ''" class="form-control @error('mercypetitiondate') is-invalid @enderror"
-                        value="{{ old('mercypetitiondate') }}" type="Date" name="mercypetitiondate"
-                        class="form-control" placeholder=" Pick Mercy petition Date">
-                    @error('mercypetitiondate')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-    
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label class="required" for="inputCity">Nature of crime</label>
-                    <input oninput="this.className = ''" onkeyup="this.value=this.value.replace(/[^A-Za-z\s]/g,'');"
-                        class="form-control @error('nature_of_crime') is-invalid @enderror"
-                        value="{{ old('nature_of_crime') }}" type="text" name="nature_of_crime"
-                        placeholder="Enter nature of crime" class="form-control" id="inputCity">
-                    @error('nature_of_crime')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-    
-                <div class="form-group col-md-6 tag-input-style " id="select2-parent">
+
+
+                <div class="form-group col-md-6 " style="display: none;">
                     <label  for="form-field-select-11">Section</label>
-                    <select oninput="this.className = ''"   multiple=""   value="{{ old('section_id') }}"  id="state" name="section_id[]" class="select2 form-control " data-placeholder="Click to Choose...">
-                        @foreach ($sections as $section)
-                            <option value='{{ $section->undersection }}'>{{ $section->undersection }}</option>
-                        @endforeach
+                    <select    id="state" class="select2 form-control " data-placeholder="Click to Choose...">
+
                     </select>
-                    
-                   
-                </div>
-                <div class="form-row">
-                   
-        
-                    <div class="form-group col-md-6 " style="display: none;">
-                        <label  for="form-field-select-11">Section</label>
-                        <select    id="state" class="select2 form-control " data-placeholder="Click to Choose...">
-                           
-                        </select>
-                        
-                       
-                    </div>
+
+
                 </div>
             </div>
-            </div>
-            {{-- end --}}
-           
+        </div>
+        </div>
+
+
+
         <div class="tab">
             <h4>PARTICULAR OF CRIME:</h4>
-         
+
           <div class="form-row">
             <div class="form-group col-md-6">
                 <label class="required" for="form-field-select-11">Compoundable offence</label>
@@ -602,7 +667,7 @@
 
         </div>
 
-       
+
         <div class="form-row">
 
             <div class="form-group col-md-12">
@@ -611,11 +676,11 @@
                 </h3>
                 <div class="card bcard border-1 brc-dark-l1">
                     <div class="card-body p-0">
-                        
+
                         <textarea  onchange="this.className = ''" onkeyup="this.value=this.value.replace(/[^A-Za-z0-9\s]/g,'');"
                             class="form-control @error('warrent_information') is-invalid @enderror"
                             name="mitigating_circumstances" required>{{ old('mitigating_circumstances') }}</textarea>
-                      
+
                         @error('mitigating_circumstances')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -635,11 +700,11 @@
                 </h3>
                 <div class="card bcard border-1 brc-dark-l1">
                     <div class="card-body p-0">
-                        
+
                         <textarea  onchange="this.className = ''" onkeyup="this.value=this.value.replace(/[^A-Za-z0-9\s]/g,'');"
                             class="form-control @error('warrent_information') is-invalid @enderror"
                             name="petition_history" required>{{ old('petition_history') }}</textarea>
-                      
+
                         @error('petition_history')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -651,15 +716,15 @@
             </div>
         </div>
 
-      
+
 
         </div>
 
-        
+
         <div class="tab">
             <h4>Attachment File:</h4>
-           
-          
+
+
           <div class="form-row" style="margin:5px;">
 
             <div class="form-group col-md-6">
@@ -787,14 +852,14 @@
             </div>
         </div>
         </div>
-        
+
         <div style="overflow:auto;">
           <div style="float:right;">
             <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
             <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
           </div>
         </div>
-        
+
         <!-- Circles which indicates the steps of the form: -->
         <div style="text-align:center;margin-top:40px;">
           <span class="step"></span>
@@ -802,7 +867,7 @@
           <span class="step"></span>
           <span class="step"></span>
         </div>
-        
+
         </form>
     </div>
 </div>

@@ -199,7 +199,7 @@
 
 
 
-                                                            
+
 
 
                                             </td>
@@ -445,7 +445,6 @@
 
                                                                     </tr>
                                                                     <tr>
-
                                                                         <td width="25%">Mercy petition number</td>
                                                                         <td width="75%"  id="prisonerid"></td>
                                                                     </tr>
@@ -580,6 +579,37 @@
                                                                     </tr>
                                                                     <tr>
 
+                                                                        <td width="25%">Confirmationdate_Highcourt</td>
+                                                                        <td><span width="75%"  id="confirmationdatehighcourt"></span></td>
+                                                                    </tr>
+                                                                    <tr>
+
+                                                                        <td width="25%">Resultappeal_Highcourt</td>
+                                                                        <td><span width="75%"  id="resultappealhighcourt"></span></td>
+                                                                    </tr>
+                                                                    <tr>
+
+                                                                        <td width="25%">Resultappeal_Suppremecourt</td>
+                                                                        <td><span width="75%"  id="resultappealsuppremecourt"></span></td>
+                                                                    </tr>
+                                                                    <tr>
+
+                                                                        <td width="25%">Resultappeal_Federalcourt</td>
+                                                                        <td><span width="75%"  id="resultappealfederalcourt"></span></td>
+                                                                    </tr>
+                                                                    <tr>
+
+                                                                        <td width="25%">Listlegalheir_Agreement</td>
+                                                                        <td><span width="75%"  id="listlegalheiragreement"></span></td>
+                                                                    </tr>
+                                                                    <tr>
+
+                                                                        <td width="25%">Listlegalheir_Victim</td>
+                                                                        <td><span width="75%"  id="listlegalheirvictim"></span></td>
+                                                                    </tr>
+
+                                                                    <tr>
+
                                                                         <td width="25%">Non Compoundable offense</td>
                                                                         <td><span width="75%"  id="noncompoundableoffence"></span></td>
                                                                     </tr>
@@ -614,30 +644,30 @@
                                                                         <td><span id="warrent_file"></span>
                                                                             <span id="warrent_files"></span>
                                                                         </td>
-                                                                   
+
 
                                                                         <td width="33%">Health paper</td>
                                                                         <td><span id="health_paper"></span>
                                                                             <span id="health_papers"></span></td>
-                                                                    
+
 
                                                                         <td width="33%">Application image</td>
                                                                         <td><span id="application_image"></span>
                                                                             <span id="application_images"></span></td>
                                                                     </tr>
-                                                                    
-                                                                   
+
+
                                                                     <tr>
 
                                                                         <td width="33%">Application urdu Attachment</td>
                                                                         <td><span id="application_in_urdu_file"></span>
                                                                         <span id="application_in_urdu_files"></span></td>
-                                                                    
+
 
                                                                         <td width="33%">Judgement file document</td>
                                                                         <td><span id="judgments_file"></span>
                                                                             <span id="judgments_files"></span></td>
-                                                                  
+
 
                                                                         <td width="33%">Conviction Summary</td>
                                                                         <td><span id="convection_summary"></span>
@@ -648,23 +678,23 @@
                                                                         <td width="33%">check file list</td>
                                                                         <td><span id="check_list_file"></span>
                                                                             <span id="check_list_files"></span></td>
-                                                                    
+
 
                                                                         <td width="33%">Petition roll file</td>
                                                                         <td><span id="petition_roll_file"></span>
                                                                             <span id="petition_roll_files"></span></td>
-                                                                  
+
 
                                                                         <td width="33%">petition Certificate</td>
                                                                         <td><span id="petition_certificate "></span>
                                                                             <span id="petition_certificates"></span></td>
                                                                     </tr>
-                                                                    
+
                                                                     <tr>
 
                                                                         <td width="33%">Jail-Supt Remarks</td>
                                                                         <td><span id="Remarks"></td>
-                                                                       
+
                                                                     </tr>
                                                                     <tr>
 
@@ -673,14 +703,14 @@
                                                                         <td></span>
                                                                             <span id="picss"></span></td>
                                                                     </tr>
-                                                                  
-                                                               
+
+
 
                                                                 </tbody>
                                                             </table>
                                                                                 </div>
 
-                                                                            
+
 
                                                                             {{-- </div><!-- /.row --> --}}
 
@@ -708,7 +738,7 @@
                                                                             </div>
                                                                         </div> --}}
 
-                                                                            
+
 
 
                                                                             {{-- <div class="col-12 px-4 mt-3"
@@ -755,9 +785,9 @@
                                                                                             </figcaption>
                                                                                         </figure>
                                                                                     </div>
-                                                                                  
+
                                                                                 </div>
-                                                                                
+
                                                                                 <div class=" form-group row">
                                                                                     <div class="form-group col-md-3">
                                                                                         <figure class="figure">
@@ -860,7 +890,7 @@
                                                                                                 class="fa fa-forward"></i>
                                                                                         </a> --}}
 
-                                                                                       
+
 
                                                                                     </div>
                                                                                     <div class="form-group col-md-6">
